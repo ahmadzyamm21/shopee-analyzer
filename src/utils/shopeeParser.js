@@ -502,3 +502,27 @@ export const analyzeShopeeData = (orderRows, incomeRows, hppData, totalAds = 0, 
     activeMonth: filterMonth
   };
 };
+
+// Generate and trigger download of HPP Database Excel template
+export const downloadHppTemplate = () => {
+  const headers = [['SKU Induk', 'Nama Produk', 'Nama Variasi', 'HPP']];
+  const sampleData = [
+    ['HELM-BOGO-01', 'ACN Helm Bogo Retro Classic Original SNI', 'Hitam Glossy', 60000],
+    ['HELM-BOY-02', 'Helm Motor Anak Cowok SNI Transformer', 'Transformer Blue', 40000],
+    ['STICKER-01', '1 Set Sticker Cutting Logo Cargloss Reflectif', 'Putih', 1000]
+  ];
+  const wsData = [...headers, ...sampleData];
+  const wb = XLSX.utils.book_new();
+  const ws = XLSX.utils.aoa_to_sheet(wsData);
+  
+  // Set column widths for readability
+  ws['!cols'] = [
+    { wch: 18 }, // SKU Induk
+    { wch: 45 }, // Nama Produk
+    { wch: 20 }, // Nama Variasi
+    { wch: 12 }  // HPP
+  ];
+  
+  XLSX.utils.book_append_sheet(wb, ws, 'Database HPP');
+  XLSX.writeFile(wb, 'template_database_hpp.xlsx');
+};

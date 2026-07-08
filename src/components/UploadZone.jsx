@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
-import { UploadCloud, CheckCircle2, AlertCircle, HelpCircle } from 'lucide-react';
+import { UploadCloud, CheckCircle2, AlertCircle, HelpCircle, Download } from 'lucide-react';
+import { downloadHppTemplate } from '../utils/shopeeParser';
 
 const UploadZone = ({ files, onFilesUploaded, loading, error }) => {
   const orderInputRef = useRef(null);
@@ -23,6 +24,7 @@ const UploadZone = ({ files, onFilesUploaded, loading, error }) => {
 
   const renderFileCard = (type, label, description, isRequired) => {
     const isIncome = type === 'income';
+    const isHpp = type === 'hpp';
     const file = files[type];
     const hasFiles = isIncome ? (Array.isArray(file) && file.length > 0) : !!file;
     
@@ -39,6 +41,30 @@ const UploadZone = ({ files, onFilesUploaded, loading, error }) => {
             {isRequired && <span className="req-badge">Wajib</span>}
           </div>
           <p>{description}</p>
+          {isHpp && (
+            <button 
+              type="button" 
+              className="btn-link"
+              onClick={downloadHppTemplate}
+              style={{
+                background: 'none',
+                border: 'none',
+                color: 'var(--accent-orange)',
+                fontSize: '11.5px',
+                fontWeight: '600',
+                cursor: 'pointer',
+                padding: '4px 0',
+                marginTop: '4px',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '4px',
+                textDecoration: 'underline'
+              }}
+            >
+              <Download size={12} />
+              <span>Unduh Template Excel HPP</span>
+            </button>
+          )}
           {isIncome && Array.isArray(file) && file.length > 0 && (
             <div className="file-list-details" style={{ marginTop: '8px', display: 'flex', flexDirection: 'column', gap: '4px' }}>
               {file.map((f, idx) => (
