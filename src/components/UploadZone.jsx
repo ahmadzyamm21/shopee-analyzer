@@ -8,28 +8,48 @@ const UploadZone = ({ files, onFilesUploaded, loading, error }) => {
   const adsInputRef = useRef(null);
 
   const handleFileChange = (type, e) => {
-    const file = e.target.files[0];
-    if (file) {
-      onFilesUploaded(type, file);
+    if (type === 'income') {
+      const selectedFiles = Array.from(e.target.files);
+      if (selectedFiles.length > 0) {
+        onFilesUploaded(type, selectedFiles);
+      }
+    } else {
+      const file = e.target.files[0];
+      if (file) {
+        onFilesUploaded(type, file);
+      }
     }
   };
 
   const renderFileCard = (type, label, description, isRequired) => {
+    const isIncome = type === 'income';
     const file = files[type];
+    const hasFiles = isIncome ? (Array.isArray(file) && file.length > 0) : !!file;
+    
     const inputRef = type === 'order' ? orderInputRef 
                    : type === 'income' ? incomeInputRef 
                    : type === 'hpp' ? hppInputRef 
                    : adsInputRef;
 
     return (
-      <div className={`upload-card ${file ? 'uploaded' : ''}`}>
+      <div className={`upload-card ${hasFiles ? 'uploaded' : ''}`}>
         <div className="upload-info">
           <div className="upload-header">
             <h3>{label}</h3>
             {isRequired && <span className="req-badge">Wajib</span>}
           </div>
           <p>{description}</p>
-          {file && (
+          {isIncome && Array.isArray(file) && file.length > 0 && (
+            <div className="file-list-details" style={{ marginTop: '8px', display: 'flex', flexDirection: 'column', gap: '4px' }}>
+              {file.map((f, idx) => (
+                <div key={idx} className="file-details" style={{ margin: 0 }}>
+                  <CheckCircle2 className="icon-success" size={16} />
+                  <span>{f.name} ({(f.size / 1024).toFixed(1)} KB)</span>
+                </div>
+              ))}
+            </div>
+          )}
+          {!isIncome && file && (
             <div className="file-details">
               <CheckCircle2 className="icon-success" size={16} />
               <span>{file.name} ({(file.size / 1024).toFixed(1)} KB)</span>
@@ -40,18 +60,19 @@ const UploadZone = ({ files, onFilesUploaded, loading, error }) => {
           <input
             type="file"
             accept=".xlsx, .xls"
+            multiple={isIncome}
             onChange={(e) => handleFileChange(type, e)}
             ref={inputRef}
             style={{ display: 'none' }}
           />
           <button
             type="button"
-            className={`btn-upload ${file ? 'btn-change' : 'btn-primary'}`}
+            className={`btn-upload ${hasFiles ? 'btn-change' : 'btn-primary'}`}
             onClick={() => inputRef.current.click()}
             disabled={loading}
           >
             <UploadCloud size={16} />
-            <span>{file ? 'Ubah File' : 'Unggah Excel'}</span>
+            <span>{hasFiles ? (isIncome ? 'Ubah File-File' : 'Ubah File') : (isIncome ? 'Unggah Excel (Bisa Multi)' : 'Unggah Excel')}</span>
           </button>
         </div>
       </div>

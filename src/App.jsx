@@ -26,7 +26,7 @@ import {
 
 const App = () => {
   const [activeTab, setActiveTab] = useState('upload');
-  const [files, setFiles] = useState({ order: null, income: null, hpp: null, ads: null });
+  const [files, setFiles] = useState({ order: null, income: [], hpp: null, ads: null });
   
   // Parsed Raw Datasets
   const [rawOrderData, setRawOrderData] = useState(null);
@@ -44,29 +44,34 @@ const App = () => {
   const [error, setError] = useState(null);
 
   // File upload handler
-  const handleFilesUploaded = async (type, file) => {
-    setFiles(prev => ({ ...prev, [type]: file }));
+  const handleFilesUploaded = async (type, fileOrFiles) => {
+    setFiles(prev => ({ ...prev, [type]: fileOrFiles }));
     setLoading(true);
     setError(null);
 
     try {
       if (type === 'hpp') {
-        const hppMapping = await parseHppFile(file);
+        const hppMapping = await parseHppFile(fileOrFiles);
         setParsedHpp(hppMapping);
       } else if (type === 'ads') {
-        const adsData = await parseAdsFile(file);
+        const adsData = await parseAdsFile(fileOrFiles);
         setTotalAds(adsData.totalAds);
         setAdsDetails(adsData.details);
       } else if (type === 'order') {
-        const orderData = await parseOrdersFile(file);
+        const orderData = await parseOrdersFile(fileOrFiles);
         setRawOrderData(orderData);
       } else if (type === 'income') {
-        const incomeData = await parseIncomeFile(file);
-        setRawIncomeData(incomeData);
+        // fileOrFiles is an array for 'income'
+        const allIncomeRows = [];
+        for (let file of fileOrFiles) {
+          const rows = await parseIncomeFile(file);
+          allIncomeRows.push(...rows);
+        }
+        setRawIncomeData(allIncomeRows);
       }
     } catch (err) {
       setError(err.message);
-      setFiles(prev => ({ ...prev, [type]: null })); // reset faulty file
+      setFiles(prev => ({ ...prev, [type]: type === 'income' ? [] : null })); // reset faulty file
     } finally {
       setLoading(false);
     }
@@ -100,7 +105,7 @@ const App = () => {
   }, [rawOrderData, rawIncomeData, parsedHpp, totalAds, adsDetails, selectedMonth]);
 
   const resetAllData = () => {
-    setFiles({ order: null, income: null, hpp: null, ads: null });
+    setFiles({ order: null, income: [], hpp: null, ads: null });
     setRawOrderData(null);
     setRawIncomeData(null);
     setParsedHpp(null);
