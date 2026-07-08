@@ -504,14 +504,42 @@ export const analyzeShopeeData = (orderRows, incomeRows, hppData, totalAds = 0, 
 };
 
 // Generate and trigger download of HPP Database Excel template
-export const downloadHppTemplate = () => {
+export const downloadHppTemplate = (rawOrderRows = null) => {
   const headers = [['SKU Induk', 'Nama Produk', 'Nama Variasi', 'HPP']];
-  const sampleData = [
-    ['HELM-BOGO-01', 'ACN Helm Bogo Retro Classic Original SNI', 'Hitam Glossy', 60000],
-    ['HELM-BOY-02', 'Helm Motor Anak Cowok SNI Transformer', 'Transformer Blue', 40000],
-    ['STICKER-01', '1 Set Sticker Cutting Logo Cargloss Reflectif', 'Putih', 1000]
-  ];
-  const wsData = [...headers, ...sampleData];
+  let rowsData = [];
+  
+  if (rawOrderRows && rawOrderRows.length > 0) {
+    // Detect keys
+    const skuKey = Object.keys(rawOrderRows[0]).find(k => k.toLowerCase().includes('sku induk'));
+    const prodKey = Object.keys(rawOrderRows[0]).find(k => k.toLowerCase().includes('nama produk'));
+    const varKey = Object.keys(rawOrderRows[0]).find(k => k.toLowerCase().includes('nama variasi'));
+    
+    const uniqueProducts = new Map();
+    
+    rawOrderRows.forEach(row => {
+      const sku = skuKey && row[skuKey] ? String(row[skuKey]).trim() : '';
+      const product = prodKey && row[prodKey] ? String(row[prodKey]).trim() : '';
+      const variation = varKey && row[varKey] !== null ? String(row[varKey]).trim() : '';
+      
+      const key = sku ? sku : `${product}|${variation}`;
+      if (product && !uniqueProducts.has(key)) {
+        uniqueProducts.set(key, { sku, product, variation });
+      }
+    });
+    
+    uniqueProducts.forEach(val => {
+      rowsData.push([val.sku, val.product, val.variation, 0]); // default HPP is 0
+    });
+  } else {
+    // Generic fallback
+    rowsData = [
+      ['HELM-BOGO-01', 'ACN Helm Bogo Retro Classic Original SNI', 'Hitam Glossy', 60000],
+      ['HELM-BOY-02', 'Helm Motor Anak Cowok SNI Transformer', 'Transformer Blue', 40000],
+      ['STICKER-01', '1 Set Sticker Cutting Logo Cargloss Reflectif', 'Putih', 1000]
+    ];
+  }
+  
+  const wsData = [...headers, ...rowsData];
   const wb = XLSX.utils.book_new();
   const ws = XLSX.utils.aoa_to_sheet(wsData);
   

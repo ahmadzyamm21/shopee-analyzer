@@ -245,6 +245,7 @@ const App = () => {
               onFilesUploaded={handleFilesUploaded}
               loading={loading}
               error={error}
+              rawOrderData={rawOrderData}
             />
           )}
 

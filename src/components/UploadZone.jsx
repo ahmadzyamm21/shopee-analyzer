@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { UploadCloud, CheckCircle2, AlertCircle, HelpCircle, Download } from 'lucide-react';
 import { downloadHppTemplate } from '../utils/shopeeParser';
 
-const UploadZone = ({ files, onFilesUploaded, loading, error }) => {
+const UploadZone = ({ files, onFilesUploaded, loading, error, rawOrderData }) => {
   const orderInputRef = useRef(null);
   const incomeInputRef = useRef(null);
   const hppInputRef = useRef(null);
@@ -45,7 +45,7 @@ const UploadZone = ({ files, onFilesUploaded, loading, error }) => {
             <button 
               type="button" 
               className="btn-link"
-              onClick={downloadHppTemplate}
+              onClick={() => downloadHppTemplate(rawOrderData)}
               style={{
                 background: 'none',
                 border: 'none',
@@ -62,7 +62,11 @@ const UploadZone = ({ files, onFilesUploaded, loading, error }) => {
               }}
             >
               <Download size={12} />
-              <span>Unduh Template Excel HPP</span>
+              <span>
+                {rawOrderData 
+                  ? 'Unduh Template Excel HPP (Kustom dari Laporan Order Anda)' 
+                  : 'Unduh Contoh Template Excel HPP'}
+              </span>
             </button>
           )}
           {isIncome && Array.isArray(file) && file.length > 0 && (
