@@ -51,18 +51,25 @@ export const parseHppFile = async (file) => {
         rows.forEach(row => {
           // Map dynamic header columns
           const keys = Object.keys(row);
-          const skuKey = keys.find(k => k.toLowerCase().includes('sku'));
+          const skuKey = keys.find(k => k.toLowerCase().includes('sku') && !k.toLowerCase().includes('referensi') && !k.toLowerCase().includes('ref'));
+          const refSkuKey = keys.find(k => k.toLowerCase().includes('referensi') || k.toLowerCase().includes('ref') || k.toLowerCase().includes('nomor referensi'));
+          
+          const actualSkuKey = skuKey || keys.find(k => k.toLowerCase().includes('sku'));
           const nameKey = keys.find(k => k.toLowerCase().includes('nama') || k.toLowerCase().includes('product'));
           const varKey = keys.find(k => k.toLowerCase().includes('variasi') || k.toLowerCase().includes('variation'));
           const hppKey = keys.find(k => k.toLowerCase().includes('hpp') || k.toLowerCase().includes('modal') || k.toLowerCase().includes('cost'));
           
-          const sku = skuKey && row[skuKey] ? String(row[skuKey]).trim() : null;
+          const sku = actualSkuKey && row[actualSkuKey] ? String(row[actualSkuKey]).trim() : null;
+          const refSku = refSkuKey && row[refSkuKey] ? String(row[refSkuKey]).trim() : null;
           const name = nameKey && row[nameKey] ? String(row[nameKey]).trim() : null;
           const variation = varKey && row[varKey] !== null ? String(row[varKey]).trim() : '';
           const hpp = hppKey ? parseNumber(row[hppKey]) : 0;
           
           if (sku) {
             hppBySku[sku] = hpp;
+          }
+          if (refSku) {
+            hppBySku[refSku] = hpp;
           }
           if (name) {
             hppByNameVar[`${name}|${variation}`] = hpp;
@@ -228,6 +235,7 @@ export const analyzeShopeeData = (orderRows, incomeRows, hppData, totalAds = 0, 
   const orderIdKey = Object.keys(orderRows[0] || {}).find(k => k.toLowerCase().includes('no. pesanan'));
   const waktuKey = Object.keys(orderRows[0] || {}).find(k => k.toLowerCase().includes('waktu pesanan dibuat'));
   const skuKey = Object.keys(orderRows[0] || {}).find(k => k.toLowerCase().includes('sku induk'));
+  const nomorRefSkuKey = Object.keys(orderRows[0] || {}).find(k => k.toLowerCase().includes('nomor referensi sku') || k.toLowerCase().includes('ref'));
   const prodKey = Object.keys(orderRows[0] || {}).find(k => k.toLowerCase().includes('nama produk'));
   const varKey = Object.keys(orderRows[0] || {}).find(k => k.toLowerCase().includes('nama variasi'));
   const qtyKey = Object.keys(orderRows[0] || {}).find(k => k.toLowerCase().includes('jumlah'));
@@ -353,6 +361,7 @@ export const analyzeShopeeData = (orderRows, incomeRows, hppData, totalAds = 0, 
     if (status.toLowerCase() !== 'selesai' && status.toLowerCase() !== 'completed') return;
 
     const sku = skuKey && row[skuKey] ? String(row[skuKey]).trim() : '';
+    const refSku = nomorRefSkuKey && row[nomorRefSkuKey] ? String(row[nomorRefSkuKey]).trim() : '';
     const product = prodKey && row[prodKey] ? String(row[prodKey]).trim() : '';
     const variation = varKey && row[varKey] !== null ? String(row[varKey]).trim() : '';
     const qty = qtyKey ? parseInt(parseNumber(row[qtyKey])) : 1;
@@ -363,15 +372,17 @@ export const analyzeShopeeData = (orderRows, incomeRows, hppData, totalAds = 0, 
     const discPrice = discPriceKey ? parseNumber(row[discPriceKey]) : 0;
     const diskonSeller = parseNumber(row[Object.keys(row).find(k => k.toLowerCase().includes('diskon dari penjual'))]);
 
-    // Find HPP
+    // Find HPP (first check refSku variation SKU, then parent SKU Induk, then name+var)
     let hppVal = 0;
-    if (sku && hppBySku[sku] !== undefined) {
+    if (refSku && hppBySku[refSku] !== undefined) {
+      hppVal = hppBySku[refSku];
+    } else if (sku && hppBySku[sku] !== undefined) {
       hppVal = hppBySku[sku];
     } else if (hppByNameVar[`${product}|${variation}`] !== undefined) {
       hppVal = hppByNameVar[`${product}|${variation}`];
     }
 
-    const key = sku || `${product.substring(0, 30)}|${variation}`;
+    const key = refSku || sku || `${product.substring(0, 30)}|${variation}`;
     if (!productDetail[key]) {
       productDetail[key] = {
         sku,
@@ -505,12 +516,13 @@ export const analyzeShopeeData = (orderRows, incomeRows, hppData, totalAds = 0, 
 
 // Generate and trigger download of HPP Database Excel template
 export const downloadHppTemplate = (rawOrderRows = null) => {
-  const headers = [['SKU Induk', 'Nama Produk', 'Nama Variasi', 'HPP']];
+  const headers = [['SKU Induk', 'Nomor Referensi SKU', 'Nama Produk', 'Nama Variasi', 'HPP']];
   let rowsData = [];
   
   if (rawOrderRows && rawOrderRows.length > 0) {
     // Detect keys
     const skuKey = Object.keys(rawOrderRows[0]).find(k => k.toLowerCase().includes('sku induk'));
+    const refSkuKey = Object.keys(rawOrderRows[0]).find(k => k.toLowerCase().includes('nomor referensi sku') || k.toLowerCase().includes('ref'));
     const prodKey = Object.keys(rawOrderRows[0]).find(k => k.toLowerCase().includes('nama produk'));
     const varKey = Object.keys(rawOrderRows[0]).find(k => k.toLowerCase().includes('nama variasi'));
     
@@ -518,24 +530,26 @@ export const downloadHppTemplate = (rawOrderRows = null) => {
     
     rawOrderRows.forEach(row => {
       const sku = skuKey && row[skuKey] ? String(row[skuKey]).trim() : '';
+      const refSku = refSkuKey && row[refSkuKey] ? String(row[refSkuKey]).trim() : '';
       const product = prodKey && row[prodKey] ? String(row[prodKey]).trim() : '';
       const variation = varKey && row[varKey] !== null ? String(row[varKey]).trim() : '';
       
-      const key = sku ? sku : `${product}|${variation}`;
+      // Group by unique combination of SKU / RefSku / Prod + Var
+      const key = refSku ? refSku : (sku ? sku : `${product}|${variation}`);
       if (product && !uniqueProducts.has(key)) {
-        uniqueProducts.set(key, { sku, product, variation });
+        uniqueProducts.set(key, { sku, refSku, product, variation });
       }
     });
     
     uniqueProducts.forEach(val => {
-      rowsData.push([val.sku, val.product, val.variation, 0]); // default HPP is 0
+      rowsData.push([val.sku, val.refSku, val.product, val.variation, 0]); // default HPP is 0
     });
   } else {
     // Generic fallback
     rowsData = [
-      ['HELM-BOGO-01', 'ACN Helm Bogo Retro Classic Original SNI', 'Hitam Glossy', 60000],
-      ['HELM-BOY-02', 'Helm Motor Anak Cowok SNI Transformer', 'Transformer Blue', 40000],
-      ['STICKER-01', '1 Set Sticker Cutting Logo Cargloss Reflectif', 'Putih', 1000]
+      ['HELM-BOGO-01', 'REF-HELM-BOGO-01', 'ACN Helm Bogo Retro Classic Original SNI', 'Hitam Glossy', 60000],
+      ['HELM-BOY-02', 'REF-HELM-BOY-02', 'Helm Motor Anak Cowok SNI Transformer', 'Transformer Blue', 40000],
+      ['STICKER-01', 'REF-STICKER-01', '1 Set Sticker Cutting Logo Cargloss Reflectif', 'Putih', 1000]
     ];
   }
   
@@ -546,6 +560,7 @@ export const downloadHppTemplate = (rawOrderRows = null) => {
   // Set column widths for readability
   ws['!cols'] = [
     { wch: 18 }, // SKU Induk
+    { wch: 22 }, // Nomor Referensi SKU
     { wch: 45 }, // Nama Produk
     { wch: 20 }, // Nama Variasi
     { wch: 12 }  // HPP
