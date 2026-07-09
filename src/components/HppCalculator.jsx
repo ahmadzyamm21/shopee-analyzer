@@ -97,6 +97,9 @@ const HppCalculator = () => {
   const [activeInsurance, setActiveInsurance] = useState(false);
   const [insurancePercent, setInsurancePercent] = useState(0.5);
 
+  const [activeHematKirim, setActiveHematKirim] = useState(false);
+  const [hematKirimFee, setHematKirimFee] = useState(350); // Rp 350 flat fee
+
   // Handle Search Input Change
   const handleSearchChange = (e) => {
     const val = e.target.value;
@@ -162,9 +165,12 @@ const HppCalculator = () => {
     (activeAffiliate ? affiliatePercent : 0) +
     (activeInsurance ? insurancePercent : 0);
   
+  // Total flat fees
+  const totalFlatFees = flatProcessFee + (activeHematKirim ? hematKirimFee : 0);
+
   // Recommended Selling Price Formula
   const divisor = 1 - (totalPlatformFeesPercent / 100) - (targetMarginPercent / 100);
-  const recommendedPrice = divisor > 0 ? (totalHpp + flatProcessFee) / divisor : 0;
+  const recommendedPrice = divisor > 0 ? (totalHpp + totalFlatFees) / divisor : 0;
   
   // Breakdown calculations for the final recommended price
   const calcAdminFee = (recommendedPrice * adminFeePercent) / 100;
@@ -185,7 +191,7 @@ const HppCalculator = () => {
     calcSpayLater + 
     calcAffiliate + 
     calcInsurance +
-    flatProcessFee;
+    totalFlatFees;
 
   const netProfitUnit = recommendedPrice - totalHpp - totalDeductionsRupiah;
 
@@ -211,7 +217,7 @@ const HppCalculator = () => {
           <div>
             <h3 style={{ fontSize: '18px', fontWeight: 'bold' }}>Simulasi Kalkulator HPP &amp; Rekomendasi Harga Jual Shopee</h3>
             <p className="text-muted" style={{ fontSize: '13px', marginTop: '4px' }}>
-              Masukkan komponen modal Anda, pilih tipe penjual, cari kategori produk untuk biaya admin dasar, lalu centang program opsional yang Anda ikuti (SPayLater, Promo/Gratis Ongkir Xtra, Live Xtra, Affiliate, Asuransi) untuk kalkulasi harga jual yang presisi.
+              Masukkan komponen modal Anda, pilih tipe penjual, cari kategori produk untuk biaya admin dasar, lalu centang program opsional yang Anda ikuti (SPayLater, Promo/Gratis Ongkir Xtra, Live Xtra, Affiliate, Asuransi, Hemat Kirim) untuk kalkulasi harga jual yang presisi.
             </p>
           </div>
         </div>
@@ -539,6 +545,30 @@ const HppCalculator = () => {
                     </div>
                   )}
                 </div>
+
+                {/* 7. Biaya Hemat Kirim (Flat) */}
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', backgroundColor: 'rgba(255,255,255,0.01)', padding: '6px 10px', borderRadius: '6px', border: '1px solid var(--border-color)' }}>
+                  <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12.5px', cursor: 'pointer', userSelect: 'none' }}>
+                    <input
+                      type="checkbox"
+                      checked={activeHematKirim}
+                      onChange={(e) => setActiveHematKirim(e.target.checked)}
+                      style={{ cursor: 'pointer', accentColor: 'var(--accent-orange)' }}
+                    />
+                    Program Hemat Kirim
+                  </label>
+                  {activeHematKirim && (
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                      <span style={{ fontSize: '12px', color: 'var(--text-muted2)' }}>Rp</span>
+                      <input
+                        type="number"
+                        value={hematKirimFee}
+                        onChange={(e) => setHematKirimFee(Math.max(0, parseInt(e.target.value) || 0))}
+                        style={{ width: '55px', padding: '4px', backgroundColor: 'rgba(0,0,0,0.2)', border: '1px solid var(--border-color)', borderRadius: '4px', color: 'white', fontSize: '12px', textAlign: 'center' }}
+                      />
+                    </div>
+                  )}
+                </div>
               </div>
 
               {/* Basic Fees Inputs */}
@@ -734,10 +764,20 @@ const HppCalculator = () => {
                       </div>
                     )}
 
-                    {flatProcessFee > 0 && (
-                      <div style={{ display: 'flex', justifyContent: 'space-between', borderTop: '1px dashed var(--border-color)', paddingTop: '4px', marginTop: '2px' }}>
-                        <span className="text-muted">Biaya Proses Pesanan (Flat):</span>
-                        <span style={{ color: 'var(--accent-red)' }}>- {formatRp(flatProcessFee)}</span>
+                    {(flatProcessFee > 0 || activeHematKirim) && (
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', borderTop: '1px dashed var(--border-color)', paddingTop: '4px', marginTop: '2px' }}>
+                        {flatProcessFee > 0 && (
+                          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                            <span className="text-muted">Biaya Proses Pesanan (Flat):</span>
+                            <span style={{ color: 'var(--accent-red)' }}>- {formatRp(flatProcessFee)}</span>
+                          </div>
+                        )}
+                        {activeHematKirim && (
+                          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                            <span className="text-muted">Biaya Hemat Kirim (Flat):</span>
+                            <span style={{ color: 'var(--accent-red)' }}>- {formatRp(hematKirimFee)}</span>
+                          </div>
+                        )}
                       </div>
                     )}
                   </div>
