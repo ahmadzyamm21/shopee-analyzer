@@ -18,8 +18,8 @@ const PLStatement = ({ data }) => {
 
   // Safe division helper
   const getPercentOfOmzet = (num) => {
-    if (summary.totalPenghasilanDilepas === 0) return '0%';
-    return ((Math.abs(num) / summary.totalPenghasilanDilepas) * 100).toFixed(2) + '%';
+    if (summary.hargaAsliBruto === 0) return '0%';
+    return ((Math.abs(num) / summary.hargaAsliBruto) * 100).toFixed(2) + '%';
   };
 
   return (
@@ -159,11 +159,11 @@ const PLStatement = ({ data }) => {
               <td className="val neu">{getPercentOfOmzet(summary.totalBiayaAdminLayanan)}</td>
             </tr>
 
-            {/* DANA DILEPAS */}
+             {/* DANA DILEPAS */}
             <tr className="row-total">
               <td>💰 TOTAL DANA DILEPAS SHOPEE (Total Cash Inflow)</td>
               <td className="val">{formatRp(summary.totalPenghasilanDilepas)}</td>
-              <td className="val">100.00%</td>
+              <td className="val">{getPercentOfOmzet(summary.totalPenghasilanDilepas)}</td>
             </tr>
 
             {/* D. HPP BARANG */}
@@ -180,7 +180,7 @@ const PLStatement = ({ data }) => {
             <tr className="row-laba">
               <td>📈 LABA KOTOR TOKO (Dana Dilepas − HPP)</td>
               <td className="val">{formatRp(summary.labaKotor)}</td>
-              <td className="val">{formatPercent((summary.labaKotor / (summary.totalPenghasilanDilepas || 1)) * 100)}</td>
+              <td className="val">{getPercentOfOmzet(summary.labaKotor)}</td>
             </tr>
 
             {/* E. BIAYA IKLAN */}
@@ -201,7 +201,7 @@ const PLStatement = ({ data }) => {
             <tr className="row-bersih">
               <td>✅ LABA BERSIH / TAKE HOME PROFIT</td>
               <td className="val">{formatRp(summary.labaBersih)}</td>
-              <td className="val">{formatPercent(summary.marginBersih)}</td>
+              <td className="val">{getPercentOfOmzet(summary.labaBersih)}</td>
             </tr>
 
             <tr className="row-margin">
