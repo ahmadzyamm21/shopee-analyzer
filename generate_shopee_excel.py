@@ -2,15 +2,23 @@ import pandas as pd
 
 # Detailed Shopee Indonesia 2026 Admin Fee Database
 data = [
-    # Otomotif
     {
-        "Kategori Utama": "Otomotif",
-        "Sub-Kategori": "Suku Cadang & Aksesoris Motor/Mobil",
-        "Jenis Produk": "Helm, Ban, Oli, Aksesoris Motor/Mobil",
+        "Kategori Utama": "Sepeda Motor",
+        "Sub-Kategori": "Helm & Suku Cadang Motor",
+        "Jenis Produk": "Helm, Aksesoris Pengendara, Busi, Aki, Ban Motor, Knalpot, Oli Motor, Rantai",
         "Grup Kategori": "Grup B",
-        "Admin Fee (Star/Star+/Non-Star)": "9.25%",
-        "Admin Fee (Shopee Mall)": "9.95%",
-        "Keterangan": "Tarif admin dasar kategori otomotif umum"
+        "Admin Fee (Star/Star+/Non-Star)": "8.25%",
+        "Admin Fee (Shopee Mall)": "9.25%",
+        "Keterangan": "Helm & Suku Cadang Motor"
+    },
+    {
+        "Kategori Utama": "Sepeda Motor",
+        "Sub-Kategori": "Sepeda Motor (Unit)",
+        "Jenis Produk": "Unit Kendaraan Sepeda Motor",
+        "Grup Kategori": "Grup Khusus",
+        "Admin Fee (Star/Star+/Non-Star)": "2.50%",
+        "Admin Fee (Shopee Mall)": "2.50%",
+        "Keterangan": "Unit kendaraan sepeda motor"
     },
     # Audio
     {

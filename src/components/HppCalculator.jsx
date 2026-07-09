@@ -75,7 +75,8 @@ const HppCalculator = () => {
   // Shopee Search Database with exact subcategory overrides based on official tables
   const categorySearchDatabase = [
     // Otomotif
-    { keywords: ['helm', 'helmet', 'visor', 'kancing helm', 'pet helm', 'bogo', 'retro', 'motor', 'mobil', 'otomotif', 'ban', 'oli', 'kancing', 'skrup'], group: 'B', name: 'Otomotif (Helm, Aksesoris Motor/Mobil, Ban, Oli)', adminFeeOverride: 9.25 },
+    { keywords: ['helm', 'helmet', 'visor', 'kancing helm', 'pet helm', 'bogo', 'retro', 'aksesoris pengendara', 'suku cadang motor', 'ban motor', 'velg', 'busi', 'aki', 'knalpot', 'lampu motor', 'oli motor'], group: 'B', name: 'Otomotif (Helm, Aksesoris Pengendara, Suku Cadang Motor)', adminFeeOverride: 8.25 },
+    { keywords: ['sepeda motor', 'motor trail', 'motor matic'], group: 'khusus', name: 'Sepeda Motor (Unit Kendaraan)', adminFeeOverride: 2.5 },
     
     // Audio
     { keywords: ['speaker', 'home theater', 'karaoke', 'mixer', 'amplifier', 'mikrofon', 'microphone', 'audio', 'kabel audio'], group: 'B', name: 'Audio (Speaker, Mikrofon, Mixer, Amplifier)', adminFeeOverride: 9.0 },
