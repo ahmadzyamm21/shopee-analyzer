@@ -14,11 +14,13 @@ const DashboardOverview = ({ data }) => {
     return num.toFixed(2) + '%';
   };
 
-  // Percentages relative to total dana dilepas (which is the actual net cash released by Shopee)
-  const hppPercent = summary.totalPenghasilanDilepas > 0 ? (summary.totalHpp / summary.totalPenghasilanDilepas) * 100 : 0;
-  const adsPercent = summary.totalPenghasilanDilepas > 0 ? (summary.totalAds / summary.totalPenghasilanDilepas) * 100 : 0;
-  const platformPercent = summary.totalPenghasilanDilepas > 0 ? (Math.abs(summary.totalBiayaPlatformShopee) / summary.totalPenghasilanDilepas) * 100 : 0;
-  const netProfitPercent = summary.totalPenghasilanDilepas > 0 ? (summary.labaBersih / summary.totalPenghasilanDilepas) * 100 : 0;
+  // Calculate total revenue before Shopee admin fees for the progress bar baseline
+  const totalOmzet = summary.totalPenghasilanDilepas + Math.abs(summary.totalBiayaAdminLayanan);
+  
+  const hppPercent = totalOmzet > 0 ? (summary.totalHpp / totalOmzet) * 100 : 0;
+  const adsPercent = totalOmzet > 0 ? (summary.totalAds / totalOmzet) * 100 : 0;
+  const platformPercent = totalOmzet > 0 ? (Math.abs(summary.totalBiayaAdminLayanan) / totalOmzet) * 100 : 0;
+  const netProfitPercent = totalOmzet > 0 ? (summary.labaBersih / totalOmzet) * 100 : 0;
 
   // Key metrics calculations
   const returnRate = summary.orderSelesaiCount > 0 ? (summary.qtyRetur / (summary.qtyTerjualNet + summary.qtyRetur)) * 100 : 0;
@@ -102,7 +104,8 @@ const DashboardOverview = ({ data }) => {
       {/* PROGRESS FLOW VISUALIZER */}
       <div className="card">
         <div className="card-head">
-          <h2>📊 Alokasi & Alur Penggunaan Dana Dilepas ({formatRp(summary.totalPenghasilanDilepas)})</h2>
+          <h2>📊 Alokasi &amp; Alur Penggunaan Total Pendapatan Toko ({formatRp(totalOmzet)})</h2>
+          <span className="badge blue">Total 100% Pembagian Hasil</span>
         </div>
         <div className="progress-wrap">
           <div className="prog-item">
