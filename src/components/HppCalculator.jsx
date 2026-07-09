@@ -4,12 +4,7 @@ import shopeeCategories from '../utils/shopee_categories.json';
 
 const HppCalculator = () => {
   // 1. HPP Components State
-  const [purchasePrice, setPurchasePrice] = useState(25000);
-  const [packingPrice, setPackingPrice] = useState(1500);
-  const [cargoPrice, setCargoPrice] = useState(1000);
-  const [laborPrice, setLaborPrice] = useState(500);
-  const [defectRate, setDefectRate] = useState(2); // in percent of purchase price
-  const [otherOverhead, setOtherOverhead] = useState(0);
+  const [hppValue, setHppValue] = useState(28000); // Default total HPP
 
   // 2. Shopee Seller & Category Setup
   const [sellerType, setSellerType] = useState('star'); // star, nonStar, mall
@@ -133,8 +128,7 @@ const HppCalculator = () => {
   };
 
   // Calculations
-  const defectCost = (purchasePrice * defectRate) / 100;
-  const totalHpp = purchasePrice + packingPrice + cargoPrice + laborPrice + defectCost + otherOverhead;
+  const totalHpp = hppValue;
 
   // Gratis Ongkir XTRA Cap limit: Rp 40.000 for standard, Rp 60.000 for special
   const gratisOngkirCap = productSize === 'khusus' ? 60000 : 40000;
@@ -246,85 +240,20 @@ const HppCalculator = () => {
             {isOpenHpp && (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                  <label style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Harga Beli Produk / Modal Supplier</label>
+                  <label style={{ fontSize: '12px', color: 'var(--text-muted)' }}>HPP / Modal Awal Produk</label>
                   <div style={{ position: 'relative' }}>
                     <span style={{ position: 'absolute', left: '12px', top: '10px', fontSize: '13px', color: 'var(--text-muted2)' }}>Rp</span>
                     <input
                       type="number"
-                      value={purchasePrice}
-                      onChange={(e) => setPurchasePrice(Math.max(0, parseFloat(e.target.value) || 0))}
-                      style={{ width: '100%', padding: '10px 12px 10px 36px', backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-color)', borderRadius: '6px', color: 'white', fontSize: '13px' }}
+                      value={hppValue}
+                      onChange={(e) => setHppValue(Math.max(0, parseFloat(e.target.value) || 0))}
+                      style={{ width: '100%', padding: '10px 12px 10px 36px', backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-color)', borderRadius: '6px', color: 'white', fontSize: '13px', fontWeight: 'bold' }}
+                      placeholder="Masukkan total HPP..."
                     />
                   </div>
-                </div>
-
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
-                  <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                    <label style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Biaya Packing (Plastik/Dus)</label>
-                    <div style={{ position: 'relative' }}>
-                      <span style={{ position: 'absolute', left: '12px', top: '10px', fontSize: '13px', color: 'var(--text-muted2)' }}>Rp</span>
-                      <input
-                        type="number"
-                        value={packingPrice}
-                        onChange={(e) => setPackingPrice(Math.max(0, parseFloat(e.target.value) || 0))}
-                        style={{ width: '100%', padding: '10px 12px 10px 36px', backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-color)', borderRadius: '6px', color: 'white', fontSize: '13px' }}
-                      />
-                    </div>
-                  </div>
-
-                  <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                    <label style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Ongkir Cargo (ke Gudang)</label>
-                    <div style={{ position: 'relative' }}>
-                      <span style={{ position: 'absolute', left: '12px', top: '10px', fontSize: '13px', color: 'var(--text-muted2)' }}>Rp</span>
-                      <input
-                        type="number"
-                        value={cargoPrice}
-                        onChange={(e) => setCargoPrice(Math.max(0, parseFloat(e.target.value) || 0))}
-                        style={{ width: '100%', padding: '10px 12px 10px 36px', backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-color)', borderRadius: '6px', color: 'white', fontSize: '13px' }}
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
-                  <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                    <label style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Upah Packing</label>
-                    <div style={{ position: 'relative' }}>
-                      <span style={{ position: 'absolute', left: '12px', top: '10px', fontSize: '13px', color: 'var(--text-muted2)' }}>Rp</span>
-                      <input
-                        type="number"
-                        value={laborPrice}
-                        onChange={(e) => setLaborPrice(Math.max(0, parseFloat(e.target.value) || 0))}
-                        style={{ width: '100%', padding: '10px 12px 10px 36px', backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-color)', borderRadius: '6px', color: 'white', fontSize: '13px' }}
-                      />
-                    </div>
-                  </div>
-
-                  <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                    <label style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Defect / Susut (%)</label>
-                    <div style={{ position: 'relative' }}>
-                      <input
-                        type="number"
-                        value={defectRate}
-                        onChange={(e) => setDefectRate(Math.max(0, parseFloat(e.target.value) || 0))}
-                        style={{ width: '100%', padding: '10px 24px 10px 12px', backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-color)', borderRadius: '6px', color: 'white', fontSize: '13px' }}
-                      />
-                      <span style={{ position: 'absolute', right: '12px', top: '10px', fontSize: '13px', color: 'var(--text-muted2)' }}>%</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                  <label style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Overhead Lain-Lain per Unit</label>
-                  <div style={{ position: 'relative' }}>
-                    <span style={{ position: 'absolute', left: '12px', top: '10px', fontSize: '13px', color: 'var(--text-muted2)' }}>Rp</span>
-                    <input
-                      type="number"
-                      value={otherOverhead}
-                      onChange={(e) => setOtherOverhead(Math.max(0, parseFloat(e.target.value) || 0))}
-                      style={{ width: '100%', padding: '10px 12px 10px 36px', backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-color)', borderRadius: '6px', color: 'white', fontSize: '13px' }}
-                    />
-                  </div>
+                  <span style={{ fontSize: '10.5px', color: 'var(--text-muted2)' }}>
+                    *Masukkan total modal awal barang (termasuk ongkir cargo, upah packing, kemasan, dll).
+                  </span>
                 </div>
               </div>
             )}
