@@ -74,19 +74,47 @@ const HppCalculator = () => {
 
   // Shopee Search Database with exact subcategory overrides based on official tables
   const categorySearchDatabase = [
+    // Otomotif
     { keywords: ['helm', 'helmet', 'visor', 'kancing helm', 'pet helm', 'bogo', 'retro', 'motor', 'mobil', 'otomotif', 'ban', 'oli', 'kancing', 'skrup'], group: 'B', name: 'Otomotif (Helm, Aksesoris Motor/Mobil, Ban, Oli)', adminFeeOverride: 9.0 },
+    
+    // Audio
     { keywords: ['speaker', 'home theater', 'karaoke', 'mixer', 'amplifier', 'mikrofon', 'microphone', 'audio', 'kabel audio'], group: 'B', name: 'Audio (Speaker, Mikrofon, Mixer, Amplifier)', adminFeeOverride: 9.0 },
     { keywords: ['earphone', 'headphone', 'headset', 'handsfree'], group: 'C', name: 'Audio (Earphone, Headphone, Headset)', adminFeeOverride: 6.75 },
     { keywords: ['mp3', 'mp4', 'media player', 'cd', 'dvd', 'blu-ray', 'tape', 'radio'], group: 'B', name: 'Audio (Media Player, CD/DVD, Radio)', adminFeeOverride: 9.5 },
+    
+    // Kelistrikan
     { keywords: ['kelistrikan', 'saklar', 'stop kontak', 'sambungan kabel', 'alarm', 'bel'], group: 'A', name: 'Kelistrikan (Saklar, Stop Kontak, Kabel Roll)', adminFeeOverride: 10.0 },
+    
+    // Aksesoris Fashion & Masker & Logam Mulia
     { keywords: ['kacamata', 'topi', 'anting', 'kalung', 'gelang', 'cincin', 'ikat pinggang', 'dasi', 'ikat rambut', 'scrunchie', 'jepitan', 'bros', 'bandana', 'pita', 'bando', 'rambut palsu', 'liontin'], group: 'B', name: 'Aksesoris Fashion (Kacamata, Topi, Anting, Kalung, Perhiasan)', adminFeeOverride: 9.0 },
     { keywords: ['masker', 'masker kain', 'masker medis'], group: 'B', name: 'Masker (Aksesoris Tambahan)', adminFeeOverride: 8.25 },
     { keywords: ['logam mulia', 'emas', 'perak', 'berlian', 'permata', 'platinum', 'perhiasan berharga'], group: 'E', name: 'Logam Mulia & Perhiasan Berharga', adminFeeOverride: 4.25 },
+    
+    // Fashion Bayi & Anak
     { keywords: ['baju bayi', 'pakaian bayi', 'pakaian anak', 'kaos kaki anak', 'sepatu anak', 'sandal anak', 'sepatu bayi', 'tas anak', 'topi anak', 'kacamata anak', 'jas hujan anak', 'bando bayi', 'sarung tangan bayi', 'baju anak', 'kaos anak'], group: 'B', name: 'Fashion Bayi & Anak (Pakaian, Sepatu, Aksesoris Anak)', adminFeeOverride: 9.0 },
     { keywords: ['gelang bayi', 'anting bayi', 'kalung bayi', 'cincin bayi', 'perhiasan anak', 'perhiasan bayi'], group: 'E', name: 'Perhiasan Bayi & Anak (Gelang, Anting, Kalung, Cincin Anak)', adminFeeOverride: 4.25 },
-    { keywords: ['baju', 'pakaian', 'kaos', 't-shirt', 'kemeja', 'celana', 'rok', 'jaket', 'sweater', 'hoodie', 'gamis', 'hijab', 'kerudung', 'daster', 'kebaya', 'pakaian dalam', 'kaki', 'jeans', 'singlet', 'jersey'], group: 'A', name: 'Fashion & Pakaian Dewasa (Pria/Wanita, Muslim, Pakaian Dalam)' },
-    { keywords: ['sepatu', 'sandal', 'sneakers', 'boots', 'heels', 'wedges', 'flat shoes', 'kaos kaki'], group: 'A', name: 'Alas Kaki & Sepatu Dewasa' },
-    { keywords: ['tas', 'ransel', 'backpack', 'clutch', 'tote bag', 'dompet', 'koper', 'selempang'], group: 'A', name: 'Tas & Aksesoris Fashion Dewasa' },
+
+    // Fashion Muslim
+    { keywords: ['hijab', 'gamis', 'mukena', 'perlengkapan sholat', 'khimar', 'ciput', 'pashmina', 'abaya', 'kaftan', 'koko', 'sarung', 'baju melayu', 'sajadah', 'peci', 'songkok', 'kopiah'], group: 'B', name: 'Fashion Muslim (Hijab, Gamis, Mukena, Koko, Peci)', adminFeeOverride: 9.25 },
+    { keywords: ['baju olahraga muslim', 'baju renang muslim'], group: 'A', name: 'Pakaian Olahraga/Renang Muslim Wanita', adminFeeOverride: 10.0 },
+
+    // Jam Tangan
+    { keywords: ['jam tangan', 'baterai jam', 'strap jam', 'kotak jam', 'jam tangan couple', 'jam tangan pria', 'jam tangan wanita'], group: 'B', name: 'Jam Tangan & Aksesorisnya', adminFeeOverride: 9.0 },
+
+    // Koper & Tas Travel
+    { keywords: ['koper', 'travel bag', 'organizer travel', 'gembok koper', 'bantal leher', 'pelindung koper', 'tag koper', 'strap koper', 'timbangan koper', 'tas lipat travel'], group: 'B', name: 'Koper & Aksesoris Travel', adminFeeOverride: 9.0 },
+    { keywords: ['tas duffel', 'duffel bag'], group: 'A', name: 'Tas Duffel (Tas Travel)', adminFeeOverride: 10.0 },
+
+    // Pakaian Pria & Wanita Dewasa
+    { keywords: ['baju', 'pakaian', 'kaos', 't-shirt', 'kemeja', 'celana', 'rok', 'jaket', 'sweater', 'hoodie', 'kebaya', 'pakaian dalam', 'singlet', 'jersey', 'celana pendek', 'jas formal', 'daster', 'piyama', 'baju tidur', 'dress', 'baju hamil', 'blus', 'tunik', 'legging', 'kain', 'batik'], group: 'B', name: 'Pakaian Dewasa Pria / Wanita (Kaos, Kemeja, Celana, Dress)', adminFeeOverride: 8.25 },
+    { keywords: ['kaos kaki', 'stocking'], group: 'A', name: 'Kaos Kaki (Pria/Wanita)', adminFeeOverride: 10.0 },
+    { keywords: ['stocking wanita', 'stoking'], group: 'B', name: 'Stocking (Pakaian Wanita)', adminFeeOverride: 9.0 },
+
+    // Sepatu & Sandal Dewasa
+    { keywords: ['sepatu', 'sandal', 'sneakers', 'boots', 'loafer', 'oxford', 'slip-on', 'mules', 'tali sepatu', 'insole', 'perawat sepatu', 'parfum sepatu'], group: 'B', name: 'Sepatu, Sandal & Alas Kaki Dewasa', adminFeeOverride: 9.0 },
+
+    // General Fallbacks
+    { keywords: ['tas', 'ransel', 'backpack', 'clutch', 'tote bag', 'dompet', 'koper', 'selempang'], group: 'A', name: 'Tas Dewasa (Ransel, Handbag, Dompet)' },
     { keywords: ['kosmetik', 'skincare', 'makeup', 'lipstik', 'bedak', 'foundations', 'serum', 'toner', 'facial wash', 'parfum', 'minyak wangi', 'sabun', 'shampoo', 'perawatan tubuh', 'body lotion'], group: 'A', name: 'Kecantikan, Kosmetik & Perawatan Diri' },
     { keywords: ['ibu', 'bayi', 'anak', 'mainan', 'botol susu', 'stroller', 'gendongan', 'empeng', 'piring bayi'], group: 'A', name: 'Ibu & Bayi (Kecuali Pakaian, Susu & Popok)' },
     { keywords: ['handphone', 'hp', 'smartphone', 'tablet', 'aksesoris hp', 'charger', 'casing', 'kabel data', 'powerbank', 'antigores'], group: 'D', name: 'Handphone, Gadget & Aksesorisnya', adminFeeOverride: 5.25 },
@@ -94,7 +122,6 @@ const HppCalculator = () => {
     { keywords: ['kamera', 'camera', 'dslr', 'mirrorless', 'lensa', 'tripod', 'gimbal', 'cctv', 'drone'], group: 'C', name: 'Kamera, Foto & Video' },
     { keywords: ['komputer', 'laptop', 'pc', 'mouse', 'keyboard', 'printer', 'scanner', 'ram', 'ssd', 'harddisk', 'vga', 'router', 'wifi', 'tinta', 'proyektor'], group: 'C', name: 'Komputer & Aksesoris PC/Laptop' },
     { keywords: ['perlengkapan rumah', 'home', 'living', 'furniture', 'meja', 'kursi', 'lemari', 'tempat tidur', 'kasur', 'sprei', 'selimut', 'bantal', 'gorden', 'lampu', 'dekorasi', 'dapur', 'piring', 'gelas', 'panci', 'sapu', 'rak'], group: 'C', name: 'Perlengkapan Rumah & Furniture' },
-    { keywords: ['olahraga', 'sport', 'sepeda', 'jersey', 'sepatu bola', 'raket', 'barbel', 'tenda', 'camping', 'outdoor', 'alat pancing'], group: 'B', name: 'Peralatan Olahraga & Outdoor', adminFeeOverride: 9.0 },
     { keywords: ['makanan', 'minuman', 'snack', 'camilan', 'kopi', 'teh', 'mie instan', 'cokelat', 'permen', 'bumbu dapur', 'sambal', 'sirup', 'kue'], group: 'A', name: 'Makanan & Minuman (FMCG / Kuliner)', adminFeeOverride: 10.0 },
     { keywords: ['buku', 'novel', 'komik', 'majalah', 'buku pelajaran', 'alat tulis', 'pulpen', 'pensil', 'penghapus', 'penggaris', 'buku tulis', 'kertas', 'crayon'], group: 'D', name: 'Buku, Novel, Alat Tulis & Kantor' },
     { keywords: ['hewan', 'pet', 'kucing', 'anjing', 'ikan', 'burung', 'makanan kucing', 'makanan anjing', 'pasir kucing', 'kandang'], group: 'A', name: 'Kebutuhan Hewan Peliharaan (Pet Shop)', adminFeeOverride: 10.0 },
@@ -182,7 +209,13 @@ const HppCalculator = () => {
     if (customOverrideRate !== null) {
       let finalRate = customOverrideRate;
       if (sellerType === 'mall') {
-        finalRate = Math.min(11.7, customOverrideRate + 0.95);
+        // Adjust for Shopee Mall proportionally
+        if (customOverrideRate === 8.25) finalRate = 9.25;
+        else if (customOverrideRate === 9.25) finalRate = 9.95;
+        else if (customOverrideRate === 9.0) finalRate = 9.95;
+        else if (customOverrideRate === 10.0) finalRate = 11.0;
+        else if (customOverrideRate === 6.75) finalRate = 7.7;
+        else if (customOverrideRate === 9.5) finalRate = 10.2;
       }
       setAdminFeePercent(finalRate);
     } else {
