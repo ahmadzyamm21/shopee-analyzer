@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Percent, Info, ShoppingBag, ArrowRight, HelpCircle } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Percent, Info, ShoppingBag, ArrowRight, HelpCircle, Search, Check } from 'lucide-react';
 
 const HppCalculator = () => {
   // 1. HPP Components State
@@ -12,7 +12,14 @@ const HppCalculator = () => {
 
   // 2. Shopee Seller & Category Setup
   const [sellerType, setSellerType] = useState('star'); // star, nonStar, mall
-  const [categoryGroup, setCategoryGroup] = useState('A'); // A, B, C, D, E, khusus
+  const [categoryGroup, setCategoryGroup] = useState('B'); // B for Helm default
+
+  // Search Category State
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+  const [selectedCategoryName, setSelectedCategoryName] = useState('Otomotif (Helm, Aksesoris Motor/Mobil, Ban, Oli)');
+  const [showDropdown, setShowDropdown] = useState(false);
+  const dropdownRef = useRef(null);
 
   // Official Shopee Indonesia Admin Fee Rates (2025/2026)
   const shopeeAdminRates = {
@@ -42,19 +49,81 @@ const HppCalculator = () => {
     }
   };
 
+  // Shopee Search Database
+  const categorySearchDatabase = [
+    { keywords: ['helm', 'helmet', 'visor', 'kancing helm', 'pet helm', 'bogo', 'retro', 'motor', 'mobil', 'otomotif', 'ban', 'oli', 'kancing', 'skrup'], group: 'B', name: 'Otomotif (Helm, Aksesoris Motor/Mobil, Ban, Oli)' },
+    { keywords: ['baju', 'pakaian', 'kaos', 't-shirt', 'kemeja', 'celana', 'rok', 'jaket', 'sweater', 'hoodie', 'gamis', 'hijab', 'kerudung', 'daster', 'kebaya', 'pakaian dalam', 'kaki', 'jeans', 'singlet', 'jersey'], group: 'A', name: 'Fashion & Pakaian (Pria/Wanita, Muslim, Pakaian Dalam)' },
+    { keywords: ['sepatu', 'sandal', 'sneakers', 'boots', 'heels', 'wedges', 'flat shoes', 'kaos kaki'], group: 'A', name: 'Alas Kaki & Sepatu (Pria, Wanita, Anak)' },
+    { keywords: ['tas', 'ransel', 'backpack', 'clutch', 'tote bag', 'dompet', 'koper', 'selempang'], group: 'A', name: 'Tas & Aksesoris Fashion' },
+    { keywords: ['kosmetik', 'skincare', 'makeup', 'lipstik', 'bedak', 'foundations', 'serum', 'toner', 'facial wash', 'parfum', 'minyak wangi', 'sabun', 'shampoo', 'perawatan tubuh', 'body lotion'], group: 'A', name: 'Kecantikan, Kosmetik & Perawatan Diri' },
+    { keywords: ['ibu', 'bayi', 'anak', 'mainan', 'botol susu', 'stroller', 'gendongan', 'baju bayi', 'empeng', 'piring bayi'], group: 'A', name: 'Ibu & Bayi (Kecuali Susu & Popok)' },
+    { keywords: ['handphone', 'hp', 'smartphone', 'tablet', 'aksesoris hp', 'charger', 'casing', 'kabel data', 'powerbank', 'antigores'], group: 'B', name: 'Handphone, Gadget & Aksesorisnya' },
+    { keywords: ['elektronik', 'tv', 'televisi', 'kulkas', 'ac', 'mesin cuci', 'microwave', 'oven', 'blender', 'rice cooker', 'kipas angin', 'setrika'], group: 'B', name: 'Peralatan Elektronik Rumah Tangga' },
+    { keywords: ['kamera', 'camera', 'dslr', 'mirrorless', 'lensa', 'tripod', 'gimbal', 'cctv', 'drone'], group: 'C', name: 'Kamera, Foto & Video' },
+    { keywords: ['komputer', 'laptop', 'pc', 'mouse', 'keyboard', 'printer', 'scanner', 'ram', 'ssd', 'harddisk', 'vga', 'router', 'wifi', 'tinta', 'proyektor'], group: 'C', name: 'Komputer & Aksesoris PC/Laptop' },
+    { keywords: ['perlengkapan rumah', 'home', 'living', 'furniture', 'meja', 'kursi', 'lemari', 'tempat tidur', 'kasur', 'sprei', 'selimut', 'bantal', 'gorden', 'lampu', 'dekorasi', 'dapur', 'piring', 'gelas', 'panci', 'sapu', 'rak'], group: 'C', name: 'Perlengkapan Rumah & Furniture' },
+    { keywords: ['olahraga', 'sport', 'sepeda', 'jersey', 'sepatu bola', 'raket', 'barbel', 'tenda', 'camping', 'outdoor', 'alat pancing'], group: 'C', name: 'Peralatan Olahraga & Outdoor' },
+    { keywords: ['makanan', 'minuman', 'snack', 'camilan', 'kopi', 'teh', 'mie instan', 'cokelat', 'permen', 'bumbu dapur', 'sambal', 'sirup', 'kue'], group: 'D', name: 'Makanan & Minuman (FMCG / Kuliner)' },
+    { keywords: ['buku', 'novel', 'komik', 'majalah', 'buku pelajaran', 'alat tulis', 'pulpen', 'pensil', 'penghapus', 'penggaris', 'buku tulis', 'kertas', 'crayon'], group: 'D', name: 'Buku, Novel, Alat Tulis & Kantor' },
+    { keywords: ['hewan', 'pet', 'kucing', 'anjing', 'ikan', 'burung', 'makanan kucing', 'makanan anjing', 'pasir kucing', 'kandang'], group: 'D', name: 'Kebutuhan Hewan Peliharaan (Pet Shop)' },
+    { keywords: ['sembako', 'beras', 'minyak goreng', 'gula pasir', 'garam', 'telur', 'tepung', 'kecap'], group: 'E', name: 'Sembako & Kebutuhan Pokok Sehari-hari' },
+    { keywords: ['popok', 'diaper', 'pampers', 'susu bayi', 'susu formula', 'susu anak'], group: 'E', name: 'Popok Bayi & Susu Formula Anak' },
+    { keywords: ['hobi', 'koleksi', 'action figure', 'gundam', 'lego', 'kartu game', 'board game', 'alat musik', 'gitar', 'keyboard musik', 'biola'], group: 'B', name: 'Hobi, Koleksi & Alat Musik' },
+    { keywords: ['digital', 'pulsa', 'paket data', 'voucher', 'tiket', 'e-money', 'pln', 'listrik', 'bpjs'], group: 'khusus', name: 'Produk Digital (Pulsa, Voucher, PLN, Tiket)' }
+  ];
+
   // 3. Shopee Fees State
-  const [adminFeePercent, setAdminFeePercent] = useState(6.5);
+  const [adminFeePercent, setAdminFeePercent] = useState(5.5); // 5.5% is default for Group B Star
   const [gratisOngkirXtraPercent, setGratisOngkirXtraPercent] = useState(4.0);
   const [cashbackXtraPercent, setCashbackXtraPercent] = useState(0.0);
   const [transactionFeePercent, setTransactionFeePercent] = useState(2.0);
   const [flatProcessFee, setFlatProcessFee] = useState(1250); // Rp 1.250 flat fee
   const [targetMarginPercent, setTargetMarginPercent] = useState(15.0);
 
+  // Handle Search Input Change
+  const handleSearchChange = (e) => {
+    const val = e.target.value;
+    setSearchQuery(val);
+    if (!val.trim()) {
+      setSearchResults([]);
+      return;
+    }
+    const lower = val.toLowerCase().trim();
+    const filtered = categorySearchDatabase.filter(item => 
+      item.name.toLowerCase().includes(lower) || 
+      item.keywords.some(kw => kw.includes(lower))
+    );
+    setSearchResults(filtered);
+    setShowDropdown(true);
+  };
+
+  // Select Category from Search Results
+  const selectCategory = (cat) => {
+    setCategoryGroup(cat.group);
+    setSelectedCategoryName(cat.name);
+    setSearchQuery('');
+    setSearchResults([]);
+    setShowDropdown(false);
+  };
+
   // Automatically update Admin Fee % when Seller Type or Category changes
   useEffect(() => {
     const rate = shopeeAdminRates[sellerType][categoryGroup];
     setAdminFeePercent(rate);
   }, [sellerType, categoryGroup]);
+
+  // Handle Click Outside Dropdown to close it
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setShowDropdown(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   // Helper formatting
   const formatRp = (num) => {
@@ -67,10 +136,7 @@ const HppCalculator = () => {
 
   const totalPlatformFeesPercent = adminFeePercent + gratisOngkirXtraPercent + cashbackXtraPercent + transactionFeePercent;
   
-  // Recommended Selling Price Formula: 
-  // Laba Bersih = Harga Jual * Margin%
-  // Laba Bersih = Harga Jual - HPP - (Harga Jual * Platform%) - FlatFee
-  // Price = (HPP + FlatFee) / (1 - Platform% - TargetMargin%)
+  // Recommended Selling Price Formula
   const divisor = 1 - (totalPlatformFeesPercent / 100) - (targetMarginPercent / 100);
   const recommendedPrice = divisor > 0 ? (totalHpp + flatProcessFee) / divisor : 0;
   
@@ -99,7 +165,7 @@ const HppCalculator = () => {
           <div>
             <h3 style={{ fontSize: '18px', fontWeight: 'bold' }}>Simulasi Kalkulator HPP &amp; Rekomendasi Harga Jual Shopee</h3>
             <p className="text-muted" style={{ fontSize: '13px', marginTop: '4px' }}>
-              Hitung Harga Pokok Penjualan (HPP) riil per unit barang Anda, pilih kategori produk untuk mendeteksi biaya admin Shopee secara otomatis, lalu dapatkan rekomendasi harga jual optimal agar target margin bersih Anda tercapai.
+              Masukkan komponen modal Anda, lalu cari kategori produk Anda (misal: "helm", "baju", dll) untuk mendeteksi biaya administrasi Shopee secara otomatis.
             </p>
           </div>
         </div>
@@ -209,43 +275,72 @@ const HppCalculator = () => {
             
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               
-              {/* INTERACTIVE DROPDOWNS */}
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
-                <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                  <label style={{ fontSize: '12px', color: 'var(--accent-orange)', fontWeight: '600' }}>Tipe Penjual / Toko</label>
-                  <select
-                    value={sellerType}
-                    onChange={(e) => setSellerType(e.target.value)}
-                    style={{ width: '100%', padding: '10px 12px', backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-color)', borderRadius: '6px', color: 'white', fontSize: '13px', outline: 'none' }}
-                  >
-                    <option value="star" style={{ background: '#1e2235' }}>Penjual Star / Star+</option>
-                    <option value="nonStar" style={{ background: '#1e2235' }}>Penjual Non-Star</option>
-                    <option value="mall" style={{ background: '#1e2235' }}>Shopee Mall</option>
-                  </select>
-                </div>
-
-                <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                  <label style={{ fontSize: '12px', color: 'var(--accent-orange)', fontWeight: '600' }}>Kategori Produk</label>
-                  <select
-                    value={categoryGroup}
-                    onChange={(e) => setCategoryGroup(e.target.value)}
-                    style={{ width: '100%', padding: '10px 12px', backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-color)', borderRadius: '6px', color: 'white', fontSize: '13px', outline: 'none' }}
-                  >
-                    <option value="A" style={{ background: '#1e2235' }}>Grup A (Fashion/Kecantikan)</option>
-                    <option value="B" style={{ background: '#1e2235' }}>Grup B (Elektronik/Hobi)</option>
-                    <option value="C" style={{ background: '#1e2235' }}>Grup C (Perlengkapan Rumah/Komputer)</option>
-                    <option value="D" style={{ background: '#1e2235' }}>Grup D (Makanan/Buku/Bahan Pokok)</option>
-                    <option value="E" style={{ background: '#1e2235' }}>Grup E (Sembako/Popok/Susu)</option>
-                    <option value="khusus" style={{ background: '#1e2235' }}>Kategori Khusus (Digital/Pulsa)</option>
-                  </select>
-                </div>
+              {/* Tipe Penjual Dropdown */}
+              <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                <label style={{ fontSize: '12px', color: 'var(--accent-orange)', fontWeight: '600' }}>Tipe Penjual / Toko</label>
+                <select
+                  value={sellerType}
+                  onChange={(e) => setSellerType(e.target.value)}
+                  style={{ width: '100%', padding: '10px 12px', backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-color)', borderRadius: '6px', color: 'white', fontSize: '13px', outline: 'none' }}
+                >
+                  <option value="star" style={{ background: '#1e2235' }}>Penjual Star / Star+</option>
+                  <option value="nonStar" style={{ background: '#1e2235' }}>Penjual Non-Star</option>
+                  <option value="mall" style={{ background: '#1e2235' }}>Shopee Mall</option>
+                </select>
               </div>
 
-              {/* Dynamic Category Hint Info */}
-              <div style={{ padding: '8px 10px', backgroundColor: 'rgba(255,255,255,0.02)', borderRadius: '6px', fontSize: '11px', color: 'var(--text-muted2)', border: '1px solid rgba(255,255,255,0.03)', marginTop: '-4px' }}>
-                📖 <strong>Contoh Produk:</strong> {categoryExplanations[categoryGroup]}
+              {/* SEARCH PRODUCT CATEGORY (SEARCH BAR) */}
+              <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '4px', position: 'relative' }} ref={dropdownRef}>
+                <label style={{ fontSize: '12px', color: 'var(--accent-orange)', fontWeight: '600' }}>Cari Kategori Produk Anda</label>
+                <div style={{ position: 'relative' }}>
+                  <Search size={16} style={{ position: 'absolute', left: '12px', top: '12px', color: 'var(--text-muted2)' }} />
+                  <input
+                    type="text"
+                    placeholder="Ketik nama produk (misal: helm, kaos, laptop, susu...)"
+                    value={searchQuery}
+                    onChange={handleSearchChange}
+                    onFocus={() => searchQuery.trim() && setShowDropdown(true)}
+                    style={{ width: '100%', padding: '10px 12px 10px 36px', backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-color)', borderRadius: '6px', color: 'white', fontSize: '13px', outline: 'none' }}
+                  />
+                </div>
+
+                {/* Dropdown Results */}
+                {showDropdown && searchResults.length > 0 && (
+                  <div style={{ position: 'absolute', top: '64px', left: 0, right: 0, backgroundColor: '#1e2235', border: '1px solid var(--border-color)', borderRadius: '8px', boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.5)', zIndex: 100, maxHeight: '200px', overflowY: 'auto' }}>
+                    {searchResults.map((cat, idx) => (
+                      <div
+                        key={idx}
+                        onClick={() => selectCategory(cat)}
+                        style={{ padding: '10px 14px', borderBottom: '1px solid rgba(255,255,255,0.02)', cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'center', transition: 'background 0.2s' }}
+                        className="hover-bg-dark"
+                      >
+                        <span style={{ fontSize: '12.5px', color: 'white' }}>{cat.name}</span>
+                        <span className="badge blue" style={{ fontSize: '10px', padding: '2px 6px' }}>Grup {cat.group}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
 
+              {/* Selected Category Info */}
+              {selectedCategoryName && (
+                <div style={{ padding: '12px', backgroundColor: 'rgba(34, 197, 94, 0.03)', borderRadius: '8px', border: '1px dashed rgba(34, 197, 94, 0.2)', display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <span style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Kategori Aktif Terpilih:</span>
+                    <span className="badge green" style={{ fontSize: '10px', background: 'rgba(34,197,94,0.1)', color: '#22c55e' }}>
+                      GRUP {categoryGroup}
+                    </span>
+                  </div>
+                  <strong style={{ fontSize: '12.5px', color: 'white' }}>
+                    {selectedCategoryName}
+                  </strong>
+                  <span style={{ fontSize: '10.5px', color: 'var(--text-muted2)' }}>
+                    📖 <strong>Deskripsi:</strong> {categoryExplanations[categoryGroup]}
+                  </span>
+                </div>
+              )}
+
+              {/* Manual inputs backup */}
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
                 <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
                   <label style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Biaya Administrasi (%)</label>
