@@ -10,7 +10,8 @@ import {
   DollarSign,
   Loader2,
   FileCheck,
-  RotateCcw
+  RotateCcw,
+  PieChart
 } from 'lucide-react';
 import UploadZone from './components/UploadZone';
 import DashboardOverview from './components/DashboardOverview';
@@ -19,6 +20,7 @@ import ProductAnalysis from './components/ProductAnalysis';
 import CancellationTracker from './components/CancellationTracker';
 import CompletedOrders from './components/CompletedOrders';
 import ReturnedOrders from './components/ReturnedOrders';
+import BcgAnalysis from './components/BcgAnalysis';
 import { 
   parseHppFile, 
   parseOrdersFile, 
@@ -174,6 +176,15 @@ const App = () => {
           </button>
 
           <button 
+            className={`nav-item ${activeTab === 'bcg' ? 'active' : ''}`}
+            onClick={() => isDataReady ? setActiveTab('bcg') : null}
+            disabled={!isDataReady}
+          >
+            <PieChart size={18} />
+            <span>Matriks BCG Produk</span>
+          </button>
+
+          <button 
             className={`nav-item ${activeTab === 'completed' ? 'active' : ''}`}
             onClick={() => isDataReady ? setActiveTab('completed') : null}
             disabled={!isDataReady}
@@ -219,6 +230,7 @@ const App = () => {
               {activeTab === 'overview' && 'Dashboard Overview'}
               {activeTab === 'pl' && 'P&L Statement'}
               {activeTab === 'products' && 'Analisis Performa Produk'}
+              {activeTab === 'bcg' && 'Matriks BCG Produk'}
               {activeTab === 'completed' && 'Log Pesanan Selesai'}
               {activeTab === 'returns' && 'Log Pesanan Retur / Refund'}
               {activeTab === 'cancellations' && 'Pelacak Pesanan Batal'}
@@ -228,6 +240,7 @@ const App = () => {
               {activeTab === 'overview' && 'Analisis visual kesehatan keuangan toko Anda.'}
               {activeTab === 'pl' && 'Laba bersih take-home profit & potongan biaya administrasi.'}
               {activeTab === 'products' && 'Identifikasi SKU terlaris & HPP paling efisien.'}
+              {activeTab === 'bcg' && 'Pemetaan portofolio produk ke dalam kuadran Stars, Cash Cows, Question Marks, dan Dogs.'}
               {activeTab === 'completed' && 'Daftar semua rincian pesanan yang berhasil terselesaikan.'}
               {activeTab === 'returns' && 'Pelacakan komplain, barang retur, dan pengembalian dana pembeli.'}
               {activeTab === 'cancellations' && 'Pantau rasio pembatalan order & kurir gagal kirim.'}
@@ -279,6 +292,7 @@ const App = () => {
               {activeTab === 'overview' && <DashboardOverview data={analysisResult} />}
               {activeTab === 'pl' && <PLStatement data={analysisResult} />}
               {activeTab === 'products' && <ProductAnalysis products={analysisResult.products} />}
+              {activeTab === 'bcg' && <BcgAnalysis products={analysisResult.products} />}
               {activeTab === 'completed' && <CompletedOrders data={analysisResult} />}
               {activeTab === 'returns' && <ReturnedOrders data={analysisResult} />}
               {activeTab === 'cancellations' && <CancellationTracker batalSummary={analysisResult.batalSummary} />}
