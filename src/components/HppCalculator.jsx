@@ -25,7 +25,7 @@ const HppCalculator = () => {
   const shopeeAdminRates = {
     nonStar: {
       A: 10.0,
-      B: 9.0,
+      B: 9.25,
       C: 6.5,
       D: 5.25,
       E: 4.25,
@@ -33,7 +33,7 @@ const HppCalculator = () => {
     },
     star: {
       A: 10.0,
-      B: 9.0,
+      B: 9.25,
       C: 6.5,
       D: 5.25,
       E: 4.25,
@@ -73,7 +73,7 @@ const HppCalculator = () => {
   ];
 
   // 3. Shopee Fees State
-  const [adminFeePercent, setAdminFeePercent] = useState(9.0); // 9.0% is default for Group B Star (2026 rates)
+  const [adminFeePercent, setAdminFeePercent] = useState(9.25); // 9.25% is default for Group B Star (2026 rates)
   const [gratisOngkirXtraPercent, setGratisOngkirXtraPercent] = useState(4.0);
   const [cashbackXtraPercent, setCashbackXtraPercent] = useState(0.0);
   const [transactionFeePercent, setTransactionFeePercent] = useState(2.0);
