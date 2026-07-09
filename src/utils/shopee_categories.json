@@ -1,2494 +1,3122 @@
 [
   {
     "Kategori": "Aksesoris Fashion",
-    "Sub Kategori": "Aksesoris Fashion Lainnya",
-    "Jenis Produk": "Aksesoris Fashion Lainnya",
-    "Star Rate": 9.0,
-    "Mall Rate": 10.2
-  },
-  {
-    "Kategori": "Aksesoris Fashion",
     "Sub Kategori": "Aksesoris Rambut",
     "Jenis Produk": "Bando & Bandana, Ikat Rambut, Pita & Scrunchie, Jepitan & Pin Rambut, Rambut Palsu & Extension, Hiasan Kepala, Tiara & Mahkota Bunga, Aksesoris Rambut Lainnya",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
-  },
-  {
-    "Kategori": "Aksesoris Fashion",
-    "Sub Kategori": "Aksesoris Tambahan",
-    "Jenis Produk": "Bros & Pin, Bordir, Liontin, Kancing Manset",
-    "Star Rate": 6.75,
-    "Mall Rate": 7.7
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "H",
+    "GO Biasa": 8.0,
+    "GO Khusus": 9.5
   },
   {
     "Kategori": "Aksesoris Fashion",
     "Sub Kategori": "Aksesoris Tambahan",
     "Jenis Produk": "Bros & Pin, Bordir, Liontin, Kancing Manset, Tato Temporer, Sapu Tangan, Aksesoris Tambahan Lainnya",
     "Star Rate": 9.0,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Aksesoris Fashion",
-    "Sub Kategori": "Aksesoris Tambahan",
-    "Jenis Produk": "Masker",
-    "Star Rate": 8.25,
-    "Mall Rate": 10.45
-  },
-  {
-    "Kategori": "Aksesoris Fashion",
-    "Sub Kategori": "Aksesoris Tambahan",
-    "Jenis Produk": "Tato Temporer, Sapu Tangan, Aksesoris Tambahan Lainnya",
-    "Star Rate": 9.0,
-    "Mall Rate": 9.95
+    "Mall Rate": 10.45,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
   },
   {
     "Kategori": "Aksesoris Fashion",
     "Sub Kategori": "Anting",
     "Jenis Produk": "Anting",
     "Star Rate": 9.0,
-    "Mall Rate": 7.7
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "H",
+    "GO Biasa": 8.0,
+    "GO Khusus": 9.5
   },
   {
     "Kategori": "Aksesoris Fashion",
     "Sub Kategori": "Cincin",
     "Jenis Produk": "Cincin",
     "Star Rate": 9.0,
-    "Mall Rate": 7.7
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "H",
+    "GO Biasa": 8.0,
+    "GO Khusus": 9.5
   },
   {
     "Kategori": "Aksesoris Fashion",
     "Sub Kategori": "Dasi",
     "Jenis Produk": "Dasi",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "H",
+    "GO Biasa": 8.0,
+    "GO Khusus": 9.5
   },
   {
     "Kategori": "Aksesoris Fashion",
     "Sub Kategori": "Gelang Kaki",
     "Jenis Produk": "Gelang Kaki",
     "Star Rate": 9.0,
-    "Mall Rate": 7.7
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "H",
+    "GO Biasa": 8.0,
+    "GO Khusus": 9.5
   },
   {
     "Kategori": "Aksesoris Fashion",
     "Sub Kategori": "Gelang Tangan & Bangle",
     "Jenis Produk": "Gelang Tangan & Bangle",
     "Star Rate": 9.0,
-    "Mall Rate": 7.7
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "H",
+    "GO Biasa": 8.0,
+    "GO Khusus": 9.5
   },
   {
     "Kategori": "Aksesoris Fashion",
     "Sub Kategori": "Ikat Pinggang",
     "Jenis Produk": "Ikat Pinggang",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "H",
+    "GO Biasa": 8.0,
+    "GO Khusus": 9.5
   },
   {
     "Kategori": "Aksesoris Fashion",
     "Sub Kategori": "Kacamata & Aksesoris",
     "Jenis Produk": "Kacamata Hitam, Frame & Lensa Kacamata, Tempat Kacamata & Aksesoris, Aksesoris Kacamata Lainnya",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "H",
+    "GO Biasa": 8.0,
+    "GO Khusus": 9.5
   },
   {
     "Kategori": "Aksesoris Fashion",
     "Sub Kategori": "Kalung",
     "Jenis Produk": "Kalung",
     "Star Rate": 9.0,
-    "Mall Rate": 7.7
-  },
-  {
-    "Kategori": "Aksesoris Fashion",
-    "Sub Kategori": "Logam Mulia",
-    "Jenis Produk": "Platinum & Emas, Perak, Berlian, Permata, Logam Mulia Lainnya",
-    "Star Rate": 4.25,
-    "Mall Rate": 3.2
-  },
-  {
-    "Kategori": "Aksesoris Fashion",
-    "Sub Kategori": "Perhiasan Berharga",
-    "Jenis Produk": "Kalung, Gelang Tangan, Cincin, Anting, Gelang Kaki, Liontin, Bros & Pin, Set Perhiasan, Perhiasan Berharga Lainnya",
-    "Star Rate": 4.25,
-    "Mall Rate": 3.2
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "H",
+    "GO Biasa": 8.0,
+    "GO Khusus": 9.5
   },
   {
     "Kategori": "Aksesoris Fashion",
     "Sub Kategori": "Sarung Tangan",
     "Jenis Produk": "Sarung Tangan",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "H",
+    "GO Biasa": 8.0,
+    "GO Khusus": 9.5
   },
   {
     "Kategori": "Aksesoris Fashion",
     "Sub Kategori": "Set & Paket Aksesoris",
     "Jenis Produk": "Set & Paket Aksesoris",
     "Star Rate": 9.0,
-    "Mall Rate": 7.7
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "H",
+    "GO Biasa": 8.0,
+    "GO Khusus": 9.5
   },
   {
     "Kategori": "Aksesoris Fashion",
     "Sub Kategori": "Syal & Selendang",
     "Jenis Produk": "Syal & Selendang",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "H",
+    "GO Biasa": 8.0,
+    "GO Khusus": 9.5
   },
   {
     "Kategori": "Aksesoris Fashion",
     "Sub Kategori": "Topi",
     "Jenis Produk": "Topi",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "H",
+    "GO Biasa": 8.0,
+    "GO Khusus": 9.5
   },
   {
-    "Kategori": "Audio",
-    "Sub Kategori": "Amplifier & Mixer",
-    "Jenis Produk": "Amplifier & Mixer",
-    "Star Rate": 9.0,
-    "Mall Rate": 7.2
-  },
-  {
-    "Kategori": "Audio",
-    "Sub Kategori": "Audio Lainnya",
-    "Jenis Produk": "Audio Lainnya",
-    "Star Rate": 9.0,
-    "Mall Rate": 7.2
-  },
-  {
-    "Kategori": "Audio",
-    "Sub Kategori": "Earphone, Headphone, & Headset",
-    "Jenis Produk": "Earphone, Headphone, & Headset",
-    "Star Rate": 6.75,
-    "Mall Rate": 7.2
-  },
-  {
-    "Kategori": "Audio",
-    "Sub Kategori": "Kabel & Konverter Audio & Video",
-    "Jenis Produk": "Kabel & Konverter Audio & Video",
-    "Star Rate": 9.0,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Audio",
-    "Sub Kategori": "Media Player",
-    "Jenis Produk": "MP3 & MP4 Player, CD, DVD, & Blu-ray Player, Voice Recorders, Radio & Pemutar Kaset, Media Player Lainnya",
-    "Star Rate": 9.5,
-    "Mall Rate": 7.7
-  },
-  {
-    "Kategori": "Audio",
-    "Sub Kategori": "Mikrofon & Aksesoris",
-    "Jenis Produk": "Mikrofon & Aksesoris",
-    "Star Rate": 9.0,
-    "Mall Rate": 7.2
-  },
-  {
-    "Kategori": "Audio",
-    "Sub Kategori": "Perangkat Audio & Speaker",
-    "Jenis Produk": "Speaker, Home Theater & Karaoke, AV Receiver, Perangkat Audio & Speaker Lainnya",
-    "Star Rate": 9.0,
-    "Mall Rate": 7.2
-  },
-  {
-    "Kategori": "Buku & Alat Tulis",
-    "Sub Kategori": "Alat Tulis",
-    "Jenis Produk": "Pulpen & Tinta, Pensil, Penghapus & Tipe X, Spidol, Highlighter, Alat Tulis Lainnya",
-    "Star Rate": 9.0,
-    "Mall Rate": 7.2
-  },
-  {
-    "Kategori": "Buku & Alat Tulis",
-    "Sub Kategori": "Buku & Alat Tulis Lainnya",
-    "Jenis Produk": "Buku & Alat Tulis Lainnya",
-    "Star Rate": 10.0,
-    "Mall Rate": 11.7
-  },
-  {
-    "Kategori": "Buku & Alat Tulis",
-    "Sub Kategori": "Buku Tulis & Kertas",
-    "Jenis Produk": "Art Paper & Art Board",
-    "Star Rate": 9.0,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Buku & Alat Tulis",
-    "Sub Kategori": "Buku Tulis & Kertas",
-    "Jenis Produk": "Pembatas Buku, Sampul Buku, Kertas Termal & Continuous Paper, Kertas Print & Fotocopy, Kertas Binder, Memo & Sticky Notes, Art Paper & Art Board, Notebook & Notepad, Label & Stiker, Buku Tulis & Kertas Lainnya",
-    "Star Rate": 9.0,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Buku & Alat Tulis",
-    "Sub Kategori": "Buku Tulis & Kertas",
-    "Jenis Produk": "Pembatas Buku, Sampul Buku, Kertas Termal & Continuous Paper, Kertas Print & Fotocopy, Kertas Binder, Memo & Sticky Notes, Notebook & Notepad, Label & Stiker, Buku Tulis & Kertas Lainnya",
-    "Star Rate": 6.25,
-    "Mall Rate": 7.2
-  },
-  {
-    "Kategori": "Buku & Alat Tulis",
-    "Sub Kategori": "Pembungkus Kado & Kemasan",
-    "Jenis Produk": "Bubble Wrap",
-    "Star Rate": 9.5,
-    "Mall Rate": 7.7
-  },
-  {
-    "Kategori": "Buku & Alat Tulis",
-    "Sub Kategori": "Pembungkus Kado & Kemasan",
-    "Jenis Produk": "Kertas Kado, Kotak Kado, Tas Kado, Pita Kado, Kardus, Bungkus Kado Lainnya",
-    "Star Rate": 9.0,
-    "Mall Rate": 7.2
-  },
-  {
-    "Kategori": "Buku & Alat Tulis",
-    "Sub Kategori": "Perlengkapan Menggambar",
-    "Jenis Produk": "Pensil Warna, Krayon & Pastel, Cat Air & Cat Poster, Cat Minyak, Cat Akrilik, Kuas Lukis, Palet Lukis, Kanvas Lukis & Easel, Buku Gambar & Sketsa, Perlengkapan Menggambar Lainnya",
-    "Star Rate": 10.0,
-    "Mall Rate": 11.7
-  },
-  {
-    "Kategori": "Buku & Alat Tulis",
-    "Sub Kategori": "Perlengkapan Sekolah & Kantor",
-    "Jenis Produk": "Kalkulator, Pisau Ukir & Cutter, Tali & Selotip, Lem, Printer Label, Lanyard & Name Tag, Klip Kertas, Push Pin, & Paku Payung, Pembolong Kertas, Gunting, Stempel & Bak Stempel, Stapler & Staples, Kalender, Folder, Organizer Kertas, & Aksesoris",
-    "Star Rate": 9.5,
-    "Mall Rate": 7.7
-  },
-  {
-    "Kategori": "Buku & Alat Tulis",
-    "Sub Kategori": "Perlengkapan Sekolah & Kantor",
-    "Jenis Produk": "Papan Tulis & Papan Jalan, Penggaris, Busur Derajat, & Stensil, Rautan, Tempat Pensil, Perlengkapan Sekolah & Kantor Lainnya",
-    "Star Rate": 9.0,
-    "Mall Rate": 7.2
-  },
-  {
-    "Kategori": "Buku & Alat Tulis",
-    "Sub Kategori": "Surat-Menyurat",
-    "Jenis Produk": "Amplop & Angpau, Kartu Pos, Materai & Perangko, Surat-Menyurat Lainnya",
-    "Star Rate": 9.0,
-    "Mall Rate": 7.2
-  },
-  {
-    "Kategori": "Buku & Majalah",
-    "Sub Kategori": "Buku & Majalah Lainnya",
-    "Jenis Produk": "Buku & Majalah Lainnya",
-    "Star Rate": 9.5,
-    "Mall Rate": 7.7
-  },
-  {
-    "Kategori": "Buku & Majalah",
-    "Sub Kategori": "Buku Bacaan",
-    "Jenis Produk": "Buku Anak-Anak, Stiker & Buku Mewarnai, Pertanian, Kehutanan, & Perikanan, Kamus, Sains & Matematika, Kedokteran, Pendidikan, Seni, Desain, & Fotografi, Hobi, Musik, Buku Resep & Masak, Kesehatan, Kebugaran, & Diet, Wisata & Turisme, Parenting & Keluarga, Politik, Hukum, & Ilmu Sosial, Biografi & Memoar, Sejarah & Budaya, Agama & Filsafat, Psikologi & Hubungan, Pengembangan Diri & Karir, Bisnis & Investasi, Komputer & Teknologi, Literatur Klasik, Fantasi, Action, Crime, & Thrillers, Romansa",
-    "Star Rate": 9.0,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Buku & Majalah",
-    "Sub Kategori": "Buku Bacaan",
-    "Jenis Produk": "Buku Bayi",
+    "Kategori": "Aksesoris Fashion",
+    "Sub Kategori": "Aksesoris Tambahan",
+    "Jenis Produk": "Masker",
     "Star Rate": 8.25,
-    "Mall Rate": 9.2
+    "Mall Rate": 10.45,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
   },
   {
-    "Kategori": "Buku & Majalah",
-    "Sub Kategori": "Buku Bacaan",
-    "Jenis Produk": "Buku Bayi, Buku Anak-Anak, Stiker & Buku Mewarnai, Pertanian, Kehutanan, & Perikanan, Kamus, Sains & Matematika, Kedokteran, Pendidikan, Seni, Desain, & Fotografi, Hobi, Musik, Buku Resep & Masak, Kesehatan, Kebugaran, & Diet, Wisata & Turisme, Parenting & Keluarga, Politik, Hukum, & Ilmu Sosial, Biografi & Memoar, Sejarah & Budaya, Agama & Filsafat, Psikologi & Hubungan, Pengembangan Diri & Karir, Bisnis & Investasi, Komputer & Teknologi, Literatur Klasik, Fantasi, Action, Crime, & Thrillers, Romansa",
-    "Star Rate": 6.25,
-    "Mall Rate": 7.2
-  },
-  {
-    "Kategori": "Buku & Majalah",
-    "Sub Kategori": "Buku Bacaan",
-    "Jenis Produk": "Komik, Buku Audio, Buku Bacaan Lainnya",
-    "Star Rate": 9.5,
-    "Mall Rate": 7.7
-  },
-  {
-    "Kategori": "Buku & Majalah",
-    "Sub Kategori": "E-Book",
-    "Jenis Produk": "E-Book",
-    "Star Rate": 9.0,
-    "Mall Rate": 7.2
-  },
-  {
-    "Kategori": "Buku & Majalah",
-    "Sub Kategori": "Majalah & Koran",
-    "Jenis Produk": "Bisnis, Gaya Hidup, Remaja, Majalah & Koran Lainnya",
-    "Star Rate": 10.0,
-    "Mall Rate": 11.7
-  },
-  {
-    "Kategori": "Elektronik",
-    "Sub Kategori": "Baterai",
-    "Jenis Produk": "Baterai",
-    "Star Rate": 9.5,
-    "Mall Rate": 7.7
-  },
-  {
-    "Kategori": "Elektronik",
-    "Sub Kategori": "Elektronik Lainnya",
-    "Jenis Produk": "Elektronik Lainnya",
-    "Star Rate": 9.0,
-    "Mall Rate": 7.2
-  },
-  {
-    "Kategori": "Elektronik",
-    "Sub Kategori": "Kelistrikan",
-    "Jenis Produk": "Stop Kontak & Sambungan Kabel, Pengaman Stop Kontak, Penghemat Listrik, Bel, Saklar, Alarm, Anti Petir, Kelistrikan Lainnya",
-    "Star Rate": 10.0,
-    "Mall Rate": 10.2
-  },
-  {
-    "Kategori": "Elektronik",
-    "Sub Kategori": "Peralatan Listrik Besar",
-    "Jenis Produk": "Mesin Cuci, Pengering Pakaian, Mesin Cuci & Pengering Lainnya, AC, AC Portable, Kipas Angin, Pendingin Ruangan Lainnya",
-    "Star Rate": 6.5,
-    "Mall Rate": 7.45
-  },
-  {
-    "Kategori": "Elektronik",
-    "Sub Kategori": "Peralatan Listrik Besar",
-    "Jenis Produk": "Mesin Cuci, Pengering Pakaian, Mesin Cuci & Pengering Lainnya, AC, AC Portable, Kipas Angin, Pendingin Ruangan Lainnya, Pengering Sepatu, Penghangat Ruangan, Peralatan Listrik Besar Lainnya",
-    "Star Rate": 6.25,
-    "Mall Rate": 7.2
-  },
-  {
-    "Kategori": "Elektronik",
-    "Sub Kategori": "Peralatan Listrik Besar",
-    "Jenis Produk": "Pengering Sepatu, Penghangat Ruangan, Peralatan Listrik Besar Lainnya",
-    "Star Rate": 9.0,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Elektronik",
-    "Sub Kategori": "Peralatan Listrik Besar",
-    "Jenis Produk": "Water Heater",
-    "Star Rate": 9.5,
-    "Mall Rate": 7.7
-  },
-  {
-    "Kategori": "Elektronik",
-    "Sub Kategori": "Peralatan Listrik Kecil",
-    "Jenis Produk": "Flosser Elektrik, Penyedot Debu & Peralatan Perawatan Lantai, Telepon Kabel, Telepon Wireless, Mesin Fax, Telepon Lainnya, Perlengkapan Listrik Kecil Lainnya",
-    "Star Rate": 6.25,
-    "Mall Rate": 7.2
-  },
-  {
-    "Kategori": "Elektronik",
-    "Sub Kategori": "Peralatan Listrik Kecil",
-    "Jenis Produk": "Flosser Elektrik, Telepon Kabel, Telepon Wireless, Mesin Fax, Telepon Lainnya, Perlengkapan Listrik Kecil Lainnya",
-    "Star Rate": 9.0,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Elektronik",
-    "Sub Kategori": "Peralatan Listrik Kecil",
-    "Jenis Produk": "Foot Bath & Spa",
-    "Star Rate": 9.5,
-    "Mall Rate": 10.2
-  },
-  {
-    "Kategori": "Elektronik",
-    "Sub Kategori": "Peralatan Listrik Kecil",
-    "Jenis Produk": "Mesin Jahit & Aksesoris, Setrika & Mesin Uap, Purifier, Dehumidifier, Purifier & Humidifier Lainnya",
-    "Star Rate": 5.25,
-    "Mall Rate": 6.2
-  },
-  {
-    "Kategori": "Elektronik",
-    "Sub Kategori": "Peralatan Listrik Kecil",
-    "Jenis Produk": "Mesin Jahit & Aksesoris, Setrika & Mesin Uap, Purifier, Dehumidifier, Purifier & Humidifier Lainnya, Penyedot Debu & Peralatan Perawatan Lantai",
-    "Star Rate": 6.5,
-    "Mall Rate": 7.45
-  },
-  {
-    "Kategori": "Elektronik",
-    "Sub Kategori": "Perangkat Dapur",
-    "Jenis Produk": "Dispenser & Filter Air, Kompor & Regulator Gas, Pemanas Air, Kulkas Wine, Juicer, Blender & Mesin Kacang Kedelai, Mesin Kopi & Aksesoris, Mixer, Dishwashers, Air Fryer, Deep Fryer, Microwave, Oven, Pemanggang Roti, Food Processor & Penggiling Daging, Alat Masak Serbaguna, Panci Presto, Slow Cooker & Mesin Sous Vide, Penanak Nasi, Pembuat Waffle & Crepe, Perebus Telur, Pembuat Roti, Pembuat Takoyaki, Pembuat Dessert, Pembuat Soda, Peralatan Masak Khusus Lainnya, Kulkas, Freezer, Penghisap Asap Dapur, Perangkat Dapur Lainnya",
-    "Star Rate": 6.5,
-    "Mall Rate": 7.2
-  },
-  {
-    "Kategori": "Elektronik",
-    "Sub Kategori": "Proyektor & Aksesoris",
-    "Jenis Produk": "Proyektor & Layar Proyektor, Pointer, Proyektor & Aksesoris Lainnya",
-    "Star Rate": 5.25,
-    "Mall Rate": 4.2
-  },
-  {
-    "Kategori": "Elektronik",
-    "Sub Kategori": "Remot Kontrol",
-    "Jenis Produk": "Remot Kontrol",
-    "Star Rate": 9.0,
-    "Mall Rate": 7.2
-  },
-  {
-    "Kategori": "Elektronik",
-    "Sub Kategori": "Rokok Elektronik & Shisha",
-    "Jenis Produk": "Pods, Mods, & Hookah, Liquid & Perasa Rokok Elektronik/Shisha, Aksesoris Rokok Elektronik/Shisha, Perlengkapan Rokok Elektronik/Shisha, Rokok Elektronik Lainnya",
-    "Star Rate": 9.0,
-    "Mall Rate": 7.2
-  },
-  {
-    "Kategori": "Elektronik",
-    "Sub Kategori": "TV & Aksesoris",
-    "Jenis Produk": "TV, Antena TV, TV Box & Receiver TV, Bracket TV, TV & Aksesoris Lainnya",
-    "Star Rate": 6.5,
-    "Mall Rate": 7.2
-  },
-  {
-    "Kategori": "Fashion Bayi & Anak",
-    "Sub Kategori": "Aksesoris Bayi & Anak",
-    "Jenis Produk": "Gelang, Anting, Kalung, Cincin, Perhiasan Lainnya",
+    "Kategori": "Aksesoris Fashion",
+    "Sub Kategori": "Logam Mulia",
+    "Jenis Produk": "Platinum & Emas, Perak, Berlian, Permata, Logam Mulia Lainnya",
     "Star Rate": 4.25,
-    "Mall Rate": 9.95
+    "Mall Rate": 3.2,
+    "Kategori Gratis Ongkir": "B",
+    "GO Biasa": 2.0,
+    "GO Khusus": 3.5
+  },
+  {
+    "Kategori": "Aksesoris Fashion",
+    "Sub Kategori": "Perhiasan Berharga",
+    "Jenis Produk": "Kalung, Gelang Tangan, Cincin, Anting, Gelang Kaki, Liontin, Bros & Pin, Set Perhiasan, Perhiasan Berharga Lainnya",
+    "Star Rate": 4.25,
+    "Mall Rate": 3.2,
+    "Kategori Gratis Ongkir": "B",
+    "GO Biasa": 2.0,
+    "GO Khusus": 3.5
+  },
+  {
+    "Kategori": "Aksesoris Fashion",
+    "Sub Kategori": "Aksesoris Fashion Lainnya",
+    "Jenis Produk": "Aksesoris Fashion Lainnya",
+    "Star Rate": 9.0,
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
   },
   {
     "Kategori": "Fashion Bayi & Anak",
     "Sub Kategori": "Aksesoris Bayi & Anak",
     "Jenis Produk": "Ransel, Tas Selempang & Bahu, Tas Troli, Dompet, Tas & Koper Lainnya, Jam Tangan, Topi, Kacamata, Aksesoris Rambut, Sarung Tangan, Ikat Pinggang, Kaos Kaki, Syal, Alat Penutup Telinga, Aksesoris Bayi & Anak Lainnya, Jas Hujan, Sepatu Boot Hujan, Perlengkapan Hujan Lainnya",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
-  },
-  {
-    "Kategori": "Fashion Bayi & Anak",
-    "Sub Kategori": "Fashion Bayi & Anak Lainnya",
-    "Jenis Produk": "Fashion Bayi & Anak Lainnya",
-    "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "B",
+    "GO Biasa": 2.0,
+    "GO Khusus": 3.5
   },
   {
     "Kategori": "Fashion Bayi & Anak",
     "Sub Kategori": "Pakaian Anak Laki-Laki",
     "Jenis Produk": "Kostum, Pakaian Dalam, Pakaian Tidur, Baju Renang, Kaos, Kaos Polo, Kemeja, Jaket & Coat Reguler, Outerwear Musim Dingin, Rompi, Sweater & Kardigan, Blazer, Hoodie, Outerwear Lainnya, Jeans, Celana, Celana Pendek, Overall, Jas & Setelan, Pakaian Anak Laki-Laki Lainnya, Atasan Lainnya, Bawahan Lainnya",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
   },
   {
     "Kategori": "Fashion Bayi & Anak",
     "Sub Kategori": "Pakaian Anak Perempuan",
     "Jenis Produk": "Kostum, Pakaian Dalam, Baju Tidur, Baju Renang, Kaos, Kaos Polo, Kemeja & Blouse, Jaket & Coat Reguler, Outerwear Musim Dingin, Rompi, Sweater & Kardigan, Blazer, Hoodie, Outerwear Lainnya, Jeans, Celana Panjang, Celana Pendek, Rok, Legging, Romper, Jumpsuit & Overall, Dress, Jas & Setelan, Pakaian Anak Perempuan Lainnya, Atasan Lainnya, Bawahan Lainnya",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
   },
   {
     "Kategori": "Fashion Bayi & Anak",
     "Sub Kategori": "Pakaian Bayi",
     "Jenis Produk": "Outerwear Reguler, Outerwear Musim Dingin, Dress, Celana Panjang & Legging, Celana Pendek, Rok, Bawahan Lainnya, Baju Tidur, Atasan, Bodysuit & Jumper, Set, Baju Renang, Pakaian Bayi Lainnya",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
   },
   {
     "Kategori": "Fashion Bayi & Anak",
     "Sub Kategori": "Sepatu Anak Laki-Laki",
     "Jenis Produk": "Sepatu Boot, Sandal, Sepatu Sneaker, Flip Flop, Sepatu Formal, Loafers, Sepatu Anak Laki-Laki Lainnya",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
   },
   {
     "Kategori": "Fashion Bayi & Anak",
     "Sub Kategori": "Sepatu Anak Perempuan",
     "Jenis Produk": "Sepatu Boot, Sandal, Sepatu Sneaker, Loafers, Flip Flop, Flats, Sepatu Anak Perempuan Lainnya",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
   },
   {
     "Kategori": "Fashion Bayi & Anak",
     "Sub Kategori": "Sepatu Bayi",
     "Jenis Produk": "Sepatu Bayi",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
   },
   {
-    "Kategori": "Fashion Muslim",
-    "Sub Kategori": "Fashion Muslim Lainnya",
-    "Jenis Produk": "Fashion Muslim Lainnya",
-    "Star Rate": 8.25,
-    "Mall Rate": 9.95
+    "Kategori": "Fashion Bayi & Anak",
+    "Sub Kategori": "Aksesoris Bayi & Anak",
+    "Jenis Produk": "Gelang, Anting, Kalung, Cincin, Perhiasan Lainnya",
+    "Star Rate": 4.25,
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "B",
+    "GO Biasa": 2.0,
+    "GO Khusus": 3.5
   },
   {
-    "Kategori": "Fashion Muslim",
-    "Sub Kategori": "Mukena & Perlengkapan Sholat",
-    "Jenis Produk": "Set Perlengkapan Sholat, Sajadah, Peci, Songkok & Kopiah, Mukena, Mukena Travel, Mukena & Perlengkapan Sholat Lainnya",
-    "Star Rate": 8.25,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Fashion Muslim",
-    "Sub Kategori": "Outerwear",
-    "Jenis Produk": "Rompi, Jaket, Mantel, Cardigan, Outerwear Lainnya",
-    "Star Rate": 8.25,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Fashion Muslim",
-    "Sub Kategori": "Pakaian Muslim Anak",
-    "Jenis Produk": "Mukena, Hijab, Pakaian & Set Muslim, Pakaian Muslim Anak Perempuan Lainnya, Pakaian Muslim Anak Laki-Laki, Pakaian Muslim Anak Lainnya",
-    "Star Rate": 8.25,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Fashion Muslim",
-    "Sub Kategori": "Pakaian Muslim Pria",
-    "Jenis Produk": "Atasan, Gamis Pria, Celana, Sarung, Baju Melayu, Pakaian Muslim Pria Lainnya",
-    "Star Rate": 8.25,
-    "Mall Rate": 9.95
+    "Kategori": "Fashion Bayi & Anak",
+    "Sub Kategori": "Fashion Bayi & Anak Lainnya",
+    "Jenis Produk": "Fashion Bayi & Anak Lainnya",
+    "Star Rate": 9.0,
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
   },
   {
     "Kategori": "Fashion Muslim",
     "Sub Kategori": "Pakaian Muslim Wanita",
     "Jenis Produk": "Baju Olahraga Muslim, Baju Renang Muslim",
     "Star Rate": 10.0,
-    "Mall Rate": 11.7
+    "Mall Rate": 11.7,
+    "Kategori Gratis Ongkir": "H",
+    "GO Biasa": 8.0,
+    "GO Khusus": 9.5
+  },
+  {
+    "Kategori": "Fashion Muslim",
+    "Sub Kategori": "Mukena & Perlengkapan Sholat",
+    "Jenis Produk": "Set Perlengkapan Sholat, Sajadah, Peci, Songkok & Kopiah, Mukena, Mukena Travel, Mukena & Perlengkapan Sholat Lainnya",
+    "Star Rate": 8.25,
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
+  },
+  {
+    "Kategori": "Fashion Muslim",
+    "Sub Kategori": "Outerwear",
+    "Jenis Produk": "Rompi, Jaket, Mantel, Cardigan, Outerwear Lainnya",
+    "Star Rate": 8.25,
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
+  },
+  {
+    "Kategori": "Fashion Muslim",
+    "Sub Kategori": "Pakaian Muslim Anak",
+    "Jenis Produk": "Mukena, Hijab, Pakaian & Set Muslim, Pakaian Muslim Anak Perempuan Lainnya, Pakaian Muslim Anak Laki-Laki, Pakaian Muslim Anak Lainnya",
+    "Star Rate": 8.25,
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
+  },
+  {
+    "Kategori": "Fashion Muslim",
+    "Sub Kategori": "Pakaian Muslim Pria",
+    "Jenis Produk": "Atasan, Gamis Pria, Celana, Sarung, Baju Melayu, Pakaian Muslim Pria Lainnya",
+    "Star Rate": 8.25,
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
   },
   {
     "Kategori": "Fashion Muslim",
     "Sub Kategori": "Pakaian Muslim Wanita",
     "Jenis Produk": "Khimar, Hijab Instan, Hijab Segi Empat, Pashmina, Ciput, Pin Hijab, Hijab Lainnya, Aksesoris Hijab Lainnya, Kaos Kaki, Handsock, Aksesoris Lainnya, Tunik, Kemeja, Blus, & Inner, Atasan Menyusui, Atasan Muslim Lainnya, Gamis, Abaya, Dress Menyusui, Kaftan, Baju Kelelawar, Baju Kurung, Set Baju Muslim, Jumpsuit, Dress Lainnya, Rok, Celana Panjang, Legging, Celana Palazzo, Bawahan Lainnya, Pakaian Muslim Wanita Lainnya",
     "Star Rate": 8.25,
-    "Mall Rate": 9.95
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
   },
   {
     "Kategori": "Fashion Muslim",
     "Sub Kategori": "Set",
     "Jenis Produk": "Set",
     "Star Rate": 8.25,
-    "Mall Rate": 9.95
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
   },
   {
-    "Kategori": "Gaming & Konsol",
-    "Sub Kategori": "Aksesoris",
-    "Jenis Produk": "Aksesoris Perangkat Wearable, Kipas USB, Stylus, Baterai, Powerbank, Powercase, Powerbank & Baterai Lainnya",
-    "Star Rate": 9.5,
-    "Mall Rate": 10.45
-  },
-  {
-    "Kategori": "Gaming & Konsol",
-    "Sub Kategori": "Aksesoris",
-    "Jenis Produk": "Alat Casting, Kartu Memori",
-    "Star Rate": 9.0,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Gaming & Konsol",
-    "Sub Kategori": "Aksesoris",
-    "Jenis Produk": "Modem, USB & Lampu Handphone",
-    "Star Rate": 6.75,
-    "Mall Rate": 7.7
-  },
-  {
-    "Kategori": "Gaming & Konsol",
-    "Sub Kategori": "Aksesoris",
-    "Jenis Produk": "Tongsis, Tomsis, Flash & Lampu Selfie Handphone, Aksesoris Selfie Lainnya, Lensa Tambahan Handphone, Lazypod, Phone Holder, Tali & Gantungan Handphone, Pouch Handphone, Aksesoris Lainnya, Casing, Penggulung, & Pengikat Kabel, Travel Adaptor, Kabel & Adaptor Handphone, Charger, Charger Docking, Kabel, Charger & Adaptor Lainnya, Casing & Skin Tablet, Casing & Skin Handphone, Pelindung Layar Handphone, Casing & Skin Lainnya, Casing & Skin Earphone",
-    "Star Rate": 10.0,
-    "Mall Rate": 10.95
-  },
-  {
-    "Kategori": "Gaming & Konsol",
-    "Sub Kategori": "Aksesoris Konsol",
-    "Jenis Produk": "Aksesoris Konsol",
-    "Star Rate": 9.0,
-    "Mall Rate": 7.2
-  },
-  {
-    "Kategori": "Gaming & Konsol",
-    "Sub Kategori": "Gaming & Konsol Lainnya",
-    "Jenis Produk": "Gaming & Konsol Lainnya",
-    "Star Rate": 9.0,
-    "Mall Rate": 7.2
-  },
-  {
-    "Kategori": "Gaming & Konsol",
-    "Sub Kategori": "Handphone",
-    "Jenis Produk": "Handphone",
-    "Star Rate": 5.25,
-    "Mall Rate": 6.2
-  },
-  {
-    "Kategori": "Gaming & Konsol",
-    "Sub Kategori": "Handphone & Aksesoris Lainnya",
-    "Jenis Produk": "Handphone & Aksesoris Lainnya",
-    "Star Rate": 10.0,
-    "Mall Rate": 10.95
-  },
-  {
-    "Kategori": "Gaming & Konsol",
-    "Sub Kategori": "Kartu Perdana",
-    "Jenis Produk": "Kartu Perdana",
-    "Star Rate": 9.0,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Gaming & Konsol",
-    "Sub Kategori": "Konsol Game",
-    "Jenis Produk": "Playstation, Xbox, Wii, Nintendo 3DS & DS, Gameboy, Switch, PS Vita, PSP, Konsol Game Lainnya",
-    "Star Rate": 9.5,
-    "Mall Rate": 7.7
-  },
-  {
-    "Kategori": "Gaming & Konsol",
-    "Sub Kategori": "Perangkat Wearable",
-    "Jenis Produk": "Perangkat VR",
-    "Star Rate": 10.0,
-    "Mall Rate": 10.95
-  },
-  {
-    "Kategori": "Gaming & Konsol",
-    "Sub Kategori": "Perangkat Wearable",
-    "Jenis Produk": "Smartwatch & Fitness Tracker, Pelacak GPS, Perangkat Wearable Lainnya",
-    "Star Rate": 9.5,
-    "Mall Rate": 10.45
-  },
-  {
-    "Kategori": "Gaming & Konsol",
-    "Sub Kategori": "Tablet",
-    "Jenis Produk": "Tablet",
-    "Star Rate": 5.25,
-    "Mall Rate": 6.2
-  },
-  {
-    "Kategori": "Gaming & Konsol",
-    "Sub Kategori": "Video Game",
-    "Jenis Produk": "Playstation, Xbox, Wii, Nintendo 3DS & DS, Gameboy, Switch, PS Vita, PSP, Game PC, Video Game Lainnya",
-    "Star Rate": 9.5,
-    "Mall Rate": 7.7
-  },
-  {
-    "Kategori": "Gaming & Konsol",
-    "Sub Kategori": "Walkie Talkie",
-    "Jenis Produk": "Walkie Talkie",
-    "Star Rate": 9.0,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Handphone & Aksesoris",
-    "Sub Kategori": "Aksesoris",
-    "Jenis Produk": "Alat Casting, Kartu Memori",
-    "Star Rate": 6.25,
-    "Mall Rate": 7.2
-  },
-  {
-    "Kategori": "Handphone & Aksesoris",
-    "Sub Kategori": "Aksesoris",
-    "Jenis Produk": "Modem, USB & Lampu Handphone, Aksesoris Perangkat Wearable, Kipas USB, Stylus, Baterai, Powerbank, Powercase, Powerbank & Baterai Lainnya",
-    "Star Rate": 6.75,
-    "Mall Rate": 7.7
-  },
-  {
-    "Kategori": "Handphone & Aksesoris",
-    "Sub Kategori": "Aksesoris",
-    "Jenis Produk": "Tongsis, Tomsis, Flash & Lampu Selfie Handphone, Aksesoris Selfie Lainnya, Lensa Tambahan Handphone, Lazypod, Phone Holder, Tali & Gantungan Handphone, Pouch Handphone, Aksesoris Lainnya, Casing, Penggulung, & Pengikat Kabel, Travel Adaptor, Kabel & Adaptor Handphone, Charger, Charger Docking, Kabel, Charger & Adaptor Lainnya, Casing & Skin Tablet, Casing & Skin Handphone, Pelindung Layar Handphone, Casing & Skin Lainnya, Casing & Skin Earphone",
-    "Star Rate": 9.25,
-    "Mall Rate": 10.2
-  },
-  {
-    "Kategori": "Handphone & Aksesoris",
-    "Sub Kategori": "Handphone",
-    "Jenis Produk": "Handphone",
-    "Star Rate": 3.75,
-    "Mall Rate": 4.7
-  },
-  {
-    "Kategori": "Handphone & Aksesoris",
-    "Sub Kategori": "Handphone & Aksesoris Lainnya",
-    "Jenis Produk": "Handphone & Aksesoris Lainnya",
-    "Star Rate": 9.25,
-    "Mall Rate": 10.2
-  },
-  {
-    "Kategori": "Handphone & Aksesoris",
-    "Sub Kategori": "Kartu Perdana",
-    "Jenis Produk": "Kartu Perdana",
-    "Star Rate": 6.25,
-    "Mall Rate": 7.2
-  },
-  {
-    "Kategori": "Handphone & Aksesoris",
-    "Sub Kategori": "Perangkat Wearable",
-    "Jenis Produk": "Pelacak GPS, Perangkat Wearable Lainnya",
-    "Star Rate": 9.0,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Handphone & Aksesoris",
-    "Sub Kategori": "Perangkat Wearable",
-    "Jenis Produk": "Perangkat VR",
-    "Star Rate": 9.25,
-    "Mall Rate": 10.2
-  },
-  {
-    "Kategori": "Handphone & Aksesoris",
-    "Sub Kategori": "Perangkat Wearable",
-    "Jenis Produk": "Smartwatch & Fitness Tracker",
-    "Star Rate": 6.75,
-    "Mall Rate": 7.7
-  },
-  {
-    "Kategori": "Handphone & Aksesoris",
-    "Sub Kategori": "Tablet",
-    "Jenis Produk": "Tablet",
-    "Star Rate": 3.75,
-    "Mall Rate": 4.7
-  },
-  {
-    "Kategori": "Handphone & Aksesoris",
-    "Sub Kategori": "Walkie Talkie",
-    "Jenis Produk": "Walkie Talkie",
-    "Star Rate": 6.25,
-    "Mall Rate": 7.2
-  },
-  {
-    "Kategori": "Hewan Peliharaan",
-    "Sub Kategori": "Aksesoris Hewan Peliharaan",
-    "Jenis Produk": "Mangkuk & Feeder, Perlengkapan Travelling, Kalung, Tali, Harness & Brangus, Stick & Chaser, Chew, Tulang & Bola, Frisbee, Mainan Anjing & Kucing Lainnya, Mainan Hewan Peliharaan Kecil, Mainan Burung, Mainan Lainnya, Tempat Tidur & Matras, Rumah, Habitat & Aksesoris, Kandang & Crate, Scratching Pad & Post, Kebutuhan Akuarium, Furniture Hewan Lainnya, Aksesoris Hewan Peliharaan Lainnya",
-    "Star Rate": 9.5,
-    "Mall Rate": 7.7
-  },
-  {
-    "Kategori": "Hewan Peliharaan",
-    "Sub Kategori": "Grooming Hewan",
-    "Jenis Produk": "Perawatan Rambut, Perawatan Mulut, Perawatan Kuku, Grooming Hewan Lainnya",
-    "Star Rate": 9.5,
-    "Mall Rate": 7.7
-  },
-  {
-    "Kategori": "Hewan Peliharaan",
-    "Sub Kategori": "Hewan Peliharaan Lainnya",
-    "Jenis Produk": "Hewan Peliharaan Lainnya",
-    "Star Rate": 9.5,
-    "Mall Rate": 7.7
-  },
-  {
-    "Kategori": "Hewan Peliharaan",
-    "Sub Kategori": "Litter & Toilet",
-    "Jenis Produk": "Litter Box Kucing, Tempat Tidur & Litter Hewan Peliharaan Kecil, Popok, Training Pad & Tray Anjing, Plastik & Sekop Kotoran, Litter & Toilet Lainnya",
-    "Star Rate": 9.5,
-    "Mall Rate": 7.7
-  },
-  {
-    "Kategori": "Hewan Peliharaan",
-    "Sub Kategori": "Makanan Hewan",
-    "Jenis Produk": "Makanan Anjing, Cemilan Anjing, Makanan Kucing, Snack Kucing, Makanan Hewan Peliharaan Kecil, Snack Hewan Peliharaan Kecil, Makanan Hewan Air, Pakan Burung, Makanan Reptil, Makanan Hewan Lainnya",
-    "Star Rate": 9.5,
-    "Mall Rate": 7.7
-  },
-  {
-    "Kategori": "Hewan Peliharaan",
-    "Sub Kategori": "Pakaian & Aksesoris Hewan",
-    "Jenis Produk": "Pakaian Hewan, Perlengkapan Hujan, Sepatu Boot, Kaos Kaki & Pelindung Kaki Hewan, Aksesoris Leher, Kacamata, Aksesoris Rambut, Topi, Pakaian & Aksesoris Hewan Lainnya",
-    "Star Rate": 9.5,
-    "Mall Rate": 7.7
-  },
-  {
-    "Kategori": "Hewan Peliharaan",
-    "Sub Kategori": "Perawatan Kesehatan Hewan",
-    "Jenis Produk": "Anti Kutu, Obat, Perawatan Kesehatan Hewan Lainnya, Vitamin & Suplemen",
-    "Star Rate": 9.5,
-    "Mall Rate": 7.7
-  },
-  {
-    "Kategori": "Hobi & Koleksi",
-    "Sub Kategori": "Alat & Aksesoris Musik",
-    "Jenis Produk": "Keyboard & Piano, Alat Musik Perkusi, Alat Musik Tiup, Ukulele, Gitar & Gitar Bass, Aksesoris Musik, Alat & Aksesoris Musik Lainnnya, Alat Musik Petik Lainnya",
-    "Star Rate": 9.5,
-    "Mall Rate": 7.7
-  },
-  {
-    "Kategori": "Hobi & Koleksi",
-    "Sub Kategori": "Album Foto",
-    "Jenis Produk": "Album Foto",
-    "Star Rate": 9.5,
-    "Mall Rate": 7.7
-  },
-  {
-    "Kategori": "Hobi & Koleksi",
-    "Sub Kategori": "CD, DVD & Bluray",
-    "Jenis Produk": "CD, DVD & Bluray",
-    "Star Rate": 9.5,
-    "Mall Rate": 7.7
-  },
-  {
-    "Kategori": "Hobi & Koleksi",
-    "Sub Kategori": "Hobi & Koleksi Lainnya",
-    "Jenis Produk": "Hobi & Koleksi Lainnya",
-    "Star Rate": 9.5,
-    "Mall Rate": 7.7
-  },
-  {
-    "Kategori": "Hobi & Koleksi",
-    "Sub Kategori": "Koleksi",
-    "Jenis Produk": "Action Figure, Patung, Mecha Model & Diecast, Vehicle Model & Diecast, Batu Akik & Alam, Koleksi Penggemar, Koleksi Olahraga, Koleksi Anime & Manga, Koin & Uang Kertas, Koleksi Lainnya",
-    "Star Rate": 9.5,
-    "Mall Rate": 7.7
-  },
-  {
-    "Kategori": "Hobi & Koleksi",
-    "Sub Kategori": "Mainan & Games",
-    "Jenis Produk": "Dadu, Board Game & Mainan Kartu, Mainan Sulap, Mainan Prank, Kubus Rubik, Gangsing, Kendama, Yo-yo, Mainan & Aksesoris Remote Control, Mainan Kapsul, Mainan & Games Lainnya",
-    "Star Rate": 9.5,
-    "Mall Rate": 7.7
-  },
-  {
-    "Kategori": "Hobi & Koleksi",
-    "Sub Kategori": "Perlengkapan Menjahit",
-    "Jenis Produk": "Perlengkapan Menjahit",
-    "Star Rate": 9.5,
-    "Mall Rate": 7.7
-  },
-  {
-    "Kategori": "Hobi & Koleksi",
-    "Sub Kategori": "Piringan Hitam",
-    "Jenis Produk": "Piringan Hitam",
-    "Star Rate": 9.5,
-    "Mall Rate": 7.7
-  },
-  {
-    "Kategori": "Hobi & Koleksi",
-    "Sub Kategori": "Souvenir & Hadiah",
-    "Jenis Produk": "Kipas Tangan, Gantungan Kunci, Celengan, Magnet Kulkas, Souvenir Lainnya",
-    "Star Rate": 9.0,
-    "Mall Rate": 10.45
-  },
-  {
-    "Kategori": "Ibu & Bayi",
-    "Sub Kategori": "Ibu & Bayi Lainnya",
-    "Jenis Produk": "Ibu & Bayi Lainnya",
+    "Kategori": "Fashion Muslim",
+    "Sub Kategori": "Fashion Muslim Lainnya",
+    "Jenis Produk": "Fashion Muslim Lainnya",
     "Star Rate": 8.25,
-    "Mall Rate": 10.2
-  },
-  {
-    "Kategori": "Ibu & Bayi",
-    "Sub Kategori": "Kamar Bayi",
-    "Jenis Produk": "Boks & Matras Tidur Bayi, Ayunan Bayi, Baby Walker, Selimut & Bedong, Bantal & Guling, Sprei, Tempat Penyimpanan, Kamar Bayi Lainnya, Matras & Sprei Lainnya",
-    "Star Rate": 8.25,
-    "Mall Rate": 10.2
-  },
-  {
-    "Kategori": "Ibu & Bayi",
-    "Sub Kategori": "Keamanan Bayi",
-    "Jenis Produk": "Baby Monitor, Kelambu, Bumper, Rail, & Guard, Pelindung Sudut, Pintu & Pagar Bayi, Pengaman Laci & Lemari, Alat Keamanan Bayi Lainnya",
-    "Star Rate": 9.5,
-    "Mall Rate": 10.2
-  },
-  {
-    "Kategori": "Ibu & Bayi",
-    "Sub Kategori": "Kesehatan Bayi",
-    "Jenis Produk": "Perawatan Hidung & Pernafasan, Baby Lotion & Cream, Minyak, Bedak, Perawatan Mulut Bayi, Sun Care Bayi, Kesehatan Bayi Lainnya, Perawatan Kulit Bayi Lainnya",
-    "Star Rate": 8.25,
-    "Mall Rate": 9.2
-  },
-  {
-    "Kategori": "Ibu & Bayi",
-    "Sub Kategori": "Kesehatan Bayi",
-    "Jenis Produk": "Vitamin & Suplemen Bayi",
-    "Star Rate": 6.5,
-    "Mall Rate": 7.45
-  },
-  {
-    "Kategori": "Ibu & Bayi",
-    "Sub Kategori": "Kesehatan Bayi",
-    "Jenis Produk": "Vitamin & Suplemen Bayi, Perawatan Hidung & Pernafasan, Baby Lotion & Cream, Minyak, Bedak, Perawatan Mulut Bayi, Sun Care Bayi, Kesehatan Bayi Lainnya, Perawatan Kulit Bayi Lainnya",
-    "Star Rate": 6.25,
-    "Mall Rate": 7.2
-  },
-  {
-    "Kategori": "Ibu & Bayi",
-    "Sub Kategori": "Kesehatan Kehamilan",
-    "Jenis Produk": "Susu Ibu Hamil, Vitamin & Suplemen Ibu Hamil, Pelembab & Cream, Kesehatan Kehamilan Lainnya",
-    "Star Rate": 9.5,
-    "Mall Rate": 10.2
-  },
-  {
-    "Kategori": "Ibu & Bayi",
-    "Sub Kategori": "Mainan",
-    "Jenis Produk": "Inflatable & Perosotan",
-    "Star Rate": 10.0,
-    "Mall Rate": 11.7
-  },
-  {
-    "Kategori": "Ibu & Bayi",
-    "Sub Kategori": "Mainan",
-    "Jenis Produk": "Mainan & Playmat Bayi, Pagar Mainan Bayi, Mainan Saat Mandi, Crib Mobile & Rattle, Gigitan Bayi, Boneka & Aksesoris, Rumah Boneka & Aksesoris, Mainan Boneka, Mainan Peran, Kendaraan Mainan, Sepeda, Skuter, & Ride-On, Tenda Mainan, Terowongan Mainan, & Ball Pit, Kolam, Pelampung, & Mainan Pasir, Mainan Olahraga, Mainan Terbang, Layang-layang, & Kincir Angin, Pistol Mainan, Mainan Matematika, Mainan Ilmu Pengetahuan Alam & Teknologi, Shape Sorter, Mainan Musik, Mainan Tablet & Komputer, Seni & Kerajinan, Kartu Edukasi Anak, Poster Edukatif, Mainan Robot, Mainan Lainnya, Mainan Bayi & Anak Lainnya, Mainan Outdoor Lainnya, Mainan Edukatif Lainnya, Boneka & Mainan Boneka Lainnya",
-    "Star Rate": 8.25,
-    "Mall Rate": 10.2
-  },
-  {
-    "Kategori": "Ibu & Bayi",
-    "Sub Kategori": "Mainan",
-    "Jenis Produk": "Mainan Balok, Puzzle, Mainan Slime & Squishy",
-    "Star Rate": 9.5,
-    "Mall Rate": 7.7
-  },
-  {
-    "Kategori": "Ibu & Bayi",
-    "Sub Kategori": "Perlengkapan Ibu Hamil",
-    "Jenis Produk": "Penyangga Perut, Bantal Ibu Hamil, Perlengkapan Ibu Hamil Lainnya",
-    "Star Rate": 9.5,
-    "Mall Rate": 10.2
-  },
-  {
-    "Kategori": "Ibu & Bayi",
-    "Sub Kategori": "Perlengkapan Makan Bayi",
-    "Jenis Produk": "Kursi Makan Bayi, Celemek Bayi, Dot Bayi, Food Processor, Gelas Bayi, Peralatan Makan Bayi, Tempat Makan Bayi, Peralatan Makan Lainnya, Perlengkapan Makan Bayi Lainnya, Tas Pendingin Botol Susu, Botol Susu & Aksesoris, Penghangat Botol, Sterilizer, Perlengkapan Botol Susu Lainnya, Pembersih Botol Susu",
-    "Star Rate": 8.25,
-    "Mall Rate": 9.2
-  },
-  {
-    "Kategori": "Ibu & Bayi",
-    "Sub Kategori": "Perlengkapan Makan Bayi",
-    "Jenis Produk": "Kursi Makan Bayi, Celemek Bayi, Dot Bayi, Food Processor, Gelas Bayi, Peralatan Makan Bayi, Tempat Makan Bayi, Peralatan Makan Lainnya, Perlengkapan Makan Bayi Lainnya, Tas Pendingin Botol Susu, Botol Susu & Aksesoris, Penghangat Botol, Sterilizer, Perlengkapan Botol Susu Lainnya, Pompa ASI & Aksesoris, Breast Pad, Shell, & Shield, Apron Menyusui, Kantong ASI, Perlengkapan Menyusui Lainnya",
-    "Star Rate": 9.25,
-    "Mall Rate": 10.2
-  },
-  {
-    "Kategori": "Ibu & Bayi",
-    "Sub Kategori": "Perlengkapan Makan Bayi",
-    "Jenis Produk": "Pembersih Botol Susu",
-    "Star Rate": 9.0,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Ibu & Bayi",
-    "Sub Kategori": "Perlengkapan Makan Bayi",
-    "Jenis Produk": "Pompa ASI & Aksesoris, Breast Pad, Shell, & Shield, Apron Menyusui, Kantong ASI, Perlengkapan Menyusui Lainnya",
-    "Star Rate": 9.5,
-    "Mall Rate": 10.45
-  },
-  {
-    "Kategori": "Ibu & Bayi",
-    "Sub Kategori": "Perlengkapan Mandi",
-    "Jenis Produk": "Alat Perawatan Bayi",
-    "Star Rate": 6.75,
-    "Mall Rate": 7.7
-  },
-  {
-    "Kategori": "Ibu & Bayi",
-    "Sub Kategori": "Perlengkapan Mandi",
-    "Jenis Produk": "Bak Mandi & Dudukan, Jas Mandi, Handuk, & Lap Mandi, Penutup Rambut, Alat & Aksesoris Mandi, Perlengkapan Mandi Lainnya",
-    "Star Rate": 9.25,
-    "Mall Rate": 10.2
-  },
-  {
-    "Kategori": "Ibu & Bayi",
-    "Sub Kategori": "Perlengkapan Mandi",
-    "Jenis Produk": "Perawatan Rambut & Sabun Mandi, Parfum Bayi, Tisu, Detergen Pakaian Bayi",
-    "Star Rate": 6.25,
-    "Mall Rate": 7.2
-  },
-  {
-    "Kategori": "Ibu & Bayi",
-    "Sub Kategori": "Perlengkapan Mandi",
-    "Jenis Produk": "Perawatan Rambut & Sabun Mandi, Parfum Bayi, Tisu, Detergen Pakaian Bayi, Bak Mandi & Dudukan, Jas Mandi, Handuk, & Lap Mandi, Penutup Rambut, Alat & Aksesoris Mandi, Alat Perawatan Bayi, Perlengkapan Mandi Lainnya",
-    "Star Rate": 8.25,
-    "Mall Rate": 9.2
-  },
-  {
-    "Kategori": "Ibu & Bayi",
-    "Sub Kategori": "Perlengkapan Travelling Bayi",
-    "Jenis Produk": "Gendongan Bayi, Stroller & Perlengkapan Travelling, Aksesoris Stroller, Dudukan Mobil & Motor, Aksesoris Dudukan Mobil & Motor, Tas Perlengkapan Bayi, Sabuk Pengaman Anak, Perlengkapan Travelling Bayi Lainnya",
-    "Star Rate": 9.5,
-    "Mall Rate": 10.2
-  },
-  {
-    "Kategori": "Ibu & Bayi",
-    "Sub Kategori": "Popok & Pispot",
-    "Jenis Produk": "Perlak, Pispot, Popok & Pispot Lainnya",
-    "Star Rate": 9.0,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Ibu & Bayi",
-    "Sub Kategori": "Popok & Pispot",
-    "Jenis Produk": "Perlak, Pispot, Popok Sekali Pakai, Popok Kain & Aksesoris, Popok & Pispot Lainnya",
-    "Star Rate": 9.0,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Ibu & Bayi",
-    "Sub Kategori": "Popok & Pispot",
-    "Jenis Produk": "Popok Sekali Pakai, Popok Kain & Aksesoris",
-    "Star Rate": 6.25,
-    "Mall Rate": 7.2
-  },
-  {
-    "Kategori": "Ibu & Bayi",
-    "Sub Kategori": "Set & Paket Hadiah",
-    "Jenis Produk": "Set & Paket Hadiah",
-    "Star Rate": 8.25,
-    "Mall Rate": 10.2
-  },
-  {
-    "Kategori": "Ibu & Bayi",
-    "Sub Kategori": "Susu Formula & Makanan Bayi",
-    "Jenis Produk": "Susu Formula, Bubur & Sereal Bayi, Camilan Bayi, Susu Formula & Makanan Bayi Lainnya",
-    "Star Rate": 6.75,
-    "Mall Rate": 7.7
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
   },
   {
     "Kategori": "Jam Tangan",
     "Sub Kategori": "Aksesoris Jam Tangan",
     "Jenis Produk": "Strap, Alat Servis Jam Tangan, Pengait Jam Tangan, Baterai Jam Tangan, Kotak Jam Tangan, Aksesoris Jam Tangan lainnya",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "H",
+    "GO Biasa": 8.0,
+    "GO Khusus": 9.5
   },
   {
     "Kategori": "Jam Tangan",
     "Sub Kategori": "Jam Tangan Couple",
     "Jenis Produk": "Jam Tangan Couple",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
-  },
-  {
-    "Kategori": "Jam Tangan",
-    "Sub Kategori": "Jam Tangan Lainnya",
-    "Jenis Produk": "Jam Tangan Lainnya",
-    "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "H",
+    "GO Biasa": 8.0,
+    "GO Khusus": 9.5
   },
   {
     "Kategori": "Jam Tangan",
     "Sub Kategori": "Jam Tangan Pria",
     "Jenis Produk": "Jam Tangan Pria",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "H",
+    "GO Biasa": 8.0,
+    "GO Khusus": 9.5
   },
   {
     "Kategori": "Jam Tangan",
     "Sub Kategori": "Jam Tangan Wanita",
     "Jenis Produk": "Jam Tangan Wanita",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "H",
+    "GO Biasa": 8.0,
+    "GO Khusus": 9.5
   },
   {
-    "Kategori": "Kamera & Drone",
-    "Sub Kategori": "Aksesoris Drone",
-    "Jenis Produk": "Aksesoris Drone",
-    "Star Rate": 6.5,
-    "Mall Rate": 7.2
-  },
-  {
-    "Kategori": "Kamera & Drone",
-    "Sub Kategori": "Aksesoris Kamera",
-    "Jenis Produk": "Flash, Flash Trigger, Flash Diffuser, Aksesoris Flash Lainnya, Lighting & Perlengkapan Studio Foto, Roll Film & Kertas Foto, Printer Foto, Tas & Casing Kamera, Charger Baterai, Baterai & Battery Grip, Tripod, Monopod, & Aksesoris, Aksesoris Kamera Lainnya, Gimbal & Stabilizer",
-    "Star Rate": 9.25,
-    "Mall Rate": 10.2
-  },
-  {
-    "Kategori": "Kamera & Drone",
-    "Sub Kategori": "Aksesoris Kamera",
-    "Jenis Produk": "Flash, Flash Trigger, Flash Diffuser, Aksesoris Flash Lainnya, Tas & Casing Kamera",
-    "Star Rate": 6.5,
-    "Mall Rate": 7.45
-  },
-  {
-    "Kategori": "Kamera & Drone",
-    "Sub Kategori": "Aksesoris Kamera",
-    "Jenis Produk": "Lighting & Perlengkapan Studio Foto, Roll Film & Kertas Foto, Printer Foto, Charger Baterai, Baterai & Battery Grip, Tripod, Monopod, & Aksesoris, Aksesoris Kamera Lainnya, Gimbal & Stabilizer",
-    "Star Rate": 9.5,
-    "Mall Rate": 10.45
-  },
-  {
-    "Kategori": "Kamera & Drone",
-    "Sub Kategori": "Aksesoris Lensa",
-    "Jenis Produk": "Mount & Adaptor Lensa, Cap Lensa, Filter Lensa, Hood Lensa, Aksesoris Lensa Lainnya",
-    "Star Rate": 6.5,
-    "Mall Rate": 7.2
-  },
-  {
-    "Kategori": "Kamera & Drone",
-    "Sub Kategori": "Drone",
-    "Jenis Produk": "Drone",
-    "Star Rate": 6.5,
-    "Mall Rate": 7.2
-  },
-  {
-    "Kategori": "Kamera & Drone",
-    "Sub Kategori": "Kamera",
-    "Jenis Produk": "Kamera Pocket, Kamera Mirrorless, Kamera Action, Camcorder, Kamera Instan, Kamera Analog, DSLR, Kamera Lainnya",
-    "Star Rate": 6.5,
-    "Mall Rate": 7.2
-  },
-  {
-    "Kategori": "Kamera & Drone",
-    "Sub Kategori": "Kamera & Drone Lainnya",
-    "Jenis Produk": "Kamera & Drone Lainnya",
-    "Star Rate": 9.5,
-    "Mall Rate": 10.2
-  },
-  {
-    "Kategori": "Kamera & Drone",
-    "Sub Kategori": "Kamera Keamanan",
-    "Jenis Produk": "Kamera CCTV, DVR, Kamera Dummy, Kamera Pengintai, Kamera Keamanan Lainnya",
-    "Star Rate": 9.5,
-    "Mall Rate": 7.7
-  },
-  {
-    "Kategori": "Kamera & Drone",
-    "Sub Kategori": "Lensa",
-    "Jenis Produk": "Lensa",
-    "Star Rate": 6.5,
-    "Mall Rate": 7.2
-  },
-  {
-    "Kategori": "Kamera & Drone",
-    "Sub Kategori": "Perawatan Kamera",
-    "Jenis Produk": "Dry Box & Cabinet, Cleaning Kit, Silica Gel, Blower, Lenspen & Brush, Perawatan Kamera Lainnya",
-    "Star Rate": 9.5,
-    "Mall Rate": 7.7
-  },
-  {
-    "Kategori": "Kesehatan",
-    "Sub Kategori": "Kesehatan Lainnya",
-    "Jenis Produk": "Kesehatan Lainnya",
+    "Kategori": "Jam Tangan",
+    "Sub Kategori": "Jam Tangan Lainnya",
+    "Jenis Produk": "Jam Tangan Lainnya",
     "Star Rate": 9.0,
-    "Mall Rate": 7.2
-  },
-  {
-    "Kategori": "Kesehatan",
-    "Sub Kategori": "Kesehatan Seksual",
-    "Jenis Produk": "Kondom, Pelumas, Penunjang Performa, Kesehatan Seksual Lainnya",
-    "Star Rate": 9.0,
-    "Mall Rate": 7.7
-  },
-  {
-    "Kategori": "Kesehatan",
-    "Sub Kategori": "Obat-obatan & Alat Kesehatan",
-    "Jenis Produk": "Alat Ukur Tekanan Darah, Alat Ukur Gula Darah, Oximeter, Termometer, Alat Tes & Monitor Lainnya, Alat Bantu Jalan, Kursi Roda, Alat Penopang Tubuh, Alat Bantu Dengar, Alat Bantu Cedera & Disabilitas Lainnya, Perawatan Hidung & Pernafasan",
-    "Star Rate": 9.0,
-    "Mall Rate": 7.2
-  },
-  {
-    "Kategori": "Kesehatan",
-    "Sub Kategori": "Obat-obatan & Alat Kesehatan",
-    "Jenis Produk": "Obat Bebas (OTC), Obat Tradisional, Timbangan & Alat Ukur Kadar Lemak, Stetoskop, Obat Pereda Nyeri, Alat Laboratorium, Sarung Tangan & Masker Medis, Alat Medis Lainnya, Plester & Perban, Alat P3K, Salep & Krim, Antiseptik & Disinfektan, P3K Lainnya, Obat Resep",
-    "Star Rate": 9.5,
-    "Mall Rate": 7.7
-  },
-  {
-    "Kategori": "Kesehatan",
-    "Sub Kategori": "Perawatan Diri",
-    "Jenis Produk": "Alat Pijat & Terapi, Popok Dewasa, Perawatan Telinga, Cairan Lensa & Obat Tetes Mata",
-    "Star Rate": 9.5,
-    "Mall Rate": 10.45
-  },
-  {
-    "Kategori": "Kesehatan",
-    "Sub Kategori": "Perawatan Diri",
-    "Jenis Produk": "Alat Pijat & Terapi, Popok Dewasa, Perawatan Telinga, Cairan Lensa & Obat Tetes Mata, Lensa Kontak, Kesehatan Mata Lainnya",
-    "Star Rate": 6.75,
-    "Mall Rate": 7.7
-  },
-  {
-    "Kategori": "Kesehatan",
-    "Sub Kategori": "Perawatan Diri",
-    "Jenis Produk": "Anti Nyamuk & Serangga, Sikat Gigi, Sikat Gigi Elektrik, Pasta Gigi, Dental Floss, Obat Kumur, Perawatan Gigi Palsu, Pemutih Gigi, Alat Ortodontik, Kesehatan Mulut Lainnya, Menstrual Cup, Pembersih Kewanitaan, Cream Kewanitaan, Kewanitaan Lainnya, Perawatan Diri Lainnya",
-    "Star Rate": 6.25,
-    "Mall Rate": 7.2
-  },
-  {
-    "Kategori": "Kesehatan",
-    "Sub Kategori": "Perawatan Diri",
-    "Jenis Produk": "Anti Nyamuk & Serangga, Sikat Gigi, Sikat Gigi Elektrik, Pasta Gigi, Dental Floss, Obat Kumur, Perawatan Gigi Palsu, Pemutih Gigi, Alat Ortodontik, Kesehatan Mulut Lainnya, Pembalut & Panty Liner, Tampon, Tes Kehamilan & Kesuburan, Menstrual Cup, Pembersih Kewanitaan, Cream Kewanitaan, Kewanitaan Lainnya, Perawatan Diri Lainnya, Lensa Kontak, Kesehatan Mata Lainnya",
-    "Star Rate": 9.0,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Kesehatan",
-    "Sub Kategori": "Perawatan Diri",
-    "Jenis Produk": "Hand Sanitizer",
-    "Star Rate": 10.0,
-    "Mall Rate": 10.2
-  },
-  {
-    "Kategori": "Kesehatan",
-    "Sub Kategori": "Perawatan Diri",
-    "Jenis Produk": "Pembalut & Panty Liner, Tampon, Tes Kehamilan & Kesuburan",
-    "Star Rate": 9.0,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Kesehatan",
-    "Sub Kategori": "Suplemen Makanan",
-    "Jenis Produk": "Diet & Detoks, Suplemen Kecantikan, Kebugaran, Kesejahteraan, Suplemen Makanan Lainnya",
-    "Star Rate": 9.0,
-    "Mall Rate": 7.2
-  },
-  {
-    "Kategori": "Komputer & Aksesoris",
-    "Sub Kategori": "Aksesoris Desktop & Laptop",
-    "Jenis Produk": "Mouse Pad",
-    "Star Rate": 6.25,
-    "Mall Rate": 7.2
-  },
-  {
-    "Kategori": "Komputer & Aksesoris",
-    "Sub Kategori": "Aksesoris Desktop & Laptop",
-    "Jenis Produk": "USB HUB & Card Reader, Webcam, Pelindung Laptop & Skin Laptop, Cooling Pad, Meja & Stand Laptop, Pelindung Keyboard & Trackpad, Baterai Laptop, Charger & Adaptor Laptop, Perangkat Video Conference, Aksesoris Desktop & Laptop Lainnya",
-    "Star Rate": 9.25,
-    "Mall Rate": 10.2
-  },
-  {
-    "Kategori": "Komputer & Aksesoris",
-    "Sub Kategori": "Aksesoris Desktop & Laptop",
-    "Jenis Produk": "USB HUB & Card Reader, Webcam, Pelindung Laptop & Skin Laptop, Cooling Pad, Meja & Stand Laptop, Pelindung Keyboard & Trackpad, Baterai Laptop, Charger & Adaptor Laptop, Perangkat Video Conference, Aksesoris Desktop & Laptop Lainnya, Mouse Pad",
-    "Star Rate": 6.75,
-    "Mall Rate": 7.7
-  },
-  {
-    "Kategori": "Komputer & Aksesoris",
-    "Sub Kategori": "Desktop",
-    "Jenis Produk": "PC Desktop, PC Mini, Server PC, All-in-One Desktop, Desktop Lainnya",
-    "Star Rate": 5.25,
-    "Mall Rate": 4.2
-  },
-  {
-    "Kategori": "Komputer & Aksesoris",
-    "Sub Kategori": "Keyboard & Mouse",
-    "Jenis Produk": "Mouse, Keyboard, Drawing Tablet, Keyboard & Mouse Lainnya",
-    "Star Rate": 6.75,
-    "Mall Rate": 7.2
-  },
-  {
-    "Kategori": "Komputer & Aksesoris",
-    "Sub Kategori": "Komponen Desktop & Laptop",
-    "Jenis Produk": "Fan & Heatsink, Processor, Motherboard, VGA Card, Thermal Paste, Power Supply, Memory RAM, UPS & Stabilizer, Casing Komputer, Optical Drive, Komponen Desktop & Laptop Lainnya",
-    "Star Rate": 5.25,
-    "Mall Rate": 4.2
-  },
-  {
-    "Kategori": "Komputer & Aksesoris",
-    "Sub Kategori": "Komponen Desktop & Laptop",
-    "Jenis Produk": "Sound Card",
-    "Star Rate": 6.5,
-    "Mall Rate": 4.7
-  },
-  {
-    "Kategori": "Komputer & Aksesoris",
-    "Sub Kategori": "Komponen Network",
-    "Jenis Produk": "Modem & Router Wireless, Repeater, Wireless Adapter & Kartu Network, Powerline Adapter, Switch Internet & PoE, Kabel Network & Konektor, KVM Switch, Print Server, Komponen Network Lainnya",
-    "Star Rate": 6.75,
-    "Mall Rate": 7.7
-  },
-  {
-    "Kategori": "Komputer & Aksesoris",
-    "Sub Kategori": "Komputer & Aksesoris Lainnya",
-    "Jenis Produk": "Komputer & Aksesoris Lainnya",
-    "Star Rate": 6.75,
-    "Mall Rate": 10.2
-  },
-  {
-    "Kategori": "Komputer & Aksesoris",
-    "Sub Kategori": "Laptop",
-    "Jenis Produk": "Laptop",
-    "Star Rate": 5.25,
-    "Mall Rate": 4.2
-  },
-  {
-    "Kategori": "Komputer & Aksesoris",
-    "Sub Kategori": "Monitor",
-    "Jenis Produk": "Monitor",
-    "Star Rate": 5.25,
-    "Mall Rate": 4.2
-  },
-  {
-    "Kategori": "Komputer & Aksesoris",
-    "Sub Kategori": "Penyimpanan Data",
-    "Jenis Produk": "SSD, Hard Disk, Network Attached Storage (NAS), Flashdisk & Flashdisk OTG, Casing Hard Disk & Docking, Compact Disc (CD), Penyimpanan Data Lainnya",
-    "Star Rate": 5.25,
-    "Mall Rate": 4.2
-  },
-  {
-    "Kategori": "Komputer & Aksesoris",
-    "Sub Kategori": "Peralatan Kantor",
-    "Jenis Produk": "Mesin Ketik, Mesin Absensi, Penghancur Kertas, Penghitung Uang, Peralatan Kantor Lainnya",
-    "Star Rate": 5.25,
-    "Mall Rate": 4.2
-  },
-  {
-    "Kategori": "Komputer & Aksesoris",
-    "Sub Kategori": "Printer & Scanner",
-    "Jenis Produk": "Printer, Scanner & Mesin Fotokopi, Printer Thermal & Barcode, Tinta Printer, 3D Printer, Printer & Scanner Lainnya",
-    "Star Rate": 5.25,
-    "Mall Rate": 4.2
-  },
-  {
-    "Kategori": "Komputer & Aksesoris",
-    "Sub Kategori": "Software",
-    "Jenis Produk": "Software",
-    "Star Rate": 6.75,
-    "Mall Rate": 10.2
-  },
-  {
-    "Kategori": "Koper & Tas Travel",
-    "Sub Kategori": "Aksesoris Travel",
-    "Jenis Produk": "Passport Cover, Organizer Travel, Pelindung & Sarung Koper, Tag Koper, Strap Koper, Gembok Koper, Timbangan Koper, Bantal Leher & Penutup Mata, Botol & Wadah Isi Ulang, Aksesoris Travel Lainnya",
-    "Star Rate": 9.0,
-    "Mall Rate": 10.2
-  },
-  {
-    "Kategori": "Koper & Tas Travel",
-    "Sub Kategori": "Koper",
-    "Jenis Produk": "Koper",
-    "Star Rate": 9.0,
-    "Mall Rate": 10.2
-  },
-  {
-    "Kategori": "Koper & Tas Travel",
-    "Sub Kategori": "Koper & Tas Travel Lainnya",
-    "Jenis Produk": "Koper & Tas Travel Lainnya",
-    "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "H",
+    "GO Biasa": 8.0,
+    "GO Khusus": 9.5
   },
   {
     "Kategori": "Koper & Tas Travel",
     "Sub Kategori": "Tas Travel",
     "Jenis Produk": "Tas Duffel",
     "Star Rate": 10.0,
-    "Mall Rate": 11.7
+    "Mall Rate": 11.7,
+    "Kategori Gratis Ongkir": "H",
+    "GO Biasa": 8.0,
+    "GO Khusus": 9.5
+  },
+  {
+    "Kategori": "Koper & Tas Travel",
+    "Sub Kategori": "Aksesoris Travel",
+    "Jenis Produk": "Passport Cover, Organizer Travel, Pelindung & Sarung Koper, Tag Koper, Strap Koper, Gembok Koper, Timbangan Koper, Bantal Leher & Penutup Mata, Botol & Wadah Isi Ulang, Aksesoris Travel Lainnya",
+    "Star Rate": 9.0,
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
+  },
+  {
+    "Kategori": "Koper & Tas Travel",
+    "Sub Kategori": "Koper",
+    "Jenis Produk": "Koper",
+    "Star Rate": 9.0,
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
   },
   {
     "Kategori": "Koper & Tas Travel",
     "Sub Kategori": "Tas Travel",
     "Jenis Produk": "Tas Serut, Tas Lipat, Tas Travel Lainnya",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
   },
   {
-    "Kategori": "Makanan & Minuman",
-    "Sub Kategori": "Bahan Baking",
-    "Jenis Produk": "Tepung Premix Instan, Tepung, Penyedap Kue, Baking Powder & Soda Kue, Bahan Baking Lainnya, Pewarna Makanan, Bahan Dekorasi Kue",
-    "Star Rate": 6.75,
-    "Mall Rate": 6.2
-  },
-  {
-    "Kategori": "Makanan & Minuman",
-    "Sub Kategori": "Bahan Pokok",
-    "Jenis Produk": "Biji-bijian & Kacang-kacangan, Seafood Kering, Makanan Herbal & Tradisional, Mie, Beras, Pasta, Acar Sayuran, Makanan Kering Lainnya, Bahan Pokok Lainnya",
-    "Star Rate": 6.75,
-    "Mall Rate": 6.2
-  },
-  {
-    "Kategori": "Makanan & Minuman",
-    "Sub Kategori": "Bahan Pokok",
-    "Jenis Produk": "Buah Kaleng, Daging Kaleng, Seafood Kaleng, Sayur Kaleng, Sup Kaleng, Makanan Kaleng Lainnya",
-    "Star Rate": 9.5,
-    "Mall Rate": 10.2
-  },
-  {
-    "Kategori": "Makanan & Minuman",
-    "Sub Kategori": "Kebutuhan Memasak",
-    "Jenis Produk": "Kaldu, Saus, & Sup Instan, Bumbu Masak Instan",
-    "Star Rate": 6.25,
-    "Mall Rate": 7.2
-  },
-  {
-    "Kategori": "Makanan & Minuman",
-    "Sub Kategori": "Kebutuhan Memasak",
-    "Jenis Produk": "Minyak, Lada, Garam, Rempah-rempah, Kecap & Saus Lainnya, Dressing, Saus Cabai & Sambal, Cuka, Anggur Masak, Gula, Pemanis, Penambah Rasa, Tepung Bumbu, Bumbu Masak Lainnya, Kebutuhan Memasak Lainnya",
-    "Star Rate": 5.25,
-    "Mall Rate": 6.2
-  },
-  {
-    "Kategori": "Makanan & Minuman",
-    "Sub Kategori": "Kebutuhan Memasak",
-    "Jenis Produk": "Minyak, Lada, Garam, Rempah-rempah, Kecap & Saus Lainnya, Dressing, Saus Cabai & Sambal, Cuka, Anggur Masak, Gula, Pemanis, Penambah Rasa, Tepung Bumbu, Bumbu Masak Lainnya, Kebutuhan Memasak Lainnya, Kaldu, Saus, & Sup Instan, Bumbu Masak Instan",
-    "Star Rate": 6.75,
-    "Mall Rate": 7.7
-  },
-  {
-    "Kategori": "Makanan & Minuman",
-    "Sub Kategori": "Makanan & Minuman Lainnya",
-    "Jenis Produk": "Makanan & Minuman Lainnya",
-    "Star Rate": 9.5,
-    "Mall Rate": 10.2
-  },
-  {
-    "Kategori": "Makanan & Minuman",
-    "Sub Kategori": "Makanan Instan",
-    "Jenis Produk": "Makanan Siap Saji, Nasi & Bubur Instan, Hotpot Instan, Mie & Pasta Instan, Makanan Instan Lainnya",
+    "Kategori": "Koper & Tas Travel",
+    "Sub Kategori": "Koper & Tas Travel Lainnya",
+    "Jenis Produk": "Koper & Tas Travel Lainnya",
     "Star Rate": 9.0,
-    "Mall Rate": 7.2
-  },
-  {
-    "Kategori": "Makanan & Minuman",
-    "Sub Kategori": "Makanan Ringan",
-    "Jenis Produk": "Biskuit, Kue, & Wafer, Keripik & Kerupuk, Biji-bijian, Popcorn, Rumput Laut, Kacang, Puding, Jeli, & Marshmallow, Dendeng, Buah Kering, Snack Seafood, Makanan Ringan Kering Lainnya, Abon, Makanan Ringan Lainnya",
-    "Star Rate": 10.0,
-    "Mall Rate": 10.95
-  },
-  {
-    "Kategori": "Makanan & Minuman",
-    "Sub Kategori": "Makanan Ringan",
-    "Jenis Produk": "Permen, Cokelat",
-    "Star Rate": 9.5,
-    "Mall Rate": 10.45
-  },
-  {
-    "Kategori": "Makanan & Minuman",
-    "Sub Kategori": "Makanan Ringan",
-    "Jenis Produk": "Permen, Cokelat, Biskuit, Kue, & Wafer, Keripik & Kerupuk, Biji-bijian, Popcorn, Rumput Laut, Kacang, Puding, Jeli, & Marshmallow, Dendeng, Buah Kering, Snack Seafood, Makanan Ringan Kering Lainnya, Abon, Makanan Ringan Lainnya",
-    "Star Rate": 9.25,
-    "Mall Rate": 10.2
-  },
-  {
-    "Kategori": "Makanan & Minuman",
-    "Sub Kategori": "Makanan Segar & Beku",
-    "Jenis Produk": "Daging Sapi, Daging Ayam, Daging Babi, Daging Kambing, Ikan, Udang, Kepiting, Daging Vegetarian, Kol & Kubis, Rempah Segar, Sayuran Daun, Terong & Labu, Brokoli & Kembang Kol, Cabai & Paprika, Bawang & Jahe, Kacang-kacangan & Jagung, Umbi-umbian & Sayuran Batang, Kecambah, Sayuran Salad, Sayur Potong & Paket Aneka Sayur, Sayuran Lainnya, Apel & Pir, Pisang, Buah Beri, Jeruk, Lemon & Limau, Anggur, Melon & Semangka, Buah Berbiji Tengah (Alpukat, Kurma, Ceri, dll), Buah Tropis & Eksotis, Buah Potong & Paket Aneka Buah, Buah Lainnya, Jamur, Makanan Beku Olahan, Daging & Seafood Beku, Daging Lainnya, Makanan Segar & Beku Lainnya, Seafood Lainnya",
-    "Star Rate": 6.75,
-    "Mall Rate": 7.7
-  },
-  {
-    "Kategori": "Makanan & Minuman",
-    "Sub Kategori": "Makanan Segar & Beku",
-    "Jenis Produk": "Daging Sapi, Daging Ayam, Daging Babi, Daging Kambing, Ikan, Udang, Kepiting, Kol & Kubis, Rempah Segar, Sayuran Daun, Terong & Labu, Brokoli & Kembang Kol, Cabai & Paprika, Bawang & Jahe, Kacang-kacangan & Jagung, Umbi-umbian & Sayuran Batang, Kecambah, Sayuran Salad, Sayur Potong & Paket Aneka Sayur, Sayuran Lainnya, Apel & Pir, Pisang, Buah Beri, Jeruk, Lemon & Limau, Anggur, Melon & Semangka, Buah Berbiji Tengah (Alpukat, Kurma, Ceri, dll), Buah Tropis & Eksotis, Buah Potong & Paket Aneka Buah, Buah Lainnya, Jamur, Daging Lainnya, Seafood Lainnya",
-    "Star Rate": 5.25,
-    "Mall Rate": 6.2
-  },
-  {
-    "Kategori": "Makanan & Minuman",
-    "Sub Kategori": "Makanan Segar & Beku",
-    "Jenis Produk": "Daging Vegetarian, Makanan Beku Olahan, Daging & Seafood Beku, Makanan Segar & Beku Lainnya",
-    "Star Rate": 9.0,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Makanan & Minuman",
-    "Sub Kategori": "Menu Sarapan",
-    "Jenis Produk": "Madu & Olesan, Selai & Olesan, Sereal, Granola, & Oat, Bar Sereal, Menu Sarapan Lainnya",
-    "Star Rate": 6.75,
-    "Mall Rate": 10.2
-  },
-  {
-    "Kategori": "Makanan & Minuman",
-    "Sub Kategori": "Minuman",
-    "Jenis Produk": "Kopi, Teh, Minuman Cokelat, Minuman Energi & Isotonik, Air Mineral, Jus & Sirup, Cordial & Sirup, Minuman Bersoda, Minuman Bubuk Instan, Minuman Pencuci Mulut, Minuman Tradisional & Herbal, Topping Minuman, Susu Non-Dairy, Minuman Lainnya",
-    "Star Rate": 9.5,
-    "Mall Rate": 10.2
-  },
-  {
-    "Kategori": "Makanan & Minuman",
-    "Sub Kategori": "Minuman Alkohol",
-    "Jenis Produk": "Bir & Cider, Wine & Champagne, Liquor & Spirits, Sake, Soju, & Umeshu, Minuman Alkohol Lainnya",
-    "Star Rate": 9.5,
-    "Mall Rate": 10.2
-  },
-  {
-    "Kategori": "Makanan & Minuman",
-    "Sub Kategori": "Roti & Kue",
-    "Jenis Produk": "Roti, Kue & Pie, Pastry, Roti & Kue Lainnya",
-    "Star Rate": 9.0,
-    "Mall Rate": 10.2
-  },
-  {
-    "Kategori": "Makanan & Minuman",
-    "Sub Kategori": "Set Hadiah & Hampers",
-    "Jenis Produk": "Set Hadiah & Hampers",
-    "Star Rate": 9.5,
-    "Mall Rate": 10.2
-  },
-  {
-    "Kategori": "Makanan & Minuman",
-    "Sub Kategori": "Susu & Olahan",
-    "Jenis Produk": "Es Krim",
-    "Star Rate": 6.75,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Makanan & Minuman",
-    "Sub Kategori": "Susu & Olahan",
-    "Jenis Produk": "Susu Segar, Susu UHT, Susu Kental Manis & Evaporasi, Susu Bubuk, Yoghurt, Krimer, Mentega & Margarin, Keju, Susu & Olahan Lainnya, Susu Lainnya",
-    "Star Rate": 9.25,
-    "Mall Rate": 10.2
-  },
-  {
-    "Kategori": "Makanan & Minuman",
-    "Sub Kategori": "Susu & Olahan",
-    "Jenis Produk": "Susu Segar, Susu UHT, Susu Kental Manis & Evaporasi, Susu Bubuk, Yoghurt, Krimer, Mentega & Margarin, Keju, Tahu, Susu & Olahan Lainnya, Susu Lainnya",
-    "Star Rate": 8.25,
-    "Mall Rate": 9.2
-  },
-  {
-    "Kategori": "Makanan & Minuman",
-    "Sub Kategori": "Susu & Olahan",
-    "Jenis Produk": "Tahu",
-    "Star Rate": 6.25,
-    "Mall Rate": 7.2
-  },
-  {
-    "Kategori": "Makanan & Minuman",
-    "Sub Kategori": "Susu & Olahan",
-    "Jenis Produk": "Telur",
-    "Star Rate": 6.5,
-    "Mall Rate": 6.2
-  },
-  {
-    "Kategori": "Mobil",
-    "Sub Kategori": "Aksesoris Eksterior Mobil",
-    "Jenis Produk": "Hiasan Mobil, Antena Mobil, Sarung Mobil, Stiker, Logo, & Emblem Mobil, Karpet Lumpur, Sill Plate Mobil, Talang Air, Klakson & Aksesoris, Spion & Aksesoris, Aksesoris Plat Nomor Mobil, Aksesoris Eksterior Mobil Lainnya",
-    "Star Rate": 8.25,
-    "Mall Rate": 10.45
-  },
-  {
-    "Kategori": "Mobil",
-    "Sub Kategori": "Aksesoris Interior Mobil",
-    "Jenis Produk": "Navigasi & AV Receiver, Amplifier, Speaker, & Subwoofer, Organizer & Kompartemen Mobil, Parfum Mobil, Karpet Mobil, Penyangga Leher & Punggung, Matras Mobil, Setir & Sarung Setir Mobil, Jok & Sarung Jok Mobil, Holder Handphone, Pengisi Daya USB & Bluetooth Transmitter, Pedal & Stik Persneling, Sunshield & Pelindung Dashboard, Kunci Stir, Kamera Parkir, HUD, Speedometer, & Gauge, Aksesoris Interior Mobil Lainnya",
-    "Star Rate": 8.25,
-    "Mall Rate": 10.45
-  },
-  {
-    "Kategori": "Mobil",
-    "Sub Kategori": "Gantungan & Sarung Kunci Kendaraan",
-    "Jenis Produk": "Gantungan & Sarung Kunci Kendaraan",
-    "Star Rate": 8.25,
-    "Mall Rate": 10.45
-  },
-  {
-    "Kategori": "Mobil",
-    "Sub Kategori": "Mobil",
-    "Jenis Produk": "Mobil",
-    "Star Rate": 2.5,
-    "Mall Rate": 2.5
-  },
-  {
-    "Kategori": "Mobil",
-    "Sub Kategori": "Mobil Lainnya",
-    "Jenis Produk": "Mobil Lainnya",
-    "Star Rate": 8.25,
-    "Mall Rate": 10.45
-  },
-  {
-    "Kategori": "Mobil",
-    "Sub Kategori": "Oli & Pelumas Kendaraan",
-    "Jenis Produk": "Oli, Aditif & Penghemat Bahan Bakar, Gemuk & Pelumas, Coolant, Pelumas Rem, Pelumas Transmisi, Perawatan Kendaraan Lainnya, Cairan Otomotif Lainnya",
-    "Star Rate": 9.0,
-    "Mall Rate": 10.45
-  },
-  {
-    "Kategori": "Mobil",
-    "Sub Kategori": "Perawatan Kendaraan",
-    "Jenis Produk": "Sabun Cuci & Wax, Pembersih Kaca & Anti-Air, Perawatan Interior, Perawatan Ban & Velg, Poles, Coating, & Sealant Mobil, Perawatan Kendaraan Lainnya",
-    "Star Rate": 8.25,
-    "Mall Rate": 10.45
-  },
-  {
-    "Kategori": "Mobil",
-    "Sub Kategori": "Perkakas & Perlengkapan Kendaraan",
-    "Jenis Produk": "Peralatan Uji, Diagnosa, & Servis, Pengukur Tekanan Udara Ban, Perkakas & Perlengkapan Kendaraan Lainnya",
-    "Star Rate": 8.25,
-    "Mall Rate": 10.45
-  },
-  {
-    "Kategori": "Mobil",
-    "Sub Kategori": "Suku Cadang Mobil",
-    "Jenis Produk": "Bodi, Rangka, & Bemper Mobil, Wiper & Penyemprot Wiper Mobil, Knalpot Mobil, Roda, Velg, & Aksesoris, Ban Mobil & Aksesoris, Shock, Strutbar, & Suspensi Mobil, Radiator & Sistem Pendingin Mobil, Rantai, Transmisi, & Kopling, Bearing Roda & Seal Mobil, Piston Mobil, Filter Udara, Filter Oli, Sistem Pengereman Mobil, Fan Belt, Selang, & Pulley Mobil, Kumparan Pengapian, Busi, Aki & Aksesoris, Lampu Mobil, Sistem Bahan Bakar, Suku Cadang Mobil Lainnya, Suku Cadang Mesin Lainnya, Kelistrikan Lainnya, Pengapian Lainnya",
-    "Star Rate": 9.5,
-    "Mall Rate": 10.45
-  },
-  {
-    "Kategori": "Olahraga & Outdoor",
-    "Sub Kategori": "Aksesoris Olahraga & Aktivitas Outdoor",
-    "Jenis Produk": "Jas Hujan",
-    "Star Rate": 8.25,
-    "Mall Rate": 10.45
-  },
-  {
-    "Kategori": "Olahraga & Outdoor",
-    "Sub Kategori": "Aksesoris Olahraga & Aktivitas Outdoor",
-    "Jenis Produk": "Payung, Pelindung Mulut & Sport Tape, Stopwatch & Pedometer, Tas Sepatu, Gelang Olahraga, Ikat Kepala Olahraga, Topi Olahraga & Aktivitas Outdoor, Tas Anti Air, Alat Training, Alat Pelindung Gym, Aksesoris Olahraga & Aktivitas Outdoor Lainnya",
-    "Star Rate": 10.0,
-    "Mall Rate": 11.7
-  },
-  {
-    "Kategori": "Olahraga & Outdoor",
-    "Sub Kategori": "Alat Rekreasi Olahraga & Aktivitas Outdoor",
-    "Jenis Produk": "Sepeda, Komponen & Aksesoris Sepeda, Helm Sepeda, Bersepeda Lainnya, Alat Masak Camping, Lampu & Senter Camping, Aksesoris Tenda, Sleeping Bag, Teropong, Monokuler, & Teleskop, Kompas, Pisau Camping & Peralatan Survival, Tempat Tidur Gantung, Tongkat Hiking, Matras & Keranjang Piknik, Camping & Hiking Lainnya, Panjat Tebing, Busur Panah, Anak Panah, Panahan Lainnya, Bola Kaki, Sarung Tangan & Deker, Tiang Gawang & Net, Sepak Bola, Futsal, & Sepak Takraw Lainnya, Bola Basket, Ring Basket, Basket Lainnya, Bola Voli, Net Voli, Voli Lainnya, Raket Bulu Tangkis, Kok Bulu Tangkis, Net Bulu Tangkis, Bulu Tangkis Lainnya, Raket Tenis, Bola Tenis, Net Tenis, Tenis Lainnya, Bola Tenis Meja, Bet Tenis Meja, Net Tenis Meja, Tenis Meja Lainnya, Samsak & Bantalan Tinju, Sabuk Bela Diri, Sarung Tangan, Hand Wrap, & Helm, Tinju & Bela Diri Lainnya, Bola Golf, Stik Golf, Alat Pelindung & Training, Tas Golf, Golf Lainnya, Baseball & Softball, Squash, Rugbi, Billiard, Selancar & Wakeboard, Ice Skating & Olahraga Musim Dingin, Topi Renang, Kacamata Renang, Papan Pelampung, Senter Diving, Masker Diving, Kaki Katak, Jaket Pelampung, Diving & Renang Lainnya, Boating, Matras Yoga, Balok, Ring, & Foam Roller Yoga, Resistance Band, Yoga & Pilates Lainnya, Latihan Beban, Tali Skipping, Bola Gym, Alat Fitness, Ab Roller, Pull Up & Push Up Bar, Fitness Lainnya, Dart, Alat Rekreasi Olahraga & Aktivitas Outdoor Lainnya, Kail Pancing, Joran & Gulungan Pancing, Alat Pelacak Ikan, Senar Pancing, Umpan Pancing, Tas Pancing, Jaring Ikan, Alat Pancing Lainnya, Skateboard & Sepatu Roda, Skuter & Sepeda Roda Satu, Segway & Hoverboard, Helm & Alat Pelindung, Boardsport Lainnya, Piringan Pemutar Pinggang, Alat Olahraga Otot Tangan",
-    "Star Rate": 10.0,
-    "Mall Rate": 11.7
-  },
-  {
-    "Kategori": "Olahraga & Outdoor",
-    "Sub Kategori": "Olahraga & Outdoor Lainnya",
-    "Jenis Produk": "Olahraga & Outdoor Lainnya",
-    "Star Rate": 10.0,
-    "Mall Rate": 11.7
-  },
-  {
-    "Kategori": "Olahraga & Outdoor",
-    "Sub Kategori": "Pakaian Olahraga & Aktivitas Outdoor",
-    "Jenis Produk": "Jaket Olahraga, Set Pakaian Olahraga & Aktivitas Outdoor, Atasan Olahraga, Jersey, Bawahan Olahraga, Celana Renang Pria, Bikini, Baju Renang Wanita, Rash Guard, Pakaian Renang Lainnya, Sports Bra, Pakaian Olahraga Anak, Pakaian Olahraga & Aktivitas Outdoor Lainnya",
-    "Star Rate": 10.0,
-    "Mall Rate": 11.7
-  },
-  {
-    "Kategori": "Olahraga & Outdoor",
-    "Sub Kategori": "Sepatu Olahraga",
-    "Jenis Produk": "Sepatu Basket, Sepatu Lari, Sepatu Training, Sepatu Tenis, Sepatu Voli, Sepatu Bulu Tangkis, Sepatu Futsal, Sepatu Hiking, Sepatu Sepak Bola, Sepatu Olahraga Anak, Sepatu Olahraga Lainnya",
-    "Star Rate": 10.0,
-    "Mall Rate": 11.7
-  },
-  {
-    "Kategori": "Pakaian Pria",
-    "Sub Kategori": "Atasan",
-    "Jenis Produk": "Kemeja, Kaos Polo, Kaos, Tanktop, Atasan Lainnya",
-    "Star Rate": 8.25,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Pakaian Pria",
-    "Sub Kategori": "Celana Panjang",
-    "Jenis Produk": "Celana Panjang, Celana Panjang Lainnya, Cargo, Jogger",
-    "Star Rate": 8.25,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Pakaian Pria",
-    "Sub Kategori": "Celana Panjang Jeans",
-    "Jenis Produk": "Celana Panjang Jeans",
-    "Star Rate": 8.25,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Pakaian Pria",
-    "Sub Kategori": "Celana Pendek",
-    "Jenis Produk": "Celana Pendek",
-    "Star Rate": 8.25,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Pakaian Pria",
-    "Sub Kategori": "Hoodie & Sweatshirt",
-    "Jenis Produk": "Hoodie, Sweatshirt, Hoodie & Sweatshirt Lainnya",
-    "Star Rate": 8.25,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Pakaian Pria",
-    "Sub Kategori": "Jaket, Mantel, & Rompi",
-    "Jenis Produk": "Jaket, Rompi, Jaket & Mantel Musim Dingin, Jaket, Mantel, & Rompi Lainnya",
-    "Star Rate": 8.25,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Pakaian Pria",
-    "Sub Kategori": "Jas Formal",
-    "Jenis Produk": "Set Jas Formal, Jas & Blazer Formal, Celana Formal, Rompi Formal, Jas Formal Lainnya",
-    "Star Rate": 8.25,
-    "Mall Rate": 9.95
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
   },
   {
     "Kategori": "Pakaian Pria",
     "Sub Kategori": "Kaos Kaki",
     "Jenis Produk": "Kaos Kaki",
     "Star Rate": 10.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "F",
+    "GO Biasa": 6.5,
+    "GO Khusus": 8.0
+  },
+  {
+    "Kategori": "Pakaian Pria",
+    "Sub Kategori": "Atasan",
+    "Jenis Produk": "Kemeja, Kaos Polo, Kaos, Tanktop, Atasan Lainnya",
+    "Star Rate": 8.25,
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "F",
+    "GO Biasa": 6.5,
+    "GO Khusus": 8.0
+  },
+  {
+    "Kategori": "Pakaian Pria",
+    "Sub Kategori": "Celana Panjang",
+    "Jenis Produk": "Celana Panjang, Celana Panjang Lainnya, Cargo, Jogger",
+    "Star Rate": 8.25,
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "F",
+    "GO Biasa": 6.5,
+    "GO Khusus": 8.0
+  },
+  {
+    "Kategori": "Pakaian Pria",
+    "Sub Kategori": "Celana Panjang Jeans",
+    "Jenis Produk": "Celana Panjang Jeans",
+    "Star Rate": 8.25,
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "F",
+    "GO Biasa": 6.5,
+    "GO Khusus": 8.0
+  },
+  {
+    "Kategori": "Pakaian Pria",
+    "Sub Kategori": "Celana Pendek",
+    "Jenis Produk": "Celana Pendek",
+    "Star Rate": 8.25,
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "F",
+    "GO Biasa": 6.5,
+    "GO Khusus": 8.0
+  },
+  {
+    "Kategori": "Pakaian Pria",
+    "Sub Kategori": "Hoodie & Sweatshirt",
+    "Jenis Produk": "Hoodie, Sweatshirt, Hoodie & Sweatshirt Lainnya",
+    "Star Rate": 8.25,
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "F",
+    "GO Biasa": 6.5,
+    "GO Khusus": 8.0
+  },
+  {
+    "Kategori": "Pakaian Pria",
+    "Sub Kategori": "Jaket, Mantel, & Rompi",
+    "Jenis Produk": "Jaket, Rompi, Jaket & Mantel Musim Dingin, Jaket, Mantel, & Rompi Lainnya",
+    "Star Rate": 8.25,
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "F",
+    "GO Biasa": 6.5,
+    "GO Khusus": 8.0
+  },
+  {
+    "Kategori": "Pakaian Pria",
+    "Sub Kategori": "Jas Formal",
+    "Jenis Produk": "Set Jas Formal, Jas & Blazer Formal, Celana Formal, Rompi Formal, Jas Formal Lainnya",
+    "Star Rate": 8.25,
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "F",
+    "GO Biasa": 6.5,
+    "GO Khusus": 8.0
   },
   {
     "Kategori": "Pakaian Pria",
     "Sub Kategori": "Kostum",
     "Jenis Produk": "Kostum",
     "Star Rate": 8.25,
-    "Mall Rate": 9.95
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "F",
+    "GO Biasa": 6.5,
+    "GO Khusus": 8.0
   },
   {
     "Kategori": "Pakaian Pria",
     "Sub Kategori": "Pakaian Dalam",
     "Jenis Produk": "Celana Dalam, Kaos Dalam, Pakaian Dalam Termal, Pakaian Dalam Lainnya",
     "Star Rate": 8.25,
-    "Mall Rate": 9.95
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "F",
+    "GO Biasa": 6.5,
+    "GO Khusus": 8.0
   },
   {
     "Kategori": "Pakaian Pria",
     "Sub Kategori": "Pakaian Kerja",
     "Jenis Produk": "Pakaian Kerja",
     "Star Rate": 8.25,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Pakaian Pria",
-    "Sub Kategori": "Pakaian Pria Lainnya",
-    "Jenis Produk": "Pakaian Pria Lainnya",
-    "Star Rate": 8.25,
-    "Mall Rate": 9.95
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "F",
+    "GO Biasa": 6.5,
+    "GO Khusus": 8.0
   },
   {
     "Kategori": "Pakaian Pria",
     "Sub Kategori": "Pakaian Tidur",
     "Jenis Produk": "Pakaian Tidur",
     "Star Rate": 8.25,
-    "Mall Rate": 9.95
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "F",
+    "GO Biasa": 6.5,
+    "GO Khusus": 8.0
   },
   {
     "Kategori": "Pakaian Pria",
     "Sub Kategori": "Pakaian Tradisional",
     "Jenis Produk": "Atasan Tradisional, Bawahan Tradisional, Set Pakaian Tradisional, Pakaian Tradisional Lainnya",
     "Star Rate": 8.25,
-    "Mall Rate": 9.95
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "F",
+    "GO Biasa": 6.5,
+    "GO Khusus": 8.0
   },
   {
     "Kategori": "Pakaian Pria",
     "Sub Kategori": "Set Pakaian Pria",
     "Jenis Produk": "Set Pakaian Pria",
     "Star Rate": 8.25,
-    "Mall Rate": 9.95
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "F",
+    "GO Biasa": 6.5,
+    "GO Khusus": 8.0
   },
   {
     "Kategori": "Pakaian Pria",
     "Sub Kategori": "Sweater & Cardigan",
     "Jenis Produk": "Sweater & Cardigan",
     "Star Rate": 8.25,
-    "Mall Rate": 9.95
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "F",
+    "GO Biasa": 6.5,
+    "GO Khusus": 8.0
   },
   {
-    "Kategori": "Pakaian Wanita",
-    "Sub Kategori": "Atasan",
-    "Jenis Produk": "Tanktop & Kamisol, Kemben, Kaos, Kemeja & Blouse, Kaus Polo, Bodysuit, Atasan Lainnya",
+    "Kategori": "Pakaian Pria",
+    "Sub Kategori": "Pakaian Pria Lainnya",
+    "Jenis Produk": "Pakaian Pria Lainnya",
     "Star Rate": 8.25,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Pakaian Wanita",
-    "Sub Kategori": "Baju Hamil",
-    "Jenis Produk": "Bra Menyusui, Dress Hamil, Atasan Hamil, Baju Menyusui, Set Baju Hamil, Celana Hamil, Baju Hamil Lainnya",
-    "Star Rate": 8.25,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Pakaian Wanita",
-    "Sub Kategori": "Celana Jeans",
-    "Jenis Produk": "Celana Jeans",
-    "Star Rate": 8.25,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Pakaian Wanita",
-    "Sub Kategori": "Celana Panjang & Legging",
-    "Jenis Produk": "Legging & Tregging, Celana Panjang, Celana Panjang & Legging Lainnya",
-    "Star Rate": 8.25,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Pakaian Wanita",
-    "Sub Kategori": "Celana Pendek",
-    "Jenis Produk": "Celana Pendek, Rok Celana, Celana Pendek Lainnya",
-    "Star Rate": 8.25,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Pakaian Wanita",
-    "Sub Kategori": "Dress",
-    "Jenis Produk": "Dress",
-    "Star Rate": 8.25,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Pakaian Wanita",
-    "Sub Kategori": "Hoodie & Sweatshirt",
-    "Jenis Produk": "Sweatshirt, Hoodie, Hoodie & Sweatshirt Lainnya",
-    "Star Rate": 8.25,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Pakaian Wanita",
-    "Sub Kategori": "Jaket, Mantel, & Rompi",
-    "Jenis Produk": "Jaket & Mantel Musim Dingin, Cape, Blazer, Jaket, Rompi, Jaket, Mantel, & Rompi Lainnya",
-    "Star Rate": 8.25,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Pakaian Wanita",
-    "Sub Kategori": "Jumpsuit, Playsuit, & Overall",
-    "Jenis Produk": "Jumpsuit, Playsuit, Overall, Jumpsuit, Playsuit, & Overall Lainnya",
-    "Star Rate": 8.25,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Pakaian Wanita",
-    "Sub Kategori": "Kain",
-    "Jenis Produk": "Batik, Kebaya, Katun, Wol, Beludru, Sutra, & Satin, Kulit, Vinil & Nilon, Denim, Kanvas, Songket, Kain Lainnya",
-    "Star Rate": 8.25,
-    "Mall Rate": 9.95
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "F",
+    "GO Biasa": 6.5,
+    "GO Khusus": 8.0
   },
   {
     "Kategori": "Pakaian Wanita",
     "Sub Kategori": "Kaos Kaki & Stocking",
     "Jenis Produk": "Kaos Kaki",
     "Star Rate": 10.0,
-    "Mall Rate": 10.95
-  },
-  {
-    "Kategori": "Pakaian Wanita",
-    "Sub Kategori": "Kaos Kaki & Stocking",
-    "Jenis Produk": "Kaos Kaki, Stocking, Kaos Kaki & Stocking Lainnya",
-    "Star Rate": 9.25,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "F",
+    "GO Biasa": 6.5,
+    "GO Khusus": 8.0
   },
   {
     "Kategori": "Pakaian Wanita",
     "Sub Kategori": "Kaos Kaki & Stocking",
     "Jenis Produk": "Stocking, Kaos Kaki & Stocking Lainnya",
     "Star Rate": 9.0,
-    "Mall Rate": 9.95
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "F",
+    "GO Biasa": 6.5,
+    "GO Khusus": 8.0
+  },
+  {
+    "Kategori": "Pakaian Wanita",
+    "Sub Kategori": "Atasan",
+    "Jenis Produk": "Tanktop & Kamisol, Kemben, Kaos, Kemeja & Blouse, Kaus Polo, Bodysuit, Atasan Lainnya",
+    "Star Rate": 8.25,
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
+  },
+  {
+    "Kategori": "Pakaian Wanita",
+    "Sub Kategori": "Baju Hamil",
+    "Jenis Produk": "Bra Menyusui, Dress Hamil, Atasan Hamil, Baju Menyusui, Set Baju Hamil, Celana Hamil, Baju Hamil Lainnya",
+    "Star Rate": 8.25,
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
+  },
+  {
+    "Kategori": "Pakaian Wanita",
+    "Sub Kategori": "Celana Jeans",
+    "Jenis Produk": "Celana Jeans",
+    "Star Rate": 8.25,
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
+  },
+  {
+    "Kategori": "Pakaian Wanita",
+    "Sub Kategori": "Celana Panjang & Legging",
+    "Jenis Produk": "Legging & Tregging, Celana Panjang, Celana Panjang & Legging Lainnya",
+    "Star Rate": 8.25,
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
+  },
+  {
+    "Kategori": "Pakaian Wanita",
+    "Sub Kategori": "Celana Pendek",
+    "Jenis Produk": "Celana Pendek, Rok Celana, Celana Pendek Lainnya",
+    "Star Rate": 8.25,
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
+  },
+  {
+    "Kategori": "Pakaian Wanita",
+    "Sub Kategori": "Dress",
+    "Jenis Produk": "Dress",
+    "Star Rate": 8.25,
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
+  },
+  {
+    "Kategori": "Pakaian Wanita",
+    "Sub Kategori": "Hoodie & Sweatshirt",
+    "Jenis Produk": "Sweatshirt, Hoodie, Hoodie & Sweatshirt Lainnya",
+    "Star Rate": 8.25,
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
+  },
+  {
+    "Kategori": "Pakaian Wanita",
+    "Sub Kategori": "Jaket, Mantel, & Rompi",
+    "Jenis Produk": "Jaket & Mantel Musim Dingin, Cape, Blazer, Jaket, Rompi, Jaket, Mantel, & Rompi Lainnya",
+    "Star Rate": 8.25,
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
+  },
+  {
+    "Kategori": "Pakaian Wanita",
+    "Sub Kategori": "Jumpsuit, Playsuit, & Overall",
+    "Jenis Produk": "Jumpsuit, Playsuit, Overall, Jumpsuit, Playsuit, & Overall Lainnya",
+    "Star Rate": 8.25,
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
+  },
+  {
+    "Kategori": "Pakaian Wanita",
+    "Sub Kategori": "Kain",
+    "Jenis Produk": "Batik, Kebaya, Katun, Wol, Beludru, Sutra, & Satin, Kulit, Vinil & Nilon, Denim, Kanvas, Songket, Kain Lainnya",
+    "Star Rate": 8.25,
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
   },
   {
     "Kategori": "Pakaian Wanita",
     "Sub Kategori": "Kostum",
     "Jenis Produk": "Kostum",
     "Star Rate": 8.25,
-    "Mall Rate": 9.95
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
   },
   {
     "Kategori": "Pakaian Wanita",
     "Sub Kategori": "Pakaian Dalam",
     "Jenis Produk": "Set Pakaian Dalam, Bra, Celana Dalam, Pakaian Dalam Termal, Strap, Padding, Stiker Nipple, Aksesoris Bra Lainnya, Korset, Celana Stretch, Sexy Lingerie, Pakaian Dalam Lainnya",
     "Star Rate": 8.25,
-    "Mall Rate": 9.95
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
   },
   {
     "Kategori": "Pakaian Wanita",
     "Sub Kategori": "Pakaian Tidur & Piyama",
     "Jenis Produk": "Piyama, Daster, Kimono, Pakaian Tidur & Piyama Lainnya",
     "Star Rate": 8.25,
-    "Mall Rate": 9.95
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
   },
   {
     "Kategori": "Pakaian Wanita",
     "Sub Kategori": "Pakaian Tradisional",
     "Jenis Produk": "Atasan Tradisional, Bawahan Tradisional, Set Pakaian Tradisional, Dress Tradisional, Pakaian Tradisional Lainnya",
     "Star Rate": 8.25,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Pakaian Wanita",
-    "Sub Kategori": "Pakaian Wanita Lainnya",
-    "Jenis Produk": "Pakaian Wanita Lainnya",
-    "Star Rate": 8.25,
-    "Mall Rate": 9.95
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
   },
   {
     "Kategori": "Pakaian Wanita",
     "Sub Kategori": "Rok",
     "Jenis Produk": "Rok",
     "Star Rate": 8.25,
-    "Mall Rate": 9.95
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
   },
   {
     "Kategori": "Pakaian Wanita",
     "Sub Kategori": "Set",
     "Jenis Produk": "Set Pakaian Couple, Set Pakaian Keluarga, Set Wanita, Set Lainnya",
     "Star Rate": 8.25,
-    "Mall Rate": 9.95
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
   },
   {
     "Kategori": "Pakaian Wanita",
     "Sub Kategori": "Sweater & Cardigan",
     "Jenis Produk": "Sweater & Cardigan",
     "Star Rate": 8.25,
-    "Mall Rate": 9.95
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
   },
   {
     "Kategori": "Pakaian Wanita",
     "Sub Kategori": "Wedding Dress",
     "Jenis Produk": "Wedding Dress",
     "Star Rate": 8.25,
-    "Mall Rate": 9.95
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
   },
   {
-    "Kategori": "Perawatan & Kecantikan",
-    "Sub Kategori": "Alat Kecantikan",
-    "Jenis Produk": "Aksesoris Make Up Lainnya, Kapas, Tas Make Up, Kaca / Cermin, Pembersih Make Up Brush, Make Up Brush, Make Up Sponge & Applicator, Penjepit Bulu Mata, Eyebrow Template, Bulu Mata Palsu, Skot Mata, Rautan, Facial Steamer, Alat Pelangsing & Pijat Wajah, Alat Pembersih Wajah, Alat Perawatan Wajah Lainnya, Alat Pelangsing Tubuh, Alat Penghilang Bulu Rambut, Sisir, Hair Dryer, Peralatan Styling Rambut, Alat Styling Heatless, Alat Rambut Lainnya, Alat Kecantikan Lainnya",
+    "Kategori": "Pakaian Wanita",
+    "Sub Kategori": "Pakaian Wanita Lainnya",
+    "Jenis Produk": "Pakaian Wanita Lainnya",
     "Star Rate": 8.25,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Perawatan & Kecantikan",
-    "Sub Kategori": "Kosmetik",
-    "Jenis Produk": "Make Up Base & Primer, Foundation, BB & CC Cream, Bedak, Concealer & Corrector, Bronzer, Contour & Highlighter, Setting & Finishing Spray, Blush, Kosmetik Wajah Lainnya, Eyeshadow, Primer Mata, Eyeliner, Maskara, Eyebrow, Kosmetik Mata Lainnya, Lipstik, Lip Gloss, Lip Liner, Lip Tint, Lip Plumper, Kosmetik Bibir Lainnya, Pembersih Make Up, Kosmetik Lainnya",
-    "Star Rate": 8.25,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Perawatan & Kecantikan",
-    "Sub Kategori": "Paket & Set Kecantikan",
-    "Jenis Produk": "Paket & Set Kecantikan",
-    "Star Rate": 8.25,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Perawatan & Kecantikan",
-    "Sub Kategori": "Parfum & Wewangian",
-    "Jenis Produk": "Parfum & Wewangian",
-    "Star Rate": 8.25,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Perawatan & Kecantikan",
-    "Sub Kategori": "Perawatan & Kecantikan Lainnya",
-    "Jenis Produk": "Perawatan & Kecantikan Lainnya",
-    "Star Rate": 8.25,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Perawatan & Kecantikan",
-    "Sub Kategori": "Perawatan Pria",
-    "Jenis Produk": "Perawatan Tubuh, Pembersih Wajah, Pelembab & Treatment, Perawatan Setelah Bercukur, Cream, Foam & Gel, Pisau Cukur, Alat Cukur, Sikat Cukur, Trimmers, Gunting & Groomer Multi-fungsi, Aksesoris Cukur, Perawatan Rambut, Perawatan Pria Lainnya, Perawatan Wajah Lainnya, Shaving & Grooming Lainnya",
-    "Star Rate": 8.25,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Perawatan & Kecantikan",
-    "Sub Kategori": "Perawatan Rambut",
-    "Jenis Produk": "Shampo, Pewarna Rambut, Treatment Rambut, Kondisioner Rambut dan Kulit Kepala, Hair Styling, Perawatan Rambut Lainnya",
-    "Star Rate": 8.25,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Perawatan & Kecantikan",
-    "Sub Kategori": "Perawatan Tangan, Kaki & Kuku",
-    "Jenis Produk": "Masker Tangan, Lotion, Cream & Scrub, Sabun Cuci Tangan, Perawatan Tangan Lainnya, Deodoran Kaki, Masker Kaki, Lotion, Cream & Scrub, Perawatan Kaki Lainnya, Base & Top Coat, Cat Kuku, Pembersih Cat Kuku, Treatment Kuku, Kuku Palsu, Nail Art & Sticker, Alat & Mesin Manicure, Perawatan Kuku Lainnya, Perawatan Tangan, Kaki & Kuku Lainnya",
-    "Star Rate": 8.25,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Perawatan & Kecantikan",
-    "Sub Kategori": "Perawatan Tubuh",
-    "Jenis Produk": "Sabun Mandi, Scrub & Peel Tubuh, Masker Tubuh, Minyak Tubuh, Body Cream, Body Lotion & Body Butter, Deodoran, Minyak Pijat, Cream & Wax Penghilang Bulu Rambut, Sunscreen & Aftersun Tubuh, Tanning Oil & Self Tanners, Perawatan Payudara, Perawatan Tubuh Lainnya, Sun Care Lainnya",
-    "Star Rate": 8.25,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Perawatan & Kecantikan",
-    "Sub Kategori": "Perawatan Wajah",
-    "Jenis Produk": "Pembersih Wajah, Toner, Pelembab Wajah, Minyak Wajah, Facial Mist, Serum & Essence Wajah, Scrub & Peel Wajah, Masker Wajah, Sunscreen Wajah, Perawatan Wajah After Sun, Kertas Minyak, Treatment Jerawat, Perawatan Wajah Lainnya, Cream Mata, Masker Mata, Serum Alis & Bulu Mata, Treatment Mata Lainnya, Pelembab Bibir, Scrub & Exfoliator Bibir, Masker Bibir, Treatment Bibir Lainnya",
-    "Star Rate": 8.25,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Perlengkapan Rumah",
-    "Sub Kategori": "Alat Pengaman",
-    "Jenis Produk": "Brankas, Pemadam Api, Perangkat Pintu & Gembok, Alat Pengaman Lainnya",
-    "Star Rate": 10.0,
-    "Mall Rate": 11.7
-  },
-  {
-    "Kategori": "Perlengkapan Rumah",
-    "Sub Kategori": "Alat Pertukangan & Renovasi Rumah",
-    "Jenis Produk": "Perekat & Tape, Sarung Tangan, Kacamata, & Masker Pelindung, Bak Cuci Piring & Kran Air, Atap & Lantai, Cat & Pelapis Dinding, Pompa Air & Aksesoris, Pompa Udara & Aksesoris, Tangga, Troli, Tenda & Terpal, Material Konstruksi, Pintu & Jendela, Alat Pemeliharaan Rumah Lainnya, Tool Box, Kunci Set, Palu, Tang, Paku, Sekrup, & Fastener, Amplas, Mesin Amplas, & Aksesoris, Meteran, Meteran Jalan, Bor, Obeng & Aksesoris, Gergaji, Mesin Pemotong, & Gerinda, Pressure Washer, Power Generator, Electrical Tester & Multimeter, Pengukur Jarak, Kompresor Udara, Perlengkapan Las, Blower, Perkakas Lainnya",
-    "Star Rate": 10.0,
-    "Mall Rate": 11.7
-  },
-  {
-    "Kategori": "Perlengkapan Rumah",
-    "Sub Kategori": "Dekorasi",
-    "Jenis Produk": "Bunga",
-    "Star Rate": 9.0,
-    "Mall Rate": 10.45
-  },
-  {
-    "Kategori": "Perlengkapan Rumah",
-    "Sub Kategori": "Dekorasi",
-    "Jenis Produk": "Tirai & Tirai Gulung, Bingkai Foto & Pajangan Dinding, Wallpaper & Stiker Dinding, Jam Dinding, Keset, Karpet & Tikar, Vas & Bejana, Lilin & Tempat Lilin, Cermin, Taplak Meja, Dekorasi Lainnya, Furniture & Pelindung Furniture",
-    "Star Rate": 10.0,
-    "Mall Rate": 11.7
-  },
-  {
-    "Kategori": "Perlengkapan Rumah",
-    "Sub Kategori": "Furniture",
-    "Jenis Produk": "Bantal Sofa, Penahan Pintu, Rangka & Sandaran Tempat Tidur, Lemari Pakaian, Sofa, Lemari & Kabinet, Rak & Rak Gantung, Meja & Meja Tulis, Furniture Lainnya",
-    "Star Rate": 10.0,
-    "Mall Rate": 11.7
-  },
-  {
-    "Kategori": "Perlengkapan Rumah",
-    "Sub Kategori": "Furniture",
-    "Jenis Produk": "Kursi & Bangku",
-    "Star Rate": 9.0,
-    "Mall Rate": 7.2
-  },
-  {
-    "Kategori": "Perlengkapan Rumah",
-    "Sub Kategori": "Kamar Mandi",
-    "Jenis Produk": "Kloset & Alas Dudukan Kloset, Tempat Sikat Gigi & Dispenser Odol, Dispenser, Tempat, & Kotak Sabun, Rak & Kabinet Kamar Mandi, Bak Mandi & Bathtub, Handuk Mandi, Handuk Wajah & Lap Tangan, Handuk Kimono, Handuk Mandi & Kimono Lainnya, Kepala Shower & Spray Bidet, Sikat & Spons Badan, Tirai Shower, Tempat Duduk Mandi & Pispot, Pegangan Kamar Mandi, Shower Cap, Kamar Mandi Lainnya",
-    "Star Rate": 10.0,
-    "Mall Rate": 11.7
-  },
-  {
-    "Kategori": "Perlengkapan Rumah",
-    "Sub Kategori": "Kamar Tidur",
-    "Jenis Produk": "Matras Pendingin, Pelindung Matras, Selimut, Bantal, Sprei, Sarung Bantal, & Sarung Guling, Matras, Kelambu, Guling, Kamar Tidur Lainnya",
-    "Star Rate": 10.0,
-    "Mall Rate": 11.7
-  },
-  {
-    "Kategori": "Perlengkapan Rumah",
-    "Sub Kategori": "Lampu",
-    "Jenis Produk": "Lampu",
-    "Star Rate": 9.5,
-    "Mall Rate": 7.7
-  },
-  {
-    "Kategori": "Perlengkapan Rumah",
-    "Sub Kategori": "Organizer Rumah",
-    "Jenis Produk": "Gantungan, Box, Tas, & Keranjang Penyimpanan, Box Penyimpanan Sepatu, Pengait, Tas & Keranjang Laundry, Organizer Meja, Organizer Lemari Pakaian, Organizer Perhiasan, Tempat Tisu, Organizer Rumah Lainnya",
-    "Star Rate": 10.0,
-    "Mall Rate": 11.7
-  },
-  {
-    "Kategori": "Perlengkapan Rumah",
-    "Sub Kategori": "Penghangat Tangan & Kantong Kompres",
-    "Jenis Produk": "Penghangat Tangan & Kantong Kompres",
-    "Star Rate": 10.0,
-    "Mall Rate": 11.7
-  },
-  {
-    "Kategori": "Perlengkapan Rumah",
-    "Sub Kategori": "Pengharum Ruangan & Aromaterapi",
-    "Jenis Produk": "Diffuser, Humidifier, & Oil Burner, Pengharum Ruangan & Aromaterapi Lainnya",
-    "Star Rate": 10.0,
-    "Mall Rate": 10.95
-  },
-  {
-    "Kategori": "Perlengkapan Rumah",
-    "Sub Kategori": "Pengharum Ruangan & Aromaterapi",
-    "Jenis Produk": "Diffuser, Humidifier, & Oil Burner, Pengharum Ruangan & Aromaterapi Lainnya, Pengharum Ruangan",
-    "Star Rate": 10.75,
-    "Mall Rate": 11.7
-  },
-  {
-    "Kategori": "Perlengkapan Rumah",
-    "Sub Kategori": "Pengharum Ruangan & Aromaterapi",
-    "Jenis Produk": "Minyak Esensial",
-    "Star Rate": 6.25,
-    "Mall Rate": 7.2
-  },
-  {
-    "Kategori": "Perlengkapan Rumah",
-    "Sub Kategori": "Pengharum Ruangan & Aromaterapi",
-    "Jenis Produk": "Minyak Esensial, Pengharum Ruangan",
-    "Star Rate": 9.0,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Perlengkapan Rumah",
-    "Sub Kategori": "Peralatan Makan",
-    "Jenis Produk": "Jug, Pitcher, & Aksesoris, Kantong & Set Teh, Cangkir, Mug, & Gelas, Botol Minum & Aksesoris, Mangkuk, Piring, Alat Makan, Sedotan, Tudung Saji & Penutup Makanan, Tatakan Piring & Gelas, Peralatan Makan Lainnya",
-    "Star Rate": 10.0,
-    "Mall Rate": 11.7
-  },
-  {
-    "Kategori": "Perlengkapan Rumah",
-    "Sub Kategori": "Perawatan Rumah",
-    "Jenis Produk": "Pembasmi Hama & Gulma, Tisu & Tisu Kertas, Tisu Toilet, Pembersih, Pengharum Pakaian, Conditioner & Pelembut Pakaian, Detergen, Perawatan Rumah Lainnya, Perawatan Pakaian Lainnya",
-    "Star Rate": 9.0,
-    "Mall Rate": 9.95
-  },
-  {
-    "Kategori": "Perlengkapan Rumah",
-    "Sub Kategori": "Perawatan Rumah",
-    "Jenis Produk": "Tali Jemuran & Rak Pengering, Sikat Pembersih, Sapu, Kemoceng, Kain Pel, Basin, Ember, & Gayung Air, Spons & Scouring Pad, Tempat Sampah, Kantong Plastik & Kantong Sampah, Lap",
-    "Star Rate": 10.0,
-    "Mall Rate": 10.95
-  },
-  {
-    "Kategori": "Perlengkapan Rumah",
-    "Sub Kategori": "Perawatan Rumah",
-    "Jenis Produk": "Tali Jemuran & Rak Pengering, Sikat Pembersih, Sapu, Kemoceng, Kain Pel, Basin, Ember, & Gayung Air, Spons & Scouring Pad, Tempat Sampah, Kantong Plastik & Kantong Sampah, Lap, Pembasmi Hama & Gulma, Tisu & Tisu Kertas, Tisu Toilet, Pembersih, Pengharum Pakaian, Conditioner & Pelembut Pakaian, Detergen, Perawatan Rumah Lainnya, Perawatan Pakaian Lainnya",
-    "Star Rate": 10.75,
-    "Mall Rate": 11.7
-  },
-  {
-    "Kategori": "Perlengkapan Rumah",
-    "Sub Kategori": "Perlengkapan Dapur",
-    "Jenis Produk": "Sealer",
-    "Star Rate": 6.5,
-    "Mall Rate": 7.2
-  },
-  {
-    "Kategori": "Perlengkapan Rumah",
-    "Sub Kategori": "Perlengkapan Dapur",
-    "Jenis Produk": "Tempat Penyimpanan Makanan, Cling Wrap, Aluminium Foil, Peralatan Teh, Kopi, & Bartending, Rak Dapur, Celemek & Pelindung Tangan, Pembuka Tutup Kaleng & Botol, Korek Api & Pemantik, Timbangan Dapur, Perlengkapan Dapur Lainnya, Alat & Aksesoris Pemanggang, Alat & Dekorasi Baking, Penggorengan, Panci, Spatula & Capitan, Talenan, Pengocok Telur, Gelas & Sendok Takar, Saringan, Parutan & Peeler, Pisau & Gunting Dapur",
-    "Star Rate": 10.0,
-    "Mall Rate": 11.7
-  },
-  {
-    "Kategori": "Perlengkapan Rumah",
-    "Sub Kategori": "Perlengkapan Keagamaan",
-    "Jenis Produk": "Perlengkapan Keagamaan",
-    "Star Rate": 10.0,
-    "Mall Rate": 11.7
-  },
-  {
-    "Kategori": "Perlengkapan Rumah",
-    "Sub Kategori": "Perlengkapan Pesta",
-    "Jenis Produk": "Balon, Wooden Clip, Backdrop & Spanduk, Kartu Ucapan, Peralatan Makan Sekali Pakai, Topi & Topeng Pesta, Selempang/Sash, Perlengkapan Pesta Lainnya",
-    "Star Rate": 9.0,
-    "Mall Rate": 10.45
-  },
-  {
-    "Kategori": "Perlengkapan Rumah",
-    "Sub Kategori": "Perlengkapan Rumah Lainnya",
-    "Jenis Produk": "Perlengkapan Rumah Lainnya",
-    "Star Rate": 10.0,
-    "Mall Rate": 11.7
-  },
-  {
-    "Kategori": "Perlengkapan Rumah",
-    "Sub Kategori": "Taman",
-    "Jenis Produk": "Tanaman, Dekorasi Taman, Tanah & Media Tanam, Pupuk, Bibit & Umbi, Pot & Planter, Sistem Pengairan, Peralatan Berkebun, Taman Lainnya, Mesin Pemotong Rumput",
-    "Star Rate": 10.0,
-    "Mall Rate": 11.7
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
   },
   {
     "Kategori": "Sepatu Pria",
     "Sub Kategori": "Aksesoris & Perawatan Sepatu",
     "Jenis Produk": "Alat Perawatan & Pembersih Sepatu, Parfum Sepatu, Shoe Tree & Horns, Insole Sepatu, Aksesoris & Perawatan Sepatu Lainnya, Tali Sepatu",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "F",
+    "GO Biasa": 6.5,
+    "GO Khusus": 8.0
   },
   {
     "Kategori": "Sepatu Pria",
     "Sub Kategori": "Boot",
     "Jenis Produk": "Boot Fashion, Sepatu Boot Hujan, Safety Boot, Boot Lainnya",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "F",
+    "GO Biasa": 6.5,
+    "GO Khusus": 8.0
   },
   {
     "Kategori": "Sepatu Pria",
     "Sub Kategori": "Loafer",
     "Jenis Produk": "Loafer",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "F",
+    "GO Biasa": 6.5,
+    "GO Khusus": 8.0
   },
   {
     "Kategori": "Sepatu Pria",
     "Sub Kategori": "Oxford",
     "Jenis Produk": "Oxford",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "F",
+    "GO Biasa": 6.5,
+    "GO Khusus": 8.0
   },
   {
     "Kategori": "Sepatu Pria",
     "Sub Kategori": "Sandal",
     "Jenis Produk": "Sandal Jepit, Sandal Slide, Sandal Rumah, Sandal Kesehatan, Sandal Lainnya",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
-  },
-  {
-    "Kategori": "Sepatu Pria",
-    "Sub Kategori": "Sepatu Pria Lainnya",
-    "Jenis Produk": "Sepatu Pria Lainnya",
-    "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "F",
+    "GO Biasa": 6.5,
+    "GO Khusus": 8.0
   },
   {
     "Kategori": "Sepatu Pria",
     "Sub Kategori": "Slip-On & Mules",
     "Jenis Produk": "Slip-On & Mules",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "F",
+    "GO Biasa": 6.5,
+    "GO Khusus": 8.0
   },
   {
     "Kategori": "Sepatu Pria",
     "Sub Kategori": "Sneakers",
     "Jenis Produk": "Sneakers",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "F",
+    "GO Biasa": 6.5,
+    "GO Khusus": 8.0
+  },
+  {
+    "Kategori": "Sepatu Pria",
+    "Sub Kategori": "Sepatu Pria Lainnya",
+    "Jenis Produk": "Sepatu Pria Lainnya",
+    "Star Rate": 9.0,
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "F",
+    "GO Biasa": 6.5,
+    "GO Khusus": 8.0
   },
   {
     "Kategori": "Sepatu Wanita",
     "Sub Kategori": "Aksesoris & Perawatan Sepatu",
     "Jenis Produk": "Parfum Sepatu, Sol Dalam Sepatu, Shoe Tree & Horns, Perawatan Sepatu, Tali Sepatu, Aksesoris & Perawatan Sepatu Lainnya",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "F",
+    "GO Biasa": 6.5,
+    "GO Khusus": 8.0
   },
   {
     "Kategori": "Sepatu Wanita",
     "Sub Kategori": "Boots",
     "Jenis Produk": "Sepatu Boot Hujan, Sepatu Boot Fashion, Boots Lainnya",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "F",
+    "GO Biasa": 6.5,
+    "GO Khusus": 8.0
   },
   {
     "Kategori": "Sepatu Wanita",
     "Sub Kategori": "Heels",
     "Jenis Produk": "Heels",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "F",
+    "GO Biasa": 6.5,
+    "GO Khusus": 8.0
   },
   {
     "Kategori": "Sepatu Wanita",
     "Sub Kategori": "Sandal Jepit & Sandal Lainnya",
     "Jenis Produk": "Sandal Flat, Sandal Jepit, Sandal Kesehatan, Sandal Rumah, Sandal Lainnya",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "F",
+    "GO Biasa": 6.5,
+    "GO Khusus": 8.0
   },
   {
     "Kategori": "Sepatu Wanita",
     "Sub Kategori": "Sepatu Flat",
     "Jenis Produk": "Flat & Ballerina, Loafer, Sepatu Oxford, Slip-On, Mules & Mary Janes, Sepatu Flat Lainnya",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
-  },
-  {
-    "Kategori": "Sepatu Wanita",
-    "Sub Kategori": "Sepatu Wanita Lainnya",
-    "Jenis Produk": "Sepatu Wanita Lainnya",
-    "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "F",
+    "GO Biasa": 6.5,
+    "GO Khusus": 8.0
   },
   {
     "Kategori": "Sepatu Wanita",
     "Sub Kategori": "Sneakers",
     "Jenis Produk": "Sneakers",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "F",
+    "GO Biasa": 6.5,
+    "GO Khusus": 8.0
   },
   {
     "Kategori": "Sepatu Wanita",
     "Sub Kategori": "Wedges",
     "Jenis Produk": "Wedges",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "F",
+    "GO Biasa": 6.5,
+    "GO Khusus": 8.0
   },
   {
-    "Kategori": "Sepeda Motor",
-    "Sub Kategori": "Aksesoris Sepeda Motor",
-    "Jenis Produk": "Karpet Motor, Speedometer, Odometer, & Gauge Motor, Sarung Motor, Stiker, Logo, & Emblem, Jok & Sarung Jok Motor, Spion Motor & Aksesoris, Kunci & Keamanan, Box Motor, Dudukan Handphone, Karpet Lumpur, Aksesoris Sepeda Motor Lainnya",
-    "Star Rate": 8.25,
-    "Mall Rate": 10.45
-  },
-  {
-    "Kategori": "Sepeda Motor",
-    "Sub Kategori": "Helm & Aksesoris Pengendara Motor",
-    "Jenis Produk": "Helm & Aksesoris Pengendara Motor",
-    "Star Rate": 8.25,
-    "Mall Rate": 10.45
-  },
-  {
-    "Kategori": "Sepeda Motor",
-    "Sub Kategori": "Sepeda Motor",
-    "Jenis Produk": "Sepeda Motor",
-    "Star Rate": 2.5,
-    "Mall Rate": 2.5
-  },
-  {
-    "Kategori": "Sepeda Motor",
-    "Sub Kategori": "Sepeda Motor Lainnya",
-    "Jenis Produk": "Sepeda Motor Lainnya",
-    "Star Rate": 8.25,
-    "Mall Rate": 10.45
-  },
-  {
-    "Kategori": "Sepeda Motor",
-    "Sub Kategori": "Suku Cadang Motor",
-    "Jenis Produk": "Radiator, Piston, CDI & ECU, Busi, Kumparan Pengapian, V-Belt, Filter Udara, Sistem Bahan Bakar, Sistem Pengereman, Shock, Strut, & Suspensi Motor, Rantai & Gir, Kopling, Bearing, Aki & Aksesoris, Klakson & Aksesoris, Kabel & Selang, Bodi & Rangka Motor, Knalpot Motor, Roda, Velg, & Aksesoris, Ban Motor & Aksesoris, Lampu Motor, Suku Cadang Motor Lainnya, Pengapian & Suku Cadang Mesin Lainnya, Rantai, Transmisi, & Kopling Lainnya",
-    "Star Rate": 8.25,
-    "Mall Rate": 10.45
+    "Kategori": "Sepatu Wanita",
+    "Sub Kategori": "Sepatu Wanita Lainnya",
+    "Jenis Produk": "Sepatu Wanita Lainnya",
+    "Star Rate": 9.0,
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "F",
+    "GO Biasa": 6.5,
+    "GO Khusus": 8.0
   },
   {
     "Kategori": "Tas Pria",
     "Sub Kategori": "Clutch",
     "Jenis Produk": "Clutch",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
   },
   {
     "Kategori": "Tas Pria",
     "Sub Kategori": "Dompet",
     "Jenis Produk": "Dompet Kartu, Dompet Koin, Dompet Kunci & Handphone, Dompet Lipat, Dompet Panjang, Dompet Lainnya",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
   },
   {
     "Kategori": "Tas Pria",
     "Sub Kategori": "Ransel Pria",
     "Jenis Produk": "Ransel Pria",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
   },
   {
     "Kategori": "Tas Pria",
     "Sub Kategori": "Tas Kerja",
     "Jenis Produk": "Tas Kerja",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
   },
   {
     "Kategori": "Tas Pria",
     "Sub Kategori": "Tas Laptop",
     "Jenis Produk": "Tas & Case Laptop, Sarung Laptop, Ransel Laptop, Tas Laptop Lainnya",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
   },
   {
     "Kategori": "Tas Pria",
     "Sub Kategori": "Tas Pinggang Pria",
     "Jenis Produk": "Tas Pinggang Pria",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
-  },
-  {
-    "Kategori": "Tas Pria",
-    "Sub Kategori": "Tas Pria Lainnya",
-    "Jenis Produk": "Tas Pria Lainnya",
-    "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
   },
   {
     "Kategori": "Tas Pria",
     "Sub Kategori": "Tas Selempang & Bahu Pria",
     "Jenis Produk": "Tas Selempang & Bahu Pria",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
   },
   {
     "Kategori": "Tas Pria",
     "Sub Kategori": "Tote Bag",
     "Jenis Produk": "Tote Bag",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
+  },
+  {
+    "Kategori": "Tas Pria",
+    "Sub Kategori": "Tas Pria Lainnya",
+    "Jenis Produk": "Tas Pria Lainnya",
+    "Star Rate": 9.0,
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
   },
   {
     "Kategori": "Tas Wanita",
     "Sub Kategori": "Aksesoris Tas",
     "Jenis Produk": "Tali Tas, Gantungan Tas, Hiasan & Gantungan Kunci, Organizer Tas, Produk Perawatan & Pembersih Tas, Aksesoris Tas Wanita Lainnya",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
   },
   {
     "Kategori": "Tas Wanita",
     "Sub Kategori": "Clutch",
     "Jenis Produk": "Clutch",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
   },
   {
     "Kategori": "Tas Wanita",
     "Sub Kategori": "Dompet Wanita",
     "Jenis Produk": "Dompet Kartu, Dompet Koin, Dompet Kunci & Handphone, Dompet Lipat, Dompet Panjang, Dompet Wanita Lainnya",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
   },
   {
     "Kategori": "Tas Wanita",
     "Sub Kategori": "Ransel Wanita",
     "Jenis Produk": "Ransel Wanita",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
   },
   {
     "Kategori": "Tas Wanita",
     "Sub Kategori": "Tas Laptop",
     "Jenis Produk": "Tas & Case Laptop, Sarung Laptop, Ransel Laptop, Tas Laptop Lainnya",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
   },
   {
     "Kategori": "Tas Wanita",
     "Sub Kategori": "Tas Pinggang Wanita",
     "Jenis Produk": "Tas Pinggang Wanita",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
   },
   {
     "Kategori": "Tas Wanita",
     "Sub Kategori": "Tas Selempang & Bahu Wanita",
     "Jenis Produk": "Tas Selempang & Bahu Wanita",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
-  },
-  {
-    "Kategori": "Tas Wanita",
-    "Sub Kategori": "Tas Wanita Lainnya",
-    "Jenis Produk": "Tas Wanita Lainnya",
-    "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
   },
   {
     "Kategori": "Tas Wanita",
     "Sub Kategori": "Top Handle Bag",
     "Jenis Produk": "Top Handle Bag",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
   },
   {
     "Kategori": "Tas Wanita",
     "Sub Kategori": "Tote Bag",
     "Jenis Produk": "Tote Bag",
     "Star Rate": 9.0,
-    "Mall Rate": 10.2
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
+  },
+  {
+    "Kategori": "Tas Wanita",
+    "Sub Kategori": "Tas Wanita Lainnya",
+    "Jenis Produk": "Tas Wanita Lainnya",
+    "Star Rate": 9.0,
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
+  },
+  {
+    "Kategori": "Ibu & Bayi",
+    "Sub Kategori": "Mainan",
+    "Jenis Produk": "Inflatable & Perosotan",
+    "Star Rate": 10.0,
+    "Mall Rate": 11.7,
+    "Kategori Gratis Ongkir": "H",
+    "GO Biasa": 8.0,
+    "GO Khusus": 9.5
+  },
+  {
+    "Kategori": "Ibu & Bayi",
+    "Sub Kategori": "Keamanan Bayi",
+    "Jenis Produk": "Baby Monitor, Kelambu, Bumper, Rail, & Guard, Pelindung Sudut, Pintu & Pagar Bayi, Pengaman Laci & Lemari, Alat Keamanan Bayi Lainnya",
+    "Star Rate": 9.5,
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Ibu & Bayi",
+    "Sub Kategori": "Kesehatan Kehamilan",
+    "Jenis Produk": "Susu Ibu Hamil, Vitamin & Suplemen Ibu Hamil, Pelembab & Cream, Kesehatan Kehamilan Lainnya",
+    "Star Rate": 9.5,
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Ibu & Bayi",
+    "Sub Kategori": "Mainan",
+    "Jenis Produk": "Mainan Balok, Puzzle, Mainan Slime & Squishy",
+    "Star Rate": 9.5,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "H",
+    "GO Biasa": 8.0,
+    "GO Khusus": 9.5
+  },
+  {
+    "Kategori": "Ibu & Bayi",
+    "Sub Kategori": "Perlengkapan Ibu Hamil",
+    "Jenis Produk": "Penyangga Perut, Bantal Ibu Hamil, Perlengkapan Ibu Hamil Lainnya",
+    "Star Rate": 9.5,
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Ibu & Bayi",
+    "Sub Kategori": "Perlengkapan Makan Bayi",
+    "Jenis Produk": "Pompa ASI & Aksesoris, Breast Pad, Shell, & Shield, Apron Menyusui, Kantong ASI, Perlengkapan Menyusui Lainnya",
+    "Star Rate": 9.5,
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Ibu & Bayi",
+    "Sub Kategori": "Perlengkapan Travelling Bayi",
+    "Jenis Produk": "Gendongan Bayi, Stroller & Perlengkapan Travelling, Aksesoris Stroller, Dudukan Mobil & Motor, Aksesoris Dudukan Mobil & Motor, Tas Perlengkapan Bayi, Sabuk Pengaman Anak, Perlengkapan Travelling Bayi Lainnya",
+    "Star Rate": 9.5,
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Ibu & Bayi",
+    "Sub Kategori": "Popok & Pispot",
+    "Jenis Produk": "Perlak, Pispot, Popok Sekali Pakai, Popok Kain & Aksesoris, Popok & Pispot Lainnya",
+    "Star Rate": 9.0,
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Ibu & Bayi",
+    "Sub Kategori": "Kamar Bayi",
+    "Jenis Produk": "Boks & Matras Tidur Bayi, Ayunan Bayi, Baby Walker, Selimut & Bedong, Bantal & Guling, Sprei, Tempat Penyimpanan, Kamar Bayi Lainnya, Matras & Sprei Lainnya",
+    "Star Rate": 8.25,
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Ibu & Bayi",
+    "Sub Kategori": "Kesehatan Bayi",
+    "Jenis Produk": "Perawatan Hidung & Pernafasan, Baby Lotion & Cream, Minyak, Bedak, Perawatan Mulut Bayi, Sun Care Bayi, Kesehatan Bayi Lainnya, Perawatan Kulit Bayi Lainnya",
+    "Star Rate": 8.25,
+    "Mall Rate": 7.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Ibu & Bayi",
+    "Sub Kategori": "Mainan",
+    "Jenis Produk": "Mainan & Playmat Bayi, Pagar Mainan Bayi, Mainan Saat Mandi, Crib Mobile & Rattle, Gigitan Bayi, Boneka & Aksesoris, Rumah Boneka & Aksesoris, Mainan Boneka, Mainan Peran, Kendaraan Mainan, Sepeda, Skuter, & Ride-On, Tenda Mainan, Terowongan Mainan, & Ball Pit, Kolam, Pelampung, & Mainan Pasir, Mainan Olahraga, Mainan Terbang, Layang-layang, & Kincir Angin, Pistol Mainan, Mainan Matematika, Mainan Ilmu Pengetahuan Alam & Teknologi, Shape Sorter, Mainan Musik, Mainan Tablet & Komputer, Seni & Kerajinan, Kartu Edukasi Anak, Poster Edukatif, Mainan Robot, Mainan Lainnya, Mainan Bayi & Anak Lainnya, Mainan Outdoor Lainnya, Mainan Edukatif Lainnya, Boneka & Mainan Boneka Lainnya",
+    "Star Rate": 8.25,
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "H",
+    "GO Biasa": 8.0,
+    "GO Khusus": 9.5
+  },
+  {
+    "Kategori": "Ibu & Bayi",
+    "Sub Kategori": "Perlengkapan Makan Bayi",
+    "Jenis Produk": "Kursi Makan Bayi, Celemek Bayi, Dot Bayi, Food Processor, Gelas Bayi, Peralatan Makan Bayi, Tempat Makan Bayi, Peralatan Makan Lainnya, Perlengkapan Makan Bayi Lainnya, Tas Pendingin Botol Susu, Botol Susu & Aksesoris, Penghangat Botol, Sterilizer, Perlengkapan Botol Susu Lainnya, Pembersih Botol Susu",
+    "Star Rate": 8.25,
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Ibu & Bayi",
+    "Sub Kategori": "Perlengkapan Mandi",
+    "Jenis Produk": "Perawatan Rambut & Sabun Mandi, Parfum Bayi, Tisu, Detergen Pakaian Bayi, Bak Mandi & Dudukan, Jas Mandi, Handuk, & Lap Mandi, Penutup Rambut, Alat & Aksesoris Mandi, Alat Perawatan Bayi, Perlengkapan Mandi Lainnya",
+    "Star Rate": 8.25,
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Ibu & Bayi",
+    "Sub Kategori": "Set & Paket Hadiah",
+    "Jenis Produk": "Set & Paket Hadiah",
+    "Star Rate": 8.25,
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Ibu & Bayi",
+    "Sub Kategori": "Susu Formula & Makanan Bayi",
+    "Jenis Produk": "Susu Formula, Bubur & Sereal Bayi, Camilan Bayi, Susu Formula & Makanan Bayi Lainnya",
+    "Star Rate": 6.75,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Ibu & Bayi",
+    "Sub Kategori": "Kesehatan Bayi",
+    "Jenis Produk": "Vitamin & Suplemen Bayi",
+    "Star Rate": 6.5,
+    "Mall Rate": 7.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Ibu & Bayi",
+    "Sub Kategori": "Ibu & Bayi Lainnya",
+    "Jenis Produk": "Ibu & Bayi Lainnya",
+    "Star Rate": 8.25,
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 8.0,
+    "GO Khusus": 9.5
+  },
+  {
+    "Kategori": "Kesehatan",
+    "Sub Kategori": "Perawatan Diri",
+    "Jenis Produk": "Hand Sanitizer",
+    "Star Rate": 10.0,
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Kesehatan",
+    "Sub Kategori": "Obat-obatan & Alat Kesehatan",
+    "Jenis Produk": "Obat Bebas (OTC), Obat Tradisional, Timbangan & Alat Ukur Kadar Lemak, Stetoskop, Obat Pereda Nyeri, Alat Laboratorium, Sarung Tangan & Masker Medis, Alat Medis Lainnya, Plester & Perban, Alat P3K, Salep & Krim, Antiseptik & Disinfektan, P3K Lainnya, Obat Resep",
+    "Star Rate": 9.5,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "E",
+    "GO Biasa": 6.0,
+    "GO Khusus": 7.5
+  },
+  {
+    "Kategori": "Kesehatan",
+    "Sub Kategori": "Perawatan Diri",
+    "Jenis Produk": "Alat Pijat & Terapi, Popok Dewasa, Perawatan Telinga, Cairan Lensa & Obat Tetes Mata",
+    "Star Rate": 9.5,
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Kesehatan",
+    "Sub Kategori": "Kesehatan Seksual",
+    "Jenis Produk": "Kondom, Pelumas, Penunjang Performa, Kesehatan Seksual Lainnya",
+    "Star Rate": 9.0,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Kesehatan",
+    "Sub Kategori": "Obat-obatan & Alat Kesehatan",
+    "Jenis Produk": "Alat Ukur Tekanan Darah, Alat Ukur Gula Darah, Oximeter, Termometer, Alat Tes & Monitor Lainnya, Alat Bantu Jalan, Kursi Roda, Alat Penopang Tubuh, Alat Bantu Dengar, Alat Bantu Cedera & Disabilitas Lainnya, Perawatan Hidung & Pernafasan",
+    "Star Rate": 9.0,
+    "Mall Rate": 7.2,
+    "Kategori Gratis Ongkir": "E",
+    "GO Biasa": 6.0,
+    "GO Khusus": 7.5
+  },
+  {
+    "Kategori": "Kesehatan",
+    "Sub Kategori": "Perawatan Diri",
+    "Jenis Produk": "Anti Nyamuk & Serangga, Sikat Gigi, Sikat Gigi Elektrik, Pasta Gigi, Dental Floss, Obat Kumur, Perawatan Gigi Palsu, Pemutih Gigi, Alat Ortodontik, Kesehatan Mulut Lainnya, Pembalut & Panty Liner, Tampon, Tes Kehamilan & Kesuburan, Menstrual Cup, Pembersih Kewanitaan, Cream Kewanitaan, Kewanitaan Lainnya, Perawatan Diri Lainnya, Lensa Kontak, Kesehatan Mata Lainnya",
+    "Star Rate": 9.0,
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Kesehatan",
+    "Sub Kategori": "Suplemen Makanan",
+    "Jenis Produk": "Diet & Detoks, Suplemen Kecantikan, Kebugaran, Kesejahteraan, Suplemen Makanan Lainnya",
+    "Star Rate": 9.0,
+    "Mall Rate": 7.2,
+    "Kategori Gratis Ongkir": "E",
+    "GO Biasa": 6.0,
+    "GO Khusus": 7.5
+  },
+  {
+    "Kategori": "Kesehatan",
+    "Sub Kategori": "Kesehatan Lainnya",
+    "Jenis Produk": "Kesehatan Lainnya",
+    "Star Rate": 9.0,
+    "Mall Rate": 7.2,
+    "Kategori Gratis Ongkir": "E",
+    "GO Biasa": 6.0,
+    "GO Khusus": 7.5
+  },
+  {
+    "Kategori": "Makanan & Minuman",
+    "Sub Kategori": "Makanan Ringan",
+    "Jenis Produk": "Biskuit, Kue, & Wafer, Keripik & Kerupuk, Biji-bijian, Popcorn, Rumput Laut, Kacang, Puding, Jeli, & Marshmallow, Dendeng, Buah Kering, Snack Seafood, Makanan Ringan Kering Lainnya, Abon, Makanan Ringan Lainnya",
+    "Star Rate": 10.0,
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "E",
+    "GO Biasa": 6.0,
+    "GO Khusus": 7.5
+  },
+  {
+    "Kategori": "Makanan & Minuman",
+    "Sub Kategori": "Makanan Ringan",
+    "Jenis Produk": "Permen, Cokelat",
+    "Star Rate": 9.5,
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "E",
+    "GO Biasa": 6.0,
+    "GO Khusus": 7.5
+  },
+  {
+    "Kategori": "Makanan & Minuman",
+    "Sub Kategori": "Bahan Pokok",
+    "Jenis Produk": "Buah Kaleng, Daging Kaleng, Seafood Kaleng, Sayur Kaleng, Sup Kaleng, Makanan Kaleng Lainnya",
+    "Star Rate": 9.5,
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "E",
+    "GO Biasa": 6.0,
+    "GO Khusus": 7.5
+  },
+  {
+    "Kategori": "Makanan & Minuman",
+    "Sub Kategori": "Minuman",
+    "Jenis Produk": "Kopi, Teh, Minuman Cokelat, Minuman Energi & Isotonik, Air Mineral, Jus & Sirup, Cordial & Sirup, Minuman Bersoda, Minuman Bubuk Instan, Minuman Pencuci Mulut, Minuman Tradisional & Herbal, Topping Minuman, Susu Non-Dairy, Minuman Lainnya",
+    "Star Rate": 9.5,
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "E",
+    "GO Biasa": 6.0,
+    "GO Khusus": 7.5
+  },
+  {
+    "Kategori": "Makanan & Minuman",
+    "Sub Kategori": "Minuman Alkohol",
+    "Jenis Produk": "Bir & Cider, Wine & Champagne, Liquor & Spirits, Sake, Soju, & Umeshu, Minuman Alkohol Lainnya",
+    "Star Rate": 9.5,
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "E",
+    "GO Biasa": 6.0,
+    "GO Khusus": 7.5
+  },
+  {
+    "Kategori": "Makanan & Minuman",
+    "Sub Kategori": "Set Hadiah & Hampers",
+    "Jenis Produk": "Set Hadiah & Hampers",
+    "Star Rate": 9.5,
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "E",
+    "GO Biasa": 6.0,
+    "GO Khusus": 7.5
+  },
+  {
+    "Kategori": "Makanan & Minuman",
+    "Sub Kategori": "Makanan Instan",
+    "Jenis Produk": "Makanan Siap Saji, Nasi & Bubur Instan, Hotpot Instan, Mie & Pasta Instan, Makanan Instan Lainnya",
+    "Star Rate": 9.0,
+    "Mall Rate": 7.2,
+    "Kategori Gratis Ongkir": "E",
+    "GO Biasa": 6.0,
+    "GO Khusus": 7.5
+  },
+  {
+    "Kategori": "Makanan & Minuman",
+    "Sub Kategori": "Roti & Kue",
+    "Jenis Produk": "Roti, Kue & Pie, Pastry, Roti & Kue Lainnya",
+    "Star Rate": 9.0,
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "E",
+    "GO Biasa": 6.0,
+    "GO Khusus": 7.5
+  },
+  {
+    "Kategori": "Makanan & Minuman",
+    "Sub Kategori": "Susu & Olahan",
+    "Jenis Produk": "Susu Segar, Susu UHT, Susu Kental Manis & Evaporasi, Susu Bubuk, Yoghurt, Krimer, Mentega & Margarin, Keju, Tahu, Susu & Olahan Lainnya, Susu Lainnya",
+    "Star Rate": 8.25,
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "E",
+    "GO Biasa": 6.0,
+    "GO Khusus": 7.5
+  },
+  {
+    "Kategori": "Makanan & Minuman",
+    "Sub Kategori": "Bahan Baking",
+    "Jenis Produk": "Tepung Premix Instan, Tepung, Penyedap Kue, Baking Powder & Soda Kue, Bahan Baking Lainnya, Pewarna Makanan, Bahan Dekorasi Kue",
+    "Star Rate": 6.75,
+    "Mall Rate": 6.2,
+    "Kategori Gratis Ongkir": "E",
+    "GO Biasa": 6.0,
+    "GO Khusus": 7.5
+  },
+  {
+    "Kategori": "Makanan & Minuman",
+    "Sub Kategori": "Bahan Pokok",
+    "Jenis Produk": "Biji-bijian & Kacang-kacangan, Seafood Kering, Makanan Herbal & Tradisional, Mie, Beras, Pasta, Acar Sayuran, Makanan Kering Lainnya, Bahan Pokok Lainnya",
+    "Star Rate": 6.75,
+    "Mall Rate": 6.2,
+    "Kategori Gratis Ongkir": "E",
+    "GO Biasa": 6.0,
+    "GO Khusus": 7.5
+  },
+  {
+    "Kategori": "Makanan & Minuman",
+    "Sub Kategori": "Kebutuhan Memasak",
+    "Jenis Produk": "Minyak, Lada, Garam, Rempah-rempah, Kecap & Saus Lainnya, Dressing, Saus Cabai & Sambal, Cuka, Anggur Masak, Gula, Pemanis, Penambah Rasa, Tepung Bumbu, Bumbu Masak Lainnya, Kebutuhan Memasak Lainnya, Kaldu, Saus, & Sup Instan, Bumbu Masak Instan",
+    "Star Rate": 6.75,
+    "Mall Rate": 7.2,
+    "Kategori Gratis Ongkir": "E",
+    "GO Biasa": 6.0,
+    "GO Khusus": 7.5
+  },
+  {
+    "Kategori": "Makanan & Minuman",
+    "Sub Kategori": "Makanan Segar & Beku",
+    "Jenis Produk": "Daging Sapi, Daging Ayam, Daging Babi, Daging Kambing, Ikan, Udang, Kepiting, Daging Vegetarian, Kol & Kubis, Rempah Segar, Sayuran Daun, Terong & Labu, Brokoli & Kembang Kol, Cabai & Paprika, Bawang & Jahe, Kacang-kacangan & Jagung, Umbi-umbian & Sayuran Batang, Kecambah, Sayuran Salad, Sayur Potong & Paket Aneka Sayur, Sayuran Lainnya, Apel & Pir, Pisang, Buah Beri, Jeruk, Lemon & Limau, Anggur, Melon & Semangka, Buah Berbiji Tengah (Alpukat, Kurma, Ceri, dll), Buah Tropis & Eksotis, Buah Potong & Paket Aneka Buah, Buah Lainnya, Jamur, Makanan Beku Olahan, Daging & Seafood Beku, Daging Lainnya, Makanan Segar & Beku Lainnya, Seafood Lainnya",
+    "Star Rate": 6.75,
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "E",
+    "GO Biasa": 6.0,
+    "GO Khusus": 7.5
+  },
+  {
+    "Kategori": "Makanan & Minuman",
+    "Sub Kategori": "Menu Sarapan",
+    "Jenis Produk": "Madu & Olesan, Selai & Olesan, Sereal, Granola, & Oat, Bar Sereal, Menu Sarapan Lainnya",
+    "Star Rate": 6.75,
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "E",
+    "GO Biasa": 6.0,
+    "GO Khusus": 7.5
+  },
+  {
+    "Kategori": "Makanan & Minuman",
+    "Sub Kategori": "Susu & Olahan",
+    "Jenis Produk": "Es Krim",
+    "Star Rate": 6.75,
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "E",
+    "GO Biasa": 6.0,
+    "GO Khusus": 7.5
+  },
+  {
+    "Kategori": "Makanan & Minuman",
+    "Sub Kategori": "Susu & Olahan",
+    "Jenis Produk": "Telur",
+    "Star Rate": 6.5,
+    "Mall Rate": 6.2,
+    "Kategori Gratis Ongkir": "E",
+    "GO Biasa": 6.0,
+    "GO Khusus": 7.5
+  },
+  {
+    "Kategori": "Makanan & Minuman",
+    "Sub Kategori": "Makanan & Minuman Lainnya",
+    "Jenis Produk": "Makanan & Minuman Lainnya",
+    "Star Rate": 9.5,
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "E",
+    "GO Biasa": 6.0,
+    "GO Khusus": 7.5
+  },
+  {
+    "Kategori": "Perawatan & Kecantikan",
+    "Sub Kategori": "Alat Kecantikan",
+    "Jenis Produk": "Aksesoris Make Up Lainnya, Kapas, Tas Make Up, Kaca / Cermin, Pembersih Make Up Brush, Make Up Brush, Make Up Sponge & Applicator, Penjepit Bulu Mata, Eyebrow Template, Bulu Mata Palsu, Skot Mata, Rautan, Facial Steamer, Alat Pelangsing & Pijat Wajah, Alat Pembersih Wajah, Alat Perawatan Wajah Lainnya, Alat Pelangsing Tubuh, Alat Penghilang Bulu Rambut, Sisir, Hair Dryer, Peralatan Styling Rambut, Alat Styling Heatless, Alat Rambut Lainnya, Alat Kecantikan Lainnya",
+    "Star Rate": 8.25,
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Perawatan & Kecantikan",
+    "Sub Kategori": "Kosmetik",
+    "Jenis Produk": "Make Up Base & Primer, Foundation, BB & CC Cream, Bedak, Concealer & Corrector, Bronzer, Contour & Highlighter, Setting & Finishing Spray, Blush, Kosmetik Wajah Lainnya, Eyeshadow, Primer Mata, Eyeliner, Maskara, Eyebrow, Kosmetik Mata Lainnya, Lipstik, Lip Gloss, Lip Liner, Lip Tint, Lip Plumper, Kosmetik Bibir Lainnya, Pembersih Make Up, Kosmetik Lainnya",
+    "Star Rate": 8.25,
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Perawatan & Kecantikan",
+    "Sub Kategori": "Paket & Set Kecantikan",
+    "Jenis Produk": "Paket & Set Kecantikan",
+    "Star Rate": 8.25,
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Perawatan & Kecantikan",
+    "Sub Kategori": "Parfum & Wewangian",
+    "Jenis Produk": "Parfum & Wewangian",
+    "Star Rate": 8.25,
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Perawatan & Kecantikan",
+    "Sub Kategori": "Perawatan Pria",
+    "Jenis Produk": "Perawatan Tubuh, Pembersih Wajah, Pelembab & Treatment, Perawatan Setelah Bercukur, Cream, Foam & Gel, Pisau Cukur, Alat Cukur, Sikat Cukur, Trimmers, Gunting & Groomer Multi-fungsi, Aksesoris Cukur, Perawatan Rambut, Perawatan Pria Lainnya, Perawatan Wajah Lainnya, Shaving & Grooming Lainnya",
+    "Star Rate": 8.25,
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Perawatan & Kecantikan",
+    "Sub Kategori": "Perawatan Rambut",
+    "Jenis Produk": "Shampo, Pewarna Rambut, Treatment Rambut, Kondisioner Rambut dan Kulit Kepala, Hair Styling, Perawatan Rambut Lainnya",
+    "Star Rate": 8.25,
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Perawatan & Kecantikan",
+    "Sub Kategori": "Perawatan Tangan, Kaki & Kuku",
+    "Jenis Produk": "Masker Tangan, Lotion, Cream & Scrub, Sabun Cuci Tangan, Perawatan Tangan Lainnya, Deodoran Kaki, Masker Kaki, Lotion, Cream & Scrub, Perawatan Kaki Lainnya, Base & Top Coat, Cat Kuku, Pembersih Cat Kuku, Treatment Kuku, Kuku Palsu, Nail Art & Sticker, Alat & Mesin Manicure, Perawatan Kuku Lainnya, Perawatan Tangan, Kaki & Kuku Lainnya",
+    "Star Rate": 8.25,
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Perawatan & Kecantikan",
+    "Sub Kategori": "Perawatan Tubuh",
+    "Jenis Produk": "Sabun Mandi, Scrub & Peel Tubuh, Masker Tubuh, Minyak Tubuh, Body Cream, Body Lotion & Body Butter, Deodoran, Minyak Pijat, Cream & Wax Penghilang Bulu Rambut, Sunscreen & Aftersun Tubuh, Tanning Oil & Self Tanners, Perawatan Payudara, Perawatan Tubuh Lainnya, Sun Care Lainnya",
+    "Star Rate": 8.25,
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Perawatan & Kecantikan",
+    "Sub Kategori": "Perawatan Wajah",
+    "Jenis Produk": "Pembersih Wajah, Toner, Pelembab Wajah, Minyak Wajah, Facial Mist, Serum & Essence Wajah, Scrub & Peel Wajah, Masker Wajah, Sunscreen Wajah, Perawatan Wajah After Sun, Kertas Minyak, Treatment Jerawat, Perawatan Wajah Lainnya, Cream Mata, Masker Mata, Serum Alis & Bulu Mata, Treatment Mata Lainnya, Pelembab Bibir, Scrub & Exfoliator Bibir, Masker Bibir, Treatment Bibir Lainnya",
+    "Star Rate": 8.25,
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Perawatan & Kecantikan",
+    "Sub Kategori": "Perawatan & Kecantikan Lainnya",
+    "Jenis Produk": "Perawatan & Kecantikan Lainnya",
+    "Star Rate": 8.25,
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Audio",
+    "Sub Kategori": "Media Player",
+    "Jenis Produk": "MP3 & MP4 Player, CD, DVD, & Blu-ray Player, Voice Recorders, Radio & Pemutar Kaset, Media Player Lainnya",
+    "Star Rate": 9.5,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Audio",
+    "Sub Kategori": "Amplifier & Mixer",
+    "Jenis Produk": "Amplifier & Mixer",
+    "Star Rate": 9.0,
+    "Mall Rate": 7.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Audio",
+    "Sub Kategori": "Kabel & Konverter Audio & Video",
+    "Jenis Produk": "Kabel & Konverter Audio & Video",
+    "Star Rate": 9.0,
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Audio",
+    "Sub Kategori": "Mikrofon & Aksesoris",
+    "Jenis Produk": "Mikrofon & Aksesoris",
+    "Star Rate": 9.0,
+    "Mall Rate": 7.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Audio",
+    "Sub Kategori": "Perangkat Audio & Speaker",
+    "Jenis Produk": "Speaker, Home Theater & Karaoke, AV Receiver, Perangkat Audio & Speaker Lainnya",
+    "Star Rate": 9.0,
+    "Mall Rate": 7.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Audio",
+    "Sub Kategori": "Earphone, Headphone, & Headset",
+    "Jenis Produk": "Earphone, Headphone, & Headset",
+    "Star Rate": 6.75,
+    "Mall Rate": 7.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Audio",
+    "Sub Kategori": "Audio Lainnya",
+    "Jenis Produk": "Audio Lainnya",
+    "Star Rate": 9.0,
+    "Mall Rate": 7.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Elektronik",
+    "Sub Kategori": "Kelistrikan",
+    "Jenis Produk": "Stop Kontak & Sambungan Kabel, Pengaman Stop Kontak, Penghemat Listrik, Bel, Saklar, Alarm, Anti Petir, Kelistrikan Lainnya",
+    "Star Rate": 10.0,
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "F",
+    "GO Biasa": 6.5,
+    "GO Khusus": 8.0
+  },
+  {
+    "Kategori": "Elektronik",
+    "Sub Kategori": "Baterai",
+    "Jenis Produk": "Baterai",
+    "Star Rate": 9.5,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Elektronik",
+    "Sub Kategori": "Peralatan Listrik Besar",
+    "Jenis Produk": "Water Heater",
+    "Star Rate": 9.5,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Elektronik",
+    "Sub Kategori": "Peralatan Listrik Kecil",
+    "Jenis Produk": "Foot Bath & Spa",
+    "Star Rate": 9.5,
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Elektronik",
+    "Sub Kategori": "Peralatan Listrik Besar",
+    "Jenis Produk": "Pengering Sepatu, Penghangat Ruangan, Peralatan Listrik Besar Lainnya",
+    "Star Rate": 9.0,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Elektronik",
+    "Sub Kategori": "Peralatan Listrik Kecil",
+    "Jenis Produk": "Flosser Elektrik, Telepon Kabel, Telepon Wireless, Mesin Fax, Telepon Lainnya, Perlengkapan Listrik Kecil Lainnya",
+    "Star Rate": 9.0,
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Elektronik",
+    "Sub Kategori": "Remot Kontrol",
+    "Jenis Produk": "Remot Kontrol",
+    "Star Rate": 9.0,
+    "Mall Rate": 7.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Elektronik",
+    "Sub Kategori": "Rokok Elektronik & Shisha",
+    "Jenis Produk": "Pods, Mods, & Hookah, Liquid & Perasa Rokok Elektronik/Shisha, Aksesoris Rokok Elektronik/Shisha, Perlengkapan Rokok Elektronik/Shisha, Rokok Elektronik Lainnya",
+    "Star Rate": 9.0,
+    "Mall Rate": 7.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Elektronik",
+    "Sub Kategori": "Peralatan Listrik Besar",
+    "Jenis Produk": "Mesin Cuci, Pengering Pakaian, Mesin Cuci & Pengering Lainnya, AC, AC Portable, Kipas Angin, Pendingin Ruangan Lainnya",
+    "Star Rate": 6.5,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Elektronik",
+    "Sub Kategori": "Peralatan Listrik Kecil",
+    "Jenis Produk": "Mesin Jahit & Aksesoris, Setrika & Mesin Uap, Purifier, Dehumidifier, Purifier & Humidifier Lainnya, Penyedot Debu & Peralatan Perawatan Lantai",
+    "Star Rate": 6.5,
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Elektronik",
+    "Sub Kategori": "Perangkat Dapur",
+    "Jenis Produk": "Dispenser & Filter Air, Kompor & Regulator Gas, Pemanas Air, Kulkas Wine, Juicer, Blender & Mesin Kacang Kedelai, Mesin Kopi & Aksesoris, Mixer, Dishwashers, Air Fryer, Deep Fryer, Microwave, Oven, Pemanggang Roti, Food Processor & Penggiling Daging, Alat Masak Serbaguna, Panci Presto, Slow Cooker & Mesin Sous Vide, Penanak Nasi, Pembuat Waffle & Crepe, Perebus Telur, Pembuat Roti, Pembuat Takoyaki, Pembuat Dessert, Pembuat Soda, Peralatan Masak Khusus Lainnya, Kulkas, Freezer, Penghisap Asap Dapur, Perangkat Dapur Lainnya",
+    "Star Rate": 6.5,
+    "Mall Rate": 7.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Elektronik",
+    "Sub Kategori": "TV & Aksesoris",
+    "Jenis Produk": "TV, Antena TV, TV Box & Receiver TV, Bracket TV, TV & Aksesoris Lainnya",
+    "Star Rate": 6.5,
+    "Mall Rate": 7.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Elektronik",
+    "Sub Kategori": "Proyektor & Aksesoris",
+    "Jenis Produk": "Proyektor & Layar Proyektor, Pointer, Proyektor & Aksesoris Lainnya",
+    "Star Rate": 5.25,
+    "Mall Rate": 4.2,
+    "Kategori Gratis Ongkir": "C",
+    "GO Biasa": 3.5,
+    "GO Khusus": 5.0
+  },
+  {
+    "Kategori": "Elektronik",
+    "Sub Kategori": "Elektronik Lainnya",
+    "Jenis Produk": "Elektronik Lainnya",
+    "Star Rate": 9.0,
+    "Mall Rate": 7.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Gaming & Konsol",
+    "Sub Kategori": "Konsol Game",
+    "Jenis Produk": "Playstation, Xbox, Wii, Nintendo 3DS & DS, Gameboy, Switch, PS Vita, PSP, Konsol Game Lainnya",
+    "Star Rate": 9.5,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Gaming & Konsol",
+    "Sub Kategori": "Video Game",
+    "Jenis Produk": "Playstation, Xbox, Wii, Nintendo 3DS & DS, Gameboy, Switch, PS Vita, PSP, Game PC, Video Game Lainnya",
+    "Star Rate": 9.5,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Gaming & Konsol",
+    "Sub Kategori": "Aksesoris Konsol",
+    "Jenis Produk": "Aksesoris Konsol",
+    "Star Rate": 9.0,
+    "Mall Rate": 7.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Gaming & Konsol",
+    "Sub Kategori": "Gaming & Konsol Lainnya",
+    "Jenis Produk": "Gaming & Konsol Lainnya",
+    "Star Rate": 9.0,
+    "Mall Rate": 7.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Gaming & Konsol",
+    "Sub Kategori": "Aksesoris",
+    "Jenis Produk": "Tongsis, Tomsis, Flash & Lampu Selfie Handphone, Aksesoris Selfie Lainnya, Lensa Tambahan Handphone, Lazypod, Phone Holder, Tali & Gantungan Handphone, Pouch Handphone, Aksesoris Lainnya, Casing, Penggulung, & Pengikat Kabel, Travel Adaptor, Kabel & Adaptor Handphone, Charger, Charger Docking, Kabel, Charger & Adaptor Lainnya, Casing & Skin Tablet, Casing & Skin Handphone, Pelindung Layar Handphone, Casing & Skin Lainnya, Casing & Skin Earphone",
+    "Star Rate": 10.0,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Gaming & Konsol",
+    "Sub Kategori": "Perangkat Wearable",
+    "Jenis Produk": "Perangkat VR",
+    "Star Rate": 10.0,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Gaming & Konsol",
+    "Sub Kategori": "Aksesoris",
+    "Jenis Produk": "Aksesoris Perangkat Wearable, Kipas USB, Stylus, Baterai, Powerbank, Powercase, Powerbank & Baterai Lainnya",
+    "Star Rate": 9.5,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Gaming & Konsol",
+    "Sub Kategori": "Perangkat Wearable",
+    "Jenis Produk": "Smartwatch & Fitness Tracker, Pelacak GPS, Perangkat Wearable Lainnya",
+    "Star Rate": 9.5,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Gaming & Konsol",
+    "Sub Kategori": "Aksesoris",
+    "Jenis Produk": "Alat Casting, Kartu Memori",
+    "Star Rate": 9.0,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Gaming & Konsol",
+    "Sub Kategori": "Kartu Perdana",
+    "Jenis Produk": "Kartu Perdana",
+    "Star Rate": 9.0,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Gaming & Konsol",
+    "Sub Kategori": "Walkie Talkie",
+    "Jenis Produk": "Walkie Talkie",
+    "Star Rate": 9.0,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Gaming & Konsol",
+    "Sub Kategori": "Aksesoris",
+    "Jenis Produk": "Modem, USB & Lampu Handphone",
+    "Star Rate": 6.75,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Gaming & Konsol",
+    "Sub Kategori": "Handphone",
+    "Jenis Produk": "Handphone",
+    "Star Rate": 5.25,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Gaming & Konsol",
+    "Sub Kategori": "Tablet",
+    "Jenis Produk": "Tablet",
+    "Star Rate": 5.25,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Gaming & Konsol",
+    "Sub Kategori": "Handphone & Aksesoris Lainnya",
+    "Jenis Produk": "Handphone & Aksesoris Lainnya",
+    "Star Rate": 10.0,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Kamera & Drone",
+    "Sub Kategori": "Aksesoris Kamera",
+    "Jenis Produk": "Lighting & Perlengkapan Studio Foto, Roll Film & Kertas Foto, Printer Foto, Charger Baterai, Baterai & Battery Grip, Tripod, Monopod, & Aksesoris, Aksesoris Kamera Lainnya, Gimbal & Stabilizer",
+    "Star Rate": 9.5,
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Kamera & Drone",
+    "Sub Kategori": "Kamera Keamanan",
+    "Jenis Produk": "Kamera CCTV, DVR, Kamera Dummy, Kamera Pengintai, Kamera Keamanan Lainnya",
+    "Star Rate": 9.5,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Kamera & Drone",
+    "Sub Kategori": "Perawatan Kamera",
+    "Jenis Produk": "Dry Box & Cabinet, Cleaning Kit, Silica Gel, Blower, Lenspen & Brush, Perawatan Kamera Lainnya",
+    "Star Rate": 9.5,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Kamera & Drone",
+    "Sub Kategori": "Aksesoris Drone",
+    "Jenis Produk": "Aksesoris Drone",
+    "Star Rate": 6.5,
+    "Mall Rate": 7.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Kamera & Drone",
+    "Sub Kategori": "Aksesoris Kamera",
+    "Jenis Produk": "Flash, Flash Trigger, Flash Diffuser, Aksesoris Flash Lainnya, Tas & Casing Kamera",
+    "Star Rate": 6.5,
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Kamera & Drone",
+    "Sub Kategori": "Aksesoris Lensa",
+    "Jenis Produk": "Mount & Adaptor Lensa, Cap Lensa, Filter Lensa, Hood Lensa, Aksesoris Lensa Lainnya",
+    "Star Rate": 6.5,
+    "Mall Rate": 7.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Kamera & Drone",
+    "Sub Kategori": "Drone",
+    "Jenis Produk": "Drone",
+    "Star Rate": 6.5,
+    "Mall Rate": 7.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Kamera & Drone",
+    "Sub Kategori": "Kamera",
+    "Jenis Produk": "Kamera Pocket, Kamera Mirrorless, Kamera Action, Camcorder, Kamera Instan, Kamera Analog, DSLR, Kamera Lainnya",
+    "Star Rate": 6.5,
+    "Mall Rate": 7.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Kamera & Drone",
+    "Sub Kategori": "Lensa",
+    "Jenis Produk": "Lensa",
+    "Star Rate": 6.5,
+    "Mall Rate": 7.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Kamera & Drone",
+    "Sub Kategori": "Kamera & Drone Lainnya",
+    "Jenis Produk": "Kamera & Drone Lainnya",
+    "Star Rate": 9.5,
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Komputer & Aksesoris",
+    "Sub Kategori": "Aksesoris Desktop & Laptop",
+    "Jenis Produk": "USB HUB & Card Reader, Webcam, Pelindung Laptop & Skin Laptop, Cooling Pad, Meja & Stand Laptop, Pelindung Keyboard & Trackpad, Baterai Laptop, Charger & Adaptor Laptop, Perangkat Video Conference, Aksesoris Desktop & Laptop Lainnya, Mouse Pad",
+    "Star Rate": 6.75,
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Komputer & Aksesoris",
+    "Sub Kategori": "Keyboard & Mouse",
+    "Jenis Produk": "Mouse, Keyboard, Drawing Tablet, Keyboard & Mouse Lainnya",
+    "Star Rate": 6.75,
+    "Mall Rate": 7.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Komputer & Aksesoris",
+    "Sub Kategori": "Komponen Network",
+    "Jenis Produk": "Modem & Router Wireless, Repeater, Wireless Adapter & Kartu Network, Powerline Adapter, Switch Internet & PoE, Kabel Network & Konektor, KVM Switch, Print Server, Komponen Network Lainnya",
+    "Star Rate": 6.75,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Komputer & Aksesoris",
+    "Sub Kategori": "Software",
+    "Jenis Produk": "Software",
+    "Star Rate": 6.75,
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Komputer & Aksesoris",
+    "Sub Kategori": "Komponen Desktop & Laptop",
+    "Jenis Produk": "Sound Card",
+    "Star Rate": 6.5,
+    "Mall Rate": 4.7,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Komputer & Aksesoris",
+    "Sub Kategori": "Desktop",
+    "Jenis Produk": "PC Desktop, PC Mini, Server PC, All-in-One Desktop, Desktop Lainnya",
+    "Star Rate": 5.25,
+    "Mall Rate": 4.2,
+    "Kategori Gratis Ongkir": "A",
+    "GO Biasa": 1.0,
+    "GO Khusus": 2.5
+  },
+  {
+    "Kategori": "Komputer & Aksesoris",
+    "Sub Kategori": "Komponen Desktop & Laptop",
+    "Jenis Produk": "Fan & Heatsink, Processor, Motherboard, VGA Card, Thermal Paste, Power Supply, Memory RAM, UPS & Stabilizer, Casing Komputer, Optical Drive, Komponen Desktop & Laptop Lainnya",
+    "Star Rate": 5.25,
+    "Mall Rate": 4.2,
+    "Kategori Gratis Ongkir": "B",
+    "GO Biasa": 2.0,
+    "GO Khusus": 3.5
+  },
+  {
+    "Kategori": "Komputer & Aksesoris",
+    "Sub Kategori": "Laptop",
+    "Jenis Produk": "Laptop",
+    "Star Rate": 5.25,
+    "Mall Rate": 4.2,
+    "Kategori Gratis Ongkir": "A",
+    "GO Biasa": 1.0,
+    "GO Khusus": 2.5
+  },
+  {
+    "Kategori": "Komputer & Aksesoris",
+    "Sub Kategori": "Monitor",
+    "Jenis Produk": "Monitor",
+    "Star Rate": 5.25,
+    "Mall Rate": 4.2,
+    "Kategori Gratis Ongkir": "A",
+    "GO Biasa": 1.0,
+    "GO Khusus": 2.5
+  },
+  {
+    "Kategori": "Komputer & Aksesoris",
+    "Sub Kategori": "Penyimpanan Data",
+    "Jenis Produk": "SSD, Hard Disk, Network Attached Storage (NAS), Flashdisk & Flashdisk OTG, Casing Hard Disk & Docking, Compact Disc (CD), Penyimpanan Data Lainnya",
+    "Star Rate": 5.25,
+    "Mall Rate": 4.2,
+    "Kategori Gratis Ongkir": "C",
+    "GO Biasa": 3.5,
+    "GO Khusus": 5.0
+  },
+  {
+    "Kategori": "Komputer & Aksesoris",
+    "Sub Kategori": "Peralatan Kantor",
+    "Jenis Produk": "Mesin Ketik, Mesin Absensi, Penghancur Kertas, Penghitung Uang, Peralatan Kantor Lainnya",
+    "Star Rate": 5.25,
+    "Mall Rate": 4.2,
+    "Kategori Gratis Ongkir": "C",
+    "GO Biasa": 3.5,
+    "GO Khusus": 5.0
+  },
+  {
+    "Kategori": "Komputer & Aksesoris",
+    "Sub Kategori": "Printer & Scanner",
+    "Jenis Produk": "Printer, Scanner & Mesin Fotokopi, Printer Thermal & Barcode, Tinta Printer, 3D Printer, Printer & Scanner Lainnya",
+    "Star Rate": 5.25,
+    "Mall Rate": 4.2,
+    "Kategori Gratis Ongkir": "B",
+    "GO Biasa": 2.0,
+    "GO Khusus": 3.5
+  },
+  {
+    "Kategori": "Komputer & Aksesoris",
+    "Sub Kategori": "Komputer & Aksesoris Lainnya",
+    "Jenis Produk": "Komputer & Aksesoris Lainnya",
+    "Star Rate": 6.75,
+    "Mall Rate": 10.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Buku & Alat Tulis",
+    "Sub Kategori": "Perlengkapan Menggambar",
+    "Jenis Produk": "Pensil Warna, Krayon & Pastel, Cat Air & Cat Poster, Cat Minyak, Cat Akrilik, Kuas Lukis, Palet Lukis, Kanvas Lukis & Easel, Buku Gambar & Sketsa, Perlengkapan Menggambar Lainnya",
+    "Star Rate": 10.0,
+    "Mall Rate": 11.7,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Buku & Alat Tulis",
+    "Sub Kategori": "Pembungkus Kado & Kemasan",
+    "Jenis Produk": "Bubble Wrap",
+    "Star Rate": 9.5,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Buku & Alat Tulis",
+    "Sub Kategori": "Perlengkapan Sekolah & Kantor",
+    "Jenis Produk": "Kalkulator, Pisau Ukir & Cutter, Tali & Selotip, Lem, Printer Label, Lanyard & Name Tag, Klip Kertas, Push Pin, & Paku Payung, Pembolong Kertas, Gunting, Stempel & Bak Stempel, Stapler & Staples, Kalender, Folder, Organizer Kertas, & Aksesoris",
+    "Star Rate": 9.5,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Buku & Alat Tulis",
+    "Sub Kategori": "Alat Tulis",
+    "Jenis Produk": "Pulpen & Tinta, Pensil, Penghapus & Tipe X, Spidol, Highlighter, Alat Tulis Lainnya",
+    "Star Rate": 9.0,
+    "Mall Rate": 7.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Buku & Alat Tulis",
+    "Sub Kategori": "Buku Tulis & Kertas",
+    "Jenis Produk": "Pembatas Buku, Sampul Buku, Kertas Termal & Continuous Paper, Kertas Print & Fotocopy, Kertas Binder, Memo & Sticky Notes, Art Paper & Art Board, Notebook & Notepad, Label & Stiker, Buku Tulis & Kertas Lainnya",
+    "Star Rate": 9.0,
+    "Mall Rate": 9.95,
+    "Kategori Gratis Ongkir": "E",
+    "GO Biasa": 6.0,
+    "GO Khusus": 7.5
+  },
+  {
+    "Kategori": "Buku & Alat Tulis",
+    "Sub Kategori": "Pembungkus Kado & Kemasan",
+    "Jenis Produk": "Kertas Kado, Kotak Kado, Tas Kado, Pita Kado, Kardus, Bungkus Kado Lainnya",
+    "Star Rate": 9.0,
+    "Mall Rate": 7.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Buku & Alat Tulis",
+    "Sub Kategori": "Perlengkapan Sekolah & Kantor",
+    "Jenis Produk": "Papan Tulis & Papan Jalan, Penggaris, Busur Derajat, & Stensil, Rautan, Tempat Pensil, Perlengkapan Sekolah & Kantor Lainnya",
+    "Star Rate": 9.0,
+    "Mall Rate": 7.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Buku & Alat Tulis",
+    "Sub Kategori": "Surat-Menyurat",
+    "Jenis Produk": "Amplop & Angpau, Kartu Pos, Materai & Perangko, Surat-Menyurat Lainnya",
+    "Star Rate": 9.0,
+    "Mall Rate": 7.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Buku & Alat Tulis",
+    "Sub Kategori": "Buku & Alat Tulis Lainnya",
+    "Jenis Produk": "Buku & Alat Tulis Lainnya",
+    "Star Rate": 10.0,
+    "Mall Rate": 11.7,
+    "Kategori Gratis Ongkir": "E",
+    "GO Biasa": 6.0,
+    "GO Khusus": 7.5
+  },
+  {
+    "Kategori": "Buku & Majalah",
+    "Sub Kategori": "Majalah & Koran",
+    "Jenis Produk": "Bisnis, Gaya Hidup, Remaja, Majalah & Koran Lainnya",
+    "Star Rate": 10.0,
+    "Mall Rate": 11.7,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Buku & Majalah",
+    "Sub Kategori": "Buku Bacaan",
+    "Jenis Produk": "Komik, Buku Audio, Buku Bacaan Lainnya",
+    "Star Rate": 9.5,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Buku & Majalah",
+    "Sub Kategori": "Buku Bacaan",
+    "Jenis Produk": "Buku Anak-Anak, Stiker & Buku Mewarnai, Pertanian, Kehutanan, & Perikanan, Kamus, Sains & Matematika, Kedokteran, Pendidikan, Seni, Desain, & Fotografi, Hobi, Musik, Buku Resep & Masak, Kesehatan, Kebugaran, & Diet, Wisata & Turisme, Parenting & Keluarga, Politik, Hukum, & Ilmu Sosial, Biografi & Memoar, Sejarah & Budaya, Agama & Filsafat, Psikologi & Hubungan, Pengembangan Diri & Karir, Bisnis & Investasi, Komputer & Teknologi, Literatur Klasik, Fantasi, Action, Crime, & Thrillers, Romansa",
+    "Star Rate": 9.0,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Buku & Majalah",
+    "Sub Kategori": "E-Book",
+    "Jenis Produk": "E-Book",
+    "Star Rate": 9.0,
+    "Mall Rate": 7.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Buku & Majalah",
+    "Sub Kategori": "Buku Bacaan",
+    "Jenis Produk": "Buku Bayi",
+    "Star Rate": 8.25,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "H",
+    "GO Biasa": 8.0,
+    "GO Khusus": 9.5
+  },
+  {
+    "Kategori": "Buku & Majalah",
+    "Sub Kategori": "Buku & Majalah Lainnya",
+    "Jenis Produk": "Buku & Majalah Lainnya",
+    "Star Rate": 9.5,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "E",
+    "GO Biasa": 6.0,
+    "GO Khusus": 7.5
+  },
+  {
+    "Kategori": "Hewan Peliharaan",
+    "Sub Kategori": "Aksesoris Hewan Peliharaan",
+    "Jenis Produk": "Mangkuk & Feeder, Perlengkapan Travelling, Kalung, Tali, Harness & Brangus, Stick & Chaser, Chew, Tulang & Bola, Frisbee, Mainan Anjing & Kucing Lainnya, Mainan Hewan Peliharaan Kecil, Mainan Burung, Mainan Lainnya, Tempat Tidur & Matras, Rumah, Habitat & Aksesoris, Kandang & Crate, Scratching Pad & Post, Kebutuhan Akuarium, Furniture Hewan Lainnya, Aksesoris Hewan Peliharaan Lainnya",
+    "Star Rate": 9.5,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "H",
+    "GO Biasa": 8.0,
+    "GO Khusus": 9.5
+  },
+  {
+    "Kategori": "Hewan Peliharaan",
+    "Sub Kategori": "Grooming Hewan",
+    "Jenis Produk": "Perawatan Rambut, Perawatan Mulut, Perawatan Kuku, Grooming Hewan Lainnya",
+    "Star Rate": 9.5,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
+  },
+  {
+    "Kategori": "Hewan Peliharaan",
+    "Sub Kategori": "Litter & Toilet",
+    "Jenis Produk": "Litter Box Kucing, Tempat Tidur & Litter Hewan Peliharaan Kecil, Popok, Training Pad & Tray Anjing, Plastik & Sekop Kotoran, Litter & Toilet Lainnya",
+    "Star Rate": 9.5,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "H",
+    "GO Biasa": 8.0,
+    "GO Khusus": 9.5
+  },
+  {
+    "Kategori": "Hewan Peliharaan",
+    "Sub Kategori": "Makanan Hewan",
+    "Jenis Produk": "Makanan Anjing, Cemilan Anjing, Makanan Kucing, Snack Kucing, Makanan Hewan Peliharaan Kecil, Snack Hewan Peliharaan Kecil, Makanan Hewan Air, Pakan Burung, Makanan Reptil, Makanan Hewan Lainnya",
+    "Star Rate": 9.5,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "H",
+    "GO Biasa": 8.0,
+    "GO Khusus": 9.5
+  },
+  {
+    "Kategori": "Hewan Peliharaan",
+    "Sub Kategori": "Pakaian & Aksesoris Hewan",
+    "Jenis Produk": "Pakaian Hewan, Perlengkapan Hujan, Sepatu Boot, Kaos Kaki & Pelindung Kaki Hewan, Aksesoris Leher, Kacamata, Aksesoris Rambut, Topi, Pakaian & Aksesoris Hewan Lainnya",
+    "Star Rate": 9.5,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
+  },
+  {
+    "Kategori": "Hewan Peliharaan",
+    "Sub Kategori": "Perawatan Kesehatan Hewan",
+    "Jenis Produk": "Anti Kutu, Obat, Perawatan Kesehatan Hewan Lainnya, Vitamin & Suplemen",
+    "Star Rate": 9.5,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
+  },
+  {
+    "Kategori": "Hewan Peliharaan",
+    "Sub Kategori": "Hewan Peliharaan Lainnya",
+    "Jenis Produk": "Hewan Peliharaan Lainnya",
+    "Star Rate": 9.5,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "E",
+    "GO Biasa": 6.0,
+    "GO Khusus": 7.5
+  },
+  {
+    "Kategori": "Hobi & Koleksi",
+    "Sub Kategori": "Alat & Aksesoris Musik",
+    "Jenis Produk": "Keyboard & Piano, Alat Musik Perkusi, Alat Musik Tiup, Ukulele, Gitar & Gitar Bass, Aksesoris Musik, Alat & Aksesoris Musik Lainnnya, Alat Musik Petik Lainnya",
+    "Star Rate": 9.5,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "E",
+    "GO Biasa": 6.0,
+    "GO Khusus": 7.5
+  },
+  {
+    "Kategori": "Hobi & Koleksi",
+    "Sub Kategori": "Album Foto",
+    "Jenis Produk": "Album Foto",
+    "Star Rate": 9.5,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "E",
+    "GO Biasa": 6.0,
+    "GO Khusus": 7.5
+  },
+  {
+    "Kategori": "Hobi & Koleksi",
+    "Sub Kategori": "CD, DVD & Bluray",
+    "Jenis Produk": "CD, DVD & Bluray",
+    "Star Rate": 9.5,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
+  },
+  {
+    "Kategori": "Hobi & Koleksi",
+    "Sub Kategori": "Koleksi",
+    "Jenis Produk": "Action Figure, Patung, Mecha Model & Diecast, Vehicle Model & Diecast, Batu Akik & Alam, Koleksi Penggemar, Koleksi Olahraga, Koleksi Anime & Manga, Koin & Uang Kertas, Koleksi Lainnya",
+    "Star Rate": 9.5,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "H",
+    "GO Biasa": 8.0,
+    "GO Khusus": 9.5
+  },
+  {
+    "Kategori": "Hobi & Koleksi",
+    "Sub Kategori": "Mainan & Games",
+    "Jenis Produk": "Dadu, Board Game & Mainan Kartu, Mainan Sulap, Mainan Prank, Kubus Rubik, Gangsing, Kendama, Yo-yo, Mainan & Aksesoris Remote Control, Mainan Kapsul, Mainan & Games Lainnya",
+    "Star Rate": 9.5,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "H",
+    "GO Biasa": 8.0,
+    "GO Khusus": 9.5
+  },
+  {
+    "Kategori": "Hobi & Koleksi",
+    "Sub Kategori": "Perlengkapan Menjahit",
+    "Jenis Produk": "Perlengkapan Menjahit",
+    "Star Rate": 9.5,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "F",
+    "GO Biasa": 6.5,
+    "GO Khusus": 8.0
+  },
+  {
+    "Kategori": "Hobi & Koleksi",
+    "Sub Kategori": "Piringan Hitam",
+    "Jenis Produk": "Piringan Hitam",
+    "Star Rate": 9.5,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
+  },
+  {
+    "Kategori": "Hobi & Koleksi",
+    "Sub Kategori": "Souvenir & Hadiah",
+    "Jenis Produk": "Kipas Tangan, Gantungan Kunci, Celengan, Magnet Kulkas, Souvenir Lainnya",
+    "Star Rate": 9.0,
+    "Mall Rate": 10.45,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
+  },
+  {
+    "Kategori": "Hobi & Koleksi",
+    "Sub Kategori": "Hobi & Koleksi Lainnya",
+    "Jenis Produk": "Hobi & Koleksi Lainnya",
+    "Star Rate": 9.5,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "E",
+    "GO Biasa": 6.0,
+    "GO Khusus": 7.5
+  },
+  {
+    "Kategori": "Mobil",
+    "Sub Kategori": "Suku Cadang Mobil",
+    "Jenis Produk": "Bodi, Rangka, & Bemper Mobil, Wiper & Penyemprot Wiper Mobil, Knalpot Mobil, Roda, Velg, & Aksesoris, Ban Mobil & Aksesoris, Shock, Strutbar, & Suspensi Mobil, Radiator & Sistem Pendingin Mobil, Rantai, Transmisi, & Kopling, Bearing Roda & Seal Mobil, Piston Mobil, Filter Udara, Filter Oli, Sistem Pengereman Mobil, Fan Belt, Selang, & Pulley Mobil, Kumparan Pengapian, Busi, Aki & Aksesoris, Lampu Mobil, Sistem Bahan Bakar, Suku Cadang Mobil Lainnya, Suku Cadang Mesin Lainnya, Kelistrikan Lainnya, Pengapian Lainnya",
+    "Star Rate": 9.5,
+    "Mall Rate": 10.45,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
+  },
+  {
+    "Kategori": "Mobil",
+    "Sub Kategori": "Oli & Pelumas Kendaraan",
+    "Jenis Produk": "Oli, Aditif & Penghemat Bahan Bakar, Gemuk & Pelumas, Coolant, Pelumas Rem, Pelumas Transmisi, Perawatan Kendaraan Lainnya, Cairan Otomotif Lainnya",
+    "Star Rate": 9.0,
+    "Mall Rate": 10.45,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
+  },
+  {
+    "Kategori": "Mobil",
+    "Sub Kategori": "Aksesoris Eksterior Mobil",
+    "Jenis Produk": "Hiasan Mobil, Antena Mobil, Sarung Mobil, Stiker, Logo, & Emblem Mobil, Karpet Lumpur, Sill Plate Mobil, Talang Air, Klakson & Aksesoris, Spion & Aksesoris, Aksesoris Plat Nomor Mobil, Aksesoris Eksterior Mobil Lainnya",
+    "Star Rate": 8.25,
+    "Mall Rate": 10.45,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
+  },
+  {
+    "Kategori": "Mobil",
+    "Sub Kategori": "Aksesoris Interior Mobil",
+    "Jenis Produk": "Navigasi & AV Receiver, Amplifier, Speaker, & Subwoofer, Organizer & Kompartemen Mobil, Parfum Mobil, Karpet Mobil, Penyangga Leher & Punggung, Matras Mobil, Setir & Sarung Setir Mobil, Jok & Sarung Jok Mobil, Holder Handphone, Pengisi Daya USB & Bluetooth Transmitter, Pedal & Stik Persneling, Sunshield & Pelindung Dashboard, Kunci Stir, Kamera Parkir, HUD, Speedometer, & Gauge, Aksesoris Interior Mobil Lainnya",
+    "Star Rate": 8.25,
+    "Mall Rate": 10.45,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
+  },
+  {
+    "Kategori": "Mobil",
+    "Sub Kategori": "Gantungan & Sarung Kunci Kendaraan",
+    "Jenis Produk": "Gantungan & Sarung Kunci Kendaraan",
+    "Star Rate": 8.25,
+    "Mall Rate": 10.45,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
+  },
+  {
+    "Kategori": "Mobil",
+    "Sub Kategori": "Perawatan Kendaraan",
+    "Jenis Produk": "Sabun Cuci & Wax, Pembersih Kaca & Anti-Air, Perawatan Interior, Perawatan Ban & Velg, Poles, Coating, & Sealant Mobil, Perawatan Kendaraan Lainnya",
+    "Star Rate": 8.25,
+    "Mall Rate": 10.45,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
+  },
+  {
+    "Kategori": "Mobil",
+    "Sub Kategori": "Perkakas & Perlengkapan Kendaraan",
+    "Jenis Produk": "Peralatan Uji, Diagnosa, & Servis, Pengukur Tekanan Udara Ban, Perkakas & Perlengkapan Kendaraan Lainnya",
+    "Star Rate": 8.25,
+    "Mall Rate": 10.45,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
+  },
+  {
+    "Kategori": "Mobil",
+    "Sub Kategori": "Mobil",
+    "Jenis Produk": "Mobil",
+    "Star Rate": 2.5,
+    "Mall Rate": 2.5,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
+  },
+  {
+    "Kategori": "Mobil",
+    "Sub Kategori": "Mobil Lainnya",
+    "Jenis Produk": "Mobil Lainnya",
+    "Star Rate": 8.25,
+    "Mall Rate": 10.45,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
+  },
+  {
+    "Kategori": "Olahraga & Outdoor",
+    "Sub Kategori": "Aksesoris Olahraga & Aktivitas Outdoor",
+    "Jenis Produk": "Payung, Pelindung Mulut & Sport Tape, Stopwatch & Pedometer, Tas Sepatu, Gelang Olahraga, Ikat Kepala Olahraga, Topi Olahraga & Aktivitas Outdoor, Tas Anti Air, Alat Training, Alat Pelindung Gym, Aksesoris Olahraga & Aktivitas Outdoor Lainnya",
+    "Star Rate": 10.0,
+    "Mall Rate": 11.7,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
+  },
+  {
+    "Kategori": "Olahraga & Outdoor",
+    "Sub Kategori": "Alat Rekreasi Olahraga & Aktivitas Outdoor",
+    "Jenis Produk": "Sepeda, Komponen & Aksesoris Sepeda, Helm Sepeda, Bersepeda Lainnya, Alat Masak Camping, Lampu & Senter Camping, Aksesoris Tenda, Sleeping Bag, Teropong, Monokuler, & Teleskop, Kompas, Pisau Camping & Peralatan Survival, Tempat Tidur Gantung, Tongkat Hiking, Matras & Keranjang Piknik, Camping & Hiking Lainnya, Panjat Tebing, Busur Panah, Anak Panah, Panahan Lainnya, Bola Kaki, Sarung Tangan & Deker, Tiang Gawang & Net, Sepak Bola, Futsal, & Sepak Takraw Lainnya, Bola Basket, Ring Basket, Basket Lainnya, Bola Voli, Net Voli, Voli Lainnya, Raket Bulu Tangkis, Kok Bulu Tangkis, Net Bulu Tangkis, Bulu Tangkis Lainnya, Raket Tenis, Bola Tenis, Net Tenis, Tenis Lainnya, Bola Tenis Meja, Bet Tenis Meja, Net Tenis Meja, Tenis Meja Lainnya, Samsak & Bantalan Tinju, Sabuk Bela Diri, Sarung Tangan, Hand Wrap, & Helm, Tinju & Bela Diri Lainnya, Bola Golf, Stik Golf, Alat Pelindung & Training, Tas Golf, Golf Lainnya, Baseball & Softball, Squash, Rugbi, Billiard, Selancar & Wakeboard, Ice Skating & Olahraga Musim Dingin, Topi Renang, Kacamata Renang, Papan Pelampung, Senter Diving, Masker Diving, Kaki Katak, Jaket Pelampung, Diving & Renang Lainnya, Boating, Matras Yoga, Balok, Ring, & Foam Roller Yoga, Resistance Band, Yoga & Pilates Lainnya, Latihan Beban, Tali Skipping, Bola Gym, Alat Fitness, Ab Roller, Pull Up & Push Up Bar, Fitness Lainnya, Dart, Alat Rekreasi Olahraga & Aktivitas Outdoor Lainnya, Kail Pancing, Joran & Gulungan Pancing, Alat Pelacak Ikan, Senar Pancing, Umpan Pancing, Tas Pancing, Jaring Ikan, Alat Pancing Lainnya, Skateboard & Sepatu Roda, Skuter & Sepeda Roda Satu, Segway & Hoverboard, Helm & Alat Pelindung, Boardsport Lainnya, Piringan Pemutar Pinggang, Alat Olahraga Otot Tangan",
+    "Star Rate": 10.0,
+    "Mall Rate": 11.7,
+    "Kategori Gratis Ongkir": "H",
+    "GO Biasa": 8.0,
+    "GO Khusus": 9.5
+  },
+  {
+    "Kategori": "Olahraga & Outdoor",
+    "Sub Kategori": "Pakaian Olahraga & Aktivitas Outdoor",
+    "Jenis Produk": "Jaket Olahraga, Set Pakaian Olahraga & Aktivitas Outdoor, Atasan Olahraga, Jersey, Bawahan Olahraga, Celana Renang Pria, Bikini, Baju Renang Wanita, Rash Guard, Pakaian Renang Lainnya, Sports Bra, Pakaian Olahraga Anak, Pakaian Olahraga & Aktivitas Outdoor Lainnya",
+    "Star Rate": 10.0,
+    "Mall Rate": 11.7,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
+  },
+  {
+    "Kategori": "Olahraga & Outdoor",
+    "Sub Kategori": "Sepatu Olahraga",
+    "Jenis Produk": "Sepatu Basket, Sepatu Lari, Sepatu Training, Sepatu Tenis, Sepatu Voli, Sepatu Bulu Tangkis, Sepatu Futsal, Sepatu Hiking, Sepatu Sepak Bola, Sepatu Olahraga Anak, Sepatu Olahraga Lainnya",
+    "Star Rate": 10.0,
+    "Mall Rate": 11.7,
+    "Kategori Gratis Ongkir": "H",
+    "GO Biasa": 8.0,
+    "GO Khusus": 9.5
+  },
+  {
+    "Kategori": "Olahraga & Outdoor",
+    "Sub Kategori": "Aksesoris Olahraga & Aktivitas Outdoor",
+    "Jenis Produk": "Jas Hujan",
+    "Star Rate": 8.25,
+    "Mall Rate": 10.45,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
+  },
+  {
+    "Kategori": "Olahraga & Outdoor",
+    "Sub Kategori": "Olahraga & Outdoor Lainnya",
+    "Jenis Produk": "Olahraga & Outdoor Lainnya",
+    "Star Rate": 10.0,
+    "Mall Rate": 11.7,
+    "Kategori Gratis Ongkir": "H",
+    "GO Biasa": 8.0,
+    "GO Khusus": 9.5
+  },
+  {
+    "Kategori": "Perlengkapan Rumah",
+    "Sub Kategori": "Alat Pengaman",
+    "Jenis Produk": "Brankas, Pemadam Api, Perangkat Pintu & Gembok, Alat Pengaman Lainnya",
+    "Star Rate": 10.0,
+    "Mall Rate": 11.7,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
+  },
+  {
+    "Kategori": "Perlengkapan Rumah",
+    "Sub Kategori": "Alat Pertukangan & Renovasi Rumah",
+    "Jenis Produk": "Perekat & Tape, Sarung Tangan, Kacamata, & Masker Pelindung, Bak Cuci Piring & Kran Air, Atap & Lantai, Cat & Pelapis Dinding, Pompa Air & Aksesoris, Pompa Udara & Aksesoris, Tangga, Troli, Tenda & Terpal, Material Konstruksi, Pintu & Jendela, Alat Pemeliharaan Rumah Lainnya, Tool Box, Kunci Set, Palu, Tang, Paku, Sekrup, & Fastener, Amplas, Mesin Amplas, & Aksesoris, Meteran, Meteran Jalan, Bor, Obeng & Aksesoris, Gergaji, Mesin Pemotong, & Gerinda, Pressure Washer, Power Generator, Electrical Tester & Multimeter, Pengukur Jarak, Kompresor Udara, Perlengkapan Las, Blower, Perkakas Lainnya",
+    "Star Rate": 10.0,
+    "Mall Rate": 11.7,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
+  },
+  {
+    "Kategori": "Perlengkapan Rumah",
+    "Sub Kategori": "Dekorasi",
+    "Jenis Produk": "Tirai & Tirai Gulung, Bingkai Foto & Pajangan Dinding, Wallpaper & Stiker Dinding, Jam Dinding, Keset, Karpet & Tikar, Vas & Bejana, Lilin & Tempat Lilin, Cermin, Taplak Meja, Dekorasi Lainnya, Furniture & Pelindung Furniture",
+    "Star Rate": 10.0,
+    "Mall Rate": 11.7,
+    "Kategori Gratis Ongkir": "F",
+    "GO Biasa": 6.5,
+    "GO Khusus": 8.0
+  },
+  {
+    "Kategori": "Perlengkapan Rumah",
+    "Sub Kategori": "Furniture",
+    "Jenis Produk": "Bantal Sofa, Penahan Pintu, Rangka & Sandaran Tempat Tidur, Lemari Pakaian, Sofa, Lemari & Kabinet, Rak & Rak Gantung, Meja & Meja Tulis, Furniture Lainnya",
+    "Star Rate": 10.0,
+    "Mall Rate": 11.7,
+    "Kategori Gratis Ongkir": "F",
+    "GO Biasa": 6.5,
+    "GO Khusus": 8.0
+  },
+  {
+    "Kategori": "Perlengkapan Rumah",
+    "Sub Kategori": "Kamar Mandi",
+    "Jenis Produk": "Kloset & Alas Dudukan Kloset, Tempat Sikat Gigi & Dispenser Odol, Dispenser, Tempat, & Kotak Sabun, Rak & Kabinet Kamar Mandi, Bak Mandi & Bathtub, Handuk Mandi, Handuk Wajah & Lap Tangan, Handuk Kimono, Handuk Mandi & Kimono Lainnya, Kepala Shower & Spray Bidet, Sikat & Spons Badan, Tirai Shower, Tempat Duduk Mandi & Pispot, Pegangan Kamar Mandi, Shower Cap, Kamar Mandi Lainnya",
+    "Star Rate": 10.0,
+    "Mall Rate": 11.7,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
+  },
+  {
+    "Kategori": "Perlengkapan Rumah",
+    "Sub Kategori": "Kamar Tidur",
+    "Jenis Produk": "Matras Pendingin, Pelindung Matras, Selimut, Bantal, Sprei, Sarung Bantal, & Sarung Guling, Matras, Kelambu, Guling, Kamar Tidur Lainnya",
+    "Star Rate": 10.0,
+    "Mall Rate": 11.7,
+    "Kategori Gratis Ongkir": "F",
+    "GO Biasa": 6.5,
+    "GO Khusus": 8.0
+  },
+  {
+    "Kategori": "Perlengkapan Rumah",
+    "Sub Kategori": "Organizer Rumah",
+    "Jenis Produk": "Gantungan, Box, Tas, & Keranjang Penyimpanan, Box Penyimpanan Sepatu, Pengait, Tas & Keranjang Laundry, Organizer Meja, Organizer Lemari Pakaian, Organizer Perhiasan, Tempat Tisu, Organizer Rumah Lainnya",
+    "Star Rate": 10.0,
+    "Mall Rate": 11.7,
+    "Kategori Gratis Ongkir": "H",
+    "GO Biasa": 8.0,
+    "GO Khusus": 9.5
+  },
+  {
+    "Kategori": "Perlengkapan Rumah",
+    "Sub Kategori": "Penghangat Tangan & Kantong Kompres",
+    "Jenis Produk": "Penghangat Tangan & Kantong Kompres",
+    "Star Rate": 10.0,
+    "Mall Rate": 11.7,
+    "Kategori Gratis Ongkir": "H",
+    "GO Biasa": 8.0,
+    "GO Khusus": 9.5
+  },
+  {
+    "Kategori": "Perlengkapan Rumah",
+    "Sub Kategori": "Pengharum Ruangan & Aromaterapi",
+    "Jenis Produk": "Diffuser, Humidifier, & Oil Burner, Pengharum Ruangan & Aromaterapi Lainnya",
+    "Star Rate": 10.0,
+    "Mall Rate": 11.7,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Perlengkapan Rumah",
+    "Sub Kategori": "Peralatan Makan",
+    "Jenis Produk": "Jug, Pitcher, & Aksesoris, Kantong & Set Teh, Cangkir, Mug, & Gelas, Botol Minum & Aksesoris, Mangkuk, Piring, Alat Makan, Sedotan, Tudung Saji & Penutup Makanan, Tatakan Piring & Gelas, Peralatan Makan Lainnya",
+    "Star Rate": 10.0,
+    "Mall Rate": 11.7,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Perlengkapan Rumah",
+    "Sub Kategori": "Perawatan Rumah",
+    "Jenis Produk": "Tali Jemuran & Rak Pengering, Sikat Pembersih, Sapu, Kemoceng, Kain Pel, Basin, Ember, & Gayung Air, Spons & Scouring Pad, Tempat Sampah, Kantong Plastik & Kantong Sampah, Lap",
+    "Star Rate": 10.0,
+    "Mall Rate": 11.7,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
+  },
+  {
+    "Kategori": "Perlengkapan Rumah",
+    "Sub Kategori": "Perlengkapan Dapur",
+    "Jenis Produk": "Tempat Penyimpanan Makanan, Cling Wrap, Aluminium Foil, Peralatan Teh, Kopi, & Bartending, Rak Dapur, Celemek & Pelindung Tangan, Pembuka Tutup Kaleng & Botol, Korek Api & Pemantik, Timbangan Dapur, Perlengkapan Dapur Lainnya, Alat & Aksesoris Pemanggang, Alat & Dekorasi Baking, Penggorengan, Panci, Spatula & Capitan, Talenan, Pengocok Telur, Gelas & Sendok Takar, Saringan, Parutan & Peeler, Pisau & Gunting Dapur",
+    "Star Rate": 10.0,
+    "Mall Rate": 11.7,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Perlengkapan Rumah",
+    "Sub Kategori": "Perlengkapan Keagamaan",
+    "Jenis Produk": "Perlengkapan Keagamaan",
+    "Star Rate": 10.0,
+    "Mall Rate": 11.7,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Perlengkapan Rumah",
+    "Sub Kategori": "Taman",
+    "Jenis Produk": "Tanaman, Dekorasi Taman, Tanah & Media Tanam, Pupuk, Bibit & Umbi, Pot & Planter, Sistem Pengairan, Peralatan Berkebun, Taman Lainnya, Mesin Pemotong Rumput",
+    "Star Rate": 10.0,
+    "Mall Rate": 11.7,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
+  },
+  {
+    "Kategori": "Perlengkapan Rumah",
+    "Sub Kategori": "Lampu",
+    "Jenis Produk": "Lampu",
+    "Star Rate": 9.5,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "F",
+    "GO Biasa": 6.5,
+    "GO Khusus": 8.0
+  },
+  {
+    "Kategori": "Perlengkapan Rumah",
+    "Sub Kategori": "Dekorasi",
+    "Jenis Produk": "Bunga",
+    "Star Rate": 9.0,
+    "Mall Rate": 10.45,
+    "Kategori Gratis Ongkir": "F",
+    "GO Biasa": 6.5,
+    "GO Khusus": 8.0
+  },
+  {
+    "Kategori": "Perlengkapan Rumah",
+    "Sub Kategori": "Furniture",
+    "Jenis Produk": "Kursi & Bangku",
+    "Star Rate": 9.0,
+    "Mall Rate": 7.2,
+    "Kategori Gratis Ongkir": "F",
+    "GO Biasa": 6.5,
+    "GO Khusus": 8.0
+  },
+  {
+    "Kategori": "Perlengkapan Rumah",
+    "Sub Kategori": "Pengharum Ruangan & Aromaterapi",
+    "Jenis Produk": "Minyak Esensial, Pengharum Ruangan",
+    "Star Rate": 9.0,
+    "Mall Rate": 11.7,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Perlengkapan Rumah",
+    "Sub Kategori": "Perawatan Rumah",
+    "Jenis Produk": "Pembasmi Hama & Gulma, Tisu & Tisu Kertas, Tisu Toilet, Pembersih, Pengharum Pakaian, Conditioner & Pelembut Pakaian, Detergen, Perawatan Rumah Lainnya, Perawatan Pakaian Lainnya",
+    "Star Rate": 9.0,
+    "Mall Rate": 11.7,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
+  },
+  {
+    "Kategori": "Perlengkapan Rumah",
+    "Sub Kategori": "Perlengkapan Pesta",
+    "Jenis Produk": "Balon, Wooden Clip, Backdrop & Spanduk, Kartu Ucapan, Peralatan Makan Sekali Pakai, Topi & Topeng Pesta, Selempang/Sash, Perlengkapan Pesta Lainnya",
+    "Star Rate": 9.0,
+    "Mall Rate": 10.45,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
+  },
+  {
+    "Kategori": "Perlengkapan Rumah",
+    "Sub Kategori": "Perlengkapan Dapur",
+    "Jenis Produk": "Sealer",
+    "Star Rate": 6.5,
+    "Mall Rate": 7.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Perlengkapan Rumah",
+    "Sub Kategori": "Perlengkapan Rumah Lainnya",
+    "Jenis Produk": "Perlengkapan Rumah Lainnya",
+    "Star Rate": 10.0,
+    "Mall Rate": 11.7,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Sepeda Motor",
+    "Sub Kategori": "Aksesoris Sepeda Motor",
+    "Jenis Produk": "Karpet Motor, Speedometer, Odometer, & Gauge Motor, Sarung Motor, Stiker, Logo, & Emblem, Jok & Sarung Jok Motor, Spion Motor & Aksesoris, Kunci & Keamanan, Box Motor, Dudukan Handphone, Karpet Lumpur, Aksesoris Sepeda Motor Lainnya",
+    "Star Rate": 8.25,
+    "Mall Rate": 10.45,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
+  },
+  {
+    "Kategori": "Sepeda Motor",
+    "Sub Kategori": "Helm & Aksesoris Pengendara Motor",
+    "Jenis Produk": "Helm & Aksesoris Pengendara Motor",
+    "Star Rate": 8.25,
+    "Mall Rate": 10.45,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
+  },
+  {
+    "Kategori": "Sepeda Motor",
+    "Sub Kategori": "Suku Cadang Motor",
+    "Jenis Produk": "Radiator, Piston, CDI & ECU, Busi, Kumparan Pengapian, V-Belt, Filter Udara, Sistem Bahan Bakar, Sistem Pengereman, Shock, Strut, & Suspensi Motor, Rantai & Gir, Kopling, Bearing, Aki & Aksesoris, Klakson & Aksesoris, Kabel & Selang, Bodi & Rangka Motor, Knalpot Motor, Roda, Velg, & Aksesoris, Ban Motor & Aksesoris, Lampu Motor, Suku Cadang Motor Lainnya, Pengapian & Suku Cadang Mesin Lainnya, Rantai, Transmisi, & Kopling Lainnya",
+    "Star Rate": 8.25,
+    "Mall Rate": 10.45,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
+  },
+  {
+    "Kategori": "Sepeda Motor",
+    "Sub Kategori": "Sepeda Motor",
+    "Jenis Produk": "Sepeda Motor",
+    "Star Rate": 2.5,
+    "Mall Rate": 2.5,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
+  },
+  {
+    "Kategori": "Sepeda Motor",
+    "Sub Kategori": "Sepeda Motor Lainnya",
+    "Jenis Produk": "Sepeda Motor Lainnya",
+    "Star Rate": 8.25,
+    "Mall Rate": 10.45,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
   },
   {
     "Kategori": "Tiket, Voucher, & Layanan",
     "Sub Kategori": "Belanja",
     "Jenis Produk": "Ritel",
     "Star Rate": 9.5,
-    "Mall Rate": 7.7
-  },
-  {
-    "Kategori": "Tiket, Voucher, & Layanan",
-    "Sub Kategori": "E-Money",
-    "Jenis Produk": "E-Money",
-    "Star Rate": 8.25,
-    "Mall Rate": 7.7
-  },
-  {
-    "Kategori": "Tiket, Voucher, & Layanan",
-    "Sub Kategori": "Gaming",
-    "Jenis Produk": "Gaming",
-    "Star Rate": 9.0,
-    "Mall Rate": 7.2
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
   },
   {
     "Kategori": "Tiket, Voucher, & Layanan",
     "Sub Kategori": "Layanan",
     "Jenis Produk": "Layanan",
     "Star Rate": 9.5,
-    "Mall Rate": 7.7
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
   },
   {
     "Kategori": "Tiket, Voucher, & Layanan",
     "Sub Kategori": "Listrik, Gas, & Air",
     "Jenis Produk": "Listrik, Gas, & Air",
     "Star Rate": 9.5,
-    "Mall Rate": 7.7
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
   },
   {
     "Kategori": "Tiket, Voucher, & Layanan",
     "Sub Kategori": "Makanan & Minuman",
     "Jenis Produk": "Dine-in & Takeaway",
     "Star Rate": 9.5,
-    "Mall Rate": 7.7
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
   },
   {
     "Kategori": "Tiket, Voucher, & Layanan",
     "Sub Kategori": "Shopee",
     "Jenis Produk": "Shopee Official, Saldo Iklan Shopee",
     "Star Rate": 9.5,
-    "Mall Rate": 7.7
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
   },
   {
     "Kategori": "Tiket, Voucher, & Layanan",
     "Sub Kategori": "Streaming",
     "Jenis Produk": "Streaming",
     "Star Rate": 9.5,
-    "Mall Rate": 7.7
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
   },
   {
     "Kategori": "Tiket, Voucher, & Layanan",
     "Sub Kategori": "Telco",
     "Jenis Produk": "Data, Pulsa",
     "Star Rate": 9.5,
-    "Mall Rate": 7.7
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
   },
   {
     "Kategori": "Tiket, Voucher, & Layanan",
     "Sub Kategori": "Tiket Event",
     "Jenis Produk": "Hiburan, Acara, Pameran, & Konferensi, Konser & Pertunjukan",
     "Star Rate": 9.5,
-    "Mall Rate": 7.7
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
   },
   {
     "Kategori": "Tiket, Voucher, & Layanan",
     "Sub Kategori": "Travel & Tour",
     "Jenis Produk": "Voucher Hotel, Penerbangan, Paket Tour",
     "Star Rate": 9.5,
-    "Mall Rate": 7.7
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Tiket, Voucher, & Layanan",
+    "Sub Kategori": "Gaming",
+    "Jenis Produk": "Gaming",
+    "Star Rate": 9.0,
+    "Mall Rate": 7.2,
+    "Kategori Gratis Ongkir": "D",
+    "GO Biasa": 5.5,
+    "GO Khusus": 7.0
+  },
+  {
+    "Kategori": "Tiket, Voucher, & Layanan",
+    "Sub Kategori": "E-Money",
+    "Jenis Produk": "E-Money",
+    "Star Rate": 8.25,
+    "Mall Rate": 7.7,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
   }
 ]

@@ -13,16 +13,19 @@ const HppCalculator = () => {
 
   // 2. Shopee Seller & Category Setup
   const [sellerType, setSellerType] = useState('star'); // star, nonStar, mall
-  const [categoryGroup, setCategoryGroup] = useState('B'); // B for Helm default
+  const [categoryGroup, setCategoryGroup] = useState('G'); // G for Helm default
   const [productSize, setProductSize] = useState('biasa'); // biasa, khusus
 
   // Default / selected category object from our new comprehensive database
   const [selectedCategory, setSelectedCategory] = useState({
     "Kategori": "Sepeda Motor",
-    "Sub Kategori": "Helm & Suku Cadang Motor",
-    "Jenis Produk": "Helm, Aksesoris Pengendara, Busi, Aki, Ban Motor, Knalpot, Oli Motor, Rantai",
+    "Sub Kategori": "Aksesoris Sepeda Motor",
+    "Jenis Produk": "Karpet Motor, Speedometer, Odometer, & Gauge Motor, Sarung Motor, Stiker, Logo, & Emblem, Jok & Sarung Jok Motor, Spion Motor & Aksesoris, Kunci & Keamanan, Box Motor, Dudukan Handphone, Karpet Lumpur, Aksesoris Sepeda Motor Lainnya",
     "Star Rate": 8.25,
-    "Mall Rate": 9.25
+    "Mall Rate": 10.45,
+    "Kategori Gratis Ongkir": "G",
+    "GO Biasa": 7.5,
+    "GO Khusus": 9.0
   });
 
   // Search Category State
@@ -70,7 +73,7 @@ const HppCalculator = () => {
 
   // 4. Shopee Optional Programs State (Checkboxes & Percentages)
   const [activeGratisOngkir, setActiveGratisOngkir] = useState(true);
-  const [gratisOngkirPercent, setGratisOngkirPercent] = useState(2.0); // B Biasa is 2.0%
+  const [gratisOngkirPercent, setGratisOngkirPercent] = useState(7.5); // G Biasa is 7.5%
 
   const [activeCashback, setActiveCashback] = useState(false);
   const [cashbackPercent, setCashbackPercent] = useState(1.4);
@@ -90,13 +93,15 @@ const HppCalculator = () => {
   const [activeHematKirim, setActiveHematKirim] = useState(false);
   const [hematKirimFee, setHematKirimFee] = useState(350); 
 
-  // Automatically adjust Gratis Ongkir XTRA percent based on category group & size
+  // Automatically adjust Gratis Ongkir XTRA percent based on selected category & size
   useEffect(() => {
-    if (gratisOngkirRates[categoryGroup]) {
-      const rate = gratisOngkirRates[categoryGroup][productSize];
+    if (selectedCategory) {
+      const biasaRate = selectedCategory["GO Biasa"] !== undefined ? selectedCategory["GO Biasa"] : 0;
+      const khususRate = selectedCategory["GO Khusus"] !== undefined ? selectedCategory["GO Khusus"] : 0;
+      const rate = productSize === 'khusus' ? khususRate : biasaRate;
       setGratisOngkirPercent(rate);
     }
-  }, [categoryGroup, productSize]);
+  }, [selectedCategory, productSize]);
 
   // Handle Search Input Change over all 356 categories from the user's Excel file
   const handleSearchChange = (e) => {
@@ -133,7 +138,7 @@ const HppCalculator = () => {
       const rate = sellerType === 'mall' ? mallRate : starRate;
       setAdminFeePercent(rate);
       
-      const group = getGroupFromRate(starRate);
+      const group = selectedCategory['Kategori Gratis Ongkir'] || 'G';
       setCategoryGroup(group);
     }
   }, [sellerType, selectedCategory]);
