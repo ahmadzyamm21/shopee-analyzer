@@ -111,10 +111,12 @@ const HppCalculator = () => {
     { keywords: ['stocking wanita', 'stoking'], group: 'B', name: 'Stocking (Pakaian Wanita)', adminFeeOverride: 9.0 },
 
     // Sepatu & Sandal Dewasa
-    { keywords: ['sepatu', 'sandal', 'sneakers', 'boots', 'loafer', 'oxford', 'slip-on', 'mules', 'tali sepatu', 'insole', 'perawat sepatu', 'parfum sepatu'], group: 'B', name: 'Sepatu, Sandal & Alas Kaki Dewasa', adminFeeOverride: 9.0 },
+    { keywords: ['sepatu', 'sandal', 'sneakers', 'boots', 'loafer', 'oxford', 'slip-on', 'mules', 'tali sepatu', 'insole', 'perawat sepatu', 'parfum sepatu', 'heels', 'wedges', 'flat shoes', 'ballerina', 'mary janes'], group: 'B', name: 'Sepatu, Sandal & Alas Kaki Dewasa (Pria/Wanita)', adminFeeOverride: 9.0 },
+
+    // Tas Dewasa Pria & Wanita
+    { keywords: ['tas', 'ransel', 'backpack', 'clutch', 'tote bag', 'dompet', 'selempang', 'tas pria', 'tas wanita', 'tas laptop', 'tas pinggang', 'dompet kartu', 'dompet koin', 'aksesoris tas', 'tali tas', 'gantungan tas'], group: 'B', name: 'Tas & Aksesoris Tas Dewasa (Ransel, Clutch, Dompet, Tote Bag)', adminFeeOverride: 9.0 },
 
     // General Fallbacks
-    { keywords: ['tas', 'ransel', 'backpack', 'clutch', 'tote bag', 'dompet', 'koper', 'selempang'], group: 'A', name: 'Tas Dewasa (Ransel, Handbag, Dompet)' },
     { keywords: ['kosmetik', 'skincare', 'makeup', 'lipstik', 'bedak', 'foundations', 'serum', 'toner', 'facial wash', 'parfum', 'minyak wangi', 'sabun', 'shampoo', 'perawatan tubuh', 'body lotion'], group: 'A', name: 'Kecantikan, Kosmetik & Perawatan Diri' },
     { keywords: ['ibu', 'bayi', 'anak', 'mainan', 'botol susu', 'stroller', 'gendongan', 'empeng', 'piring bayi'], group: 'A', name: 'Ibu & Bayi (Kecuali Pakaian, Susu & Popok)' },
     { keywords: ['handphone', 'hp', 'smartphone', 'tablet', 'aksesoris hp', 'charger', 'casing', 'kabel data', 'powerbank', 'antigores'], group: 'D', name: 'Handphone, Gadget & Aksesorisnya', adminFeeOverride: 5.25 },
