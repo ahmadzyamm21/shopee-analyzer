@@ -69,6 +69,11 @@ const HppCalculator = () => {
   const [manualPrice, setManualPrice] = useState(45000);
   const [sellerVoucher, setSellerVoucher] = useState(0);
 
+  // 7. Co-Funding Campaign States
+  const [activeCoFunding, setActiveCoFunding] = useState(false);
+  const [coFundingCampaignPercent, setCoFundingCampaignPercent] = useState(8.0);
+  const [coFundingSellerSharePercent, setCoFundingSellerSharePercent] = useState(50.0);
+
   // Handle Search Input Change over all 356 categories from the user's Excel file
   const handleSearchChange = (e) => {
     const val = e.target.value;
@@ -135,6 +140,8 @@ const HppCalculator = () => {
 
   // Sum up all active platform fee percentages
   let activeGratisOngkirPercent = activeGratisOngkir ? gratisOngkirPercent : 0;
+  const netCoFundingPercent = activeCoFunding ? (coFundingCampaignPercent * coFundingSellerSharePercent) / 100 : 0;
+  
   const totalPlatformFeesPercent = 
     adminFeePercent + 
     transactionFeePercent + 
@@ -143,7 +150,8 @@ const HppCalculator = () => {
     (activeLiveXtra ? liveXtraPercent : 0) + 
     (activeSpayLater ? spayLaterPercent : 0) + 
     (activeAffiliate ? affiliatePercent : 0) +
-    (activeInsurance ? insurancePercent : 0);
+    (activeInsurance ? insurancePercent : 0) +
+    netCoFundingPercent;
   
   // Total flat fees
   const totalFlatFees = flatProcessFee + (activeHematKirim ? hematKirimFee : 0);
@@ -185,6 +193,7 @@ const HppCalculator = () => {
   let calcSpayLater = activeSpayLater ? (discountedPrice * spayLaterPercent) / 100 : 0;
   let calcAffiliate = activeAffiliate ? (discountedPrice * affiliatePercent) / 100 : 0;
   let calcInsurance = activeInsurance ? (discountedPrice * insurancePercent) / 100 : 0;
+  let calcCoFunding = activeCoFunding ? (discountedPrice * netCoFundingPercent) / 100 : 0;
 
   const totalDeductionsRupiah = 
     calcAdminFee + 
@@ -195,6 +204,7 @@ const HppCalculator = () => {
     calcSpayLater + 
     calcAffiliate + 
     calcInsurance +
+    calcCoFunding +
     totalFlatFees;
 
   const netProfitUnit = basePrice - totalHpp - totalDeductionsRupiah;
@@ -580,6 +590,56 @@ const HppCalculator = () => {
                       </div>
                     )}
                   </div>
+
+                  {/* 8. Program Co-Funding (Co-Funded Campaign) */}
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', backgroundColor: 'rgba(255,255,255,0.01)', padding: '10px', borderRadius: '6px', border: '1px solid var(--border-color)' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                      <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12.5px', cursor: 'pointer', userSelect: 'none' }}>
+                        <input
+                          type="checkbox"
+                          checked={activeCoFunding}
+                          onChange={(e) => setActiveCoFunding(e.target.checked)}
+                          style={{ cursor: 'pointer', accentColor: 'var(--accent-orange)' }}
+                        />
+                        Program Co-Funding (Campaign)
+                      </label>
+                      {activeCoFunding && (
+                        <span style={{ fontSize: '11px', color: '#22c55e', fontWeight: 'bold' }}>
+                          Tarif Bersih: {netCoFundingPercent.toFixed(2)}%
+                        </span>
+                      )}
+                    </div>
+                    {activeCoFunding && (
+                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginTop: '4px' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                          <label style={{ fontSize: '10px', color: 'var(--text-muted)' }}>Biaya Campaign (%)</label>
+                          <div style={{ position: 'relative' }}>
+                            <input
+                              type="number"
+                              step="0.1"
+                              value={coFundingCampaignPercent}
+                              onChange={(e) => setCoFundingCampaignPercent(Math.max(0, parseFloat(e.target.value) || 0))}
+                              style={{ width: '100%', padding: '4px 20px 4px 6px', backgroundColor: 'rgba(0,0,0,0.2)', border: '1px solid var(--border-color)', borderRadius: '4px', color: 'white', fontSize: '12px', textAlign: 'center' }}
+                            />
+                            <span style={{ position: 'absolute', right: '6px', top: '4px', fontSize: '11px', color: 'var(--text-muted2)' }}>%</span>
+                          </div>
+                        </div>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                          <label style={{ fontSize: '10px', color: 'var(--text-muted)' }}>Tanggungan Seller (%)</label>
+                          <div style={{ position: 'relative' }}>
+                            <input
+                              type="number"
+                              step="1"
+                              value={coFundingSellerSharePercent}
+                              onChange={(e) => setCoFundingSellerSharePercent(Math.max(0, Math.min(100, parseFloat(e.target.value) || 0)))}
+                              style={{ width: '100%', padding: '4px 20px 4px 6px', backgroundColor: 'rgba(0,0,0,0.2)', border: '1px solid var(--border-color)', borderRadius: '4px', color: 'white', fontSize: '12px', textAlign: 'center' }}
+                            />
+                            <span style={{ position: 'absolute', right: '6px', top: '4px', fontSize: '11px', color: 'var(--text-muted2)' }}>%</span>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 </div>
 
                 {/* Basic Fees Inputs */}
@@ -775,6 +835,13 @@ const HppCalculator = () => {
                           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                             <span className="text-muted">Biaya Asuransi ({insurancePercent}%):</span>
                             <span style={{ color: 'var(--accent-red)' }}>- {formatRp(calcInsurance)}</span>
+                          </div>
+                        )}
+
+                        {activeCoFunding && (
+                          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                            <span className="text-muted">Co-Funding Campaign ({netCoFundingPercent.toFixed(2)}%):</span>
+                            <span style={{ color: 'var(--accent-red)' }}>- {formatRp(calcCoFunding)}</span>
                           </div>
                         )}
 
