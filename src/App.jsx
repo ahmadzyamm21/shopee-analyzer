@@ -11,7 +11,8 @@ import {
   Loader2,
   FileCheck,
   RotateCcw,
-  PieChart
+  PieChart,
+  Calculator
 } from 'lucide-react';
 import UploadZone from './components/UploadZone';
 import DashboardOverview from './components/DashboardOverview';
@@ -21,6 +22,7 @@ import CancellationTracker from './components/CancellationTracker';
 import CompletedOrders from './components/CompletedOrders';
 import ReturnedOrders from './components/ReturnedOrders';
 import BcgAnalysis from './components/BcgAnalysis';
+import HppCalculator from './components/HppCalculator';
 import { 
   parseHppFile, 
   parseOrdersFile, 
@@ -192,6 +194,14 @@ const App = () => {
           </button>
 
           <button 
+            className={`nav-item ${activeTab === 'hpp-calc' ? 'active' : ''}`}
+            onClick={() => setActiveTab('hpp-calc')}
+          >
+            <Calculator size={18} />
+            <span>Kalkulator HPP</span>
+          </button>
+
+          <button 
             className={`nav-item ${activeTab === 'completed' ? 'active' : ''}`}
             onClick={() => isDataReady ? setActiveTab('completed') : null}
             disabled={!isDataReady}
@@ -238,6 +248,7 @@ const App = () => {
               {activeTab === 'pl' && 'P&L Statement'}
               {activeTab === 'products' && 'Analisis Performa Produk'}
               {activeTab === 'bcg' && 'Matriks BCG Produk'}
+              {activeTab === 'hpp-calc' && 'Kalkulator HPP & Simulasi Jual'}
               {activeTab === 'completed' && 'Log Pesanan Selesai'}
               {activeTab === 'returns' && 'Log Pesanan Retur / Refund'}
               {activeTab === 'cancellations' && 'Pelacak Pesanan Batal'}
@@ -248,6 +259,7 @@ const App = () => {
               {activeTab === 'pl' && 'Laba bersih take-home profit & potongan biaya administrasi.'}
               {activeTab === 'products' && 'Identifikasi SKU terlaris & HPP paling efisien.'}
               {activeTab === 'bcg' && 'Pemetaan portofolio produk ke dalam kuadran Stars, Cash Cows, Question Marks, dan Dogs.'}
+              {activeTab === 'hpp-calc' && 'Hitung modal riil per unit barang & simulasikan rekomendasi harga jual Shopee.'}
               {activeTab === 'completed' && 'Daftar semua rincian pesanan yang berhasil terselesaikan.'}
               {activeTab === 'returns' && 'Pelacakan komplain, barang retur, dan pengembalian dana pembeli.'}
               {activeTab === 'cancellations' && 'Pantau rasio pembatalan order & kurir gagal kirim.'}
@@ -294,6 +306,8 @@ const App = () => {
             />
           )}
 
+          {activeTab === 'hpp-calc' && <HppCalculator />}
+
           {isDataReady && analysisResult ? (
             <>
               {activeTab === 'overview' && <DashboardOverview data={analysisResult} />}
@@ -305,7 +319,7 @@ const App = () => {
               {activeTab === 'cancellations' && <CancellationTracker batalSummary={analysisResult.batalSummary} />}
             </>
           ) : (
-            activeTab !== 'upload' && (
+            activeTab !== 'upload' && activeTab !== 'hpp-calc' && (
               <div className="data-prompt-card">
                 <FileCheck size={48} className="text-muted mb-4" />
                 <h3>Data Belum Lengkap</h3>
