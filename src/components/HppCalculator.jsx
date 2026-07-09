@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Percent, Info, ShoppingBag, ArrowRight, HelpCircle, Search, Check } from 'lucide-react';
+import shopeeCategories from '../utils/shopee_categories.json';
 
 const HppCalculator = () => {
   // 1. HPP Components State
@@ -15,48 +16,26 @@ const HppCalculator = () => {
   const [categoryGroup, setCategoryGroup] = useState('B'); // B for Helm default
   const [productSize, setProductSize] = useState('biasa'); // biasa, khusus
 
+  // Default / selected category object from our new comprehensive database
+  const [selectedCategory, setSelectedCategory] = useState({
+    "Kategori": "Sepeda Motor",
+    "Sub Kategori": "Helm & Suku Cadang Motor",
+    "Jenis Produk": "Helm, Aksesoris Pengendara, Busi, Aki, Ban Motor, Knalpot, Oli Motor, Rantai",
+    "Star Rate": 8.25,
+    "Mall Rate": 9.25
+  });
+
   // Search Category State
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
-  const [selectedCategoryName, setSelectedCategoryName] = useState('Otomotif (Helm, Aksesoris Pengendara, Suku Cadang Motor)');
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef(null);
 
   // Official Shopee Indonesia Admin Fee Rates (2025/2026)
   const shopeeAdminRates = {
-    nonStar: {
-      A: 10.0,
-      B: 9.0,
-      C: 6.5,
-      D: 5.25,
-      E: 4.25,
-      F: 4.25,
-      G: 4.25,
-      H: 4.25,
-      khusus: 2.5
-    },
-    star: {
-      A: 10.0,
-      B: 9.0,
-      C: 6.5,
-      D: 5.25,
-      E: 4.25,
-      F: 4.25,
-      G: 4.25,
-      H: 4.25,
-      khusus: 2.5
-    },
-    mall: {
-      A: 11.0,
-      B: 9.95,
-      C: 7.7,
-      D: 5.7,
-      E: 4.2,
-      F: 4.2,
-      G: 4.2,
-      H: 4.2,
-      khusus: 2.5
-    }
+    nonStar: { A: 10.0, B: 9.0, C: 6.5, D: 5.25, E: 4.25, F: 4.25, G: 4.25, H: 4.25, khusus: 2.5 },
+    star: { A: 10.0, B: 9.0, C: 6.5, D: 5.25, E: 4.25, F: 4.25, G: 4.25, H: 4.25, khusus: 2.5 },
+    mall: { A: 11.0, B: 9.95, C: 7.7, D: 5.7, E: 4.2, F: 4.2, G: 4.2, H: 4.2, khusus: 2.5 }
   };
 
   // Official Gratis Ongkir XTRA Rates (based on User Table)
@@ -72,67 +51,16 @@ const HppCalculator = () => {
     khusus: { biasa: 1.0, khusus: 2.5 }
   };
 
-  // Shopee Search Database with exact subcategory overrides based on official tables
-  const categorySearchDatabase = [
-    // Otomotif
-    { keywords: ['helm', 'helmet', 'visor', 'kancing helm', 'pet helm', 'bogo', 'retro', 'aksesoris pengendara', 'suku cadang motor', 'ban motor', 'velg', 'busi', 'aki', 'knalpot', 'lampu motor', 'oli motor'], group: 'B', name: 'Otomotif (Helm, Aksesoris Pengendara, Suku Cadang Motor)', adminFeeOverride: 8.25 },
-    { keywords: ['sepeda motor', 'motor trail', 'motor matic'], group: 'khusus', name: 'Sepeda Motor (Unit Kendaraan)', adminFeeOverride: 2.5 },
-    
-    // Audio
-    { keywords: ['speaker', 'home theater', 'karaoke', 'mixer', 'amplifier', 'mikrofon', 'microphone', 'audio', 'kabel audio'], group: 'B', name: 'Audio (Speaker, Mikrofon, Mixer, Amplifier)', adminFeeOverride: 9.0 },
-    { keywords: ['earphone', 'headphone', 'headset', 'handsfree'], group: 'C', name: 'Audio (Earphone, Headphone, Headset)', adminFeeOverride: 6.75 },
-    { keywords: ['mp3', 'mp4', 'media player', 'cd', 'dvd', 'blu-ray', 'tape', 'radio'], group: 'B', name: 'Audio (Media Player, CD/DVD, Radio)', adminFeeOverride: 9.5 },
-    
-    // Kelistrikan
-    { keywords: ['kelistrikan', 'saklar', 'stop kontak', 'sambungan kabel', 'alarm', 'bel'], group: 'A', name: 'Kelistrikan (Saklar, Stop Kontak, Kabel Roll)', adminFeeOverride: 10.0 },
-    
-    // Aksesoris Fashion & Masker & Logam Mulia
-    { keywords: ['kacamata', 'topi', 'anting', 'kalung', 'gelang', 'cincin', 'ikat pinggang', 'dasi', 'ikat rambut', 'scrunchie', 'jepitan', 'bros', 'bandana', 'pita', 'bando', 'rambut palsu', 'liontin'], group: 'B', name: 'Aksesoris Fashion (Kacamata, Topi, Anting, Kalung, Perhiasan)', adminFeeOverride: 9.0 },
-    { keywords: ['masker', 'masker kain', 'masker medis'], group: 'B', name: 'Masker (Aksesoris Tambahan)', adminFeeOverride: 8.25 },
-    { keywords: ['logam mulia', 'emas', 'perak', 'berlian', 'permata', 'platinum', 'perhiasan berharga'], group: 'E', name: 'Logam Mulia & Perhiasan Berharga', adminFeeOverride: 4.25 },
-    
-    // Fashion Bayi & Anak
-    { keywords: ['baju bayi', 'pakaian bayi', 'pakaian anak', 'kaos kaki anak', 'sepatu anak', 'sandal anak', 'sepatu bayi', 'tas anak', 'topi anak', 'kacamata anak', 'jas hujan anak', 'bando bayi', 'sarung tangan bayi', 'baju anak', 'kaos anak'], group: 'B', name: 'Fashion Bayi & Anak (Pakaian, Sepatu, Aksesoris Anak)', adminFeeOverride: 9.0 },
-    { keywords: ['gelang bayi', 'anting bayi', 'kalung bayi', 'cincin bayi', 'perhiasan anak', 'perhiasan bayi'], group: 'E', name: 'Perhiasan Bayi & Anak (Gelang, Anting, Kalung, Cincin Anak)', adminFeeOverride: 4.25 },
-
-    // Fashion Muslim
-    { keywords: ['hijab', 'gamis', 'mukena', 'perlengkapan sholat', 'khimar', 'ciput', 'pashmina', 'abaya', 'kaftan', 'koko', 'sarung', 'baju melayu', 'sajadah', 'peci', 'songkok', 'kopiah'], group: 'B', name: 'Fashion Muslim (Hijab, Gamis, Mukena, Koko, Peci)', adminFeeOverride: 9.25 },
-    { keywords: ['baju olahraga muslim', 'baju renang muslim'], group: 'A', name: 'Pakaian Olahraga/Renang Muslim Wanita', adminFeeOverride: 10.0 },
-
-    // Jam Tangan
-    { keywords: ['jam tangan', 'baterai jam', 'strap jam', 'kotak jam', 'jam tangan couple', 'jam tangan pria', 'jam tangan wanita'], group: 'B', name: 'Jam Tangan & Aksesorisnya', adminFeeOverride: 9.0 },
-
-    // Koper & Tas Travel
-    { keywords: ['koper', 'travel bag', 'organizer travel', 'gembok koper', 'bantal leher', 'pelindung koper', 'tag koper', 'strap koper', 'timbangan koper', 'tas lipat travel'], group: 'B', name: 'Koper & Aksesoris Travel', adminFeeOverride: 9.0 },
-    { keywords: ['tas duffel', 'duffel bag'], group: 'A', name: 'Tas Duffel (Tas Travel)', adminFeeOverride: 10.0 },
-
-    // Pakaian Pria & Wanita Dewasa
-    { keywords: ['baju', 'pakaian', 'kaos', 't-shirt', 'kemeja', 'celana', 'rok', 'jaket', 'sweater', 'hoodie', 'kebaya', 'pakaian dalam', 'singlet', 'jersey', 'celana pendek', 'jas formal', 'daster', 'piyama', 'baju tidur', 'dress', 'baju hamil', 'blus', 'tunik', 'legging', 'kain', 'batik'], group: 'B', name: 'Pakaian Dewasa Pria / Wanita (Kaos, Kemeja, Celana, Dress)', adminFeeOverride: 8.25 },
-    { keywords: ['kaos kaki', 'stocking'], group: 'A', name: 'Kaos Kaki (Pria/Wanita)', adminFeeOverride: 10.0 },
-    { keywords: ['stocking wanita', 'stoking'], group: 'B', name: 'Stocking (Pakaian Wanita)', adminFeeOverride: 9.0 },
-
-    // Sepatu & Sandal Dewasa
-    { keywords: ['sepatu', 'sandal', 'sneakers', 'boots', 'loafer', 'oxford', 'slip-on', 'mules', 'tali sepatu', 'insole', 'perawat sepatu', 'parfum sepatu', 'heels', 'wedges', 'flat shoes', 'ballerina', 'mary janes'], group: 'B', name: 'Sepatu, Sandal & Alas Kaki Dewasa (Pria/Wanita)', adminFeeOverride: 9.0 },
-
-    // Tas Dewasa Pria & Wanita
-    { keywords: ['tas', 'ransel', 'backpack', 'clutch', 'tote bag', 'dompet', 'selempang', 'tas pria', 'tas wanita', 'tas laptop', 'tas pinggang', 'dompet kartu', 'dompet koin', 'aksesoris tas', 'tali tas', 'gantungan tas'], group: 'B', name: 'Tas & Aksesoris Tas Dewasa (Ransel, Clutch, Dompet, Tote Bag)', adminFeeOverride: 9.0 },
-
-    // General Fallbacks
-    { keywords: ['kosmetik', 'skincare', 'makeup', 'lipstik', 'bedak', 'foundations', 'serum', 'toner', 'facial wash', 'parfum', 'minyak wangi', 'sabun', 'shampoo', 'perawatan tubuh', 'body lotion'], group: 'A', name: 'Kecantikan, Kosmetik & Perawatan Diri' },
-    { keywords: ['ibu', 'bayi', 'anak', 'mainan', 'botol susu', 'stroller', 'gendongan', 'empeng', 'piring bayi'], group: 'A', name: 'Ibu & Bayi (Kecuali Pakaian, Susu & Popok)' },
-    { keywords: ['handphone', 'hp', 'smartphone', 'tablet', 'aksesoris hp', 'charger', 'casing', 'kabel data', 'powerbank', 'antigores'], group: 'D', name: 'Handphone, Gadget & Aksesorisnya', adminFeeOverride: 5.25 },
-    { keywords: ['elektronik', 'tv', 'televisi', 'kulkas', 'ac', 'mesin cuci', 'microwave', 'oven', 'blender', 'rice cooker', 'kipas angin', 'setrika'], group: 'B', name: 'Peralatan Elektronik Rumah Tangga' },
-    { keywords: ['kamera', 'camera', 'dslr', 'mirrorless', 'lensa', 'tripod', 'gimbal', 'cctv', 'drone'], group: 'C', name: 'Kamera, Foto & Video' },
-    { keywords: ['komputer', 'laptop', 'pc', 'mouse', 'keyboard', 'printer', 'scanner', 'ram', 'ssd', 'harddisk', 'vga', 'router', 'wifi', 'tinta', 'proyektor'], group: 'C', name: 'Komputer & Aksesoris PC/Laptop' },
-    { keywords: ['perlengkapan rumah', 'home', 'living', 'furniture', 'meja', 'kursi', 'lemari', 'tempat tidur', 'kasur', 'sprei', 'selimut', 'bantal', 'gorden', 'lampu', 'dekorasi', 'dapur', 'piring', 'gelas', 'panci', 'sapu', 'rak'], group: 'C', name: 'Perlengkapan Rumah & Furniture' },
-    { keywords: ['makanan', 'minuman', 'snack', 'camilan', 'kopi', 'teh', 'mie instan', 'cokelat', 'permen', 'bumbu dapur', 'sambal', 'sirup', 'kue'], group: 'A', name: 'Makanan & Minuman (FMCG / Kuliner)', adminFeeOverride: 10.0 },
-    { keywords: ['buku', 'novel', 'komik', 'majalah', 'buku pelajaran', 'alat tulis', 'pulpen', 'pensil', 'penghapus', 'penggaris', 'buku tulis', 'kertas', 'crayon'], group: 'D', name: 'Buku, Novel, Alat Tulis & Kantor' },
-    { keywords: ['hewan', 'pet', 'kucing', 'anjing', 'ikan', 'burung', 'makanan kucing', 'makanan anjing', 'pasir kucing', 'kandang'], group: 'A', name: 'Kebutuhan Hewan Peliharaan (Pet Shop)', adminFeeOverride: 10.0 },
-    { keywords: ['sembako', 'beras', 'minyak goreng', 'gula pasir', 'garam', 'telur', 'tepung', 'kecap'], group: 'E', name: 'Sembako & Kebutuhan Pokok Sehari-hari' },
-    { keywords: ['popok', 'diaper', 'pampers', 'susu bayi', 'susu formula', 'susu anak'], group: 'C', name: 'Popok Bayi & Susu Formula Anak', adminFeeOverride: 6.5 },
-    { keywords: ['hobi', 'koleksi', 'action figure', 'gundam', 'lego', 'kartu game', 'board game', 'alat musik', 'gitar', 'keyboard musik', 'biola'], group: 'B', name: 'Hobi, Koleksi & Alat Musik' },
-    { keywords: ['digital', 'pulsa', 'paket data', 'voucher', 'tiket', 'e-money', 'pln', 'listrik', 'bpjs'], group: 'khusus', name: 'Produk Digital (Pulsa, Voucher, PLN, Tiket)' }
-  ];
+  // Helper to map star rate from Excel sheet directly to shipping/program category groups
+  const getGroupFromRate = (rate) => {
+    if (rate >= 10.0) return 'A';
+    if (rate >= 9.0) return 'B';
+    if (rate >= 8.0) return 'B'; // 8.25% is mapped to Group B for shipping
+    if (rate >= 6.5) return 'C';
+    if (rate >= 5.0) return 'D';
+    if (rate >= 4.0) return 'E';
+    return 'khusus';
+  };
 
   // 3. Shopee Basic Fees State
   const [adminFeePercent, setAdminFeePercent] = useState(8.25); 
@@ -162,9 +90,6 @@ const HppCalculator = () => {
   const [activeHematKirim, setActiveHematKirim] = useState(false);
   const [hematKirimFee, setHematKirimFee] = useState(350); 
 
-  // Store custom fee override selected from search list
-  const [customOverrideRate, setCustomOverrideRate] = useState(null);
-
   // Automatically adjust Gratis Ongkir XTRA percent based on category group & size
   useEffect(() => {
     if (gratisOngkirRates[categoryGroup]) {
@@ -173,7 +98,7 @@ const HppCalculator = () => {
     }
   }, [categoryGroup, productSize]);
 
-  // Handle Search Input Change
+  // Handle Search Input Change over all 356 categories from the user's Excel file
   const handleSearchChange = (e) => {
     const val = e.target.value;
     setSearchQuery(val);
@@ -182,50 +107,36 @@ const HppCalculator = () => {
       return;
     }
     const lower = val.toLowerCase().trim();
-    const filtered = categorySearchDatabase.filter(item => 
-      item.name.toLowerCase().includes(lower) || 
-      item.keywords.some(kw => kw.includes(lower))
-    );
+    const filtered = shopeeCategories.filter(item => 
+      item.Kategori.toLowerCase().includes(lower) || 
+      item['Sub Kategori'].toLowerCase().includes(lower) || 
+      item['Jenis Produk'].toLowerCase().includes(lower)
+    ).slice(0, 15); // Limit to top 15 results
+    
     setSearchResults(filtered);
     setShowDropdown(true);
   };
 
   // Select Category from Search Results
   const selectCategory = (cat) => {
-    setCategoryGroup(cat.group);
-    setSelectedCategoryName(cat.name);
-    if (cat.adminFeeOverride !== undefined) {
-      setCustomOverrideRate(cat.adminFeeOverride);
-      setAdminFeePercent(cat.adminFeeOverride);
-    } else {
-      setCustomOverrideRate(null);
-      const rate = shopeeAdminRates[sellerType][cat.group];
-      setAdminFeePercent(rate);
-    }
+    setSelectedCategory(cat);
     setSearchQuery('');
     setSearchResults([]);
     setShowDropdown(false);
   };
 
-  // Automatically update Admin Fee % when Seller Type or Category changes
+  // Automatically update Admin Fee % & shipping category group when selected category or shop type changes
   useEffect(() => {
-    if (customOverrideRate !== null) {
-      let finalRate = customOverrideRate;
-      if (sellerType === 'mall') {
-        // Adjust for Shopee Mall proportionally
-        if (customOverrideRate === 8.25) finalRate = 9.25;
-        else if (customOverrideRate === 9.25) finalRate = 9.95;
-        else if (customOverrideRate === 9.0) finalRate = 9.95;
-        else if (customOverrideRate === 10.0) finalRate = 11.0;
-        else if (customOverrideRate === 6.75) finalRate = 7.7;
-        else if (customOverrideRate === 9.5) finalRate = 10.2;
-      }
-      setAdminFeePercent(finalRate);
-    } else {
-      const rate = shopeeAdminRates[sellerType][categoryGroup] || 4.25;
+    if (selectedCategory) {
+      const starRate = selectedCategory['Star Rate'];
+      const mallRate = selectedCategory['Mall Rate'];
+      const rate = sellerType === 'mall' ? mallRate : starRate;
       setAdminFeePercent(rate);
+      
+      const group = getGroupFromRate(starRate);
+      setCategoryGroup(group);
     }
-  }, [sellerType, categoryGroup, customOverrideRate]);
+  }, [sellerType, selectedCategory]);
 
   // Handle Click Outside Dropdown to close it
   useEffect(() => {
@@ -320,19 +231,6 @@ const HppCalculator = () => {
   }
 
   const netProfitUnit = recommendedPrice - totalHpp - totalDeductionsRupiah;
-
-  // Category explanations mapping
-  const categoryExplanations = {
-    A: 'Fashion, Aksesoris, Kosmetik, Kecantikan, Ibu & Bayi, Perlengkapan Medis.',
-    B: 'Elektronik, Handphone, Gadget, Kamera, Otomotif (Helm, dll), Hobi.',
-    C: 'Komputer, Perlengkapan Rumah, Peralatan Olahraga, Media & Musik.',
-    D: 'Makanan & Minuman, Buku & Alat Tulis, Kebutuhan Hewan Peliharaan.',
-    E: 'Sembako, Susu & Popok Bayi, Perlengkapan Rumah Tangga Tertentu.',
-    F: 'Subkategori Kesehatan & Kecantikan Tertentu, Peralatan Bayi.',
-    G: 'Subkategori Elektronik & Otomotif Tertentu.',
-    H: 'Kategori Khusus Berbiaya Admin Tertentu.',
-    khusus: 'Produk Digital, Voucher, Tiket, Pulsa, E-Money.'
-  };
 
   return (
     <div className="hpp-calculator-container" style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
@@ -501,16 +399,25 @@ const HppCalculator = () => {
 
                 {/* Dropdown Results */}
                 {showDropdown && searchResults.length > 0 && (
-                  <div style={{ position: 'absolute', top: '64px', left: 0, right: 0, backgroundColor: '#1e2235', border: '1px solid var(--border-color)', borderRadius: '8px', boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.5)', zIndex: 100, maxHeight: '200px', overflowY: 'auto' }}>
+                  <div style={{ position: 'absolute', top: '64px', left: 0, right: 0, backgroundColor: '#1e2235', border: '1px solid var(--border-color)', borderRadius: '8px', boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.5)', zIndex: 100, maxHeight: '250px', overflowY: 'auto' }}>
                     {searchResults.map((cat, idx) => (
                       <div
                         key={idx}
                         onClick={() => selectCategory(cat)}
-                        style={{ padding: '10px 14px', borderBottom: '1px solid rgba(255,255,255,0.02)', cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'center', transition: 'background 0.2s' }}
+                        style={{ padding: '10px 14px', borderBottom: '1px solid rgba(255,255,255,0.02)', cursor: 'pointer', display: 'flex', flexDirection: 'column', gap: '2px', transition: 'background 0.2s' }}
                         className="hover-bg-dark"
                       >
-                        <span style={{ fontSize: '12.5px', color: 'white' }}>{cat.name}</span>
-                        <span className="badge blue" style={{ fontSize: '10px', padding: '2px 6px' }}>Grup {cat.group}</span>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                          <span style={{ fontSize: '12.5px', color: 'white', fontWeight: 'bold' }}>
+                            {cat['Sub Kategori']}
+                          </span>
+                          <span className="badge blue" style={{ fontSize: '10px', padding: '2px 6px' }}>
+                            {cat.Kategori}
+                          </span>
+                        </div>
+                        <span style={{ fontSize: '11px', color: 'var(--text-muted2)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                          {cat['Jenis Produk']}
+                        </span>
                       </div>
                     ))}
                   </div>
@@ -518,7 +425,7 @@ const HppCalculator = () => {
               </div>
 
               {/* Selected Category Info */}
-              {selectedCategoryName && (
+              {selectedCategory && (
                 <div style={{ padding: '12px', backgroundColor: 'rgba(34, 197, 94, 0.03)', borderRadius: '8px', border: '1px dashed rgba(34, 197, 94, 0.2)', display: 'flex', flexDirection: 'column', gap: '4px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <span style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Kategori Aktif Terpilih:</span>
@@ -527,10 +434,10 @@ const HppCalculator = () => {
                     </span>
                   </div>
                   <strong style={{ fontSize: '12.5px', color: 'white' }}>
-                    {selectedCategoryName}
+                    {selectedCategory.Kategori} &gt; {selectedCategory['Sub Kategori']}
                   </strong>
                   <span style={{ fontSize: '10.5px', color: 'var(--text-muted2)' }}>
-                    📖 <strong>Deskripsi:</strong> {categoryExplanations[categoryGroup]}
+                    📖 <strong>Jenis Produk:</strong> {selectedCategory['Jenis Produk']}
                   </span>
                 </div>
               )}
