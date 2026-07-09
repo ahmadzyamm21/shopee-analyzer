@@ -64,6 +64,11 @@ const HppCalculator = () => {
   const [coFundingPlatformSharePercent, setCoFundingPlatformSharePercent] = useState(90.0); // DITANGGUNG PLATFORM (%) - Default 90
   const [coFundingSellerSharePercent, setCoFundingSellerSharePercent] = useState(10.0); // DITANGGUNG SELLER (%) - Default 10
 
+  // 6. Advertising Cost States
+  const [activeAdvertising, setActiveAdvertising] = useState(false);
+  const [advertisingType, setAdvertisingType] = useState('percent'); // percent, nominal
+  const [advertisingValue, setAdvertisingValue] = useState(0.0);
+
   // 6. Collapsible / Accordion States
   const [isOpenSimulasi, setIsOpenSimulasi] = useState(true);
   const [isOpenShopeeFees, setIsOpenShopeeFees] = useState(true);
@@ -630,6 +635,64 @@ const HppCalculator = () => {
                       </div>
                     )}
                   </div>
+
+                  {/* 8. Estimasi Biaya Iklan per Produk (Opsional) */}
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', backgroundColor: 'rgba(255,255,255,0.01)', padding: '10px', borderRadius: '6px', border: '1px solid var(--border-color)' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                      <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12.5px', cursor: 'pointer', userSelect: 'none' }}>
+                        <input
+                          type="checkbox"
+                          checked={activeAdvertising}
+                          onChange={(e) => setActiveAdvertising(e.target.checked)}
+                          style={{ cursor: 'pointer', accentColor: 'var(--accent-orange)' }}
+                        />
+                        Estimasi Biaya Iklan Produk (Opsional)
+                      </label>
+                      {activeAdvertising && (
+                        <span style={{ fontSize: '11px', color: '#ffb703', fontWeight: 'bold' }}>
+                          Iklan: {formatRp(calcAdvertising)}
+                        </span>
+                      )}
+                    </div>
+                    {activeAdvertising && (
+                      <div style={{ display: 'flex', gap: '10px', alignItems: 'center', marginTop: '4px' }}>
+                        <select
+                          value={advertisingType}
+                          onChange={(e) => setAdvertisingType(e.target.value)}
+                          style={{ padding: '6px', backgroundColor: 'rgba(0,0,0,0.2)', border: '1px solid var(--border-color)', borderRadius: '4px', color: 'white', fontSize: '12px', outline: 'none', cursor: 'pointer' }}
+                        >
+                          <option value="percent">% Persen</option>
+                          <option value="nominal">Rp Nominal</option>
+                        </select>
+                        <div style={{ position: 'relative', flex: 1 }}>
+                          {advertisingType === 'nominal' && (
+                            <span style={{ position: 'absolute', left: '8px', top: '5px', fontSize: '11px', color: 'var(--text-muted2)' }}>Rp</span>
+                          )}
+                          <input
+                            type="number"
+                            step={advertisingType === 'percent' ? '0.1' : '100'}
+                            value={advertisingValue === 0 ? '' : advertisingValue}
+                            onChange={(e) => setAdvertisingValue(Math.max(0, parseFloat(e.target.value) || 0))}
+                            placeholder="0"
+                            style={{ 
+                              width: '100%', 
+                              padding: advertisingType === 'nominal' ? '5px 8px 5px 28px' : '5px 24px 5px 8px', 
+                              backgroundColor: 'rgba(0,0,0,0.2)', 
+                              border: '1px solid var(--border-color)', 
+                              borderRadius: '4px', 
+                              color: 'white', 
+                              fontSize: '12px', 
+                              fontWeight: 'bold',
+                              textAlign: 'left'
+                            }}
+                          />
+                          {advertisingType === 'percent' && (
+                            <span style={{ position: 'absolute', right: '8px', top: '5px', fontSize: '11px', color: 'var(--text-muted2)' }}>%</span>
+                          )}
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 </div>
 
                 {/* Basic Fees Inputs (Process Fee Only) */}
@@ -755,6 +818,16 @@ const HppCalculator = () => {
                         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                           <span className="text-muted">Biaya Asuransi ({insurancePercent}%):</span>
                           <span style={{ color: 'var(--accent-red)' }}>- {formatRp(calcInsurance)}</span>
+                        </div>
+                      )}
+
+                      {activeAdvertising && calcAdvertising > 0 && (
+                        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                          <span className="text-muted">
+                            Estimasi Biaya Iklan 
+                            {advertisingType === 'percent' ? ` (${advertisingValue}%)` : ''}:
+                          </span>
+                          <span style={{ color: 'var(--accent-red)' }}>- {formatRp(calcAdvertising)}</span>
                         </div>
                       )}
 
