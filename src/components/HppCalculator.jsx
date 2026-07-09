@@ -72,13 +72,27 @@ const HppCalculator = () => {
     { keywords: ['digital', 'pulsa', 'paket data', 'voucher', 'tiket', 'e-money', 'pln', 'listrik', 'bpjs'], group: 'khusus', name: 'Produk Digital (Pulsa, Voucher, PLN, Tiket)' }
   ];
 
-  // 3. Shopee Fees State
-  const [adminFeePercent, setAdminFeePercent] = useState(9.25); // 9.25% is default for Group B Star (2026 rates)
-  const [gratisOngkirXtraPercent, setGratisOngkirXtraPercent] = useState(4.0);
-  const [cashbackXtraPercent, setCashbackXtraPercent] = useState(0.0);
+  // 3. Shopee Basic Fees State
+  const [adminFeePercent, setAdminFeePercent] = useState(9.25); 
   const [transactionFeePercent, setTransactionFeePercent] = useState(2.0);
-  const [flatProcessFee, setFlatProcessFee] = useState(1250); // Rp 1.250 flat fee
+  const [flatProcessFee, setFlatProcessFee] = useState(1250); 
   const [targetMarginPercent, setTargetMarginPercent] = useState(15.0);
+
+  // 4. Shopee Optional Programs State (Checkboxes & Percentages)
+  const [activeGratisOngkir, setActiveGratisOngkir] = useState(true);
+  const [gratisOngkirPercent, setGratisOngkirPercent] = useState(4.0);
+
+  const [activeCashback, setActiveCashback] = useState(false);
+  const [cashbackPercent, setCashbackPercent] = useState(1.4);
+
+  const [activeLiveXtra, setActiveLiveXtra] = useState(false);
+  const [liveXtraPercent, setLiveXtraPercent] = useState(4.0);
+
+  const [activeSpayLater, setActiveSpayLater] = useState(false);
+  const [spayLaterPercent, setSpayLaterPercent] = useState(1.5);
+
+  const [activeAffiliate, setActiveAffiliate] = useState(false);
+  const [affiliatePercent, setAffiliatePercent] = useState(5.0);
 
   // Handle Search Input Change
   const handleSearchChange = (e) => {
@@ -134,14 +148,40 @@ const HppCalculator = () => {
   const defectCost = (purchasePrice * defectRate) / 100;
   const totalHpp = purchasePrice + packingPrice + cargoPrice + laborPrice + defectCost + otherOverhead;
 
-  const totalPlatformFeesPercent = adminFeePercent + gratisOngkirXtraPercent + cashbackXtraPercent + transactionFeePercent;
+  // Sum up all checked platform fee percentages
+  const totalPlatformFeesPercent = 
+    adminFeePercent + 
+    transactionFeePercent + 
+    (activeGratisOngkir ? gratisOngkirPercent : 0) + 
+    (activeCashback ? cashbackPercent : 0) + 
+    (activeLiveXtra ? liveXtraPercent : 0) + 
+    (activeSpayLater ? spayLaterPercent : 0) + 
+    (activeAffiliate ? affiliatePercent : 0);
   
   // Recommended Selling Price Formula
   const divisor = 1 - (totalPlatformFeesPercent / 100) - (targetMarginPercent / 100);
   const recommendedPrice = divisor > 0 ? (totalHpp + flatProcessFee) / divisor : 0;
   
-  const platformFeesDeduction = (recommendedPrice * totalPlatformFeesPercent) / 100;
-  const netProfitUnit = recommendedPrice - totalHpp - platformFeesDeduction - flatProcessFee;
+  // Breakdown calculations for the final recommended price
+  const calcAdminFee = (recommendedPrice * adminFeePercent) / 100;
+  const calcTransactionFee = (recommendedPrice * transactionFeePercent) / 100;
+  const calcGratisOngkir = activeGratisOngkir ? (recommendedPrice * gratisOngkirPercent) / 100 : 0;
+  const calcCashback = activeCashback ? (recommendedPrice * cashbackPercent) / 100 : 0;
+  const calcLiveXtra = activeLiveXtra ? (recommendedPrice * liveXtraPercent) / 100 : 0;
+  const calcSpayLater = activeSpayLater ? (recommendedPrice * spayLaterPercent) / 100 : 0;
+  const calcAffiliate = activeAffiliate ? (recommendedPrice * affiliatePercent) / 100 : 0;
+
+  const totalDeductionsRupiah = 
+    calcAdminFee + 
+    calcTransactionFee + 
+    calcGratisOngkir + 
+    calcCashback + 
+    calcLiveXtra + 
+    calcSpayLater + 
+    calcAffiliate + 
+    flatProcessFee;
+
+  const netProfitUnit = recommendedPrice - totalHpp - totalDeductionsRupiah;
 
   // Category explanations mapping
   const categoryExplanations = {
@@ -165,7 +205,7 @@ const HppCalculator = () => {
           <div>
             <h3 style={{ fontSize: '18px', fontWeight: 'bold' }}>Simulasi Kalkulator HPP &amp; Rekomendasi Harga Jual Shopee</h3>
             <p className="text-muted" style={{ fontSize: '13px', marginTop: '4px' }}>
-              Masukkan komponen modal Anda, lalu cari kategori produk Anda (misal: "helm", "baju", dll) untuk mendeteksi biaya administrasi Shopee secara otomatis.
+              Masukkan komponen modal Anda, pilih tipe penjual, cari kategori produk untuk biaya admin dasar, lalu centang program opsional yang Anda ikuti (SPayLater, Promo/Gratis Ongkir Xtra, Live Xtra, Affiliate) untuk kalkulasi harga jual yang presisi.
             </p>
           </div>
         </div>
@@ -289,7 +329,7 @@ const HppCalculator = () => {
                 </select>
               </div>
 
-              {/* SEARCH PRODUCT CATEGORY (SEARCH BAR) */}
+              {/* Search Category Bar */}
               <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '4px', position: 'relative' }} ref={dropdownRef}>
                 <label style={{ fontSize: '12px', color: 'var(--accent-orange)', fontWeight: '600' }}>Cari Kategori Produk Anda</label>
                 <div style={{ position: 'relative' }}>
@@ -340,8 +380,138 @@ const HppCalculator = () => {
                 </div>
               )}
 
-              {/* Manual inputs backup */}
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+              {/* OPTIONAL SHOPEE PROGRAMS (CHECKBOXES & INPUTS) */}
+              <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '12px', marginTop: '4px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <h4 style={{ fontSize: '12px', fontWeight: 'bold', color: 'var(--accent-orange)' }}>Ikut Program Shopee Opsional (Centang jika ikut):</h4>
+                
+                {/* 1. Gratis Ongkir XTRA */}
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', backgroundColor: 'rgba(255,255,255,0.01)', padding: '6px 10px', borderRadius: '6px', border: '1px solid var(--border-color)' }}>
+                  <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12.5px', cursor: 'pointer', userSelect: 'none' }}>
+                    <input
+                      type="checkbox"
+                      checked={activeGratisOngkir}
+                      onChange={(e) => setActiveGratisOngkir(e.target.checked)}
+                      style={{ cursor: 'pointer', accentColor: 'var(--accent-orange)' }}
+                    />
+                    Gratis Ongkir XTRA
+                  </label>
+                  {activeGratisOngkir && (
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                      <input
+                        type="number"
+                        step="0.1"
+                        value={gratisOngkirPercent}
+                        onChange={(e) => setGratisOngkirPercent(Math.max(0, parseFloat(e.target.value) || 0))}
+                        style={{ width: '50px', padding: '4px', backgroundColor: 'rgba(0,0,0,0.2)', border: '1px solid var(--border-color)', borderRadius: '4px', color: 'white', fontSize: '12px', textAlign: 'center' }}
+                      />
+                      <span style={{ fontSize: '12px', color: 'var(--text-muted2)' }}>%</span>
+                    </div>
+                  )}
+                </div>
+
+                {/* 2. Promo XTRA / Cashback XTRA */}
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', backgroundColor: 'rgba(255,255,255,0.01)', padding: '6px 10px', borderRadius: '6px', border: '1px solid var(--border-color)' }}>
+                  <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12.5px', cursor: 'pointer', userSelect: 'none' }}>
+                    <input
+                      type="checkbox"
+                      checked={activeCashback}
+                      onChange={(e) => setActiveCashback(e.target.checked)}
+                      style={{ cursor: 'pointer', accentColor: 'var(--accent-orange)' }}
+                    />
+                    Cashback / Promo XTRA
+                  </label>
+                  {activeCashback && (
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                      <input
+                        type="number"
+                        step="0.1"
+                        value={cashbackPercent}
+                        onChange={(e) => setActiveCashback && setCashbackPercent(Math.max(0, parseFloat(e.target.value) || 0))}
+                        style={{ width: '50px', padding: '4px', backgroundColor: 'rgba(0,0,0,0.2)', border: '1px solid var(--border-color)', borderRadius: '4px', color: 'white', fontSize: '12px', textAlign: 'center' }}
+                      />
+                      <span style={{ fontSize: '12px', color: 'var(--text-muted2)' }}>%</span>
+                    </div>
+                  )}
+                </div>
+
+                {/* 3. Shopee Live XTRA */}
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', backgroundColor: 'rgba(255,255,255,0.01)', padding: '6px 10px', borderRadius: '6px', border: '1px solid var(--border-color)' }}>
+                  <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12.5px', cursor: 'pointer', userSelect: 'none' }}>
+                    <input
+                      type="checkbox"
+                      checked={activeLiveXtra}
+                      onChange={(e) => setActiveLiveXtra(e.target.checked)}
+                      style={{ cursor: 'pointer', accentColor: 'var(--accent-orange)' }}
+                    />
+                    Shopee Live XTRA
+                  </label>
+                  {activeLiveXtra && (
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                      <input
+                        type="number"
+                        step="0.1"
+                        value={liveXtraPercent}
+                        onChange={(e) => setLiveXtraPercent(Math.max(0, parseFloat(e.target.value) || 0))}
+                        style={{ width: '50px', padding: '4px', backgroundColor: 'rgba(0,0,0,0.2)', border: '1px solid var(--border-color)', borderRadius: '4px', color: 'white', fontSize: '12px', textAlign: 'center' }}
+                      />
+                      <span style={{ fontSize: '12px', color: 'var(--text-muted2)' }}>%</span>
+                    </div>
+                  )}
+                </div>
+
+                {/* 4. SPayLater Merchant Fee */}
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', backgroundColor: 'rgba(255,255,255,0.01)', padding: '6px 10px', borderRadius: '6px', border: '1px solid var(--border-color)' }}>
+                  <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12.5px', cursor: 'pointer', userSelect: 'none' }}>
+                    <input
+                      type="checkbox"
+                      checked={activeSpayLater}
+                      onChange={(e) => setActiveSpayLater(e.target.checked)}
+                      style={{ cursor: 'pointer', accentColor: 'var(--accent-orange)' }}
+                    />
+                    Transaksi SPayLater
+                  </label>
+                  {activeSpayLater && (
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                      <input
+                        type="number"
+                        step="0.1"
+                        value={spayLaterPercent}
+                        onChange={(e) => setSpayLaterPercent(Math.max(0, parseFloat(e.target.value) || 0))}
+                        style={{ width: '50px', padding: '4px', backgroundColor: 'rgba(0,0,0,0.2)', border: '1px solid var(--border-color)', borderRadius: '4px', color: 'white', fontSize: '12px', textAlign: 'center' }}
+                      />
+                      <span style={{ fontSize: '12px', color: 'var(--text-muted2)' }}>%</span>
+                    </div>
+                  )}
+                </div>
+
+                {/* 5. Komisi Affiliate / Video */}
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', backgroundColor: 'rgba(255,255,255,0.01)', padding: '6px 10px', borderRadius: '6px', border: '1px solid var(--border-color)' }}>
+                  <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12.5px', cursor: 'pointer', userSelect: 'none' }}>
+                    <input
+                      type="checkbox"
+                      checked={activeAffiliate}
+                      onChange={(e) => setActiveAffiliate(e.target.checked)}
+                      style={{ cursor: 'pointer', accentColor: 'var(--accent-orange)' }}
+                    />
+                    Komisi Affiliate / Video
+                  </label>
+                  {activeAffiliate && (
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                      <input
+                        type="number"
+                        step="0.1"
+                        value={affiliatePercent}
+                        onChange={(e) => setAffiliatePercent(Math.max(0, parseFloat(e.target.value) || 0))}
+                        style={{ width: '50px', padding: '4px', backgroundColor: 'rgba(0,0,0,0.2)', border: '1px solid var(--border-color)', borderRadius: '4px', color: 'white', fontSize: '12px', textAlign: 'center' }}
+                      />
+                      <span style={{ fontSize: '12px', color: 'var(--text-muted2)' }}>%</span>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* Basic Fees Inputs */}
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', borderTop: '1px solid var(--border-color)', paddingTop: '12px' }}>
                 <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
                   <label style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Biaya Administrasi (%)</label>
                   <div style={{ position: 'relative' }}>
@@ -350,36 +520,6 @@ const HppCalculator = () => {
                       step="0.05"
                       value={adminFeePercent}
                       onChange={(e) => setAdminFeePercent(Math.max(0, parseFloat(e.target.value) || 0))}
-                      style={{ width: '100%', padding: '10px 24px 10px 12px', backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-color)', borderRadius: '6px', color: 'white', fontSize: '13px' }}
-                    />
-                    <span style={{ position: 'absolute', right: '12px', top: '10px', fontSize: '13px', color: 'var(--text-muted2)' }}>%</span>
-                  </div>
-                </div>
-
-                <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                  <label style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Gratis Ongkir Xtra (%)</label>
-                  <div style={{ position: 'relative' }}>
-                    <input
-                      type="number"
-                      step="0.1"
-                      value={gratisOngkirXtraPercent}
-                      onChange={(e) => setGratisOngkirXtraPercent(Math.max(0, parseFloat(e.target.value) || 0))}
-                      style={{ width: '100%', padding: '10px 24px 10px 12px', backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-color)', borderRadius: '6px', color: 'white', fontSize: '13px' }}
-                    />
-                    <span style={{ position: 'absolute', right: '12px', top: '10px', fontSize: '13px', color: 'var(--text-muted2)' }}>%</span>
-                  </div>
-                </div>
-              </div>
-
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
-                <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                  <label style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Cashback Xtra (%)</label>
-                  <div style={{ position: 'relative' }}>
-                    <input
-                      type="number"
-                      step="0.1"
-                      value={cashbackXtraPercent}
-                      onChange={(e) => setCashbackXtraPercent(Math.max(0, parseFloat(e.target.value) || 0))}
                       style={{ width: '100%', padding: '10px 24px 10px 12px', backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-color)', borderRadius: '6px', color: 'white', fontSize: '13px' }}
                     />
                     <span style={{ position: 'absolute', right: '12px', top: '10px', fontSize: '13px', color: 'var(--text-muted2)' }}>%</span>
@@ -506,20 +646,64 @@ const HppCalculator = () => {
                     <span className="text-muted">Modal Awal Barang (HPP):</span>
                     <span className="font-semibold">{formatRp(totalHpp)}</span>
                   </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px' }}>
-                    <span className="text-muted">Potongan Shopee Persentase ({totalPlatformFeesPercent.toFixed(1)}%):</span>
-                    <span className="font-semibold text-red" style={{ color: 'var(--accent-red)' }}>
-                      - {formatRp(platformFeesDeduction)}
-                    </span>
-                  </div>
-                  {flatProcessFee > 0 && (
-                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px' }}>
-                      <span className="text-muted">Biaya Proses Pesanan (Flat):</span>
-                      <span className="font-semibold text-red" style={{ color: 'var(--accent-red)' }}>
-                        - {formatRp(flatProcessFee)}
-                      </span>
+
+                  {/* Rincian Biaya Potongan Persentase */}
+                  <div style={{ padding: '10px', backgroundColor: 'rgba(255,255,255,0.02)', borderRadius: '6px', display: 'flex', flexDirection: 'column', gap: '6px', fontSize: '12px', border: '1px solid rgba(255,255,255,0.04)' }}>
+                    <span style={{ fontWeight: 'bold', color: 'white', fontSize: '11px' }}>Rincian Potongan Shopee ({totalPlatformFeesPercent.toFixed(2)}%):</span>
+                    
+                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                      <span className="text-muted">Biaya Administrasi ({adminFeePercent}%):</span>
+                      <span style={{ color: 'var(--accent-red)' }}>- {formatRp(calcAdminFee)}</span>
                     </div>
-                  )}
+                    
+                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                      <span className="text-muted">Biaya Transaksi ({transactionFeePercent}%):</span>
+                      <span style={{ color: 'var(--accent-red)' }}>- {formatRp(calcTransactionFee)}</span>
+                    </div>
+
+                    {activeGratisOngkir && (
+                      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                        <span className="text-muted">Gratis Ongkir Xtra ({gratisOngkirPercent}%):</span>
+                        <span style={{ color: 'var(--accent-red)' }}>- {formatRp(calcGratisOngkir)}</span>
+                      </div>
+                    )}
+
+                    {activeCashback && (
+                      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                        <span className="text-muted">Cashback / Promo Xtra ({cashbackPercent}%):</span>
+                        <span style={{ color: 'var(--accent-red)' }}>- {formatRp(calcCashback)}</span>
+                      </div>
+                    )}
+
+                    {activeLiveXtra && (
+                      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                        <span className="text-muted">Shopee Live Xtra ({liveXtraPercent}%):</span>
+                        <span style={{ color: 'var(--accent-red)' }}>- {formatRp(calcLiveXtra)}</span>
+                      </div>
+                    )}
+
+                    {activeSpayLater && (
+                      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                        <span className="text-muted">SPayLater Merchant Fee ({spayLaterPercent}%):</span>
+                        <span style={{ color: 'var(--accent-red)' }}>- {formatRp(calcSpayLater)}</span>
+                      </div>
+                    )}
+
+                    {activeAffiliate && (
+                      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                        <span className="text-muted">Komisi Affiliate / Video ({affiliatePercent}%):</span>
+                        <span style={{ color: 'var(--accent-red)' }}>- {formatRp(calcAffiliate)}</span>
+                      </div>
+                    )}
+
+                    {flatProcessFee > 0 && (
+                      <div style={{ display: 'flex', justifyContent: 'space-between', borderTop: '1px dashed var(--border-color)', paddingTop: '4px', marginTop: '2px' }}>
+                        <span className="text-muted">Biaya Proses Pesanan (Flat):</span>
+                        <span style={{ color: 'var(--accent-red)' }}>- {formatRp(flatProcessFee)}</span>
+                      </div>
+                    )}
+                  </div>
+
                   <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', borderTop: '1px solid var(--border-color)', paddingTop: '8px' }}>
                     <span className="text-muted">Target Margin Bersih ({targetMarginPercent}%):</span>
                     <span className="font-semibold text-green" style={{ color: 'var(--accent-green)' }}>
