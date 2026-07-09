@@ -94,6 +94,9 @@ const HppCalculator = () => {
   const [activeAffiliate, setActiveAffiliate] = useState(false);
   const [affiliatePercent, setAffiliatePercent] = useState(5.0);
 
+  const [activeInsurance, setActiveInsurance] = useState(false);
+  const [insurancePercent, setInsurancePercent] = useState(0.5);
+
   // Handle Search Input Change
   const handleSearchChange = (e) => {
     const val = e.target.value;
@@ -156,7 +159,8 @@ const HppCalculator = () => {
     (activeCashback ? cashbackPercent : 0) + 
     (activeLiveXtra ? liveXtraPercent : 0) + 
     (activeSpayLater ? spayLaterPercent : 0) + 
-    (activeAffiliate ? affiliatePercent : 0);
+    (activeAffiliate ? affiliatePercent : 0) +
+    (activeInsurance ? insurancePercent : 0);
   
   // Recommended Selling Price Formula
   const divisor = 1 - (totalPlatformFeesPercent / 100) - (targetMarginPercent / 100);
@@ -170,6 +174,7 @@ const HppCalculator = () => {
   const calcLiveXtra = activeLiveXtra ? (recommendedPrice * liveXtraPercent) / 100 : 0;
   const calcSpayLater = activeSpayLater ? (recommendedPrice * spayLaterPercent) / 100 : 0;
   const calcAffiliate = activeAffiliate ? (recommendedPrice * affiliatePercent) / 100 : 0;
+  const calcInsurance = activeInsurance ? (recommendedPrice * insurancePercent) / 100 : 0;
 
   const totalDeductionsRupiah = 
     calcAdminFee + 
@@ -179,6 +184,7 @@ const HppCalculator = () => {
     calcLiveXtra + 
     calcSpayLater + 
     calcAffiliate + 
+    calcInsurance +
     flatProcessFee;
 
   const netProfitUnit = recommendedPrice - totalHpp - totalDeductionsRupiah;
@@ -205,7 +211,7 @@ const HppCalculator = () => {
           <div>
             <h3 style={{ fontSize: '18px', fontWeight: 'bold' }}>Simulasi Kalkulator HPP &amp; Rekomendasi Harga Jual Shopee</h3>
             <p className="text-muted" style={{ fontSize: '13px', marginTop: '4px' }}>
-              Masukkan komponen modal Anda, pilih tipe penjual, cari kategori produk untuk biaya admin dasar, lalu centang program opsional yang Anda ikuti (SPayLater, Promo/Gratis Ongkir Xtra, Live Xtra, Affiliate) untuk kalkulasi harga jual yang presisi.
+              Masukkan komponen modal Anda, pilih tipe penjual, cari kategori produk untuk biaya admin dasar, lalu centang program opsional yang Anda ikuti (SPayLater, Promo/Gratis Ongkir Xtra, Live Xtra, Affiliate, Asuransi) untuk kalkulasi harga jual yang presisi.
             </p>
           </div>
         </div>
@@ -426,7 +432,7 @@ const HppCalculator = () => {
                         type="number"
                         step="0.1"
                         value={cashbackPercent}
-                        onChange={(e) => setActiveCashback && setCashbackPercent(Math.max(0, parseFloat(e.target.value) || 0))}
+                        onChange={(e) => setCashbackPercent(Math.max(0, parseFloat(e.target.value) || 0))}
                         style={{ width: '50px', padding: '4px', backgroundColor: 'rgba(0,0,0,0.2)', border: '1px solid var(--border-color)', borderRadius: '4px', color: 'white', fontSize: '12px', textAlign: 'center' }}
                       />
                       <span style={{ fontSize: '12px', color: 'var(--text-muted2)' }}>%</span>
@@ -502,6 +508,31 @@ const HppCalculator = () => {
                         step="0.1"
                         value={affiliatePercent}
                         onChange={(e) => setAffiliatePercent(Math.max(0, parseFloat(e.target.value) || 0))}
+                        style={{ width: '50px', padding: '4px', backgroundColor: 'rgba(0,0,0,0.2)', border: '1px solid var(--border-color)', borderRadius: '4px', color: 'white', fontSize: '12px', textAlign: 'center' }}
+                      />
+                      <span style={{ fontSize: '12px', color: 'var(--text-muted2)' }}>%</span>
+                    </div>
+                  )}
+                </div>
+
+                {/* 6. Biaya Asuransi Pengiriman */}
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', backgroundColor: 'rgba(255,255,255,0.01)', padding: '6px 10px', borderRadius: '6px', border: '1px solid var(--border-color)' }}>
+                  <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12.5px', cursor: 'pointer', userSelect: 'none' }}>
+                    <input
+                      type="checkbox"
+                      checked={activeInsurance}
+                      onChange={(e) => setActiveInsurance(e.target.checked)}
+                      style={{ cursor: 'pointer', accentColor: 'var(--accent-orange)' }}
+                    />
+                    Biaya Asuransi Pengiriman
+                  </label>
+                  {activeInsurance && (
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                      <input
+                        type="number"
+                        step="0.05"
+                        value={insurancePercent}
+                        onChange={(e) => setInsurancePercent(Math.max(0, parseFloat(e.target.value) || 0))}
                         style={{ width: '50px', padding: '4px', backgroundColor: 'rgba(0,0,0,0.2)', border: '1px solid var(--border-color)', borderRadius: '4px', color: 'white', fontSize: '12px', textAlign: 'center' }}
                       />
                       <span style={{ fontSize: '12px', color: 'var(--text-muted2)' }}>%</span>
@@ -693,6 +724,13 @@ const HppCalculator = () => {
                       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                         <span className="text-muted">Komisi Affiliate / Video ({affiliatePercent}%):</span>
                         <span style={{ color: 'var(--accent-red)' }}>- {formatRp(calcAffiliate)}</span>
+                      </div>
+                    )}
+
+                    {activeInsurance && (
+                      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                        <span className="text-muted">Biaya Asuransi ({insurancePercent}%):</span>
+                        <span style={{ color: 'var(--accent-red)' }}>- {formatRp(calcInsurance)}</span>
                       </div>
                     )}
 
