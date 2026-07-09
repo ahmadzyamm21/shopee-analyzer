@@ -73,27 +73,28 @@ const HppCalculator = () => {
 
   // 4. Shopee Optional Programs State (Checkboxes & Percentages)
   const [activeGratisOngkir, setActiveGratisOngkir] = useState(true);
-  const [gratisOngkirPercent, setGratisOngkirPercent] = useState(7.5); // G Biasa is 7.5%
+  const [gratisOngkirPercent, setGratisOngkirPercent] = useState(0.0); // Default 0.0%
 
   const [activeCashback, setActiveCashback] = useState(false);
-  const [cashbackPercent, setCashbackPercent] = useState(1.4);
+  const [cashbackPercent, setCashbackPercent] = useState(0.0); // Default 0.0%
 
   const [activeLiveXtra, setActiveLiveXtra] = useState(false);
-  const [liveXtraPercent, setLiveXtraPercent] = useState(4.0);
+  const [liveXtraPercent, setLiveXtraPercent] = useState(0.0); // Default 0.0%
 
   const [activeSpayLater, setActiveSpayLater] = useState(false);
-  const [spayLaterPercent, setSpayLaterPercent] = useState(1.5);
+  const [spayLaterPercent, setSpayLaterPercent] = useState(0.0); // Default 0.0%
 
   const [activeAffiliate, setActiveAffiliate] = useState(false);
-  const [affiliatePercent, setAffiliatePercent] = useState(5.0);
+  const [affiliatePercent, setAffiliatePercent] = useState(0.0); // Default 0.0%
 
   const [activeInsurance, setActiveInsurance] = useState(false);
-  const [insurancePercent, setInsurancePercent] = useState(0.5);
+  const [insurancePercent, setInsurancePercent] = useState(0.0); // Default 0.0%
 
   const [activeHematKirim, setActiveHematKirim] = useState(false);
   const [hematKirimFee, setHematKirimFee] = useState(350); 
 
-  // Automatically adjust Gratis Ongkir XTRA percent based on selected category & size
+  // Automatically adjust Gratis Ongkir XTRA percent based on selected category & size (Disabled: manual entry requested)
+  /*
   useEffect(() => {
     if (selectedCategory) {
       const biasaRate = selectedCategory["GO Biasa"] !== undefined ? selectedCategory["GO Biasa"] : 0;
@@ -102,6 +103,7 @@ const HppCalculator = () => {
       setGratisOngkirPercent(rate);
     }
   }, [selectedCategory, productSize]);
+  */
 
   // Handle Search Input Change over all 356 categories from the user's Excel file
   const handleSearchChange = (e) => {
@@ -464,7 +466,7 @@ const HppCalculator = () => {
                       Gratis Ongkir XTRA
                     </label>
                     <span style={{ fontSize: '10px', color: 'var(--text-muted2)', marginLeft: '20px' }}>
-                      (Auto set dari tabel kategori &amp; ukuran paket)
+                      (Diisi manual, default 0.00%)
                     </span>
                   </div>
                   {activeGratisOngkir && (
