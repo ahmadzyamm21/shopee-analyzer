@@ -13,6 +13,7 @@ const HppCalculator = () => {
   // 2. Shopee Seller & Category Setup
   const [sellerType, setSellerType] = useState('star'); // star, nonStar, mall
   const [categoryGroup, setCategoryGroup] = useState('B'); // B for Helm default
+  const [productSize, setProductSize] = useState('biasa'); // biasa, khusus
 
   // Search Category State
   const [searchQuery, setSearchQuery] = useState('');
@@ -29,6 +30,9 @@ const HppCalculator = () => {
       C: 6.5,
       D: 5.25,
       E: 4.25,
+      F: 4.25,
+      G: 4.25,
+      H: 4.25,
       khusus: 2.5
     },
     star: {
@@ -37,6 +41,9 @@ const HppCalculator = () => {
       C: 6.5,
       D: 5.25,
       E: 4.25,
+      F: 4.25,
+      G: 4.25,
+      H: 4.25,
       khusus: 2.5
     },
     mall: {
@@ -45,8 +52,24 @@ const HppCalculator = () => {
       C: 7.7,
       D: 5.7,
       E: 4.2,
+      F: 4.2,
+      G: 4.2,
+      H: 4.2,
       khusus: 2.5
     }
+  };
+
+  // Official Gratis Ongkir XTRA Rates (based on User Table)
+  const gratisOngkirRates = {
+    A: { biasa: 1.0, khusus: 2.5 },
+    B: { biasa: 2.0, khusus: 3.5 },
+    C: { biasa: 3.5, khusus: 5.0 },
+    D: { biasa: 5.5, khusus: 7.0 },
+    E: { biasa: 6.0, khusus: 7.5 },
+    F: { biasa: 6.5, khusus: 8.0 },
+    G: { biasa: 7.5, khusus: 9.0 },
+    H: { biasa: 8.0, khusus: 9.5 },
+    khusus: { biasa: 1.0, khusus: 2.5 }
   };
 
   // Shopee Search Database
@@ -80,7 +103,7 @@ const HppCalculator = () => {
 
   // 4. Shopee Optional Programs State (Checkboxes & Percentages)
   const [activeGratisOngkir, setActiveGratisOngkir] = useState(true);
-  const [gratisOngkirPercent, setGratisOngkirPercent] = useState(4.0);
+  const [gratisOngkirPercent, setGratisOngkirPercent] = useState(2.0); // B Biasa is 2.0%
 
   const [activeCashback, setActiveCashback] = useState(false);
   const [cashbackPercent, setCashbackPercent] = useState(1.4);
@@ -98,7 +121,15 @@ const HppCalculator = () => {
   const [insurancePercent, setInsurancePercent] = useState(0.5);
 
   const [activeHematKirim, setActiveHematKirim] = useState(false);
-  const [hematKirimFee, setHematKirimFee] = useState(350); // Rp 350 flat fee
+  const [hematKirimFee, setHematKirimFee] = useState(350); 
+
+  // Automatically adjust Gratis Ongkir XTRA percent based on category group & size
+  useEffect(() => {
+    if (gratisOngkirRates[categoryGroup]) {
+      const rate = gratisOngkirRates[categoryGroup][productSize];
+      setGratisOngkirPercent(rate);
+    }
+  }, [categoryGroup, productSize]);
 
   // Handle Search Input Change
   const handleSearchChange = (e) => {
@@ -128,7 +159,7 @@ const HppCalculator = () => {
 
   // Automatically update Admin Fee % when Seller Type or Category changes
   useEffect(() => {
-    const rate = shopeeAdminRates[sellerType][categoryGroup];
+    const rate = shopeeAdminRates[sellerType][categoryGroup] || 4.25;
     setAdminFeePercent(rate);
   }, [sellerType, categoryGroup]);
 
@@ -154,11 +185,15 @@ const HppCalculator = () => {
   const defectCost = (purchasePrice * defectRate) / 100;
   const totalHpp = purchasePrice + packingPrice + cargoPrice + laborPrice + defectCost + otherOverhead;
 
-  // Sum up all checked platform fee percentages
+  // Gratis Ongkir XTRA Cap limit: Rp 40.000 for standard, Rp 60.000 for special
+  const gratisOngkirCap = productSize === 'khusus' ? 60000 : 40000;
+
+  // Sum up all active platform fee percentages
+  let activeGratisOngkirPercent = activeGratisOngkir ? gratisOngkirPercent : 0;
   const totalPlatformFeesPercent = 
     adminFeePercent + 
     transactionFeePercent + 
-    (activeGratisOngkir ? gratisOngkirPercent : 0) + 
+    activeGratisOngkirPercent + 
     (activeCashback ? cashbackPercent : 0) + 
     (activeLiveXtra ? liveXtraPercent : 0) + 
     (activeSpayLater ? spayLaterPercent : 0) + 
@@ -168,40 +203,70 @@ const HppCalculator = () => {
   // Total flat fees
   const totalFlatFees = flatProcessFee + (activeHematKirim ? hematKirimFee : 0);
 
-  // Recommended Selling Price Formula
-  const divisor = 1 - (totalPlatformFeesPercent / 100) - (targetMarginPercent / 100);
-  const recommendedPrice = divisor > 0 ? (totalHpp + totalFlatFees) / divisor : 0;
+  // Two-Pass calculation to handle the Gratis Ongkir XTRA Cap
+  let divisor = 1 - (totalPlatformFeesPercent / 100) - (targetMarginPercent / 100);
+  let recommendedPrice = divisor > 0 ? (totalHpp + totalFlatFees) : 0;
   
-  // Breakdown calculations for the final recommended price
-  const calcAdminFee = (recommendedPrice * adminFeePercent) / 100;
-  const calcTransactionFee = (recommendedPrice * transactionFeePercent) / 100;
-  const calcGratisOngkir = activeGratisOngkir ? (recommendedPrice * gratisOngkirPercent) / 100 : 0;
-  const calcCashback = activeCashback ? (recommendedPrice * cashbackPercent) / 100 : 0;
-  const calcLiveXtra = activeLiveXtra ? (recommendedPrice * liveXtraPercent) / 100 : 0;
-  const calcSpayLater = activeSpayLater ? (recommendedPrice * spayLaterPercent) / 100 : 0;
-  const calcAffiliate = activeAffiliate ? (recommendedPrice * affiliatePercent) / 100 : 0;
-  const calcInsurance = activeInsurance ? (recommendedPrice * insurancePercent) / 100 : 0;
+  let calcAdminFee = 0;
+  let calcTransactionFee = 0;
+  let calcGratisOngkir = 0;
+  let calcCashback = 0;
+  let calcLiveXtra = 0;
+  let calcSpayLater = 0;
+  let calcAffiliate = 0;
+  let calcInsurance = 0;
+  let totalDeductionsRupiah = 0;
+  let isGratisOngkirCapped = false;
 
-  const totalDeductionsRupiah = 
-    calcAdminFee + 
-    calcTransactionFee + 
-    calcGratisOngkir + 
-    calcCashback + 
-    calcLiveXtra + 
-    calcSpayLater + 
-    calcAffiliate + 
-    calcInsurance +
-    totalFlatFees;
+  if (divisor > 0) {
+    recommendedPrice = (totalHpp + totalFlatFees) / divisor;
+    
+    // Check if Gratis Ongkir fee exceeds the cap at this price
+    calcGratisOngkir = activeGratisOngkir ? (recommendedPrice * gratisOngkirPercent) / 100 : 0;
+    
+    if (activeGratisOngkir && calcGratisOngkir > gratisOngkirCap) {
+      isGratisOngkirCapped = true;
+      // Recalculate price treating Gratis Ongkir as a flat fee instead of percentage
+      const platformFeesWithoutGratisOngkir = totalPlatformFeesPercent - gratisOngkirPercent;
+      const newDivisor = 1 - (platformFeesWithoutGratisOngkir / 100) - (targetMarginPercent / 100);
+      
+      recommendedPrice = newDivisor > 0 ? (totalHpp + totalFlatFees + gratisOngkirCap) / newDivisor : 0;
+      calcGratisOngkir = gratisOngkirCap;
+    }
+
+    // Recalculate all percentage deductions based on the final recommended price
+    calcAdminFee = (recommendedPrice * adminFeePercent) / 100;
+    calcTransactionFee = (recommendedPrice * transactionFeePercent) / 100;
+    calcCashback = activeCashback ? (recommendedPrice * cashbackPercent) / 100 : 0;
+    calcLiveXtra = activeLiveXtra ? (recommendedPrice * liveXtraPercent) / 100 : 0;
+    calcSpayLater = activeSpayLater ? (recommendedPrice * spayLaterPercent) / 100 : 0;
+    calcAffiliate = activeAffiliate ? (recommendedPrice * affiliatePercent) / 100 : 0;
+    calcInsurance = activeInsurance ? (recommendedPrice * insurancePercent) / 100 : 0;
+
+    totalDeductionsRupiah = 
+      calcAdminFee + 
+      calcTransactionFee + 
+      calcGratisOngkir + 
+      calcCashback + 
+      calcLiveXtra + 
+      calcSpayLater + 
+      calcAffiliate + 
+      calcInsurance +
+      totalFlatFees;
+  }
 
   const netProfitUnit = recommendedPrice - totalHpp - totalDeductionsRupiah;
 
   // Category explanations mapping
   const categoryExplanations = {
     A: 'Fashion, Aksesoris, Kosmetik, Kecantikan, Ibu & Bayi, Perlengkapan Medis.',
-    B: 'Elektronik, Handphone, Gadget, Kamera, Otomotif, Hobi & Koleksi.',
+    B: 'Elektronik, Handphone, Gadget, Kamera, Otomotif (Helm, dll), Hobi.',
     C: 'Komputer, Perlengkapan Rumah, Peralatan Olahraga, Media & Musik.',
     D: 'Makanan & Minuman, Buku & Alat Tulis, Kebutuhan Hewan Peliharaan.',
     E: 'Sembako, Susu & Popok Bayi, Perlengkapan Rumah Tangga Tertentu.',
+    F: 'Subkategori Kesehatan & Kecantikan Tertentu, Peralatan Bayi.',
+    G: 'Subkategori Elektronik & Otomotif Tertentu.',
+    H: 'Kategori Khusus Berbiaya Admin Tertentu.',
     khusus: 'Produk Digital, Voucher, Tiket, Pulsa, E-Money.'
   };
 
@@ -217,7 +282,7 @@ const HppCalculator = () => {
           <div>
             <h3 style={{ fontSize: '18px', fontWeight: 'bold' }}>Simulasi Kalkulator HPP &amp; Rekomendasi Harga Jual Shopee</h3>
             <p className="text-muted" style={{ fontSize: '13px', marginTop: '4px' }}>
-              Masukkan komponen modal Anda, pilih tipe penjual, cari kategori produk untuk biaya admin dasar, lalu centang program opsional yang Anda ikuti (SPayLater, Promo/Gratis Ongkir Xtra, Live Xtra, Affiliate, Asuransi, Hemat Kirim) untuk kalkulasi harga jual yang presisi.
+              Hitung HPP riil produk, sesuaikan tipe toko dan kategori produk, lalu centang program opsional. Gratis Ongkir XTRA dihitung otomatis sesuai kategori dan ukuran produk (Biasa/Khusus) beserta batas biaya maksimal (Cap).
             </p>
           </div>
         </div>
@@ -327,18 +392,32 @@ const HppCalculator = () => {
             
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               
-              {/* Tipe Penjual Dropdown */}
-              <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                <label style={{ fontSize: '12px', color: 'var(--accent-orange)', fontWeight: '600' }}>Tipe Penjual / Toko</label>
-                <select
-                  value={sellerType}
-                  onChange={(e) => setSellerType(e.target.value)}
-                  style={{ width: '100%', padding: '10px 12px', backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-color)', borderRadius: '6px', color: 'white', fontSize: '13px', outline: 'none' }}
-                >
-                  <option value="star" style={{ background: '#1e2235' }}>Penjual Star / Star+</option>
-                  <option value="nonStar" style={{ background: '#1e2235' }}>Penjual Non-Star</option>
-                  <option value="mall" style={{ background: '#1e2235' }}>Shopee Mall</option>
-                </select>
+              {/* Tipe Penjual & Ukuran Produk dropdowns */}
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+                <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                  <label style={{ fontSize: '12px', color: 'var(--accent-orange)', fontWeight: '600' }}>Tipe Penjual / Toko</label>
+                  <select
+                    value={sellerType}
+                    onChange={(e) => setSellerType(e.target.value)}
+                    style={{ width: '100%', padding: '10px 12px', backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-color)', borderRadius: '6px', color: 'white', fontSize: '13px', outline: 'none' }}
+                  >
+                    <option value="star" style={{ background: '#1e2235' }}>Penjual Star / Star+</option>
+                    <option value="nonStar" style={{ background: '#1e2235' }}>Penjual Non-Star</option>
+                    <option value="mall" style={{ background: '#1e2235' }}>Shopee Mall</option>
+                  </select>
+                </div>
+
+                <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                  <label style={{ fontSize: '12px', color: 'var(--accent-orange)', fontWeight: '600' }}>Ukuran Paket/Produk</label>
+                  <select
+                    value={productSize}
+                    onChange={(e) => setProductSize(e.target.value)}
+                    style={{ width: '100%', padding: '10px 12px', backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-color)', borderRadius: '6px', color: 'white', fontSize: '13px', outline: 'none' }}
+                  >
+                    <option value="biasa" style={{ background: '#1e2235' }}>Ukuran Biasa (Maks Rp 40.000)</option>
+                    <option value="khusus" style={{ background: '#1e2235' }}>Ukuran Khusus (Maks Rp 60.000)</option>
+                  </select>
+                </div>
               </div>
 
               {/* Search Category Bar */}
@@ -398,15 +477,20 @@ const HppCalculator = () => {
                 
                 {/* 1. Gratis Ongkir XTRA */}
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', backgroundColor: 'rgba(255,255,255,0.01)', padding: '6px 10px', borderRadius: '6px', border: '1px solid var(--border-color)' }}>
-                  <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12.5px', cursor: 'pointer', userSelect: 'none' }}>
-                    <input
-                      type="checkbox"
-                      checked={activeGratisOngkir}
-                      onChange={(e) => setActiveGratisOngkir(e.target.checked)}
-                      style={{ cursor: 'pointer', accentColor: 'var(--accent-orange)' }}
-                    />
-                    Gratis Ongkir XTRA
-                  </label>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                    <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12.5px', cursor: 'pointer', userSelect: 'none' }}>
+                      <input
+                        type="checkbox"
+                        checked={activeGratisOngkir}
+                        onChange={(e) => setActiveGratisOngkir(e.target.checked)}
+                        style={{ cursor: 'pointer', accentColor: 'var(--accent-orange)' }}
+                      />
+                      Gratis Ongkir XTRA
+                    </label>
+                    <span style={{ fontSize: '10px', color: 'var(--text-muted2)', marginLeft: '20px' }}>
+                      (Auto set dari tabel kategori &amp; ukuran paket)
+                    </span>
+                  </div>
                   {activeGratisOngkir && (
                     <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
                       <input
@@ -724,7 +808,10 @@ const HppCalculator = () => {
 
                     {activeGratisOngkir && (
                       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                        <span className="text-muted">Gratis Ongkir Xtra ({gratisOngkirPercent}%):</span>
+                        <span className="text-muted">
+                          Gratis Ongkir Xtra ({gratisOngkirPercent}%)
+                          {isGratisOngkirCapped && ' (Maksimal Cap)'}:
+                        </span>
                         <span style={{ color: 'var(--accent-red)' }}>- {formatRp(calcGratisOngkir)}</span>
                       </div>
                     )}
