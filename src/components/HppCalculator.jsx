@@ -33,7 +33,7 @@ const HppCalculator = () => {
 
   // 3. Shopee Basic Fees State
   const [adminFeePercent, setAdminFeePercent] = useState(8.25); 
-  const [transactionFeePercent, setTransactionFeePercent] = useState(2.0); // Kept in background (2%)
+  const transactionFeePercent = 0.0; // Removed from calculations
   const [flatProcessFee, setFlatProcessFee] = useState(1250); 
 
   // 4. Shopee Optional Programs State (Checkboxes & Percentages)
@@ -711,10 +711,7 @@ const HppCalculator = () => {
                         <span style={{ color: 'var(--accent-red)' }}>- {formatRp(calcAdminFee)}</span>
                       </div>
                       
-                      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                        <span className="text-muted">Biaya Transaksi ({transactionFeePercent}%):</span>
-                        <span style={{ color: 'var(--accent-red)' }}>- {formatRp(calcTransactionFee)}</span>
-                      </div>
+
 
                       {activeGratisOngkir && (
                         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
