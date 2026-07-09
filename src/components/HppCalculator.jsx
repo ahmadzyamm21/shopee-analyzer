@@ -659,10 +659,10 @@ const HppCalculator = () => {
                         <select
                           value={advertisingType}
                           onChange={(e) => setAdvertisingType(e.target.value)}
-                          style={{ padding: '6px', backgroundColor: 'rgba(0,0,0,0.2)', border: '1px solid var(--border-color)', borderRadius: '4px', color: 'white', fontSize: '12px', outline: 'none', cursor: 'pointer' }}
+                          style={{ padding: '6px', backgroundColor: '#1e2235', border: '1px solid var(--border-color)', borderRadius: '4px', color: 'white', fontSize: '12px', outline: 'none', cursor: 'pointer' }}
                         >
-                          <option value="percent">% Persen</option>
-                          <option value="nominal">Rp Nominal</option>
+                          <option value="percent" style={{ background: '#1e2235', color: 'white' }}>% Persen</option>
+                          <option value="nominal" style={{ background: '#1e2235', color: 'white' }}>Rp Nominal</option>
                         </select>
                         <div style={{ position: 'relative', flex: 1 }}>
                           {advertisingType === 'nominal' && (
