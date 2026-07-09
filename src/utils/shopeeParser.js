@@ -182,6 +182,8 @@ export const parseIncomeFile = async (file) => {
       try {
         const data = new Uint8Array(e.target.result);
         const workbook = XLSX.read(data, { type: 'array' });
+        
+        // 1. Parse main Income sheet
         const sheetName = workbook.SheetNames.find(n => n.toLowerCase() === 'income') || workbook.SheetNames[0];
         const worksheet = workbook.Sheets[sheetName];
         
@@ -214,6 +216,57 @@ export const parseIncomeFile = async (file) => {
             if (h) rowObj[h] = rowArr[idx] !== undefined ? rowArr[idx] : null;
           });
           rows.push(rowObj);
+        }
+
+        // 2. Parse Service Fee Details sheet if it exists
+        const serviceSheetName = workbook.SheetNames.find(n => n.toLowerCase().includes('service fee'));
+        if (serviceSheetName) {
+          const serviceWorksheet = workbook.Sheets[serviceSheetName];
+          const serviceMatrix = XLSX.utils.sheet_to_json(serviceWorksheet, { header: 1 });
+          
+          let serviceHeaderRowIdx = -1;
+          for (let r = 0; r < Math.min(15, serviceMatrix.length); r++) {
+            if (serviceMatrix[r].some(c => String(c).trim() === 'No. Pesanan')) {
+              serviceHeaderRowIdx = r;
+              break;
+            }
+          }
+          
+          if (serviceHeaderRowIdx !== -1) {
+            const serviceHeaders = serviceMatrix[serviceHeaderRowIdx].map(h => h ? String(h).trim() : '');
+            
+            // Build map of No. Pesanan to service fee breakdown
+            const serviceFeeMap = {};
+            for (let r = serviceHeaderRowIdx + 1; r < serviceMatrix.length; r++) {
+              const rowArr = serviceMatrix[r];
+              if (!rowArr || rowArr.length === 0) continue;
+              
+              const rowNum = parseFloat(rowArr[0]);
+              if (isNaN(rowNum) || rowArr[0] === null) continue;
+              
+              const orderIdColIdx = serviceHeaders.indexOf('No. Pesanan');
+              if (orderIdColIdx === -1) continue;
+              
+              const orderId = String(rowArr[orderIdColIdx] || '').trim();
+              if (!orderId) continue;
+              
+              const feeObj = {};
+              serviceHeaders.forEach((h, idx) => {
+                if (h && h !== 'No. Pesanan' && h !== 'No.') {
+                  feeObj[h] = rowArr[idx] !== undefined ? rowArr[idx] : null;
+                }
+              });
+              serviceFeeMap[orderId] = feeObj;
+            }
+            
+            // Merge into main rows
+            rows.forEach(row => {
+              const orderId = String(row['No. Pesanan'] || '').trim();
+              if (orderId && serviceFeeMap[orderId]) {
+                Object.assign(row, serviceFeeMap[orderId]);
+              }
+            });
+          }
         }
         
         resolve(rows);
@@ -537,7 +590,10 @@ export const analyzeShopeeData = (orderRows, incomeRows, hppData, totalAds = 0, 
         gratisOngkir: 0,
         ongkirKurir: 0,
         ongkirRetur: 0,
-        pengembalianOngkir: 0
+        pengembalianOngkir: 0,
+        biayaGratongXtra: 0,
+        biayaPromoXtra: 0,
+        biayaLiveXtra: 0
       };
     }
     incomeGroup[id].payout += parseNumber(row['Total Penghasilan']);
@@ -556,6 +612,9 @@ export const analyzeShopeeData = (orderRows, incomeRows, hppData, totalAds = 0, 
     incomeGroup[id].ongkirKurir += parseNumber(row['Ongkir yang Diteruskan oleh Shopee ke Jasa Kirim']);
     incomeGroup[id].ongkirRetur += parseNumber(row['Ongkos Kirim Pengembalian Barang']);
     incomeGroup[id].pengembalianOngkir += parseNumber(row['Pengembalian Biaya Kirim']);
+    incomeGroup[id].biayaGratongXtra += parseNumber(row['Biaya Layanan Gratis Ongkir XTRA']);
+    incomeGroup[id].biayaPromoXtra += parseNumber(row['Biaya Layanan Promo XTRA']);
+    incomeGroup[id].biayaLiveXtra += parseNumber(row['Biaya Program Shopee Live Xtra']);
   });
 
   Object.values(ordersGroup).forEach(order => {
@@ -578,7 +637,10 @@ export const analyzeShopeeData = (orderRows, incomeRows, hppData, totalAds = 0, 
         ongkirKurir: inc.ongkirKurir,
         ongkirRetur: inc.ongkirRetur,
         pengembalianOngkir: inc.pengembalianOngkir,
-        netBiayaKirim: inc.ongkirPembeli + inc.gratisOngkir + inc.pengembalianOngkir - inc.ongkirKurir - inc.ongkirRetur
+        netBiayaKirim: inc.ongkirPembeli + inc.gratisOngkir + inc.pengembalianOngkir - inc.ongkirKurir - inc.ongkirRetur,
+        biayaGratongXtra: inc.biayaGratongXtra,
+        biayaPromoXtra: inc.biayaPromoXtra,
+        biayaLiveXtra: inc.biayaLiveXtra
       };
     } else {
       order.fees = null;

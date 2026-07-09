@@ -148,19 +148,60 @@ const CompletedOrders = ({ data }) => {
                                   <h5 style={{ fontSize: '10px', color: 'var(--text-muted2)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>
                                     Rincian Potongan Shopee &amp; Transaksi:
                                   </h5>
-                                  
-                                  {order.fees.biayaAdmin !== 0 && (
+                                                                    {order.fees.biayaAdmin !== 0 && (
                                     <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '11.5px', color: 'var(--accent-red)' }}>
                                       <span>Biaya Administrasi Shopee:</span>
                                       <span>- {formatRp(Math.abs(order.fees.biayaAdmin))}</span>
                                     </div>
                                   )}
-                                  {order.fees.biayaLayanan !== 0 && (
+
+                                  {/* Detailed Service Fees */}
+                                  {order.fees.biayaGratongXtra !== 0 && (
                                     <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '11.5px', color: 'var(--accent-red)' }}>
-                                      <span>Biaya Layanan (GO-XTRA, dll):</span>
-                                      <span>- {formatRp(Math.abs(order.fees.biayaLayanan))}</span>
+                                      <span>Biaya Layanan Gratis Ongkir XTRA:</span>
+                                      <span>- {formatRp(Math.abs(order.fees.biayaGratongXtra))}</span>
                                     </div>
                                   )}
+                                  {order.fees.biayaPromoXtra !== 0 && (
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '11.5px', color: 'var(--accent-red)' }}>
+                                      <span>Biaya Layanan Promo XTRA:</span>
+                                      <span>- {formatRp(Math.abs(order.fees.biayaPromoXtra))}</span>
+                                    </div>
+                                  )}
+                                  {order.fees.biayaLiveXtra !== 0 && (
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '11.5px', color: 'var(--accent-red)' }}>
+                                      <span>Biaya Program Shopee Live Xtra:</span>
+                                      <span>- {formatRp(Math.abs(order.fees.biayaLiveXtra))}</span>
+                                    </div>
+                                  )}
+
+                                  {/* Fallback for other generic service fees or leftover amounts */}
+                                  {(() => {
+                                    const detailsSum = (order.fees.biayaGratongXtra || 0) + (order.fees.biayaPromoXtra || 0) + (order.fees.biayaLiveXtra || 0);
+                                    // since these detail values are usually parsed as negative, let's take absolute sum
+                                    const absDetailsSum = Math.abs(detailsSum);
+                                    const absTotalLayanan = Math.abs(order.fees.biayaLayanan || 0);
+                                    const leftover = absTotalLayanan - absDetailsSum;
+                                    
+                                    if (leftover > 1) { // threshold for float rounding
+                                      return (
+                                        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '11.5px', color: 'var(--accent-red)' }}>
+                                          <span>Biaya Layanan Shopee Lainnya:</span>
+                                          <span>- {formatRp(leftover)}</span>
+                                        </div>
+                                      );
+                                    }
+                                    if (absDetailsSum === 0 && order.fees.biayaLayanan !== 0) {
+                                      return (
+                                        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '11.5px', color: 'var(--accent-red)' }}>
+                                          <span>Biaya Layanan Shopee:</span>
+                                          <span>- {formatRp(Math.abs(order.fees.biayaLayanan))}</span>
+                                        </div>
+                                      );
+                                    }
+                                    return null;
+                                  })()}
+
                                   {order.fees.biayaTransaksi !== 0 && (
                                     <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '11.5px', color: 'var(--accent-red)' }}>
                                       <span>Biaya Transaksi / Metode Pembayaran:</span>
