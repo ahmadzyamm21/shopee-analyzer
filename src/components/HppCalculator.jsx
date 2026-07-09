@@ -412,7 +412,57 @@ const HppCalculator = () => {
                 <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '12px', marginTop: '4px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
                   <h4 style={{ fontSize: '12px', fontWeight: 'bold', color: 'var(--accent-orange)' }}>Ikut Program Shopee Opsional (Centang jika ikut):</h4>
                   
-                  {/* 1. Gratis Ongkir XTRA */}
+                  {/* 1. Program Co-Funding (Co-Funded Campaign) */}
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', backgroundColor: 'rgba(255,255,255,0.01)', padding: '10px', borderRadius: '6px', border: '1px solid var(--border-color)' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                      <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12.5px', cursor: 'pointer', userSelect: 'none' }}>
+                        <input
+                          type="checkbox"
+                          checked={activeCoFunding}
+                          onChange={(e) => setActiveCoFunding(e.target.checked)}
+                          style={{ cursor: 'pointer', accentColor: 'var(--accent-orange)' }}
+                        />
+                        Program Co-Funding (Campaign)
+                      </label>
+                      {activeCoFunding && (
+                        <span style={{ fontSize: '11px', color: '#22c55e', fontWeight: 'bold' }}>
+                          Tarif Bersih: {netCoFundingPercent.toFixed(2)}%
+                        </span>
+                      )}
+                    </div>
+                    {activeCoFunding && (
+                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginTop: '4px' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                          <label style={{ fontSize: '10px', color: 'var(--text-muted)' }}>Biaya Campaign (%)</label>
+                          <div style={{ position: 'relative' }}>
+                            <input
+                              type="number"
+                              step="0.1"
+                              value={coFundingCampaignPercent}
+                              onChange={(e) => setCoFundingCampaignPercent(Math.max(0, parseFloat(e.target.value) || 0))}
+                              style={{ width: '100%', padding: '4px 20px 4px 6px', backgroundColor: 'rgba(0,0,0,0.2)', border: '1px solid var(--border-color)', borderRadius: '4px', color: 'white', fontSize: '12px', textAlign: 'center' }}
+                            />
+                            <span style={{ position: 'absolute', right: '6px', top: '4px', fontSize: '11px', color: 'var(--text-muted2)' }}>%</span>
+                          </div>
+                        </div>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                          <label style={{ fontSize: '10px', color: 'var(--text-muted)' }}>Tanggungan Seller (%)</label>
+                          <div style={{ position: 'relative' }}>
+                            <input
+                              type="number"
+                              step="1"
+                              value={coFundingSellerSharePercent}
+                              onChange={(e) => setCoFundingSellerSharePercent(Math.max(0, Math.min(100, parseFloat(e.target.value) || 0)))}
+                              style={{ width: '100%', padding: '4px 20px 4px 6px', backgroundColor: 'rgba(0,0,0,0.2)', border: '1px solid var(--border-color)', borderRadius: '4px', color: 'white', fontSize: '12px', textAlign: 'center' }}
+                            />
+                            <span style={{ position: 'absolute', right: '6px', top: '4px', fontSize: '11px', color: 'var(--text-muted2)' }}>%</span>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* 2. Gratis Ongkir XTRA */}
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', backgroundColor: 'rgba(255,255,255,0.01)', padding: '6px 10px', borderRadius: '6px', border: '1px solid var(--border-color)' }}>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
                       <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12.5px', cursor: 'pointer', userSelect: 'none' }}>
@@ -587,56 +637,6 @@ const HppCalculator = () => {
                           onChange={(e) => setHematKirimFee(Math.max(0, parseInt(e.target.value) || 0))}
                           style={{ width: '55px', padding: '4px', backgroundColor: 'rgba(0,0,0,0.2)', border: '1px solid var(--border-color)', borderRadius: '4px', color: 'white', fontSize: '12px', textAlign: 'center' }}
                         />
-                      </div>
-                    )}
-                  </div>
-
-                  {/* 8. Program Co-Funding (Co-Funded Campaign) */}
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', backgroundColor: 'rgba(255,255,255,0.01)', padding: '10px', borderRadius: '6px', border: '1px solid var(--border-color)' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                      <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12.5px', cursor: 'pointer', userSelect: 'none' }}>
-                        <input
-                          type="checkbox"
-                          checked={activeCoFunding}
-                          onChange={(e) => setActiveCoFunding(e.target.checked)}
-                          style={{ cursor: 'pointer', accentColor: 'var(--accent-orange)' }}
-                        />
-                        Program Co-Funding (Campaign)
-                      </label>
-                      {activeCoFunding && (
-                        <span style={{ fontSize: '11px', color: '#22c55e', fontWeight: 'bold' }}>
-                          Tarif Bersih: {netCoFundingPercent.toFixed(2)}%
-                        </span>
-                      )}
-                    </div>
-                    {activeCoFunding && (
-                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginTop: '4px' }}>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-                          <label style={{ fontSize: '10px', color: 'var(--text-muted)' }}>Biaya Campaign (%)</label>
-                          <div style={{ position: 'relative' }}>
-                            <input
-                              type="number"
-                              step="0.1"
-                              value={coFundingCampaignPercent}
-                              onChange={(e) => setCoFundingCampaignPercent(Math.max(0, parseFloat(e.target.value) || 0))}
-                              style={{ width: '100%', padding: '4px 20px 4px 6px', backgroundColor: 'rgba(0,0,0,0.2)', border: '1px solid var(--border-color)', borderRadius: '4px', color: 'white', fontSize: '12px', textAlign: 'center' }}
-                            />
-                            <span style={{ position: 'absolute', right: '6px', top: '4px', fontSize: '11px', color: 'var(--text-muted2)' }}>%</span>
-                          </div>
-                        </div>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-                          <label style={{ fontSize: '10px', color: 'var(--text-muted)' }}>Tanggungan Seller (%)</label>
-                          <div style={{ position: 'relative' }}>
-                            <input
-                              type="number"
-                              step="1"
-                              value={coFundingSellerSharePercent}
-                              onChange={(e) => setCoFundingSellerSharePercent(Math.max(0, Math.min(100, parseFloat(e.target.value) || 0)))}
-                              style={{ width: '100%', padding: '4px 20px 4px 6px', backgroundColor: 'rgba(0,0,0,0.2)', border: '1px solid var(--border-color)', borderRadius: '4px', color: 'white', fontSize: '12px', textAlign: 'center' }}
-                            />
-                            <span style={{ position: 'absolute', right: '6px', top: '4px', fontSize: '11px', color: 'var(--text-muted2)' }}>%</span>
-                          </div>
-                        </div>
                       </div>
                     )}
                   </div>
