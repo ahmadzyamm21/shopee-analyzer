@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { DollarSign, ShieldAlert, Award, ArrowRight, Percent, Info, ShoppingBag } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Percent, Info, ShoppingBag, ArrowRight, HelpCircle } from 'lucide-react';
 
 const HppCalculator = () => {
   // 1. HPP Components State
@@ -10,12 +10,51 @@ const HppCalculator = () => {
   const [defectRate, setDefectRate] = useState(2); // in percent of purchase price
   const [otherOverhead, setOtherOverhead] = useState(0);
 
-  // 2. Shopee Fees State
-  const [adminFeePercent, setAdminFeePercent] = useState(6.0);
+  // 2. Shopee Seller & Category Setup
+  const [sellerType, setSellerType] = useState('star'); // star, nonStar, mall
+  const [categoryGroup, setCategoryGroup] = useState('A'); // A, B, C, D, E, khusus
+
+  // Official Shopee Indonesia Admin Fee Rates (2025/2026)
+  const shopeeAdminRates = {
+    nonStar: {
+      A: 6.0,
+      B: 5.0,
+      C: 5.0,
+      D: 4.0,
+      E: 3.0,
+      khusus: 2.5
+    },
+    star: {
+      A: 6.5,
+      B: 5.5,
+      C: 5.5,
+      D: 4.5,
+      E: 3.5,
+      khusus: 2.5
+    },
+    mall: {
+      A: 8.5,
+      B: 7.5,
+      C: 6.5,
+      D: 5.5,
+      E: 4.5,
+      khusus: 2.5
+    }
+  };
+
+  // 3. Shopee Fees State
+  const [adminFeePercent, setAdminFeePercent] = useState(6.5);
   const [gratisOngkirXtraPercent, setGratisOngkirXtraPercent] = useState(4.0);
   const [cashbackXtraPercent, setCashbackXtraPercent] = useState(0.0);
   const [transactionFeePercent, setTransactionFeePercent] = useState(2.0);
+  const [flatProcessFee, setFlatProcessFee] = useState(1250); // Rp 1.250 flat fee
   const [targetMarginPercent, setTargetMarginPercent] = useState(15.0);
+
+  // Automatically update Admin Fee % when Seller Type or Category changes
+  useEffect(() => {
+    const rate = shopeeAdminRates[sellerType][categoryGroup];
+    setAdminFeePercent(rate);
+  }, [sellerType, categoryGroup]);
 
   // Helper formatting
   const formatRp = (num) => {
@@ -28,12 +67,25 @@ const HppCalculator = () => {
 
   const totalPlatformFeesPercent = adminFeePercent + gratisOngkirXtraPercent + cashbackXtraPercent + transactionFeePercent;
   
-  // Recommended Selling Price Formula: Price = HPP / (1 - PlatformFees% - TargetMargin%)
+  // Recommended Selling Price Formula: 
+  // Laba Bersih = Harga Jual * Margin%
+  // Laba Bersih = Harga Jual - HPP - (Harga Jual * Platform%) - FlatFee
+  // Price = (HPP + FlatFee) / (1 - Platform% - TargetMargin%)
   const divisor = 1 - (totalPlatformFeesPercent / 100) - (targetMarginPercent / 100);
-  const recommendedPrice = divisor > 0 ? totalHpp / divisor : 0;
+  const recommendedPrice = divisor > 0 ? (totalHpp + flatProcessFee) / divisor : 0;
   
   const platformFeesDeduction = (recommendedPrice * totalPlatformFeesPercent) / 100;
-  const netProfitUnit = recommendedPrice - totalHpp - platformFeesDeduction;
+  const netProfitUnit = recommendedPrice - totalHpp - platformFeesDeduction - flatProcessFee;
+
+  // Category explanations mapping
+  const categoryExplanations = {
+    A: 'Fashion, Aksesoris, Kosmetik, Kecantikan, Ibu & Bayi, Perlengkapan Medis.',
+    B: 'Elektronik, Handphone, Gadget, Kamera, Otomotif, Hobi & Koleksi.',
+    C: 'Komputer, Perlengkapan Rumah, Peralatan Olahraga, Media & Musik.',
+    D: 'Makanan & Minuman, Buku & Alat Tulis, Kebutuhan Hewan Peliharaan.',
+    E: 'Sembako, Susu & Popok Bayi, Perlengkapan Rumah Tangga Tertentu.',
+    khusus: 'Produk Digital, Voucher, Tiket, Pulsa, E-Money.'
+  };
 
   return (
     <div className="hpp-calculator-container" style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
@@ -47,7 +99,7 @@ const HppCalculator = () => {
           <div>
             <h3 style={{ fontSize: '18px', fontWeight: 'bold' }}>Simulasi Kalkulator HPP &amp; Rekomendasi Harga Jual Shopee</h3>
             <p className="text-muted" style={{ fontSize: '13px', marginTop: '4px' }}>
-              Hitung Harga Pokok Penjualan (HPP) riil per unit barang Anda, lalu simulasikan potongan biaya administrasi Shopee untuk mendapatkan rekomendasi harga jual optimal agar target margin bersih Anda tercapai.
+              Hitung Harga Pokok Penjualan (HPP) riil per unit barang Anda, pilih kategori produk untuk mendeteksi biaya admin Shopee secara otomatis, lalu dapatkan rekomendasi harga jual optimal agar target margin bersih Anda tercapai.
             </p>
           </div>
         </div>
@@ -156,13 +208,51 @@ const HppCalculator = () => {
             </div>
             
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              
+              {/* INTERACTIVE DROPDOWNS */}
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+                <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                  <label style={{ fontSize: '12px', color: 'var(--accent-orange)', fontWeight: '600' }}>Tipe Penjual / Toko</label>
+                  <select
+                    value={sellerType}
+                    onChange={(e) => setSellerType(e.target.value)}
+                    style={{ width: '100%', padding: '10px 12px', backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-color)', borderRadius: '6px', color: 'white', fontSize: '13px', outline: 'none' }}
+                  >
+                    <option value="star" style={{ background: '#1e2235' }}>Penjual Star / Star+</option>
+                    <option value="nonStar" style={{ background: '#1e2235' }}>Penjual Non-Star</option>
+                    <option value="mall" style={{ background: '#1e2235' }}>Shopee Mall</option>
+                  </select>
+                </div>
+
+                <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                  <label style={{ fontSize: '12px', color: 'var(--accent-orange)', fontWeight: '600' }}>Kategori Produk</label>
+                  <select
+                    value={categoryGroup}
+                    onChange={(e) => setCategoryGroup(e.target.value)}
+                    style={{ width: '100%', padding: '10px 12px', backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-color)', borderRadius: '6px', color: 'white', fontSize: '13px', outline: 'none' }}
+                  >
+                    <option value="A" style={{ background: '#1e2235' }}>Grup A (Fashion/Kecantikan)</option>
+                    <option value="B" style={{ background: '#1e2235' }}>Grup B (Elektronik/Hobi)</option>
+                    <option value="C" style={{ background: '#1e2235' }}>Grup C (Perlengkapan Rumah/Komputer)</option>
+                    <option value="D" style={{ background: '#1e2235' }}>Grup D (Makanan/Buku/Bahan Pokok)</option>
+                    <option value="E" style={{ background: '#1e2235' }}>Grup E (Sembako/Popok/Susu)</option>
+                    <option value="khusus" style={{ background: '#1e2235' }}>Kategori Khusus (Digital/Pulsa)</option>
+                  </select>
+                </div>
+              </div>
+
+              {/* Dynamic Category Hint Info */}
+              <div style={{ padding: '8px 10px', backgroundColor: 'rgba(255,255,255,0.02)', borderRadius: '6px', fontSize: '11px', color: 'var(--text-muted2)', border: '1px solid rgba(255,255,255,0.03)', marginTop: '-4px' }}>
+                📖 <strong>Contoh Produk:</strong> {categoryExplanations[categoryGroup]}
+              </div>
+
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
                 <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
                   <label style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Biaya Administrasi (%)</label>
                   <div style={{ position: 'relative' }}>
                     <input
                       type="number"
-                      step="0.1"
+                      step="0.05"
                       value={adminFeePercent}
                       onChange={(e) => setAdminFeePercent(Math.max(0, parseFloat(e.target.value) || 0))}
                       style={{ width: '100%', padding: '10px 24px 10px 12px', backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-color)', borderRadius: '6px', color: 'white', fontSize: '13px' }}
@@ -216,19 +306,35 @@ const HppCalculator = () => {
                 </div>
               </div>
 
-              <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                <label style={{ fontSize: '12px', color: 'var(--accent-orange)', fontWeight: '600' }}>Target Margin Bersih Toko (%)</label>
-                <div style={{ position: 'relative' }}>
-                  <input
-                    type="number"
-                    step="0.5"
-                    value={targetMarginPercent}
-                    onChange={(e) => setTargetMarginPercent(Math.max(0, parseFloat(e.target.value) || 0))}
-                    style={{ width: '100%', padding: '10px 24px 10px 12px', backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid rgba(249,115,22,0.2)', borderRadius: '6px', color: 'white', fontSize: '13px', fontWeight: 'bold' }}
-                  />
-                  <span style={{ position: 'absolute', right: '12px', top: '10px', fontSize: '13px', color: 'var(--accent-orange)' }}>%</span>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+                <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                  <label style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Biaya Proses Pesanan (Flat)</label>
+                  <div style={{ position: 'relative' }}>
+                    <span style={{ position: 'absolute', left: '12px', top: '10px', fontSize: '13px', color: 'var(--text-muted2)' }}>Rp</span>
+                    <input
+                      type="number"
+                      value={flatProcessFee}
+                      onChange={(e) => setFlatProcessFee(Math.max(0, parseFloat(e.target.value) || 0))}
+                      style={{ width: '100%', padding: '10px 12px 10px 36px', backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-color)', borderRadius: '6px', color: 'white', fontSize: '13px' }}
+                    />
+                  </div>
+                </div>
+
+                <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                  <label style={{ fontSize: '12px', color: 'var(--accent-orange)', fontWeight: '600' }}>Target Margin Bersih (%)</label>
+                  <div style={{ position: 'relative' }}>
+                    <input
+                      type="number"
+                      step="0.5"
+                      value={targetMarginPercent}
+                      onChange={(e) => setTargetMarginPercent(Math.max(0, parseFloat(e.target.value) || 0))}
+                      style={{ width: '100%', padding: '10px 24px 10px 12px', backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid rgba(249,115,22,0.2)', borderRadius: '6px', color: 'white', fontSize: '13px', fontWeight: 'bold' }}
+                    />
+                    <span style={{ position: 'absolute', right: '12px', top: '10px', fontSize: '13px', color: 'var(--accent-orange)' }}>%</span>
+                  </div>
                 </div>
               </div>
+
             </div>
           </div>
         </div>
@@ -306,11 +412,19 @@ const HppCalculator = () => {
                     <span className="font-semibold">{formatRp(totalHpp)}</span>
                   </div>
                   <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px' }}>
-                    <span className="text-muted">Total Potongan Shopee ({totalPlatformFeesPercent.toFixed(1)}%):</span>
+                    <span className="text-muted">Potongan Shopee Persentase ({totalPlatformFeesPercent.toFixed(1)}%):</span>
                     <span className="font-semibold text-red" style={{ color: 'var(--accent-red)' }}>
                       - {formatRp(platformFeesDeduction)}
                     </span>
                   </div>
+                  {flatProcessFee > 0 && (
+                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px' }}>
+                      <span className="text-muted">Biaya Proses Pesanan (Flat):</span>
+                      <span className="font-semibold text-red" style={{ color: 'var(--accent-red)' }}>
+                        - {formatRp(flatProcessFee)}
+                      </span>
+                    </div>
+                  )}
                   <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', borderTop: '1px solid var(--border-color)', paddingTop: '8px' }}>
                     <span className="text-muted">Target Margin Bersih ({targetMarginPercent}%):</span>
                     <span className="font-semibold text-green" style={{ color: 'var(--accent-green)' }}>
