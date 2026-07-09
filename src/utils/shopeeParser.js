@@ -461,6 +461,90 @@ export const analyzeShopeeData = (orderRows, incomeRows, hppData, totalAds = 0, 
   const labaBersih = labaKotor - totalAds;
   const marginBersih = totalPenghasilanDilepasMatched > 0 ? (labaBersih / totalPenghasilanDilepasMatched) * 100 : 0;
 
+  // Step 6: Completed and Returned orders mapping
+  const completedOrdersList = [];
+  const returnedOrdersList = [];
+  
+  const ordersGroup = {};
+  
+  filteredOrderRows.forEach(row => {
+    const id = orderIdKey ? String(row[orderIdKey]).trim() : '';
+    if (!id) return;
+    
+    const status = statusKey ? String(row[statusKey]).trim() : '';
+    const isCompleted = status.toLowerCase() === 'selesai' || status.toLowerCase() === 'completed';
+    const retQty = retQtyKey ? parseInt(parseNumber(row[retQtyKey])) : 0;
+    const returnStatus = returnStatusKey ? String(row[returnStatusKey]).trim() : '';
+    
+    const hasReturn = retQty > 0 || (returnStatus && returnStatus !== '-' && returnStatus !== '' && returnStatus.toLowerCase() !== 'tidak ada');
+    
+    if (!isCompleted && !hasReturn) return;
+    
+    if (!ordersGroup[id]) {
+      ordersGroup[id] = {
+        id,
+        date: waktuKey ? String(row[waktuKey]).trim() : '',
+        status,
+        items: [],
+        totalQty: 0,
+        totalQtyRetur: 0,
+        totalBruto: 0,
+        totalNet: 0,
+        diskonSeller: 0,
+        returnStatus: returnStatus || '-',
+        payout: 0,
+        refund: 0
+      };
+    }
+    
+    const qty = qtyKey ? parseInt(parseNumber(row[qtyKey])) : 1;
+    const price = priceKey ? parseNumber(row[priceKey]) : 0;
+    const discPrice = discPriceKey ? parseNumber(row[discPriceKey]) : 0;
+    const diskonSeller = parseNumber(row[Object.keys(row).find(k => k.toLowerCase().includes('diskon dari penjual'))]);
+    const name = prodKey ? String(row[prodKey]).trim() : '';
+    const variation = varKey ? String(row[varKey]).trim() : '';
+    
+    ordersGroup[id].items.push({ name, variation, qty, price, discPrice });
+    ordersGroup[id].totalQty += qty;
+    ordersGroup[id].totalQtyRetur += retQty;
+    ordersGroup[id].totalBruto += price * qty;
+    ordersGroup[id].totalNet += discPrice * qty;
+    ordersGroup[id].diskonSeller += diskonSeller;
+    if (retQty > 0 || returnStatus) {
+      ordersGroup[id].returnStatus = returnStatus || 'Permintaan Disetujui';
+    }
+  });
+
+  // Attach matchedIncome details
+  const incomeGroup = {};
+  matchedIncome.forEach(row => {
+    const id = row['No. Pesanan'] ? String(row['No. Pesanan']).trim() : '';
+    if (!id) return;
+    if (!incomeGroup[id]) {
+      incomeGroup[id] = { payout: 0, refund: 0 };
+    }
+    incomeGroup[id].payout += parseNumber(row['Total Penghasilan']);
+    incomeGroup[id].refund += parseNumber(row['Jumlah Pengembalian Dana ke Pembeli'] || row['Pengembalian Dana ke Pembeli']);
+  });
+
+  Object.values(ordersGroup).forEach(order => {
+    const inc = incomeGroup[order.id];
+    if (inc) {
+      order.payout = inc.payout;
+      order.refund = inc.refund;
+    }
+    
+    const isCompleted = order.status.toLowerCase() === 'selesai' || order.status.toLowerCase() === 'completed';
+    const hasReturn = order.totalQtyRetur > 0 || order.refund > 0 || (order.returnStatus && order.returnStatus !== '-' && order.returnStatus.toLowerCase() !== 'tidak ada');
+
+    if (isCompleted) {
+      completedOrdersList.push(order);
+    }
+    if (hasReturn) {
+      returnedOrdersList.push(order);
+    }
+  });
+
   return {
     summary: {
       orderSelesaiCount: completedOrderIds.size,
@@ -509,6 +593,8 @@ export const analyzeShopeeData = (orderRows, incomeRows, hppData, totalAds = 0, 
       details: batalDetails
     },
     products: Object.values(productDetail).sort((a, b) => b.qty - a.qty),
+    completedOrders: completedOrdersList.sort((a, b) => b.date.localeCompare(a.date)),
+    returnedOrders: returnedOrdersList.sort((a, b) => b.date.localeCompare(a.date)),
     availableMonths,
     activeMonth: filterMonth
   };

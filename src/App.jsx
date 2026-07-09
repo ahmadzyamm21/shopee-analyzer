@@ -9,13 +9,16 @@ import {
   Calendar, 
   DollarSign,
   Loader2,
-  FileCheck
+  FileCheck,
+  RotateCcw
 } from 'lucide-react';
 import UploadZone from './components/UploadZone';
 import DashboardOverview from './components/DashboardOverview';
 import PLStatement from './components/PLStatement';
 import ProductAnalysis from './components/ProductAnalysis';
 import CancellationTracker from './components/CancellationTracker';
+import CompletedOrders from './components/CompletedOrders';
+import ReturnedOrders from './components/ReturnedOrders';
 import { 
   parseHppFile, 
   parseOrdersFile, 
@@ -171,6 +174,24 @@ const App = () => {
           </button>
 
           <button 
+            className={`nav-item ${activeTab === 'completed' ? 'active' : ''}`}
+            onClick={() => isDataReady ? setActiveTab('completed') : null}
+            disabled={!isDataReady}
+          >
+            <FileSpreadsheet size={18} />
+            <span>Pesanan Selesai</span>
+          </button>
+
+          <button 
+            className={`nav-item ${activeTab === 'returns' ? 'active' : ''}`}
+            onClick={() => isDataReady ? setActiveTab('returns') : null}
+            disabled={!isDataReady}
+          >
+            <RotateCcw size={18} />
+            <span>Pesanan Retur</span>
+          </button>
+
+          <button 
             className={`nav-item ${activeTab === 'cancellations' ? 'active' : ''}`}
             onClick={() => isDataReady ? setActiveTab('cancellations') : null}
             disabled={!isDataReady}
@@ -198,6 +219,8 @@ const App = () => {
               {activeTab === 'overview' && 'Dashboard Overview'}
               {activeTab === 'pl' && 'P&L Statement'}
               {activeTab === 'products' && 'Analisis Performa Produk'}
+              {activeTab === 'completed' && 'Log Pesanan Selesai'}
+              {activeTab === 'returns' && 'Log Pesanan Retur / Refund'}
               {activeTab === 'cancellations' && 'Pelacak Pesanan Batal'}
             </h1>
             <p>
@@ -205,6 +228,8 @@ const App = () => {
               {activeTab === 'overview' && 'Analisis visual kesehatan keuangan toko Anda.'}
               {activeTab === 'pl' && 'Laba bersih take-home profit & potongan biaya administrasi.'}
               {activeTab === 'products' && 'Identifikasi SKU terlaris & HPP paling efisien.'}
+              {activeTab === 'completed' && 'Daftar semua rincian pesanan yang berhasil terselesaikan.'}
+              {activeTab === 'returns' && 'Pelacakan komplain, barang retur, dan pengembalian dana pembeli.'}
               {activeTab === 'cancellations' && 'Pantau rasio pembatalan order & kurir gagal kirim.'}
             </p>
           </div>
@@ -254,6 +279,8 @@ const App = () => {
               {activeTab === 'overview' && <DashboardOverview data={analysisResult} />}
               {activeTab === 'pl' && <PLStatement data={analysisResult} />}
               {activeTab === 'products' && <ProductAnalysis products={analysisResult.products} />}
+              {activeTab === 'completed' && <CompletedOrders data={analysisResult} />}
+              {activeTab === 'returns' && <ReturnedOrders data={analysisResult} />}
               {activeTab === 'cancellations' && <CancellationTracker batalSummary={analysisResult.batalSummary} />}
             </>
           ) : (
