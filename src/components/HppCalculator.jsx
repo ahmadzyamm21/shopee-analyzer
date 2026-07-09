@@ -361,32 +361,18 @@ const HppCalculator = () => {
             
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               
-              {/* Tipe Penjual & Ukuran Produk dropdowns */}
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
-                <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                  <label style={{ fontSize: '12px', color: 'var(--accent-orange)', fontWeight: '600' }}>Tipe Penjual / Toko</label>
-                  <select
-                    value={sellerType}
-                    onChange={(e) => setSellerType(e.target.value)}
-                    style={{ width: '100%', padding: '10px 12px', backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-color)', borderRadius: '6px', color: 'white', fontSize: '13px', outline: 'none' }}
-                  >
-                    <option value="star" style={{ background: '#1e2235' }}>Penjual Star / Star+</option>
-                    <option value="nonStar" style={{ background: '#1e2235' }}>Penjual Non-Star</option>
-                    <option value="mall" style={{ background: '#1e2235' }}>Shopee Mall</option>
-                  </select>
-                </div>
-
-                <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                  <label style={{ fontSize: '12px', color: 'var(--accent-orange)', fontWeight: '600' }}>Ukuran Paket/Produk</label>
-                  <select
-                    value={productSize}
-                    onChange={(e) => setProductSize(e.target.value)}
-                    style={{ width: '100%', padding: '10px 12px', backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-color)', borderRadius: '6px', color: 'white', fontSize: '13px', outline: 'none' }}
-                  >
-                    <option value="biasa" style={{ background: '#1e2235' }}>Ukuran Biasa (Maks Rp 40.000)</option>
-                    <option value="khusus" style={{ background: '#1e2235' }}>Ukuran Khusus (Maks Rp 60.000)</option>
-                  </select>
-                </div>
+              {/* Tipe Penjual dropdown */}
+              <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                <label style={{ fontSize: '12px', color: 'var(--accent-orange)', fontWeight: '600' }}>Tipe Penjual / Toko</label>
+                <select
+                  value={sellerType}
+                  onChange={(e) => setSellerType(e.target.value)}
+                  style={{ width: '100%', padding: '10px 12px', backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-color)', borderRadius: '6px', color: 'white', fontSize: '13px', outline: 'none' }}
+                >
+                  <option value="star" style={{ background: '#1e2235' }}>Penjual Star / Star+</option>
+                  <option value="nonStar" style={{ background: '#1e2235' }}>Penjual Non-Star</option>
+                  <option value="mall" style={{ background: '#1e2235' }}>Shopee Mall</option>
+                </select>
               </div>
 
               {/* Search Category Bar */}
