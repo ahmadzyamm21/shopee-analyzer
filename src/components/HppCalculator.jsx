@@ -18,7 +18,7 @@ const HppCalculator = () => {
   // Search Category State
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
-  const [selectedCategoryName, setSelectedCategoryName] = useState('Otomotif (Helm, Aksesoris Motor/Mobil, Ban, Oli)');
+  const [selectedCategoryName, setSelectedCategoryName] = useState('Otomotif (Helm, Aksesoris Pengendara, Suku Cadang Motor)');
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -135,7 +135,7 @@ const HppCalculator = () => {
   ];
 
   // 3. Shopee Basic Fees State
-  const [adminFeePercent, setAdminFeePercent] = useState(9.0); 
+  const [adminFeePercent, setAdminFeePercent] = useState(8.25); 
   const [transactionFeePercent, setTransactionFeePercent] = useState(2.0);
   const [flatProcessFee, setFlatProcessFee] = useState(1250); 
   const [targetMarginPercent, setTargetMarginPercent] = useState(15.0);
