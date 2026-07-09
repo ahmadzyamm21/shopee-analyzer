@@ -384,6 +384,20 @@ const HppCalculator = () => {
                   </div>
                 )}
 
+                <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '4px', marginTop: '12px' }}>
+                  <label style={{ fontSize: '12px', color: 'var(--accent-orange)', fontWeight: '600' }}>Biaya Administrasi (%)</label>
+                  <div style={{ position: 'relative' }}>
+                    <input
+                      type="number"
+                      step="0.05"
+                      value={adminFeePercent}
+                      onChange={(e) => setAdminFeePercent(Math.max(0, parseFloat(e.target.value) || 0))}
+                      style={{ width: '100%', padding: '10px 24px 10px 12px', backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-color)', borderRadius: '6px', color: 'white', fontSize: '13px', fontWeight: 'bold' }}
+                    />
+                    <span style={{ position: 'absolute', right: '12px', top: '10px', fontSize: '13px', color: 'var(--accent-orange)' }}>%</span>
+                  </div>
+                </div>
+
                 {/* OPTIONAL SHOPEE PROGRAMS (CHECKBOXES & INPUTS) */}
                 <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '12px', marginTop: '4px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
                   <h4 style={{ fontSize: '12px', fontWeight: 'bold', color: 'var(--accent-orange)' }}>Ikut Program Shopee Opsional (Centang jika ikut):</h4>
@@ -569,35 +583,20 @@ const HppCalculator = () => {
                 </div>
 
                 {/* Basic Fees Inputs */}
-                <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '12px' }}>
+                <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '12px', display: 'flex', flexDirection: 'column', gap: '4px' }}>
                   <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                    <label style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Biaya Administrasi (%)</label>
+                    <label style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Biaya Proses Pesanan (Flat)</label>
                     <div style={{ position: 'relative' }}>
+                      <span style={{ position: 'absolute', left: '12px', top: '10px', fontSize: '13px', color: 'var(--text-muted2)' }}>Rp</span>
                       <input
                         type="number"
-                        step="0.05"
-                        value={adminFeePercent}
-                        onChange={(e) => setAdminFeePercent(Math.max(0, parseFloat(e.target.value) || 0))}
-                        style={{ width: '100%', padding: '10px 24px 10px 12px', backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-color)', borderRadius: '6px', color: 'white', fontSize: '13px' }}
+                        value={flatProcessFee}
+                        onChange={(e) => setFlatProcessFee(Math.max(0, parseFloat(e.target.value) || 0))}
+                        style={{ width: '100%', padding: '10px 12px 10px 36px', backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-color)', borderRadius: '6px', color: 'white', fontSize: '13px' }}
                       />
-                      <span style={{ position: 'absolute', right: '12px', top: '10px', fontSize: '13px', color: 'var(--text-muted2)' }}>%</span>
                     </div>
                   </div>
                 </div>
-
-                <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                  <label style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Biaya Proses Pesanan (Flat)</label>
-                  <div style={{ position: 'relative' }}>
-                    <span style={{ position: 'absolute', left: '12px', top: '10px', fontSize: '13px', color: 'var(--text-muted2)' }}>Rp</span>
-                    <input
-                      type="number"
-                      value={flatProcessFee}
-                      onChange={(e) => setFlatProcessFee(Math.max(0, parseFloat(e.target.value) || 0))}
-                      style={{ width: '100%', padding: '10px 12px 10px 36px', backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-color)', borderRadius: '6px', color: 'white', fontSize: '13px' }}
-                    />
-                  </div>
-                </div>
-
               </div>
             )}
           </div>
