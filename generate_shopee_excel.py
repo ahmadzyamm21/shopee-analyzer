@@ -8,7 +8,7 @@ data = [
         "Sub-Kategori": "Suku Cadang & Aksesoris Motor/Mobil",
         "Jenis Produk": "Helm, Ban, Oli, Aksesoris Motor/Mobil",
         "Grup Kategori": "Grup B",
-        "Admin Fee (Star/Star+/Non-Star)": "9.00%",
+        "Admin Fee (Star/Star+/Non-Star)": "9.25%",
         "Admin Fee (Shopee Mall)": "9.95%",
         "Keterangan": "Tarif admin dasar kategori otomotif umum"
     },
