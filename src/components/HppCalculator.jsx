@@ -569,7 +569,7 @@ const HppCalculator = () => {
                 </div>
 
                 {/* Basic Fees Inputs */}
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', borderTop: '1px solid var(--border-color)', paddingTop: '12px' }}>
+                <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '12px' }}>
                   <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
                     <label style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Biaya Administrasi (%)</label>
                     <div style={{ position: 'relative' }}>
@@ -578,20 +578,6 @@ const HppCalculator = () => {
                         step="0.05"
                         value={adminFeePercent}
                         onChange={(e) => setAdminFeePercent(Math.max(0, parseFloat(e.target.value) || 0))}
-                        style={{ width: '100%', padding: '10px 24px 10px 12px', backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-color)', borderRadius: '6px', color: 'white', fontSize: '13px' }}
-                      />
-                      <span style={{ position: 'absolute', right: '12px', top: '10px', fontSize: '13px', color: 'var(--text-muted2)' }}>%</span>
-                    </div>
-                  </div>
-
-                  <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                    <label style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Biaya Transaksi (%)</label>
-                    <div style={{ position: 'relative' }}>
-                      <input
-                        type="number"
-                        step="0.1"
-                        value={transactionFeePercent}
-                        onChange={(e) => setTransactionFeePercent(Math.max(0, parseFloat(e.target.value) || 0))}
                         style={{ width: '100%', padding: '10px 24px 10px 12px', backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-color)', borderRadius: '6px', color: 'white', fontSize: '13px' }}
                       />
                       <span style={{ position: 'absolute', right: '12px', top: '10px', fontSize: '13px', color: 'var(--text-muted2)' }}>%</span>
