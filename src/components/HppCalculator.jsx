@@ -24,27 +24,27 @@ const HppCalculator = () => {
   // Official Shopee Indonesia Admin Fee Rates (2025/2026)
   const shopeeAdminRates = {
     nonStar: {
-      A: 6.0,
-      B: 5.0,
-      C: 5.0,
-      D: 4.0,
-      E: 3.0,
+      A: 10.0,
+      B: 9.0,
+      C: 6.5,
+      D: 5.25,
+      E: 4.25,
       khusus: 2.5
     },
     star: {
-      A: 6.5,
-      B: 5.5,
-      C: 5.5,
-      D: 4.5,
-      E: 3.5,
+      A: 10.0,
+      B: 9.0,
+      C: 6.5,
+      D: 5.25,
+      E: 4.25,
       khusus: 2.5
     },
     mall: {
-      A: 8.5,
-      B: 7.5,
-      C: 6.5,
-      D: 5.5,
-      E: 4.5,
+      A: 11.0,
+      B: 9.95,
+      C: 7.7,
+      D: 5.7,
+      E: 4.2,
       khusus: 2.5
     }
   };
@@ -73,7 +73,7 @@ const HppCalculator = () => {
   ];
 
   // 3. Shopee Fees State
-  const [adminFeePercent, setAdminFeePercent] = useState(5.5); // 5.5% is default for Group B Star
+  const [adminFeePercent, setAdminFeePercent] = useState(9.0); // 9.0% is default for Group B Star (2026 rates)
   const [gratisOngkirXtraPercent, setGratisOngkirXtraPercent] = useState(4.0);
   const [cashbackXtraPercent, setCashbackXtraPercent] = useState(0.0);
   const [transactionFeePercent, setTransactionFeePercent] = useState(2.0);
