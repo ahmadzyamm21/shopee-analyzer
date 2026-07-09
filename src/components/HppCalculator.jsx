@@ -174,6 +174,16 @@ const HppCalculator = () => {
   let calcAffiliate = activeAffiliate ? (discountedPrice * affiliatePercent) / 100 : 0;
   let calcInsurance = activeInsurance ? (discountedPrice * insurancePercent) / 100 : 0;
 
+  // Calculate Advertising Cost
+  let calcAdvertising = 0;
+  if (activeAdvertising) {
+    if (advertisingType === 'percent') {
+      calcAdvertising = (discountedPrice * advertisingValue) / 100;
+    } else {
+      calcAdvertising = advertisingValue;
+    }
+  }
+
   const totalFlatFees = flatProcessFee + (activeHematKirim ? hematKirimFee : 0);
 
   const totalDeductionsRupiah = 
@@ -185,6 +195,7 @@ const HppCalculator = () => {
     calcSpayLater + 
     calcAffiliate + 
     calcInsurance +
+    calcAdvertising + // Include advertising cost
     totalFlatFees +
     sellerShare + // Borne by seller in campaign
     sellerVoucher; // Store voucher borne by seller
