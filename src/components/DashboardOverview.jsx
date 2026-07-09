@@ -7,7 +7,9 @@ const DashboardOverview = ({ data }) => {
   const { summary, batalSummary } = data;
 
   const formatRp = (num) => {
-    return 'Rp ' + Math.round(num).toLocaleString('id-ID');
+    const isNeg = num < 0;
+    const val = Math.abs(Math.round(num));
+    return (isNeg ? '-' : '') + 'Rp ' + val.toLocaleString('id-ID');
   };
 
   const formatPercent = (num) => {
@@ -76,9 +78,9 @@ const DashboardOverview = ({ data }) => {
         </div>
 
         <div className="kpi teal">
-          <span className="kpi-lbl">Margin Bersih Toko</span>
-          <span className="kpi-val teal">{formatPercent(summary.marginBersih)}</span>
-          <span className="kpi-hint">Rasio Laba Bersih terhadap Dana Dilepas</span>
+          <span className="kpi-lbl">Selisih Ongkos Kirim</span>
+          <span className="kpi-val teal">{formatRp(summary.netBiayaPengiriman)}</span>
+          <span className="kpi-hint">Selisih ongkir pembeli + subsidi vs ongkir kurir aktual</span>
         </div>
       </div>
 
