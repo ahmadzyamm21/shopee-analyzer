@@ -26,17 +26,19 @@ import {
   parseOrdersFile, 
   parseIncomeFile, 
   parseAdsFile, 
+  parseBcgFile,
   analyzeShopeeData 
 } from './utils/shopeeParser';
 
 const App = () => {
   const [activeTab, setActiveTab] = useState('upload');
-  const [files, setFiles] = useState({ order: null, income: [], hpp: null, ads: null });
+  const [files, setFiles] = useState({ order: null, income: [], hpp: null, ads: null, bcg: null });
   
   // Parsed Raw Datasets
   const [rawOrderData, setRawOrderData] = useState(null);
   const [rawIncomeData, setRawIncomeData] = useState(null);
   const [parsedHpp, setParsedHpp] = useState(null);
+  const [parsedBcg, setParsedBcg] = useState(null);
   const [totalAds, setTotalAds] = useState(0);
   const [adsDetails, setAdsDetails] = useState([]);
 
@@ -58,6 +60,9 @@ const App = () => {
       if (type === 'hpp') {
         const hppMapping = await parseHppFile(fileOrFiles);
         setParsedHpp(hppMapping);
+      } else if (type === 'bcg') {
+        const bcgMapping = await parseBcgFile(fileOrFiles);
+        setParsedBcg(bcgMapping);
       } else if (type === 'ads') {
         const adsData = await parseAdsFile(fileOrFiles);
         setTotalAds(adsData.totalAds);
@@ -93,7 +98,8 @@ const App = () => {
           parsedHpp, 
           totalAds, 
           adsDetails, 
-          monthFilter
+          monthFilter,
+          parsedBcg
         );
         setAnalysisResult(result);
         
@@ -107,13 +113,14 @@ const App = () => {
     } else {
       setAnalysisResult(null);
     }
-  }, [rawOrderData, rawIncomeData, parsedHpp, totalAds, adsDetails, selectedMonth]);
+  }, [rawOrderData, rawIncomeData, parsedHpp, totalAds, adsDetails, selectedMonth, parsedBcg]);
 
   const resetAllData = () => {
-    setFiles({ order: null, income: [], hpp: null, ads: null });
+    setFiles({ order: null, income: [], hpp: null, ads: null, bcg: null });
     setRawOrderData(null);
     setRawIncomeData(null);
     setParsedHpp(null);
+    setParsedBcg(null);
     setTotalAds(0);
     setAdsDetails([]);
     setAnalysisResult(null);

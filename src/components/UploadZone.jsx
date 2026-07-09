@@ -7,6 +7,7 @@ const UploadZone = ({ files, onFilesUploaded, loading, error, rawOrderData }) =>
   const incomeInputRef = useRef(null);
   const hppInputRef = useRef(null);
   const adsInputRef = useRef(null);
+  const bcgInputRef = useRef(null);
 
   const handleFileChange = (type, e) => {
     if (type === 'income') {
@@ -31,6 +32,7 @@ const UploadZone = ({ files, onFilesUploaded, loading, error, rawOrderData }) =>
     const inputRef = type === 'order' ? orderInputRef 
                    : type === 'income' ? incomeInputRef 
                    : type === 'hpp' ? hppInputRef 
+                   : type === 'bcg' ? bcgInputRef
                    : adsInputRef;
 
     return (
@@ -152,6 +154,13 @@ const UploadZone = ({ files, onFilesUploaded, loading, error, rawOrderData }) =>
           'ads', 
           '4. SVS Invoice / Iklan (Opsional)', 
           'Ekspor dari Shopee Seller Centre > Keuangan > Saldo Saya (SVS Invoice bulanan yang berisi rincian top-up saldo iklan).', 
+          false
+        )}
+
+        {renderFileCard(
+          'bcg', 
+          '5. Database Kategori BCG (Opsional)', 
+          'Format file Excel berisi kolom: "SKU" (atau "SKU Induk") dan "BCG" (atau "Kategori") untuk memetakan manual.', 
           false
         )}
       </div>

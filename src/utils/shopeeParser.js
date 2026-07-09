@@ -154,6 +154,43 @@ export const parseAdsFile = async (file) => {
   });
 };
 
+// Parse BCG file mapping SKU to category
+export const parseBcgFile = async (file) => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      try {
+        const data = new Uint8Array(e.target.result);
+        const workbook = XLSX.read(data, { type: 'array' });
+        const sheetName = workbook.SheetNames.find(n => n.toLowerCase().includes('bcg') || n.toLowerCase().includes('bgc')) || workbook.SheetNames[0];
+        const rows = sheetToJson(workbook, sheetName);
+        
+        const bcgBySku = {};
+        
+        rows.forEach(row => {
+          const keys = Object.keys(row);
+          const skuKey = keys.find(k => k.toLowerCase().includes('sku') || k.toLowerCase().includes('referensi') || k.toLowerCase().includes('ref') || k.toLowerCase().includes('kode'));
+          const bcgKey = keys.find(k => k.toLowerCase().includes('bcg') || k.toLowerCase().includes('bgc') || k.toLowerCase().includes('kategori') || k.toLowerCase().includes('status') || k.toLowerCase().includes('group') || k.toLowerCase().includes('quadrant'));
+          
+          if (skuKey && bcgKey) {
+            const sku = String(row[skuKey] || '').trim();
+            const bcgVal = String(row[bcgKey] || '').trim().toLowerCase();
+            if (sku && bcgVal) {
+              bcgBySku[sku] = bcgVal;
+            }
+          }
+        });
+        
+        resolve(bcgBySku);
+      } catch (err) {
+        reject(new Error(`Gagal membaca file BCG: ${err.message}`));
+      }
+    };
+    reader.onerror = () => reject(new Error('Gagal membaca file'));
+    reader.readAsArrayBuffer(file);
+  });
+};
+
 // Parse Shopee Orders File
 export const parseOrdersFile = async (file) => {
   return new Promise((resolve, reject) => {
@@ -280,7 +317,7 @@ export const parseIncomeFile = async (file) => {
 };
 
 // Run full analysis on parsed datasets
-export const analyzeShopeeData = (orderRows, incomeRows, hppData, totalAds = 0, adsDetails = [], filterMonth = null) => {
+export const analyzeShopeeData = (orderRows, incomeRows, hppData, totalAds = 0, adsDetails = [], filterMonth = null, bcgData = null) => {
   const { hppBySku, hppByNameVar } = hppData || { hppBySku: {}, hppByNameVar: {} };
 
   // Status and ID keys detection
@@ -435,10 +472,20 @@ export const analyzeShopeeData = (orderRows, incomeRows, hppData, totalAds = 0, 
       hppVal = hppByNameVar[`${product}|${variation}`];
     }
 
+    // Find BCG Category from bcgData if available
+    let customBcg = null;
+    if (bcgData) {
+      if (refSku && bcgData[refSku] !== undefined) {
+        customBcg = bcgData[refSku];
+      } else if (sku && bcgData[sku] !== undefined) {
+        customBcg = bcgData[sku];
+      }
+    }
+
     const key = refSku || sku || `${product.substring(0, 30)}|${variation}`;
     if (!productDetail[key]) {
       productDetail[key] = {
-        sku,
+        sku: refSku || sku,
         name: product,
         variation,
         hppUnit: hppVal,
@@ -447,7 +494,8 @@ export const analyzeShopeeData = (orderRows, incomeRows, hppData, totalAds = 0, 
         totalHpp: 0,
         omzetBruto: 0,
         omzetNet: 0,
-        diskonSeller: 0
+        diskonSeller: 0,
+        customBcg: customBcg
       };
     }
 

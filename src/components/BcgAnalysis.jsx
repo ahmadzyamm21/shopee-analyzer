@@ -48,19 +48,39 @@ const BcgAnalysis = ({ products }) => {
     const questions = [];
     const dogs = [];
 
-    items.forEach(item => {
+    // Check if any product has custom BCG mapping uploaded
+    const hasCustomMapping = items.some(i => i.customBcg);
+
+    const getBcgCategory = (item) => {
+      if (item.customBcg) {
+        const cat = String(item.customBcg).toLowerCase().trim();
+        if (cat.includes('star') || cat.includes('bintang')) return 'stars';
+        if (cat.includes('cow') || cat.includes('sapi')) return 'cows';
+        if (cat.includes('question') || cat.includes('tanya') || cat.includes('?')) return 'questions';
+        if (cat.includes('dog') || cat.includes('anjing') || cat.includes('beban')) return 'dogs';
+      }
+      
+      // Fallback to dynamic calculations
       const isHighVolume = item.qty >= thresholdQty;
       const isHighProfit = item.unitProfit >= thresholdProfit;
 
       if (isHighVolume && isHighProfit) {
-        stars.push(item);
+        return 'stars';
       } else if (isHighVolume && !isHighProfit) {
-        cows.push(item);
+        return 'cows';
       } else if (!isHighVolume && isHighProfit) {
-        questions.push(item);
+        return 'questions';
       } else {
-        dogs.push(item);
+        return 'dogs';
       }
+    };
+
+    items.forEach(item => {
+      const category = getBcgCategory(item);
+      if (category === 'stars') stars.push(item);
+      else if (category === 'cows') cows.push(item);
+      else if (category === 'questions') questions.push(item);
+      else dogs.push(item);
     });
 
     // Sort each quadrant by quantity descending
@@ -71,7 +91,8 @@ const BcgAnalysis = ({ products }) => {
       questions: questions.sort(sorter),
       dogs: dogs.sort(sorter),
       thresholdQty,
-      thresholdProfit
+      thresholdProfit,
+      hasCustomMapping
     };
   }, [activeProducts]);
 
@@ -85,7 +106,7 @@ const BcgAnalysis = ({ products }) => {
     );
   }
 
-  const { stars, cows, questions, dogs, thresholdQty, thresholdProfit } = matrixData;
+  const { stars, cows, questions, dogs, thresholdQty, thresholdProfit, hasCustomMapping } = matrixData;
 
   return (
     <div className="bcg-container">
@@ -106,13 +127,24 @@ const BcgAnalysis = ({ products }) => {
       </div>
 
       {/* Threshold Indicators */}
-      <div style={{ display: 'flex', gap: '12px', marginBottom: '16px', flexWrap: 'wrap' }}>
-        <div className="badge blue" style={{ padding: '8px 12px', fontSize: '12px' }}>
-          🎯 Batas Volume Tinggi (Median Qty): <strong>&gt;= {thresholdQty} unit</strong>
-        </div>
-        <div className="badge purple" style={{ padding: '8px 12px', fontSize: '12px' }}>
-          💰 Batas Margin Tinggi (Rata-rata Laba): <strong>&gt;= {formatRp(thresholdProfit)} / unit</strong>
-        </div>
+      <div style={{ display: 'flex', gap: '12px', marginBottom: '16px', flexWrap: 'wrap', alignItems: 'center' }}>
+        {hasCustomMapping ? (
+          <div className="badge green" style={{ padding: '8px 12px', fontSize: '12px', background: 'rgba(34, 197, 94, 0.1)', color: '#22c55e', border: '1px solid rgba(34, 197, 94, 0.2)' }}>
+            📂 Mode: <strong>Ditentukan Manual dari Database BCG</strong>
+          </div>
+        ) : (
+          <>
+            <div className="badge blue" style={{ padding: '8px 12px', fontSize: '12px' }}>
+              🎯 Batas Volume Tinggi (Median Qty): <strong>&gt;= {thresholdQty} unit</strong>
+            </div>
+            <div className="badge purple" style={{ padding: '8px 12px', fontSize: '12px' }}>
+              💰 Batas Margin Tinggi (Rata-rata Laba): <strong>&gt;= {formatRp(thresholdProfit)} / unit</strong>
+            </div>
+            <div className="badge gray" style={{ padding: '8px 12px', fontSize: '12px', background: 'rgba(255,255,255,0.05)', color: 'var(--text-muted2)' }}>
+              🤖 Mode: <strong>Perhitungan Otomatis (Fallback)</strong>
+            </div>
+          </>
+        )}
       </div>
 
       {/* BCG 2x2 GRID */}
