@@ -521,10 +521,41 @@ export const analyzeShopeeData = (orderRows, incomeRows, hppData, totalAds = 0, 
     const id = row['No. Pesanan'] ? String(row['No. Pesanan']).trim() : '';
     if (!id) return;
     if (!incomeGroup[id]) {
-      incomeGroup[id] = { payout: 0, refund: 0 };
+      incomeGroup[id] = {
+        payout: 0,
+        refund: 0,
+        biayaAdmin: 0,
+        biayaLayanan: 0,
+        biayaTransaksi: 0,
+        biayaKomisi: 0,
+        biayaProses: 0,
+        premi: 0,
+        hematKirim: 0,
+        biayaKampanye: 0,
+        promoOngkir: 0,
+        ongkirPembeli: 0,
+        gratisOngkir: 0,
+        ongkirKurir: 0,
+        ongkirRetur: 0,
+        pengembalianOngkir: 0
+      };
     }
     incomeGroup[id].payout += parseNumber(row['Total Penghasilan']);
     incomeGroup[id].refund += parseNumber(row['Jumlah Pengembalian Dana ke Pembeli'] || row['Pengembalian Dana ke Pembeli']);
+    incomeGroup[id].biayaAdmin += parseNumber(row['Biaya Administrasi']);
+    incomeGroup[id].biayaLayanan += parseNumber(row['Biaya Layanan']);
+    incomeGroup[id].biayaTransaksi += parseNumber(row['Biaya Transaksi']);
+    incomeGroup[id].biayaKomisi += parseNumber(row['Biaya Komisi AMS']);
+    incomeGroup[id].biayaProses += parseNumber(row['Biaya Proses Pesanan']);
+    incomeGroup[id].premi += parseNumber(row['Premi']);
+    incomeGroup[id].hematKirim += parseNumber(row['Biaya Program Hemat Biaya Kirim']);
+    incomeGroup[id].biayaKampanye += parseNumber(row['Biaya Kampanye']);
+    incomeGroup[id].promoOngkir += parseNumber(row['Promo Gratis Ongkir dari Penjual']);
+    incomeGroup[id].ongkirPembeli += parseNumber(row['Ongkir Dibayar Pembeli']);
+    incomeGroup[id].gratisOngkir += parseNumber(row['Gratis Ongkir dari Shopee']);
+    incomeGroup[id].ongkirKurir += parseNumber(row['Ongkir yang Diteruskan oleh Shopee ke Jasa Kirim']);
+    incomeGroup[id].ongkirRetur += parseNumber(row['Ongkos Kirim Pengembalian Barang']);
+    incomeGroup[id].pengembalianOngkir += parseNumber(row['Pengembalian Biaya Kirim']);
   });
 
   Object.values(ordersGroup).forEach(order => {
@@ -532,6 +563,25 @@ export const analyzeShopeeData = (orderRows, incomeRows, hppData, totalAds = 0, 
     if (inc) {
       order.payout = inc.payout;
       order.refund = inc.refund;
+      order.fees = {
+        biayaAdmin: inc.biayaAdmin,
+        biayaLayanan: inc.biayaLayanan,
+        biayaTransaksi: inc.biayaTransaksi,
+        biayaKomisi: inc.biayaKomisi,
+        biayaProses: inc.biayaProses,
+        premi: inc.premi,
+        hematKirim: inc.hematKirim,
+        biayaKampanye: inc.biayaKampanye,
+        promoOngkir: inc.promoOngkir,
+        ongkirPembeli: inc.ongkirPembeli,
+        gratisOngkir: inc.gratisOngkir,
+        ongkirKurir: inc.ongkirKurir,
+        ongkirRetur: inc.ongkirRetur,
+        pengembalianOngkir: inc.pengembalianOngkir,
+        netBiayaKirim: inc.ongkirPembeli + inc.gratisOngkir + inc.pengembalianOngkir - inc.ongkirKurir - inc.ongkirRetur
+      };
+    } else {
+      order.fees = null;
     }
     
     const isCompleted = order.status.toLowerCase() === 'selesai' || order.status.toLowerCase() === 'completed';

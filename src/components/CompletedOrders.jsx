@@ -133,6 +133,103 @@ const CompletedOrders = ({ data }) => {
                                   <span>- {formatRp(order.refund)}</span>
                                 </div>
                               )}
+
+                              {order.fees && (
+                                <div style={{ 
+                                  marginTop: '12px', 
+                                  padding: '12px', 
+                                  backgroundColor: 'rgba(0,0,0,0.15)', 
+                                  borderRadius: '8px', 
+                                  border: '1px solid var(--border-color)',
+                                  display: 'flex', 
+                                  flexDirection: 'column', 
+                                  gap: '6px' 
+                                }}>
+                                  <h5 style={{ fontSize: '10px', color: 'var(--text-muted2)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>
+                                    Rincian Potongan Shopee &amp; Transaksi:
+                                  </h5>
+                                  
+                                  {order.fees.biayaAdmin !== 0 && (
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '11.5px', color: 'var(--accent-red)' }}>
+                                      <span>Biaya Administrasi Shopee:</span>
+                                      <span>- {formatRp(Math.abs(order.fees.biayaAdmin))}</span>
+                                    </div>
+                                  )}
+                                  {order.fees.biayaLayanan !== 0 && (
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '11.5px', color: 'var(--accent-red)' }}>
+                                      <span>Biaya Layanan (GO-XTRA, dll):</span>
+                                      <span>- {formatRp(Math.abs(order.fees.biayaLayanan))}</span>
+                                    </div>
+                                  )}
+                                  {order.fees.biayaTransaksi !== 0 && (
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '11.5px', color: 'var(--accent-red)' }}>
+                                      <span>Biaya Transaksi / Metode Pembayaran:</span>
+                                      <span>- {formatRp(Math.abs(order.fees.biayaTransaksi))}</span>
+                                    </div>
+                                  )}
+                                  {order.fees.biayaKomisi !== 0 && (
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '11.5px', color: 'var(--accent-red)' }}>
+                                      <span>Biaya Komisi AMS (Affiliate):</span>
+                                      <span>- {formatRp(Math.abs(order.fees.biayaKomisi))}</span>
+                                    </div>
+                                  )}
+                                  {order.fees.biayaProses !== 0 && (
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '11.5px', color: 'var(--accent-red)' }}>
+                                      <span>Biaya Proses Pesanan:</span>
+                                      <span>- {formatRp(Math.abs(order.fees.biayaProses))}</span>
+                                    </div>
+                                  )}
+                                  {order.fees.premi !== 0 && (
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '11.5px', color: 'var(--accent-red)' }}>
+                                      <span>Biaya Premi / Asuransi Kirim:</span>
+                                      <span>- {formatRp(Math.abs(order.fees.premi))}</span>
+                                    </div>
+                                  )}
+                                  {order.fees.hematKirim !== 0 && (
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '11.5px', color: 'var(--accent-red)' }}>
+                                      <span>Biaya Program Hemat Kirim:</span>
+                                      <span>- {formatRp(Math.abs(order.fees.hematKirim))}</span>
+                                    </div>
+                                  )}
+                                  {order.fees.biayaKampanye !== 0 && (
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '11.5px', color: 'var(--accent-red)' }}>
+                                      <span>Biaya Kampanye (Campaign):</span>
+                                      <span>- {formatRp(Math.abs(order.fees.biayaKampanye))}</span>
+                                    </div>
+                                  )}
+                                  {order.fees.promoOngkir !== 0 && (
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '11.5px', color: 'var(--accent-red)' }}>
+                                      <span>Promo Gratis Ongkir dari Penjual:</span>
+                                      <span>- {formatRp(Math.abs(order.fees.promoOngkir))}</span>
+                                    </div>
+                                  )}
+                                  {order.fees.netBiayaKirim !== 0 && (
+                                    <div style={{ 
+                                      display: 'flex', 
+                                      justifyContent: 'space-between', 
+                                      fontSize: '11.5px', 
+                                      color: order.fees.netBiayaKirim < 0 ? 'var(--accent-red)' : 'var(--accent-green)' 
+                                    }}>
+                                      <span>Selisih Ongkos Kirim (Net):</span>
+                                      <span>{order.fees.netBiayaKirim < 0 ? `- ${formatRp(Math.abs(order.fees.netBiayaKirim))}` : `+ ${formatRp(order.fees.netBiayaKirim)}`}</span>
+                                    </div>
+                                  )}
+                                  
+                                  <div style={{ 
+                                    display: 'flex', 
+                                    justifyContent: 'space-between', 
+                                    fontSize: '12px', 
+                                    fontWeight: 'bold', 
+                                    borderTop: '1px solid var(--border-color)', 
+                                    paddingTop: '8px', 
+                                    marginTop: '4px',
+                                    color: 'var(--accent-green)' 
+                                  }}>
+                                    <span>Total Dana Bersih Diterima:</span>
+                                    <span>{formatRp(order.payout)}</span>
+                                  </div>
+                                </div>
+                              )}
                             </div>
                           </td>
                         </tr>
