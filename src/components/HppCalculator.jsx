@@ -26,7 +26,7 @@ const HppCalculator = () => {
   const shopeeAdminRates = {
     nonStar: {
       A: 10.0,
-      B: 9.25,
+      B: 9.0,
       C: 6.5,
       D: 5.25,
       E: 4.25,
@@ -37,7 +37,7 @@ const HppCalculator = () => {
     },
     star: {
       A: 10.0,
-      B: 9.25,
+      B: 9.0,
       C: 6.5,
       D: 5.25,
       E: 4.25,
@@ -72,31 +72,35 @@ const HppCalculator = () => {
     khusus: { biasa: 1.0, khusus: 2.5 }
   };
 
-  // Shopee Search Database
+  // Shopee Search Database with exact subcategory overrides
   const categorySearchDatabase = [
-    { keywords: ['helm', 'helmet', 'visor', 'kancing helm', 'pet helm', 'bogo', 'retro', 'motor', 'mobil', 'otomotif', 'ban', 'oli', 'kancing', 'skrup'], group: 'B', name: 'Otomotif (Helm, Aksesoris Motor/Mobil, Ban, Oli)' },
+    { keywords: ['helm', 'helmet', 'visor', 'kancing helm', 'pet helm', 'bogo', 'retro', 'motor', 'mobil', 'otomotif', 'ban', 'oli', 'kancing', 'skrup'], group: 'B', name: 'Otomotif (Helm, Aksesoris Motor/Mobil, Ban, Oli)', adminFeeOverride: 9.0 },
+    { keywords: ['speaker', 'home theater', 'karaoke', 'mixer', 'amplifier', 'mikrofon', 'microphone', 'audio', 'kabel audio'], group: 'B', name: 'Audio (Speaker, Mikrofon, Mixer, Amplifier)', adminFeeOverride: 9.0 },
+    { keywords: ['earphone', 'headphone', 'headset', 'handsfree'], group: 'C', name: 'Audio (Earphone, Headphone, Headset)', adminFeeOverride: 6.75 },
+    { keywords: ['mp3', 'mp4', 'media player', 'cd', 'dvd', 'blu-ray', 'tape', 'radio'], group: 'B', name: 'Audio (Media Player, CD/DVD, Radio)', adminFeeOverride: 9.5 },
+    { keywords: ['kelistrikan', 'saklar', 'stop kontak', 'sambungan kabel', 'alarm', 'bel'], group: 'A', name: 'Kelistrikan (Saklar, Stop Kontak, Kabel Roll)', adminFeeOverride: 10.0 },
     { keywords: ['baju', 'pakaian', 'kaos', 't-shirt', 'kemeja', 'celana', 'rok', 'jaket', 'sweater', 'hoodie', 'gamis', 'hijab', 'kerudung', 'daster', 'kebaya', 'pakaian dalam', 'kaki', 'jeans', 'singlet', 'jersey'], group: 'A', name: 'Fashion & Pakaian (Pria/Wanita, Muslim, Pakaian Dalam)' },
     { keywords: ['sepatu', 'sandal', 'sneakers', 'boots', 'heels', 'wedges', 'flat shoes', 'kaos kaki'], group: 'A', name: 'Alas Kaki & Sepatu (Pria, Wanita, Anak)' },
     { keywords: ['tas', 'ransel', 'backpack', 'clutch', 'tote bag', 'dompet', 'koper', 'selempang'], group: 'A', name: 'Tas & Aksesoris Fashion' },
     { keywords: ['kosmetik', 'skincare', 'makeup', 'lipstik', 'bedak', 'foundations', 'serum', 'toner', 'facial wash', 'parfum', 'minyak wangi', 'sabun', 'shampoo', 'perawatan tubuh', 'body lotion'], group: 'A', name: 'Kecantikan, Kosmetik & Perawatan Diri' },
     { keywords: ['ibu', 'bayi', 'anak', 'mainan', 'botol susu', 'stroller', 'gendongan', 'baju bayi', 'empeng', 'piring bayi'], group: 'A', name: 'Ibu & Bayi (Kecuali Susu & Popok)' },
-    { keywords: ['handphone', 'hp', 'smartphone', 'tablet', 'aksesoris hp', 'charger', 'casing', 'kabel data', 'powerbank', 'antigores'], group: 'B', name: 'Handphone, Gadget & Aksesorisnya' },
+    { keywords: ['handphone', 'hp', 'smartphone', 'tablet', 'aksesoris hp', 'charger', 'casing', 'kabel data', 'powerbank', 'antigores'], group: 'D', name: 'Handphone, Gadget & Aksesorisnya', adminFeeOverride: 5.25 },
     { keywords: ['elektronik', 'tv', 'televisi', 'kulkas', 'ac', 'mesin cuci', 'microwave', 'oven', 'blender', 'rice cooker', 'kipas angin', 'setrika'], group: 'B', name: 'Peralatan Elektronik Rumah Tangga' },
     { keywords: ['kamera', 'camera', 'dslr', 'mirrorless', 'lensa', 'tripod', 'gimbal', 'cctv', 'drone'], group: 'C', name: 'Kamera, Foto & Video' },
     { keywords: ['komputer', 'laptop', 'pc', 'mouse', 'keyboard', 'printer', 'scanner', 'ram', 'ssd', 'harddisk', 'vga', 'router', 'wifi', 'tinta', 'proyektor'], group: 'C', name: 'Komputer & Aksesoris PC/Laptop' },
     { keywords: ['perlengkapan rumah', 'home', 'living', 'furniture', 'meja', 'kursi', 'lemari', 'tempat tidur', 'kasur', 'sprei', 'selimut', 'bantal', 'gorden', 'lampu', 'dekorasi', 'dapur', 'piring', 'gelas', 'panci', 'sapu', 'rak'], group: 'C', name: 'Perlengkapan Rumah & Furniture' },
-    { keywords: ['olahraga', 'sport', 'sepeda', 'jersey', 'sepatu bola', 'raket', 'barbel', 'tenda', 'camping', 'outdoor', 'alat pancing'], group: 'C', name: 'Peralatan Olahraga & Outdoor' },
-    { keywords: ['makanan', 'minuman', 'snack', 'camilan', 'kopi', 'teh', 'mie instan', 'cokelat', 'permen', 'bumbu dapur', 'sambal', 'sirup', 'kue'], group: 'D', name: 'Makanan & Minuman (FMCG / Kuliner)' },
+    { keywords: ['olahraga', 'sport', 'sepeda', 'jersey', 'sepatu bola', 'raket', 'barbel', 'tenda', 'camping', 'outdoor', 'alat pancing'], group: 'B', name: 'Peralatan Olahraga & Outdoor', adminFeeOverride: 9.0 },
+    { keywords: ['makanan', 'minuman', 'snack', 'camilan', 'kopi', 'teh', 'mie instan', 'cokelat', 'permen', 'bumbu dapur', 'sambal', 'sirup', 'kue'], group: 'A', name: 'Makanan & Minuman (FMCG / Kuliner)', adminFeeOverride: 10.0 },
     { keywords: ['buku', 'novel', 'komik', 'majalah', 'buku pelajaran', 'alat tulis', 'pulpen', 'pensil', 'penghapus', 'penggaris', 'buku tulis', 'kertas', 'crayon'], group: 'D', name: 'Buku, Novel, Alat Tulis & Kantor' },
-    { keywords: ['hewan', 'pet', 'kucing', 'anjing', 'ikan', 'burung', 'makanan kucing', 'makanan anjing', 'pasir kucing', 'kandang'], group: 'D', name: 'Kebutuhan Hewan Peliharaan (Pet Shop)' },
+    { keywords: ['hewan', 'pet', 'kucing', 'anjing', 'ikan', 'burung', 'makanan kucing', 'makanan anjing', 'pasir kucing', 'kandang'], group: 'A', name: 'Kebutuhan Hewan Peliharaan (Pet Shop)', adminFeeOverride: 10.0 },
     { keywords: ['sembako', 'beras', 'minyak goreng', 'gula pasir', 'garam', 'telur', 'tepung', 'kecap'], group: 'E', name: 'Sembako & Kebutuhan Pokok Sehari-hari' },
-    { keywords: ['popok', 'diaper', 'pampers', 'susu bayi', 'susu formula', 'susu anak'], group: 'E', name: 'Popok Bayi & Susu Formula Anak' },
+    { keywords: ['popok', 'diaper', 'pampers', 'susu bayi', 'susu formula', 'susu anak'], group: 'C', name: 'Popok Bayi & Susu Formula Anak', adminFeeOverride: 6.5 },
     { keywords: ['hobi', 'koleksi', 'action figure', 'gundam', 'lego', 'kartu game', 'board game', 'alat musik', 'gitar', 'keyboard musik', 'biola'], group: 'B', name: 'Hobi, Koleksi & Alat Musik' },
     { keywords: ['digital', 'pulsa', 'paket data', 'voucher', 'tiket', 'e-money', 'pln', 'listrik', 'bpjs'], group: 'khusus', name: 'Produk Digital (Pulsa, Voucher, PLN, Tiket)' }
   ];
 
   // 3. Shopee Basic Fees State
-  const [adminFeePercent, setAdminFeePercent] = useState(9.25); 
+  const [adminFeePercent, setAdminFeePercent] = useState(9.0); // 9.0% default
   const [transactionFeePercent, setTransactionFeePercent] = useState(2.0);
   const [flatProcessFee, setFlatProcessFee] = useState(1250); 
   const [targetMarginPercent, setTargetMarginPercent] = useState(15.0);
@@ -122,6 +126,9 @@ const HppCalculator = () => {
 
   const [activeHematKirim, setActiveHematKirim] = useState(false);
   const [hematKirimFee, setHematKirimFee] = useState(350); 
+
+  // Store custom fee override selected from search list
+  const [customOverrideRate, setCustomOverrideRate] = useState(null);
 
   // Automatically adjust Gratis Ongkir XTRA percent based on category group & size
   useEffect(() => {
@@ -152,6 +159,14 @@ const HppCalculator = () => {
   const selectCategory = (cat) => {
     setCategoryGroup(cat.group);
     setSelectedCategoryName(cat.name);
+    if (cat.adminFeeOverride !== undefined) {
+      setCustomOverrideRate(cat.adminFeeOverride);
+      setAdminFeePercent(cat.adminFeeOverride);
+    } else {
+      setCustomOverrideRate(null);
+      const rate = shopeeAdminRates[sellerType][cat.group];
+      setAdminFeePercent(rate);
+    }
     setSearchQuery('');
     setSearchResults([]);
     setShowDropdown(false);
@@ -159,9 +174,20 @@ const HppCalculator = () => {
 
   // Automatically update Admin Fee % when Seller Type or Category changes
   useEffect(() => {
-    const rate = shopeeAdminRates[sellerType][categoryGroup] || 4.25;
-    setAdminFeePercent(rate);
-  }, [sellerType, categoryGroup]);
+    // If the category was selected from search and has a custom override,
+    // we adjust it slightly based on shop type if it is Mall (+0.5% - +1.0%)
+    if (customOverrideRate !== null) {
+      let finalRate = customOverrideRate;
+      if (sellerType === 'mall') {
+        // Shopee Mall is typically ~1.0% higher than Star
+        finalRate = Math.min(11.7, customOverrideRate + 0.95);
+      }
+      setAdminFeePercent(finalRate);
+    } else {
+      const rate = shopeeAdminRates[sellerType][categoryGroup] || 4.25;
+      setAdminFeePercent(rate);
+    }
+  }, [sellerType, categoryGroup, customOverrideRate]);
 
   // Handle Click Outside Dropdown to close it
   useEffect(() => {
@@ -282,7 +308,7 @@ const HppCalculator = () => {
           <div>
             <h3 style={{ fontSize: '18px', fontWeight: 'bold' }}>Simulasi Kalkulator HPP &amp; Rekomendasi Harga Jual Shopee</h3>
             <p className="text-muted" style={{ fontSize: '13px', marginTop: '4px' }}>
-              Hitung HPP riil produk, sesuaikan tipe toko dan kategori produk, lalu centang program opsional. Gratis Ongkir XTRA dihitung otomatis sesuai kategori dan ukuran produk (Biasa/Khusus) beserta batas biaya maksimal (Cap).
+              Masukkan komponen modal Anda, pilih tipe penjual, cari kategori produk untuk biaya admin dasar, lalu centang program opsional yang Anda ikuti (SPayLater, Promo/Gratis Ongkir Xtra, Live Xtra, Affiliate, Asuransi, Hemat Kirim) untuk kalkulasi harga jual yang presisi.
             </p>
           </div>
         </div>
