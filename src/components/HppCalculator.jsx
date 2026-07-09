@@ -72,13 +72,16 @@ const HppCalculator = () => {
     khusus: { biasa: 1.0, khusus: 2.5 }
   };
 
-  // Shopee Search Database with exact subcategory overrides
+  // Shopee Search Database with exact subcategory overrides based on official tables
   const categorySearchDatabase = [
     { keywords: ['helm', 'helmet', 'visor', 'kancing helm', 'pet helm', 'bogo', 'retro', 'motor', 'mobil', 'otomotif', 'ban', 'oli', 'kancing', 'skrup'], group: 'B', name: 'Otomotif (Helm, Aksesoris Motor/Mobil, Ban, Oli)', adminFeeOverride: 9.0 },
     { keywords: ['speaker', 'home theater', 'karaoke', 'mixer', 'amplifier', 'mikrofon', 'microphone', 'audio', 'kabel audio'], group: 'B', name: 'Audio (Speaker, Mikrofon, Mixer, Amplifier)', adminFeeOverride: 9.0 },
     { keywords: ['earphone', 'headphone', 'headset', 'handsfree'], group: 'C', name: 'Audio (Earphone, Headphone, Headset)', adminFeeOverride: 6.75 },
     { keywords: ['mp3', 'mp4', 'media player', 'cd', 'dvd', 'blu-ray', 'tape', 'radio'], group: 'B', name: 'Audio (Media Player, CD/DVD, Radio)', adminFeeOverride: 9.5 },
     { keywords: ['kelistrikan', 'saklar', 'stop kontak', 'sambungan kabel', 'alarm', 'bel'], group: 'A', name: 'Kelistrikan (Saklar, Stop Kontak, Kabel Roll)', adminFeeOverride: 10.0 },
+    { keywords: ['kacamata', 'topi', 'anting', 'kalung', 'gelag', 'cincin', 'ikat pinggang', 'dasi', 'ikat rambut', 'scrunchie', 'jepitan', 'bros', 'bandana', 'pita', 'bando', 'rambut palsu', 'liontin'], group: 'B', name: 'Aksesoris Fashion (Kacamata, Topi, Anting, Kalung, Perhiasan)', adminFeeOverride: 9.0 },
+    { keywords: ['masker', 'masker kain', 'masker medis'], group: 'B', name: 'Masker (Aksesoris Tambahan)', adminFeeOverride: 8.25 },
+    { keywords: ['logam mulia', 'emas', 'perak', 'berlian', 'permata', 'platinum', 'perhiasan berharga'], group: 'E', name: 'Logam Mulia & Perhiasan Berharga', adminFeeOverride: 4.25 },
     { keywords: ['baju', 'pakaian', 'kaos', 't-shirt', 'kemeja', 'celana', 'rok', 'jaket', 'sweater', 'hoodie', 'gamis', 'hijab', 'kerudung', 'daster', 'kebaya', 'pakaian dalam', 'kaki', 'jeans', 'singlet', 'jersey'], group: 'A', name: 'Fashion & Pakaian (Pria/Wanita, Muslim, Pakaian Dalam)' },
     { keywords: ['sepatu', 'sandal', 'sneakers', 'boots', 'heels', 'wedges', 'flat shoes', 'kaos kaki'], group: 'A', name: 'Alas Kaki & Sepatu (Pria, Wanita, Anak)' },
     { keywords: ['tas', 'ransel', 'backpack', 'clutch', 'tote bag', 'dompet', 'koper', 'selempang'], group: 'A', name: 'Tas & Aksesoris Fashion' },
@@ -100,7 +103,7 @@ const HppCalculator = () => {
   ];
 
   // 3. Shopee Basic Fees State
-  const [adminFeePercent, setAdminFeePercent] = useState(9.0); // 9.0% default
+  const [adminFeePercent, setAdminFeePercent] = useState(9.0); 
   const [transactionFeePercent, setTransactionFeePercent] = useState(2.0);
   const [flatProcessFee, setFlatProcessFee] = useState(1250); 
   const [targetMarginPercent, setTargetMarginPercent] = useState(15.0);
@@ -174,12 +177,9 @@ const HppCalculator = () => {
 
   // Automatically update Admin Fee % when Seller Type or Category changes
   useEffect(() => {
-    // If the category was selected from search and has a custom override,
-    // we adjust it slightly based on shop type if it is Mall (+0.5% - +1.0%)
     if (customOverrideRate !== null) {
       let finalRate = customOverrideRate;
       if (sellerType === 'mall') {
-        // Shopee Mall is typically ~1.0% higher than Star
         finalRate = Math.min(11.7, customOverrideRate + 0.95);
       }
       setAdminFeePercent(finalRate);
