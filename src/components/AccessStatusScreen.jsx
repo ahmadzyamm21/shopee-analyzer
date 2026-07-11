@@ -47,15 +47,8 @@ const AccessStatusScreen = ({ status, expiryDate, userEmail, onLogout }) => {
               Pendaftaran Anda berhasil! Saat ini akun dengan email <strong className="highlight-text">{userEmail}</strong> sedang menunggu persetujuan admin untuk aktivasi.
             </p>
             <p className="status-note">
-              Silakan hubungi admin di WhatsApp untuk konfirmasi pembayaran agar akun Anda segera diaktifkan.
+              Akun Anda akan aktif secara otomatis setelah disetujui oleh admin. Silakan periksa kembali halaman ini secara berkala.
             </p>
-            
-            <div className="status-actions">
-              <a href={getWaLink()} target="_blank" rel="noopener noreferrer" className="status-btn btn-wa">
-                <MessageCircle size={18} />
-                <span>Konfirmasi via WhatsApp</span>
-              </a>
-            </div>
           </div>
         )}
 
