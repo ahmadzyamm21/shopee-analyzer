@@ -345,6 +345,9 @@ const App = () => {
 
   // Early returns (Redirects & Auth check guards) - Placed after all React hooks to satisfy rules of hooks
   if (location.pathname === '/') {
+    if (profile && profile.allowed_platform === 'tiktok') {
+      return <Navigate to="/tiktok" replace />;
+    }
     return <Navigate to="/shopee" replace />;
   }
 
@@ -371,6 +374,16 @@ const App = () => {
         onLogout={() => { setSession(null); setProfile(null); }}
       />
     );
+  }
+
+  // PLATFORM ACCESS RESTRICTION REDIRECTS
+  if (profile) {
+    if (profile.allowed_platform === 'shopee' && activePlatform === 'tiktok') {
+      return <Navigate to="/shopee" replace />;
+    }
+    if (profile.allowed_platform === 'tiktok' && activePlatform === 'shopee') {
+      return <Navigate to="/tiktok" replace />;
+    }
   }
 
   const resetAllData = () => {
@@ -464,6 +477,62 @@ const App = () => {
             <span>Financial & performance dashboard</span>
           </div>
         </div>
+
+        {/* Platform Switcher */}
+        {(!profile || profile.allowed_platform === 'both') && (
+          <div className="platform-switcher" style={{ 
+            padding: '0 20px 16px',
+            display: 'flex',
+            gap: '8px'
+          }}>
+            <button 
+              onClick={() => navigate('/shopee')}
+              className={`platform-btn ${activePlatform === 'shopee' ? 'active' : ''}`}
+              style={{
+                flex: 1,
+                padding: '8px',
+                borderRadius: '8px',
+                border: '1px solid var(--border-color)',
+                background: activePlatform === 'shopee' ? 'var(--accent-orange, #f97316)' : 'rgba(31, 41, 55, 0.4)',
+                color: '#fff',
+                fontSize: '12px',
+                fontWeight: 700,
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '6px',
+                transition: 'all 0.2s'
+              }}
+            >
+              <Store size={14} />
+              <span>Shopee</span>
+            </button>
+            <button 
+              onClick={() => navigate('/tiktok')}
+              className={`platform-btn ${activePlatform === 'tiktok' ? 'active' : ''}`}
+              style={{
+                flex: 1,
+                padding: '8px',
+                borderRadius: '8px',
+                border: '1px solid var(--border-color)',
+                background: activePlatform === 'tiktok' ? 'var(--tt-primary, #00b56a)' : 'rgba(31, 41, 55, 0.4)',
+                color: '#fff',
+                fontSize: '12px',
+                fontWeight: 700,
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '6px',
+                transition: 'all 0.2s'
+              }}
+            >
+              <Music2 size={14} />
+              <span>TikTok</span>
+            </button>
+          </div>
+        )}
 
         {/* === SHOPEE NAV === */}
         {activePlatform === 'shopee' && (
