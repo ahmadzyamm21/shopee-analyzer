@@ -67,6 +67,13 @@ import {
   analyzeTikTokCohort
 } from './utils/tiktokParser';
 
+// Generate a unique client session ID for this browser if not exists
+let clientSessionId = localStorage.getItem('client_session_id');
+if (!clientSessionId) {
+  clientSessionId = Math.random().toString(36).substring(2, 15) + Date.now().toString(36);
+  localStorage.setItem('client_session_id', clientSessionId);
+}
+
 const App = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -107,7 +114,7 @@ const App = () => {
   const [profile, setProfile] = useState(null);
   const [authLoading, setAuthLoading] = useState(true);
 
-  const fetchUserProfile = async (user) => {
+  const fetchUserProfile = async (user, isSignInEvent = false) => {
     try {
       setAuthLoading(true);
       const { data, error } = await supabase
@@ -120,7 +127,7 @@ const App = () => {
         console.warn('Profile not found, attempting client-side fallback insert...');
         const { data: newProfile, error: insertError } = await supabase
           .from('profiles')
-          .insert([{ id: user.id, email: user.email, status: 'pending' }])
+          .insert([{ id: user.id, email: user.email, status: 'pending', current_session_id: clientSessionId }])
           .select()
           .single();
           
@@ -130,7 +137,24 @@ const App = () => {
           setProfile(newProfile);
         }
       } else {
-        setProfile(data);
+        // Enforce single active session
+        if (isSignInEvent) {
+          // Take over session
+          await supabase
+            .from('profiles')
+            .update({ current_session_id: clientSessionId })
+            .eq('id', user.id);
+          data.current_session_id = clientSessionId;
+          setProfile(data);
+        } else {
+          // Regular check: if session ID in db is different, log out
+          if (data.current_session_id && data.current_session_id !== clientSessionId) {
+            alert('Akun Anda telah login di perangkat/browser lain. Sesi ini akan ditutup.');
+            await supabase.auth.signOut();
+            return;
+          }
+          setProfile(data);
+        }
       }
     } catch (err) {
       console.error('Profile fetch/create error:', err);
@@ -146,7 +170,8 @@ const App = () => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
       if (session) {
-        fetchUserProfile(session.user);
+        // Regular session check on page load
+        fetchUserProfile(session.user, false);
       } else {
         setAuthLoading(false);
       }
@@ -156,7 +181,9 @@ const App = () => {
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session);
       if (session) {
-        fetchUserProfile(session.user);
+        const isManual = localStorage.getItem('is_manual_signin') === 'true';
+        localStorage.removeItem('is_manual_signin');
+        fetchUserProfile(session.user, isManual);
       } else {
         setProfile(null);
         setAuthLoading(false);
@@ -165,6 +192,33 @@ const App = () => {
 
     return () => subscription.unsubscribe();
   }, []);
+
+  // Periodic active session validator (single concurrent login checker)
+  useEffect(() => {
+    if (!session || !profile) return;
+
+    const interval = setInterval(async () => {
+      try {
+        const { data, error } = await supabase
+          .from('profiles')
+          .select('current_session_id')
+          .eq('id', session.user.id)
+          .single();
+
+        if (!error && data) {
+          const localSessionId = localStorage.getItem('client_session_id') || '';
+          if (data.current_session_id && data.current_session_id !== localSessionId) {
+            alert('Akun Anda telah login di perangkat/browser lain. Sesi ini akan ditutup.');
+            await supabase.auth.signOut();
+          }
+        }
+      } catch (err) {
+        console.error('Session validation polling error:', err);
+      }
+    }, 15000); // Check every 15 seconds
+
+    return () => clearInterval(interval);
+  }, [session, profile]);
 
   const isAccountExpired = () => {
     if (!profile || !profile.expiry_date) return false;

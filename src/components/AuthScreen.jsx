@@ -36,6 +36,7 @@ const AuthScreen = ({ onAuthSuccess }) => {
     try {
       if (isLogin) {
         // Sign In
+        localStorage.setItem('is_manual_signin', 'true');
         const { data, error } = await supabase.auth.signInWithPassword({
           email,
           password,
