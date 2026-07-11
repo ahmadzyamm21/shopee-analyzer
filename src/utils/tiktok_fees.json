@@ -1,0 +1,65 @@
+{
+  "clusters": [
+    {
+      "name": "Automotive & Electronics",
+      "categories": [
+        { "name": "Bekas Pakai", "marketplace_fee": "2.50% - 4.75%", "mall_fee": "2.50% - 3.00%" },
+        { "name": "Kesehatan (Vaporizer)", "marketplace_fee": "7.50%", "mall_fee": "6.00%" },
+        { "name": "Komputer & Peralatan Kantor", "marketplace_fee": "4.75% - 7.75%", "mall_fee": "3.00% - 11.70%" },
+        { "name": "Mobil & Sepeda Motor", "marketplace_fee": "2.50% - 9.50%", "mall_fee": "2.50% - 12.20%" },
+        { "name": "Pemesanan & Voucher", "marketplace_fee": "2.50%", "mall_fee": "2.50%" }
+      ]
+    },
+    {
+      "name": "Digital Goods",
+      "categories": [
+        { "name": "Pemesanan & Voucher (Tiket & Akomodasi)", "marketplace_fee": "10.00%", "mall_fee": "4.50% - 8.00%" },
+        { "name": "Produk Virtual (Telekomunikasi)", "marketplace_fee": "3.00%", "mall_fee": "9.20% - 11.70%" }
+      ]
+    },
+    {
+      "name": "Fashion",
+      "categories": [
+        { "name": "Aksesori Perhiasan & Turunannya", "marketplace_fee": "4.75%", "mall_fee": "3.70%" },
+        { "name": "Aksesoris Fashion (Jam, Kacamata, dll.)", "marketplace_fee": "4.75% - 10.00%", "mall_fee": "3.70% - 11.70%" },
+        { "name": "Bekas Pakai", "marketplace_fee": "9.25% - 10.00%", "mall_fee": "10.95% - 11.70%" },
+        { "name": "Fashion Muslim", "marketplace_fee": "9.25% - 10.00%", "mall_fee": "9.25% - 12.20%" },
+        { "name": "Koper & Tas", "marketplace_fee": "10.00%", "mall_fee": "11.70%" },
+        { "name": "Olahraga & Outdoor", "marketplace_fee": "10.00%", "mall_fee": "12.20%" },
+        { "name": "Pakaian & Pakaian Dalam Pria", "marketplace_fee": "9.25%", "mall_fee": "9.75% - 10.95%" },
+        { "name": "Pakaian & Pakaian Dalam Wanita", "marketplace_fee": "9.25%", "mall_fee": "9.25% - 10.95%" },
+        { "name": "Sepatu", "marketplace_fee": "10.00%", "mall_fee": "11.70%" }
+      ]
+    },
+    {
+      "name": "FMCG",
+      "categories": [
+        { "name": "Bayi & Persalinan", "marketplace_fee": "5.25% - 10.00%", "mall_fee": "7.20% - 11.70%" },
+        { "name": "Fashion Anak", "marketplace_fee": "5.25% - 10.00%", "mall_fee": "10.70% - 11.70%" },
+        { "name": "Kesehatan (Medis, Suplemen)", "marketplace_fee": "7.50% - 10.00%", "mall_fee": "5.20% - 9.20%" },
+        { "name": "Makanan & Minuman", "marketplace_fee": "7.50% - 10.00%", "mall_fee": "6.95% - 11.70%" },
+        { "name": "Perawatan & Kecantikan", "marketplace_fee": "8.00% - 10.00%", "mall_fee": "8.20% - 10.95%" },
+        { "name": "Perlengkapan Rumah", "marketplace_fee": "9.50%", "mall_fee": "12.20%" }
+      ]
+    },
+    {
+      "name": "Lifestyle",
+      "categories": [
+        { "name": "Alat & Perangkat Keras", "marketplace_fee": "7.50% - 10.00%", "mall_fee": "3.20% - 12.20%" },
+        { "name": "Bekas Pakai", "marketplace_fee": "9.50%", "mall_fee": "9.50%" },
+        { "name": "Buku, Majalah, & Audio", "marketplace_fee": "10.00%", "mall_fee": "8.20% - 12.20%" },
+        { "name": "Furnitur", "marketplace_fee": "9.50% - 10.00%", "mall_fee": "9.20% - 12.20%" },
+        { "name": "Koleksi", "marketplace_fee": "9.50%", "mall_fee": "9.20%" },
+        { "name": "Komputer & Peralatan Kantor (Alat Tulis)", "marketplace_fee": "6.25% - 8.00%", "mall_fee": "7.20% - 9.20%" },
+        { "name": "Mainan & Hobi", "marketplace_fee": "9.50%", "mall_fee": "9.20%" },
+        { "name": "Peralatan Dapur", "marketplace_fee": "7.50% - 10.00%", "mall_fee": "5.20% - 12.20%" },
+        { "name": "Perbaikan Rumah", "marketplace_fee": "6.25% - 10.00%", "mall_fee": "7.75% - 12.20%" },
+        { "name": "Perlengkapan Hewan Peliharaan", "marketplace_fee": "9.50%", "mall_fee": "9.20% - 9.50%" },
+        { "name": "Perlengkapan Rumah", "marketplace_fee": "9.50% - 10.00%", "mall_fee": "8.20% - 12.20%" },
+        { "name": "Produk Virtual", "marketplace_fee": "3.00%", "mall_fee": "9.20%" },
+        { "name": "Tekstil & Soft Furnishing", "marketplace_fee": "7.50% - 10.00%", "mall_fee": "5.20% - 12.20%" },
+        { "name": "Telepon & Elektronik (Konsol)", "marketplace_fee": "9.50%", "mall_fee": "8.20%" }
+      ]
+    }
+  ]
+}

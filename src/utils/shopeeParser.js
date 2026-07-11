@@ -336,6 +336,7 @@ export const analyzeShopeeData = (orderRows, incomeRows, hppData, totalAds = 0, 
   const resiKey = Object.keys(orderRows[0] || {}).find(k => k.toLowerCase().includes('no. resi'));
   const cancelReasonKey = Object.keys(orderRows[0] || {}).find(k => k.toLowerCase().includes('alasan pembatalan'));
   const returnStatusKey = Object.keys(orderRows[0] || {}).find(k => k.toLowerCase().includes('status pembatalan') || k.toLowerCase().includes('status return'));
+  const waktuKirimKey = Object.keys(orderRows[0] || {}).find(k => k.toLowerCase().includes('waktu') && (k.toLowerCase().includes('dikirim') || k.toLowerCase().includes('pengiriman')));
 
   // Step 1: Filter orders by selected month
   const filteredOrderRows = orderRows.filter(row => {
@@ -411,11 +412,11 @@ export const analyzeShopeeData = (orderRows, incomeRows, hppData, totalAds = 0, 
   let totalPenghasilanDilepasMatched = 0;
 
   matchedIncome.forEach(row => {
-    totalHargaAsliMatched += parseNumber(row['Harga Asli Produk']);
-    totalDiskonProdukMatched += parseNumber(row['Total Diskon Produk']);
-    totalRefundMatched += parseNumber(row['Jumlah Pengembalian Dana ke Pembeli'] || row['Pengembalian Dana ke Pembeli']);
-    totalVoucherSellerMatched += parseNumber(row['Voucher disponsor oleh Penjual']);
-    totalVoucherCofundMatched += parseNumber(row['Voucher co-fund disponsor oleh Penjual']);
+    totalHargaAsliMatched += parseNumber(row['Harga Asli Produk'] || row['Harga asli produk'] || 0);
+    totalDiskonProdukMatched += parseNumber(row['Total Diskon Produk'] || row['Diskon Produk Dari Penjual'] || row['Diskon Produk dari Penjual'] || 0);
+    totalRefundMatched += parseNumber(row['Jumlah Pengembalian Dana ke Pembeli'] || row['Pengembalian Dana ke Pembeli'] || 0);
+    totalVoucherSellerMatched += parseNumber(row['Voucher disponsor oleh Penjual'] || row['Voucher disponsori oleh Penjual'] || 0);
+    totalVoucherCofundMatched += parseNumber(row['Voucher co-fund disponsor oleh Penjual'] || row['Voucher co-fund disponsori oleh Penjual'] || 0);
     
     totalOngkirPembeliMatched += parseNumber(row['Ongkir Dibayar Pembeli']);
     totalGratisOngkirMatched += parseNumber(row['Gratis Ongkir dari Shopee']);
@@ -562,9 +563,24 @@ export const analyzeShopeeData = (orderRows, incomeRows, hppData, totalAds = 0, 
   const labaBersih = labaKotor - totalAds;
   const marginBersih = totalPenghasilanDilepasMatched > 0 ? (labaBersih / totalPenghasilanDilepasMatched) * 100 : 0;
 
+  // Find maxOrderDate for Shopee stagnan calculation
+  let maxOrderDate = null;
+  filteredOrderRows.forEach(row => {
+    const timeStr = waktuKey ? String(row[waktuKey]).trim() : '';
+    if (timeStr) {
+      const pDate = new Date(timeStr.replace(/-/g, '/'));
+      if (!isNaN(pDate.getTime())) {
+        if (!maxOrderDate || pDate.getTime() > maxOrderDate.getTime()) {
+          maxOrderDate = pDate;
+        }
+      }
+    }
+  });
+
   // Step 6: Completed and Returned orders mapping
   const completedOrdersList = [];
   const returnedOrdersList = [];
+  const problematicOrdersList = [];
   
   const ordersGroup = {};
   
@@ -573,13 +589,11 @@ export const analyzeShopeeData = (orderRows, incomeRows, hppData, totalAds = 0, 
     if (!id) return;
     
     const status = statusKey ? String(row[statusKey]).trim() : '';
-    const isCompleted = status.toLowerCase() === 'selesai' || status.toLowerCase() === 'completed';
     const retQty = retQtyKey ? parseInt(parseNumber(row[retQtyKey])) : 0;
     const returnStatus = returnStatusKey ? String(row[returnStatusKey]).trim() : '';
-    
-    const hasReturn = retQty > 0 || (returnStatus && returnStatus !== '-' && returnStatus !== '' && returnStatus.toLowerCase() !== 'tidak ada');
-    
-    if (!isCompleted && !hasReturn) return;
+    const shippedTime = waktuKirimKey ? String(row[waktuKirimKey]).trim() : '';
+    const resi = resiKey ? String(row[resiKey]).trim() : '';
+    const cancelReason = cancelReasonKey ? String(row[cancelReasonKey]).trim() : '';
     
     if (!ordersGroup[id]) {
       ordersGroup[id] = {
@@ -594,7 +608,11 @@ export const analyzeShopeeData = (orderRows, incomeRows, hppData, totalAds = 0, 
         diskonSeller: 0,
         returnStatus: returnStatus || '-',
         payout: 0,
-        refund: 0
+        refund: 0,
+        hpp: 0,
+        shippedTime,
+        resi,
+        cancelReason
       };
     }
     
@@ -604,13 +622,26 @@ export const analyzeShopeeData = (orderRows, incomeRows, hppData, totalAds = 0, 
     const diskonSeller = parseNumber(row[Object.keys(row).find(k => k.toLowerCase().includes('diskon dari penjual'))]);
     const name = prodKey ? String(row[prodKey]).trim() : '';
     const variation = varKey ? String(row[varKey]).trim() : '';
+    const sku = skuKey && row[skuKey] ? String(row[skuKey]).trim() : '';
+    const refSku = nomorRefSkuKey && row[nomorRefSkuKey] ? String(row[nomorRefSkuKey]).trim() : '';
     
-    ordersGroup[id].items.push({ name, variation, qty, price, discPrice });
+    // Find HPP
+    let hppVal = 0;
+    if (refSku && hppBySku[refSku] !== undefined) {
+      hppVal = hppBySku[refSku];
+    } else if (sku && hppBySku[sku] !== undefined) {
+      hppVal = hppBySku[sku];
+    } else if (hppByNameVar[`${name}|${variation}`] !== undefined) {
+      hppVal = hppByNameVar[`${name}|${variation}`];
+    }
+    
+    ordersGroup[id].items.push({ name, variation, qty, price, discPrice, hpp: hppVal, sku: refSku || sku });
     ordersGroup[id].totalQty += qty;
     ordersGroup[id].totalQtyRetur += retQty;
     ordersGroup[id].totalBruto += price * qty;
     ordersGroup[id].totalNet += discPrice * qty;
     ordersGroup[id].diskonSeller += diskonSeller;
+    ordersGroup[id].hpp += hppVal * qty;
     if (retQty > 0 || returnStatus) {
       ordersGroup[id].returnStatus = returnStatus || 'Permintaan Disetujui';
     }
@@ -641,28 +672,32 @@ export const analyzeShopeeData = (orderRows, incomeRows, hppData, totalAds = 0, 
         pengembalianOngkir: 0,
         biayaGratongXtra: 0,
         biayaPromoXtra: 0,
-        biayaLiveXtra: 0
+        biayaLiveXtra: 0,
+        voucherSeller: 0,
+        voucherCofund: 0
       };
     }
-    incomeGroup[id].payout += parseNumber(row['Total Penghasilan']);
-    incomeGroup[id].refund += parseNumber(row['Jumlah Pengembalian Dana ke Pembeli'] || row['Pengembalian Dana ke Pembeli']);
-    incomeGroup[id].biayaAdmin += parseNumber(row['Biaya Administrasi']);
-    incomeGroup[id].biayaLayanan += parseNumber(row['Biaya Layanan']);
-    incomeGroup[id].biayaTransaksi += parseNumber(row['Biaya Transaksi']);
-    incomeGroup[id].biayaKomisi += parseNumber(row['Biaya Komisi AMS']);
-    incomeGroup[id].biayaProses += parseNumber(row['Biaya Proses Pesanan']);
-    incomeGroup[id].premi += parseNumber(row['Premi']);
-    incomeGroup[id].hematKirim += parseNumber(row['Biaya Program Hemat Biaya Kirim']);
-    incomeGroup[id].biayaKampanye += parseNumber(row['Biaya Kampanye']);
-    incomeGroup[id].promoOngkir += parseNumber(row['Promo Gratis Ongkir dari Penjual']);
-    incomeGroup[id].ongkirPembeli += parseNumber(row['Ongkir Dibayar Pembeli']);
-    incomeGroup[id].gratisOngkir += parseNumber(row['Gratis Ongkir dari Shopee']);
-    incomeGroup[id].ongkirKurir += parseNumber(row['Ongkir yang Diteruskan oleh Shopee ke Jasa Kirim']);
-    incomeGroup[id].ongkirRetur += parseNumber(row['Ongkos Kirim Pengembalian Barang']);
-    incomeGroup[id].pengembalianOngkir += parseNumber(row['Pengembalian Biaya Kirim']);
-    incomeGroup[id].biayaGratongXtra += parseNumber(row['Biaya Layanan Gratis Ongkir XTRA']);
-    incomeGroup[id].biayaPromoXtra += parseNumber(row['Biaya Layanan Promo XTRA']);
-    incomeGroup[id].biayaLiveXtra += parseNumber(row['Biaya Program Shopee Live Xtra']);
+    incomeGroup[id].payout += parseNumber(row['Total Penghasilan'] || 0);
+    incomeGroup[id].refund += parseNumber(row['Jumlah Pengembalian Dana ke Pembeli'] || row['Pengembalian Dana ke Pembeli'] || 0);
+    incomeGroup[id].biayaAdmin += parseNumber(row['Biaya Administrasi'] || 0);
+    incomeGroup[id].biayaLayanan += parseNumber(row['Biaya Layanan'] || 0);
+    incomeGroup[id].biayaTransaksi += parseNumber(row['Biaya Transaksi'] || 0);
+    incomeGroup[id].biayaKomisi += parseNumber(row['Biaya Komisi AMS'] || 0);
+    incomeGroup[id].biayaProses += parseNumber(row['Biaya Proses Pesanan'] || 0);
+    incomeGroup[id].premi += parseNumber(row['Premi'] || 0);
+    incomeGroup[id].hematKirim += parseNumber(row['Biaya Program Hemat Biaya Kirim'] || 0);
+    incomeGroup[id].biayaKampanye += parseNumber(row['Biaya Kampanye'] || row['Biaya kampanye'] || 0);
+    incomeGroup[id].promoOngkir += parseNumber(row['Promo Gratis Ongkir dari Penjual'] || 0);
+    incomeGroup[id].ongkirPembeli += parseNumber(row['Ongkir Dibayar Pembeli'] || 0);
+    incomeGroup[id].gratisOngkir += parseNumber(row['Gratis Ongkir dari Shopee'] || 0);
+    incomeGroup[id].ongkirKurir += parseNumber(row['Ongkir yang Diteruskan oleh Shopee ke Jasa Kirim'] || 0);
+    incomeGroup[id].ongkirRetur += parseNumber(row['Ongkos Kirim Pengembalian Barang'] || 0);
+    incomeGroup[id].pengembalianOngkir += parseNumber(row['Pengembalian Biaya Kirim'] || 0);
+    incomeGroup[id].biayaGratongXtra += parseNumber(row['Biaya Layanan Gratis Ongkir XTRA'] || 0);
+    incomeGroup[id].biayaPromoXtra += parseNumber(row['Biaya Layanan Promo XTRA'] || 0);
+    incomeGroup[id].biayaLiveXtra += parseNumber(row['Biaya Program Shopee Live Xtra'] || 0);
+    incomeGroup[id].voucherSeller += parseNumber(row['Voucher disponsor oleh Penjual'] || row['Voucher disponsori oleh Penjual'] || 0);
+    incomeGroup[id].voucherCofund += parseNumber(row['Voucher co-fund disponsor oleh Penjual'] || row['Voucher co-fund disponsori oleh Penjual'] || 0);
   });
 
   Object.values(ordersGroup).forEach(order => {
@@ -688,20 +723,52 @@ export const analyzeShopeeData = (orderRows, incomeRows, hppData, totalAds = 0, 
         netBiayaKirim: inc.ongkirPembeli + inc.gratisOngkir + inc.pengembalianOngkir - inc.ongkirKurir - inc.ongkirRetur,
         biayaGratongXtra: inc.biayaGratongXtra,
         biayaPromoXtra: inc.biayaPromoXtra,
-        biayaLiveXtra: inc.biayaLiveXtra
+        biayaLiveXtra: inc.biayaLiveXtra,
+        voucherSeller: inc.voucherSeller,
+        voucherCofund: inc.voucherCofund
       };
     } else {
       order.fees = null;
     }
     
     const isCompleted = order.status.toLowerCase() === 'selesai' || order.status.toLowerCase() === 'completed';
+    const isCancelled = order.status.toLowerCase() === 'batal' || order.status.toLowerCase() === 'cancelled';
+    const isShipped = order.status.toLowerCase().includes('kirim') || order.status.toLowerCase().includes('shipped');
+    const hasResi = order.resi && order.resi !== '-' && order.resi !== '';
     const hasReturn = order.totalQtyRetur > 0 || order.refund > 0 || (order.returnStatus && order.returnStatus !== '-' && order.returnStatus.toLowerCase() !== 'tidak ada');
+
+    order.problems = [];
+
+    // 1. Batal Setelah Resi
+    if (isCancelled && hasResi) {
+      order.problems.push('Batal Setelah Resi');
+    }
+
+    // 2. Penjualan Rugi
+    if (isCompleted && order.fees && (order.payout - order.hpp < 0)) {
+      order.problems.push('Penjualan Rugi');
+    }
+
+    // 3. Pengiriman Stagnan
+    if (isShipped && maxOrderDate && order.shippedTime) {
+      const shipTime = new Date(order.shippedTime.replace(/-/g, '/'));
+      if (!isNaN(shipTime.getTime())) {
+        const diffMs = maxOrderDate.getTime() - shipTime.getTime();
+        const diffDays = diffMs / (1000 * 60 * 60 * 24);
+        if (diffDays > 5) {
+          order.problems.push('Pengiriman Stagnan');
+        }
+      }
+    }
 
     if (isCompleted) {
       completedOrdersList.push(order);
     }
     if (hasReturn) {
       returnedOrdersList.push(order);
+    }
+    if (order.problems.length > 0) {
+      problematicOrdersList.push(order);
     }
   });
 
@@ -755,6 +822,7 @@ export const analyzeShopeeData = (orderRows, incomeRows, hppData, totalAds = 0, 
     products: Object.values(productDetail).sort((a, b) => b.qty - a.qty),
     completedOrders: completedOrdersList.sort((a, b) => b.date.localeCompare(a.date)),
     returnedOrders: returnedOrdersList.sort((a, b) => b.date.localeCompare(a.date)),
+    problematicOrders: problematicOrdersList.sort((a, b) => b.date.localeCompare(a.date)),
     availableMonths,
     activeMonth: filterMonth
   };

@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { Star, Award, HelpCircle, AlertTriangle, Info, TrendingUp, DollarSign } from 'lucide-react';
 
-const BcgAnalysis = ({ products }) => {
+const BcgAnalysis = ({ products, platformName = "Shopee" }) => {
   const activeProducts = useMemo(() => {
     return (products || []).filter(p => p.qty > 0);
   }, [products]);
@@ -117,7 +117,7 @@ const BcgAnalysis = ({ products }) => {
             <TrendingUp size={28} />
           </div>
           <div>
-            <h3 style={{ fontSize: '18px', fontWeight: 'bold' }}>Matriks Analisis BCG Shopee (Boston Consulting Group)</h3>
+            <h3 style={{ fontSize: '18px', fontWeight: 'bold' }}>Matriks Analisis BCG {platformName} (Boston Consulting Group)</h3>
             <p className="text-muted" style={{ fontSize: '13px', marginTop: '4px' }}>
               Memetakan performa produk Anda ke dalam 4 kuadran berdasarkan **Volume Penjualan (Qty)** dan **Profit Margin per Unit** (Selisih Harga Jual Net vs HPP).
               Gunakan ini untuk mengambil keputusan pemasaran, alokasi stok, dan strategi iklan.

@@ -1,19 +1,21 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Percent, Info, ShoppingBag, ArrowRight, HelpCircle, Search, Check, ChevronDown, ChevronUp, Tag } from 'lucide-react';
+import { Percent, Info, ShoppingBag, ArrowRight, HelpCircle, Search, Check, ChevronDown, ChevronUp, Tag, Music2 } from 'lucide-react';
 import shopeeCategories from '../utils/shopee_categories.json';
+import tiktokCategories from '../utils/tiktok_detailed_fees.json';
 
-const HppCalculator = () => {
+const HppCalculator = ({ platform = 'shopee' }) => {
+  const isTiktok = platform === 'tiktok';
+
   // 1. Core States
-  const [hppValue, setHppValue] = useState(0); // HARGA MODAL / HPP (RP) - Default 0 as in mockup
-  const [manualPrice, setManualPrice] = useState(0); // HARGA JUAL RENCANA (RP) - Default 0
-  const [sellerVoucher, setSellerVoucher] = useState(0); // VOUCHER TOKO YANG DIPASANG (RP) - Default 0
+  const [hppValue, setHppValue] = useState(0); 
+  const [manualPrice, setManualPrice] = useState(0); 
+  const [sellerVoucher, setSellerVoucher] = useState(0); 
 
-  // 2. Shopee Seller & Category Setup
-  const [sellerType, setSellerType] = useState('star'); // star, nonStar, mall
-  const [categoryGroup, setCategoryGroup] = useState('G'); // G for default
-  const [productSize, setProductSize] = useState('biasa'); // biasa, khusus
+  // 2. Platform Seller & Category Setup
+  const [sellerType, setSellerType] = useState('star'); 
+  const [categoryGroup, setCategoryGroup] = useState('G'); 
 
-  // Default selected category
+  // Default selected category for Shopee
   const [selectedCategory, setSelectedCategory] = useState({
     "Kategori": "Sepeda Motor",
     "Sub Kategori": "Aksesoris Sepeda Motor",
@@ -25,54 +27,126 @@ const HppCalculator = () => {
     "GO Khusus": 9.0
   });
 
-  // Search Category State
+  // Search Category State for Shopee
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef(null);
 
-  // 3. Shopee Basic Fees State
+  // 3. Basic Fees State
   const [adminFeePercent, setAdminFeePercent] = useState(8.25); 
-  const transactionFeePercent = 0.0; // Removed from calculations
+  const transactionFeePercent = isTiktok ? 4.0 : 0.0; 
   const [flatProcessFee, setFlatProcessFee] = useState(1250); 
 
-  // 4. Shopee Optional Programs State (Checkboxes & Percentages)
+  // 4. Optional Programs State (Checkboxes & Percentages)
   const [activeGratisOngkir, setActiveGratisOngkir] = useState(true);
-  const [gratisOngkirPercent, setGratisOngkirPercent] = useState(0.0); // Default 0.0%
+  const [gratisOngkirPercent, setGratisOngkirPercent] = useState(0.0); 
 
   const [activeCashback, setActiveCashback] = useState(false);
-  const [cashbackPercent, setCashbackPercent] = useState(0.0); // Default 0.0%
+  const [cashbackPercent, setCashbackPercent] = useState(0.0); 
 
   const [activeLiveXtra, setActiveLiveXtra] = useState(false);
-  const [liveXtraPercent, setLiveXtraPercent] = useState(0.0); // Default 0.0%
+  const [liveXtraPercent, setLiveXtraPercent] = useState(0.0); 
 
   const [activeSpayLater, setActiveSpayLater] = useState(false);
-  const [spayLaterPercent, setSpayLaterPercent] = useState(0.0); // Default 0.0%
+  const [spayLaterPercent, setSpayLaterPercent] = useState(0.0); 
 
   const [activeAffiliate, setActiveAffiliate] = useState(false);
-  const [affiliatePercent, setAffiliatePercent] = useState(0.0); // Default 0.0%
+  const [affiliatePercent, setAffiliatePercent] = useState(0.0); 
 
   const [activeInsurance, setActiveInsurance] = useState(false);
-  const [insurancePercent, setInsurancePercent] = useState(0.0); // Default 0.0%
+  const [insurancePercent, setInsurancePercent] = useState(0.0); 
 
   const [activeHematKirim, setActiveHematKirim] = useState(false);
   const [hematKirimFee, setHematKirimFee] = useState(350); 
 
+  // Tax (Pajak)
+  const [activeTax, setActiveTax] = useState(true);
+  const [taxPercent, setTaxPercent] = useState(0.5);
+
+  // TikTok Live Xtra Program
+  const [activeTiktokLiveXtra, setActiveTiktokLiveXtra] = useState(false);
+  const [tiktokLiveXtraPercent, setTiktokLiveXtraPercent] = useState(2.0); 
+
   // 5. Co-Funding Campaign States (CO-FOUNDED)
-  const [activeCoFunding, setActiveCoFunding] = useState(true); // Default active as shown in mockup
-  const [coFundingCampaignPercent, setCoFundingCampaignPercent] = useState(0.0); // CAMPAIGN (%) - Default 0
-  const [coFundingPlatformSharePercent, setCoFundingPlatformSharePercent] = useState(90.0); // DITANGGUNG PLATFORM (%) - Default 90
-  const [coFundingSellerSharePercent, setCoFundingSellerSharePercent] = useState(10.0); // DITANGGUNG SELLER (%) - Default 10
+  const [activeCoFunding, setActiveCoFunding] = useState(true); 
+  const [coFundingCampaignPercent, setCoFundingCampaignPercent] = useState(0.0); 
+  const [coFundingPlatformSharePercent, setCoFundingPlatformSharePercent] = useState(90.0); 
+  const [coFundingSellerSharePercent, setCoFundingSellerSharePercent] = useState(10.0); 
 
   // 6. Advertising Cost States
   const [activeAdvertising, setActiveAdvertising] = useState(false);
-  const [advertisingType, setAdvertisingType] = useState('percent'); // percent, nominal
+  const [advertisingType, setAdvertisingType] = useState('percent'); 
   const [advertisingValue, setAdvertisingValue] = useState(0.0);
 
-  // 6. Collapsible / Accordion States
+  // 6b. TikTok Estimasi Biaya Iklan per Produk (separate from Program Iklan)
+  const [activeTiktokAdCost, setActiveTiktokAdCost] = useState(false);
+  const [tiktokAdCostType, setTiktokAdCostType] = useState('percent');
+  const [tiktokAdCostValue, setTiktokAdCostValue] = useState(0.0);
+
+  // 7. Collapsible / Accordion States
   const [isOpenSimulasi, setIsOpenSimulasi] = useState(true);
-  const [isOpenShopeeFees, setIsOpenShopeeFees] = useState(true);
+  const [isOpenPlatformFees, setIsOpenPlatformFees] = useState(true);
   const [isOpenHasil, setIsOpenHasil] = useState(true);
+
+  // Switch default parameters when platform changes
+  useEffect(() => {
+    if (isTiktok) {
+      setSellerType('tiktok_regular');
+      const defaultCat = tiktokCategories.find(c => c.category_path.includes("Aksesori Sepeda Motor")) || tiktokCategories[0];
+      setSelectedCategory(defaultCat);
+      setAdminFeePercent(defaultCat ? defaultCat.default_mp_rate : 9.25);
+      setFlatProcessFee(1250);
+      setActiveGratisOngkir(true);
+      setGratisOngkirPercent(3.0); // Biaya Komisi Dinamis
+      setActiveCashback(false);
+      setCashbackPercent(2.0); // Program Growth Xtra
+      setActiveAffiliate(false);
+      setAffiliatePercent(5.0); // Komisi Affiliate / Video
+      setActiveLiveXtra(false);
+      setLiveXtraPercent(1.0); // Layanan SAP (SFP)
+      setActiveSpayLater(false);
+      setSpayLaterPercent(3.0); // Biaya Pre-Order (PO)
+      setActiveInsurance(false);
+      setInsurancePercent(0.2); // Asuransi Pengiriman
+      setActiveHematKirim(false);
+      setHematKirimFee(2000); // Fee Logistik
+      setActiveTiktokLiveXtra(false);
+      setTiktokLiveXtraPercent(2.0); // Program Live Xtra
+      setActiveAdvertising(false);
+      setAdvertisingValue(0.0);
+      setActiveTiktokAdCost(false);
+      setTiktokAdCostValue(0.0);
+    } else {
+      setSellerType('star');
+      setSelectedCategory({
+        "Kategori": "Sepeda Motor",
+        "Sub Kategori": "Aksesoris Sepeda Motor",
+        "Jenis Produk": "Karpet Motor, Speedometer, Odometer, & Gauge Motor, Sarung Motor, Stiker, Logo, & Emblem, Jok & Sarung Jok Motor, Spion Motor & Aksesoris, Kunci & Keamanan, Box Motor, Dudukan Handphone, Karpet Lumpur, Aksesoris Sepeda Motor Lainnya",
+        "Star Rate": 8.25,
+        "Mall Rate": 10.45,
+        "Kategori Gratis Ongkir": "G",
+        "GO Biasa": 7.5,
+        "GO Khusus": 9.0
+      });
+      setAdminFeePercent(8.25);
+      setFlatProcessFee(1250);
+      setActiveGratisOngkir(true);
+      setGratisOngkirPercent(0.0);
+      setActiveCashback(false);
+      setCashbackPercent(0.0);
+      setActiveAffiliate(false);
+      setAffiliatePercent(0.0);
+      setActiveLiveXtra(false);
+      setLiveXtraPercent(0.0);
+      setActiveSpayLater(false);
+      setSpayLaterPercent(0.0);
+      setActiveInsurance(false);
+      setInsurancePercent(0.0);
+      setActiveHematKirim(false);
+      setHematKirimFee(350);
+    }
+  }, [platform]);
 
   // Sync Co-Funding shares
   const handlePlatformShareChange = (val) => {
@@ -94,11 +168,17 @@ const HppCalculator = () => {
       return;
     }
     const lower = val.toLowerCase().trim();
-    const filtered = shopeeCategories.filter(item => 
-      item.Kategori.toLowerCase().includes(lower) || 
-      item['Sub Kategori'].toLowerCase().includes(lower) || 
-      item['Jenis Produk'].toLowerCase().includes(lower)
-    ).slice(0, 15);
+    const sourceList = isTiktok ? tiktokCategories : shopeeCategories;
+    const filtered = sourceList.filter(item => {
+      if (isTiktok) {
+        return (item.category_path || '').toLowerCase().includes(lower) || 
+               (item.cluster || '').toLowerCase().includes(lower);
+      } else {
+        return (item.Kategori || '').toLowerCase().includes(lower) || 
+               (item['Sub Kategori'] || '').toLowerCase().includes(lower) || 
+               (item['Jenis Produk'] || '').toLowerCase().includes(lower);
+      }
+    }).slice(0, 15);
     
     setSearchResults(filtered);
     setShowDropdown(true);
@@ -112,18 +192,49 @@ const HppCalculator = () => {
     setShowDropdown(false);
   };
 
-  // Automatically update Admin Fee % when selected category or shop type changes
+  // Automatically update Admin Fee %
   useEffect(() => {
     if (selectedCategory) {
-      const starRate = selectedCategory['Star Rate'];
-      const mallRate = selectedCategory['Mall Rate'];
-      const rate = sellerType === 'mall' ? mallRate : starRate;
-      setAdminFeePercent(rate);
-      
-      const group = selectedCategory['Kategori Gratis Ongkir'] || 'G';
-      setCategoryGroup(group);
+      if (isTiktok) {
+        const isMall = sellerType === 'tiktok_mall';
+        const rates = isMall ? selectedCategory.mall_rates : selectedCategory.mp_rates;
+        const defaultRate = isMall ? selectedCategory.default_mall_rate : selectedCategory.default_mp_rate;
+        
+        let rate = defaultRate;
+        
+        if (rates) {
+          // Only apply ad discount when "Sudah" (advertisingValue > 0)
+          const adSudah = activeAdvertising && advertisingValue > 0;
+          
+          if (adSudah) {
+            if (activeCashback) {
+              rate = rates.with_ad_with_growth;
+            } else {
+              rate = rates.with_ad_non_growth;
+            }
+          } else {
+            // "Belum" or unchecked → use default rate
+            if (activeCashback) {
+              rate = rates.non_ad_with_growth_non_gmv_max;
+            } else {
+              rate = defaultRate;
+            }
+          }
+        }
+        setAdminFeePercent(rate);
+
+      } else {
+        const starRate = selectedCategory['Star Rate'];
+        const mallRate = selectedCategory['Mall Rate'];
+        const isMall = sellerType === 'mall';
+        const rate = isMall ? mallRate : starRate;
+        setAdminFeePercent(rate);
+        
+        const group = selectedCategory['Kategori Gratis Ongkir'] || 'G';
+        setCategoryGroup(group);
+      }
     }
-  }, [sellerType, selectedCategory]);
+  }, [sellerType, selectedCategory, isTiktok, activeAdvertising, activeCashback, advertisingValue]);
 
   // Handle Click Outside Dropdown
   useEffect(() => {
@@ -138,16 +249,84 @@ const HppCalculator = () => {
     };
   }, []);
 
-  // Helper formatting
   const formatRp = (num) => {
     return 'Rp ' + Math.round(num).toLocaleString('id-ID');
   };
 
+  // Reset all data to defaults
+  const resetData = () => {
+    setHppValue(0);
+    setManualPrice(0);
+    setSellerVoucher(0);
+    setActiveCoFunding(true);
+    setCoFundingCampaignPercent(0.0);
+    setCoFundingPlatformSharePercent(90.0);
+    setCoFundingSellerSharePercent(10.0);
+    if (isTiktok) {
+      setSellerType('tiktok_regular');
+      const defaultCat = tiktokCategories.find(c => c.category_path.includes("Aksesori Sepeda Motor")) || tiktokCategories[0];
+      setSelectedCategory(defaultCat);
+      setAdminFeePercent(defaultCat ? defaultCat.default_mp_rate : 9.25);
+      setFlatProcessFee(1250);
+      setActiveGratisOngkir(true);
+      setGratisOngkirPercent(3.0);
+      setActiveCashback(false);
+      setCashbackPercent(2.0);
+      setActiveAffiliate(false);
+      setAffiliatePercent(5.0);
+      setActiveLiveXtra(false);
+      setLiveXtraPercent(1.0);
+      setActiveSpayLater(false);
+      setSpayLaterPercent(3.0);
+      setActiveInsurance(false);
+      setInsurancePercent(0.2);
+      setActiveHematKirim(false);
+      setHematKirimFee(2000);
+      setActiveTiktokLiveXtra(false);
+      setTiktokLiveXtraPercent(2.0);
+      setActiveAdvertising(false);
+      setAdvertisingValue(0.0);
+      setActiveTiktokAdCost(false);
+      setTiktokAdCostValue(0.0);
+    } else {
+      setSellerType('star');
+      setSelectedCategory({
+        "Kategori": "Sepeda Motor",
+        "Sub Kategori": "Aksesoris Sepeda Motor",
+        "Jenis Produk": "Karpet Motor, Speedometer, Odometer, & Gauge Motor, Sarung Motor, Stiker, Logo, & Emblem, Jok & Sarung Jok Motor, Spion Motor & Aksesoris, Kunci & Keamanan, Box Motor, Dudukan Handphone, Karpet Lumpur, Aksesoris Sepeda Motor Lainnya",
+        "Star Rate": 8.25,
+        "Mall Rate": 10.45,
+        "Kategori Gratis Ongkir": "G",
+        "GO Biasa": 7.5,
+        "GO Khusus": 9.0
+      });
+      setAdminFeePercent(8.25);
+      setFlatProcessFee(1250);
+      setActiveGratisOngkir(true);
+      setGratisOngkirPercent(0.0);
+      setActiveCashback(false);
+      setCashbackPercent(0.0);
+      setActiveAffiliate(false);
+      setAffiliatePercent(0.0);
+      setActiveLiveXtra(false);
+      setLiveXtraPercent(0.0);
+      setActiveSpayLater(false);
+      setSpayLaterPercent(0.0);
+      setActiveInsurance(false);
+      setInsurancePercent(0.0);
+      setActiveHematKirim(false);
+      setHematKirimFee(350);
+      setActiveAdvertising(false);
+      setAdvertisingValue(0.0);
+    }
+    setSearchQuery('');
+    setSearchResults([]);
+    setShowDropdown(false);
+  };
+
   // Calculations
   const totalHpp = hppValue;
-  const gratisOngkirCap = 40000; // Fixed standard size cap as requested
-
-  // Net price after store voucher
+  const gratisOngkirCap = 40000;
   const hargaSetelahVoucher = Math.max(0, manualPrice - sellerVoucher);
 
   // Co-funding calculations
@@ -155,15 +334,16 @@ const HppCalculator = () => {
   const platformShare = activeCoFunding ? (coFundingPlatformSharePercent / 100) * totalDiscountCampaign : 0;
   const sellerShare = activeCoFunding ? (coFundingSellerSharePercent / 100) * totalDiscountCampaign : 0;
 
-  // Base price for Shopee percentage commission fees (calculated after voucher and seller-funded campaign discount)
+  // Base price for percentage commission fees (calculated after voucher and seller campaign discount)
   const discountedPrice = Math.max(0, hargaSetelahVoucher - sellerShare);
 
-  // Calculate Shopee deductions
+  // Deductions
   let calcAdminFee = (discountedPrice * adminFeePercent) / 100;
   let calcTransactionFee = (discountedPrice * transactionFeePercent) / 100;
+  
   let calcGratisOngkir = activeGratisOngkir ? (discountedPrice * gratisOngkirPercent) / 100 : 0;
   let isGratisOngkirCapped = false;
-  if (activeGratisOngkir && calcGratisOngkir > gratisOngkirCap) {
+  if (!isTiktok && activeGratisOngkir && calcGratisOngkir > gratisOngkirCap) {
     calcGratisOngkir = gratisOngkirCap;
     isGratisOngkirCapped = true;
   }
@@ -173,14 +353,25 @@ const HppCalculator = () => {
   let calcSpayLater = activeSpayLater ? (discountedPrice * spayLaterPercent) / 100 : 0;
   let calcAffiliate = activeAffiliate ? (discountedPrice * affiliatePercent) / 100 : 0;
   let calcInsurance = activeInsurance ? (discountedPrice * insurancePercent) / 100 : 0;
+  let calcTiktokLiveXtra = (isTiktok && activeTiktokLiveXtra) ? (discountedPrice * tiktokLiveXtraPercent) / 100 : 0;
 
-  // Calculate Advertising Cost
+  // Advertising Cost (Shopee)
   let calcAdvertising = 0;
-  if (activeAdvertising) {
+  if (!isTiktok && activeAdvertising) {
     if (advertisingType === 'percent') {
       calcAdvertising = (discountedPrice * advertisingValue) / 100;
     } else {
       calcAdvertising = advertisingValue;
+    }
+  }
+
+  // TikTok Estimasi Biaya Iklan per Produk
+  let calcTiktokAdCost = 0;
+  if (isTiktok && activeTiktokAdCost) {
+    if (tiktokAdCostType === 'percent') {
+      calcTiktokAdCost = (discountedPrice * tiktokAdCostValue) / 100;
+    } else {
+      calcTiktokAdCost = tiktokAdCostValue;
     }
   }
 
@@ -195,15 +386,16 @@ const HppCalculator = () => {
     calcSpayLater + 
     calcAffiliate + 
     calcInsurance +
-    calcAdvertising + // Include advertising cost
+    calcTiktokLiveXtra +
+    calcAdvertising + 
+    calcTiktokAdCost +
     totalFlatFees +
-    sellerShare + // Borne by seller in campaign
-    sellerVoucher; // Store voucher borne by seller
+    sellerShare + 
+    sellerVoucher; 
 
   const netProfitUnit = manualPrice - totalHpp - totalDeductionsRupiah;
   const actualMarginPercent = manualPrice > 0 ? (netProfitUnit / manualPrice) * 100 : 0;
 
-  // Sum up active platform fee percentages (excluding co-funding since it has its own custom share math)
   let activeGratisOngkirPercent = activeGratisOngkir ? gratisOngkirPercent : 0;
   const totalPlatformFeesPercent = 
     adminFeePercent + 
@@ -213,23 +405,51 @@ const HppCalculator = () => {
     (activeLiveXtra ? liveXtraPercent : 0) + 
     (activeSpayLater ? spayLaterPercent : 0) + 
     (activeAffiliate ? affiliatePercent : 0) +
-    (activeInsurance ? insurancePercent : 0);
+    (activeInsurance ? insurancePercent : 0) +
+    (isTiktok && activeTiktokLiveXtra ? tiktokLiveXtraPercent : 0);
 
   return (
     <div className="hpp-calculator-container" style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
       
       {/* Introduction */}
-      <div className="card" style={{ background: 'linear-gradient(135deg, rgba(249, 115, 22, 0.05) 0%, rgba(239, 68, 68, 0.05) 100%)', borderColor: 'rgba(249, 115, 22, 0.2)' }}>
+      <div className="card" style={{ background: isTiktok ? 'linear-gradient(135deg, rgba(244, 63, 94, 0.05) 0%, rgba(239, 68, 68, 0.05) 100%)' : 'linear-gradient(135deg, rgba(249, 115, 22, 0.05) 0%, rgba(239, 68, 68, 0.05) 100%)', borderColor: isTiktok ? 'rgba(244, 63, 94, 0.2)' : 'rgba(249, 115, 22, 0.2)' }}>
         <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-          <div style={{ background: 'linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-red) 100%)', borderRadius: '12px', padding: '12px', color: 'white' }}>
-            <Percent size={28} />
+          <div style={{ background: isTiktok ? 'linear-gradient(135deg, var(--accent-red) 0%, var(--accent-red-hover) 100%)' : 'linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-red) 100%)', borderRadius: '12px', padding: '12px', color: 'white' }}>
+            {isTiktok ? <Music2 size={28} /> : <Percent size={28} />}
           </div>
           <div>
-            <h3 style={{ fontSize: '18px', fontWeight: 'bold' }}>Simulasi Kalkulator HPP &amp; Laba Bersih Shopee</h3>
+            <h3 style={{ fontSize: '18px', fontWeight: 'bold' }}>Simulasi Kalkulator HPP &amp; Laba Bersih {isTiktok ? 'TikTok Shop' : 'Shopee'}</h3>
             <p className="text-muted" style={{ fontSize: '13px', marginTop: '4px' }}>
               Masukkan harga modal, harga jual rencana, voucher toko, dan biaya campaign untuk menghitung estimasi keuntungan bersih toko Anda secara detail.
             </p>
           </div>
+          <button
+            type="button"
+            onClick={resetData}
+            style={{
+              marginLeft: 'auto',
+              padding: '8px 16px',
+              fontSize: '12px',
+              fontWeight: '600',
+              border: '1px solid',
+              borderColor: isTiktok ? 'rgba(244, 63, 94, 0.4)' : 'rgba(249, 115, 22, 0.4)',
+              borderRadius: '8px',
+              backgroundColor: 'transparent',
+              color: isTiktok ? 'var(--accent-red)' : 'var(--accent-orange)',
+              cursor: 'pointer',
+              transition: 'all 0.2s',
+              whiteSpace: 'nowrap',
+              flexShrink: 0
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.backgroundColor = isTiktok ? 'rgba(244, 63, 94, 0.1)' : 'rgba(249, 115, 22, 0.1)';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.backgroundColor = 'transparent';
+            }}
+          >
+            🔄 Reset Data
+          </button>
         </div>
       </div>
 
@@ -303,14 +523,14 @@ const HppCalculator = () => {
                 <hr style={{ border: '0', borderTop: '1px solid var(--border-color)', margin: '4px 0' }} />
 
                 {/* Co-Funded Campaign Box */}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', backgroundColor: 'rgba(255,255,255,0.01)', padding: '12px', borderRadius: '8px', border: '1px solid rgba(249, 115, 22, 0.2)' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', backgroundColor: 'rgba(255,255,255,0.01)', padding: '12px', borderRadius: '8px', border: isTiktok ? '1px solid rgba(244, 63, 94, 0.2)' : '1px solid rgba(249, 115, 22, 0.2)' }}>
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                    <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12.5px', fontWeight: 'bold', color: 'var(--accent-orange)', cursor: 'pointer', userSelect: 'none' }}>
+                    <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12.5px', fontWeight: 'bold', color: isTiktok ? 'var(--accent-red)' : 'var(--accent-orange)', cursor: 'pointer', userSelect: 'none' }}>
                       <input
                         type="checkbox"
                         checked={activeCoFunding}
                         onChange={(e) => setActiveCoFunding(e.target.checked)}
-                        style={{ cursor: 'pointer', accentColor: 'var(--accent-orange)' }}
+                        style={{ cursor: 'pointer', accentColor: isTiktok ? 'var(--accent-red)' : 'var(--accent-orange)' }}
                       />
                       <Tag size={16} /> Biaya Campaign (Co-Funded)
                     </label>
@@ -360,43 +580,54 @@ const HppCalculator = () => {
             )}
           </div>
 
-          {/* Card 2: Pengaturan Biaya Shopee (Collapsible) */}
+          {/* Card 2: Pengaturan Biaya Platform (Collapsible) */}
           <div className="card">
             <div 
-              onClick={() => setIsOpenShopeeFees(!isOpenShopeeFees)}
-              style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', cursor: 'pointer', borderBottom: isOpenShopeeFees ? '1px solid var(--border-color)' : 'none', paddingBottom: isOpenShopeeFees ? '12px' : '0', marginBottom: isOpenShopeeFees ? '16px' : '0' }}
+              onClick={() => setIsOpenPlatformFees(!isOpenPlatformFees)}
+              style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', cursor: 'pointer', borderBottom: isOpenPlatformFees ? '1px solid var(--border-color)' : 'none', paddingBottom: isOpenPlatformFees ? '12px' : '0', marginBottom: isOpenPlatformFees ? '16px' : '0' }}
             >
               <h3 style={{ fontSize: '15px', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <span>⚙️ Pengaturan Biaya Shopee</span>
+                <span>⚙️ Pengaturan Biaya {isTiktok ? 'TikTok Shop' : 'Shopee'}</span>
               </h3>
-              {isOpenShopeeFees ? <ChevronUp size={16} style={{ color: 'var(--text-muted2)' }} /> : <ChevronDown size={16} style={{ color: 'var(--text-muted2)' }} />}
+              {isOpenPlatformFees ? <ChevronUp size={16} style={{ color: 'var(--text-muted2)' }} /> : <ChevronDown size={16} style={{ color: 'var(--text-muted2)' }} />}
             </div>
             
-            {isOpenShopeeFees && (
+            {isOpenPlatformFees && (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 
                 {/* Tipe Penjual dropdown */}
                 <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                  <label style={{ fontSize: '12px', color: 'var(--accent-orange)', fontWeight: '600' }}>Tipe Penjual / Toko</label>
+                  <label style={{ fontSize: '12px', color: isTiktok ? 'var(--accent-red)' : 'var(--accent-orange)', fontWeight: '600' }}>Tipe Penjual / Toko</label>
                   <select
                     value={sellerType}
                     onChange={(e) => setSellerType(e.target.value)}
                     style={{ width: '100%', padding: '10px 12px', backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-color)', borderRadius: '6px', color: 'white', fontSize: '13px', outline: 'none' }}
                   >
-                    <option value="star" style={{ background: '#1e2235' }}>Penjual Star / Star+</option>
-                    <option value="nonStar" style={{ background: '#1e2235' }}>Penjual Non-Star</option>
-                    <option value="mall" style={{ background: '#1e2235' }}>Shopee Mall</option>
+                    {isTiktok ? (
+                      <>
+                        <option value="tiktok_regular" style={{ background: '#0f172a' }}>Merchant Regular (Biasa)</option>
+                        <option value="tiktok_mall" style={{ background: '#0f172a' }}>TikTok Shop Mall</option>
+                      </>
+                    ) : (
+                      <>
+                        <option value="star" style={{ background: '#1e2235' }}>Penjual Star / Star+</option>
+                        <option value="nonStar" style={{ background: '#1e2235' }}>Penjual Non-Star</option>
+                        <option value="mall" style={{ background: '#1e2235' }}>Shopee Mall</option>
+                      </>
+                    )}
                   </select>
                 </div>
 
-                {/* Search Category Bar */}
+                 {/* Search Category Bar */}
                 <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '4px', position: 'relative' }} ref={dropdownRef}>
-                  <label style={{ fontSize: '12px', color: 'var(--accent-orange)', fontWeight: '600' }}>Cari Kategori Produk Anda</label>
+                  <label style={{ fontSize: '12px', color: isTiktok ? 'var(--accent-red)' : 'var(--accent-orange)', fontWeight: '600' }}>
+                    Cari Kategori Produk {isTiktok ? 'TikTok Shop' : 'Shopee'}
+                  </label>
                   <div style={{ position: 'relative' }}>
                     <Search size={16} style={{ position: 'absolute', left: '12px', top: '12px', color: 'var(--text-muted2)' }} />
                     <input
                       type="text"
-                      placeholder="Ketik nama produk (misal: helm, kaos, laptop, susu...)"
+                      placeholder={isTiktok ? "Ketik nama produk TikTok (misal: helm, baju, skincare...)" : "Ketik nama produk Shopee (misal: helm, kaos, laptop, susu...)"}
                       value={searchQuery}
                       onChange={handleSearchChange}
                       onFocus={() => searchQuery.trim() && setShowDropdown(true)}
@@ -406,7 +637,7 @@ const HppCalculator = () => {
 
                   {/* Dropdown Results */}
                   {showDropdown && searchResults.length > 0 && (
-                    <div style={{ position: 'absolute', top: '64px', left: 0, right: 0, backgroundColor: '#1e2235', border: '1px solid var(--border-color)', borderRadius: '8px', boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.5)', zIndex: 100, maxHeight: '250px', overflowY: 'auto' }}>
+                    <div style={{ position: 'absolute', top: '64px', left: 0, right: 0, backgroundColor: isTiktok ? '#0d131f' : '#1e2235', border: '1px solid var(--border-color)', borderRadius: '8px', boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.5)', zIndex: 100, maxHeight: '250px', overflowY: 'auto' }}>
                       {searchResults.map((cat, idx) => (
                         <div
                           key={idx}
@@ -416,15 +647,17 @@ const HppCalculator = () => {
                         >
                           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                             <span style={{ fontSize: '12.5px', color: 'white', fontWeight: 'bold' }}>
-                              {cat['Sub Kategori']}
+                              {isTiktok ? cat.category_path : cat['Sub Kategori']}
                             </span>
-                            <span className="badge blue" style={{ fontSize: '10px', padding: '2px 6px' }}>
-                              {cat.Kategori}
+                            <span className={isTiktok ? "badge red" : "badge blue"} style={{ fontSize: '10px', padding: '2px 6px' }}>
+                              {isTiktok ? cat.cluster : cat.Kategori}
                             </span>
                           </div>
-                          <span style={{ fontSize: '11px', color: 'var(--text-muted2)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                            {cat['Jenis Produk']}
-                          </span>
+                          {!isTiktok && (
+                            <span style={{ fontSize: '11px', color: 'var(--text-muted2)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                              {cat['Jenis Produk']}
+                            </span>
+                          )}
                         </div>
                       ))}
                     </div>
@@ -436,22 +669,36 @@ const HppCalculator = () => {
                   <div style={{ padding: '12px', backgroundColor: 'rgba(34, 197, 94, 0.03)', borderRadius: '8px', border: '1px dashed rgba(34, 197, 94, 0.2)', display: 'flex', flexDirection: 'column', gap: '4px' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                       <span style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Kategori Aktif Terpilih:</span>
-                      <span className="badge green" style={{ fontSize: '10px', background: 'rgba(34,197,94,0.1)', color: '#22c55e' }}>
-                        GO GRUP {categoryGroup}
-                      </span>
+                      {isTiktok ? (
+                        <span className="badge red" style={{ fontSize: '10px', background: 'rgba(244,63,94,0.1)', color: 'var(--accent-red)' }}>
+                          TikTok Shop
+                        </span>
+                      ) : (
+                        <span className="badge green" style={{ fontSize: '10px', background: 'rgba(34,197,94,0.1)', color: '#22c55e' }}>
+                          GO GRUP {categoryGroup}
+                        </span>
+                      )}
                     </div>
                     <strong style={{ fontSize: '12.5px', color: 'white' }}>
-                      {selectedCategory.Kategori} &gt; {selectedCategory['Sub Kategori']}
+                      {isTiktok ? (
+                        `${selectedCategory.cluster} > ${selectedCategory.category_path}`
+                      ) : (
+                        `${selectedCategory.Kategori} > ${selectedCategory['Sub Kategori']}`
+                      )}
                     </strong>
-                    <span style={{ fontSize: '10.5px', color: 'var(--text-muted2)' }}>
-                      📖 <strong>Jenis Produk:</strong> {selectedCategory['Jenis Produk']}
-                    </span>
+                    {!isTiktok && (
+                      <span style={{ fontSize: '10.5px', color: 'var(--text-muted2)' }}>
+                        📖 <strong>Jenis Produk:</strong> {selectedCategory['Jenis Produk']}
+                      </span>
+                    )}
                   </div>
                 )}
 
-                {/* Biaya Administrasi */}
+                {/* Biaya Administrasi / Komisi Platform */}
                 <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                  <label style={{ fontSize: '12px', color: 'var(--accent-orange)', fontWeight: '600' }}>Biaya Administrasi (%)</label>
+                  <label style={{ fontSize: '12px', color: isTiktok ? 'var(--accent-red)' : 'var(--accent-orange)', fontWeight: '600' }}>
+                    Biaya Komisi Platform (%)
+                  </label>
                   <div style={{ position: 'relative' }}>
                     <input
                       type="number"
@@ -460,15 +707,270 @@ const HppCalculator = () => {
                       onChange={(e) => setAdminFeePercent(Math.max(0, parseFloat(e.target.value) || 0))}
                       style={{ width: '100%', padding: '10px 24px 10px 12px', backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-color)', borderRadius: '6px', color: 'white', fontSize: '13px', fontWeight: 'bold' }}
                     />
-                    <span style={{ position: 'absolute', right: '12px', top: '10px', fontSize: '13px', color: 'var(--accent-orange)' }}>%</span>
+                    <span style={{ position: 'absolute', right: '12px', top: '10px', fontSize: '13px', color: isTiktok ? 'var(--accent-red)' : 'var(--accent-orange)' }}>%</span>
                   </div>
                 </div>
 
-                {/* OPTIONAL SHOPEE PROGRAMS (CHECKBOXES & INPUTS) */}
+                {/* OPTIONAL PROGRAMS (CHECKBOXES & INPUTS) */}
                 <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '12px', marginTop: '4px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                  <h4 style={{ fontSize: '12px', fontWeight: 'bold', color: 'var(--accent-orange)' }}>Ikut Program Shopee Opsional (Centang jika ikut):</h4>
-                  
-                  {/* 1. Gratis Ongkir XTRA */}
+
+                  {/* 1. Program Growth Xtra (TikTok) vs Cashback XTRA (Shopee) */}
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', backgroundColor: 'rgba(255,255,255,0.01)', padding: '6px 10px', borderRadius: '6px', border: '1px solid var(--border-color)' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                      <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12.5px', cursor: 'pointer', userSelect: 'none' }}>
+                        <input
+                          type="checkbox"
+                          checked={activeCashback}
+                          onChange={(e) => setActiveCashback(e.target.checked)}
+                          style={{ cursor: 'pointer', accentColor: isTiktok ? 'var(--accent-red)' : 'var(--accent-orange)' }}
+                        />
+                        {isTiktok ? 'Program Growth Xtra' : 'Cashback / Promo XTRA'}
+                      </label>
+                      <span style={{ fontSize: '10px', color: 'var(--text-muted2)', marginLeft: '20px' }}>
+                        {isTiktok ? '(Jika dicentang, biaya komisi platform akan berkurang)' : '(Diisi manual, default 0.00%)'}
+                      </span>
+                    </div>
+                    {activeCashback && (
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        <input
+                          type="number"
+                          step="0.1"
+                          value={cashbackPercent}
+                          onChange={(e) => setCashbackPercent(Math.max(0, parseFloat(e.target.value) || 0))}
+                          style={{ width: '50px', padding: '4px', backgroundColor: 'rgba(0,0,0,0.2)', border: '1px solid var(--border-color)', borderRadius: '4px', color: 'white', fontSize: '12px', textAlign: 'center' }}
+                        />
+                        <span style={{ fontSize: '12px', color: 'var(--text-muted2)' }}>%</span>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Estimasi Biaya Iklan per Produk */}
+                  {isTiktok ? (
+                    <>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', backgroundColor: 'rgba(255,255,255,0.01)', padding: '6px 10px', borderRadius: '6px', border: '1px solid var(--border-color)' }}>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', flex: 1, paddingRight: '8px' }}>
+                        <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12.5px', cursor: 'pointer', userSelect: 'none' }}>
+                          <input
+                            type="checkbox"
+                            checked={activeAdvertising}
+                            onChange={(e) => {
+                              setActiveAdvertising(e.target.checked);
+                              if (e.target.checked) {
+                                setAdvertisingType('percent');
+                                setAdvertisingValue(3.0);
+                              } else {
+                                setAdvertisingValue(0.0);
+                              }
+                            }}
+                            style={{ cursor: 'pointer', accentColor: 'var(--accent-red)' }}
+                          />
+                          Program Iklan
+                        </label>
+                        <span style={{ fontSize: '10px', color: 'var(--text-muted2)', marginLeft: '20px', lineHeight: '1.2' }}>
+                          (jika iklan memenuhi syarat 3% maka pilih sudah, kalau belum memenuhi pilih belum)
+                        </span>
+                      </div>
+                      
+                      {/* Sudah / Belum Segmented Control (Only shown when checkbox is checked) */}
+                      {activeAdvertising && (
+                        <div style={{ display: 'flex', border: '1px solid var(--border-color)', borderRadius: '6px', overflow: 'hidden', flexShrink: 0 }}>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setAdvertisingType('percent');
+                              setAdvertisingValue(3.0);
+                            }}
+                            style={{
+                              padding: '4px 12px',
+                              fontSize: '12px',
+                              fontWeight: '600',
+                              border: 'none',
+                              cursor: 'pointer',
+                              transition: 'all 0.2s',
+                              backgroundColor: advertisingValue === 3.0 ? 'var(--accent-red)' : 'transparent',
+                              color: advertisingValue === 3.0 ? 'white' : 'var(--text-muted)'
+                            }}
+                          >
+                            Sudah
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setAdvertisingValue(0.0);
+                            }}
+                            style={{
+                              padding: '4px 12px',
+                              fontSize: '12px',
+                              fontWeight: '600',
+                              border: 'none',
+                              cursor: 'pointer',
+                              transition: 'all 0.2s',
+                              backgroundColor: advertisingValue === 0.0 ? 'rgba(255, 255, 255, 0.08)' : 'transparent',
+                              color: advertisingValue === 0.0 ? 'white' : 'var(--text-muted)'
+                            }}
+                          >
+                            Belum
+                          </button>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* TikTok: Estimasi Biaya Iklan per Produk */}
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', backgroundColor: 'rgba(255,255,255,0.01)', padding: '10px', borderRadius: '6px', border: '1px solid var(--border-color)' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', flex: 1, paddingRight: '8px' }}>
+                          <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12.5px', cursor: 'pointer', userSelect: 'none' }}>
+                            <input
+                              type="checkbox"
+                              checked={activeTiktokAdCost}
+                              onChange={(e) => {
+                                setActiveTiktokAdCost(e.target.checked);
+                                if (!e.target.checked) setTiktokAdCostValue(0.0);
+                              }}
+                              style={{ cursor: 'pointer', accentColor: 'var(--accent-red)' }}
+                            />
+                            Estimasi Biaya Iklan per Produk
+                          </label>
+                          <span style={{ fontSize: '10px', color: 'var(--text-muted2)', marginLeft: '20px', lineHeight: '1.2' }}>
+                            (Biaya iklan berbayar per produk)
+                          </span>
+                        </div>
+                      </div>
+
+                      {activeTiktokAdCost && (
+                        <div style={{ display: 'flex', gap: '10px', alignItems: 'center', marginTop: '4px' }}>
+                          <select
+                            value={tiktokAdCostType}
+                            onChange={(e) => setTiktokAdCostType(e.target.value)}
+                            style={{ padding: '6px', backgroundColor: '#0d131f', border: '1px solid var(--border-color)', borderRadius: '4px', color: 'white', fontSize: '12px', outline: 'none', cursor: 'pointer' }}
+                          >
+                            <option value="percent" style={{ background: '#0d131f', color: 'white' }}>% Persen</option>
+                            <option value="nominal" style={{ background: '#0d131f', color: 'white' }}>Rp Nominal</option>
+                          </select>
+                          <div style={{ position: 'relative', flex: 1 }}>
+                            {tiktokAdCostType === 'nominal' && (
+                              <span style={{ position: 'absolute', left: '8px', top: '5px', fontSize: '11px', color: 'var(--text-muted2)' }}>Rp</span>
+                            )}
+                            <input
+                              type="number"
+                              step={tiktokAdCostType === 'percent' ? '0.1' : '100'}
+                              value={tiktokAdCostValue === 0 ? '' : tiktokAdCostValue}
+                              onChange={(e) => setTiktokAdCostValue(Math.max(0, parseFloat(e.target.value) || 0))}
+                              placeholder="0"
+                              style={{ 
+                                width: '100%', 
+                                padding: tiktokAdCostType === 'nominal' ? '5px 8px 5px 28px' : '5px 24px 5px 8px', 
+                                backgroundColor: 'rgba(0,0,0,0.2)', 
+                                border: '1px solid var(--border-color)', 
+                                borderRadius: '4px', 
+                                color: 'white', 
+                                fontSize: '12px', 
+                                fontWeight: 'bold',
+                                textAlign: 'left'
+                              }}
+                            />
+                            {tiktokAdCostType === 'percent' && (
+                              <span style={{ position: 'absolute', right: '8px', top: '5px', fontSize: '11px', color: 'var(--text-muted2)' }}>%</span>
+                            )}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                    </>
+                  ) : (
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', backgroundColor: 'rgba(255,255,255,0.01)', padding: '10px', borderRadius: '6px', border: '1px solid var(--border-color)' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', flex: 1, paddingRight: '8px' }}>
+                          <span style={{ fontSize: '12.5px', color: 'white', fontWeight: '600' }}>
+                            Estimasi Biaya Iklan Produk
+                          </span>
+                          <span style={{ fontSize: '10px', color: 'var(--text-muted2)', lineHeight: '1.2' }}>
+                            (Aktifkan iklan berbayar per produk)
+                          </span>
+                        </div>
+                        
+                        {/* Ya / Tidak Segmented Control */}
+                        <div style={{ display: 'flex', border: '1px solid var(--border-color)', borderRadius: '6px', overflow: 'hidden', flexShrink: 0 }}>
+                          <button
+                            type="button"
+                            onClick={() => setActiveAdvertising(true)}
+                            style={{
+                              padding: '4px 12px',
+                              fontSize: '12px',
+                              fontWeight: '600',
+                              border: 'none',
+                              cursor: 'pointer',
+                              transition: 'all 0.2s',
+                              backgroundColor: activeAdvertising ? 'var(--accent-orange)' : 'transparent',
+                              color: activeAdvertising ? 'white' : 'var(--text-muted)'
+                            }}
+                          >
+                            Ya
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setActiveAdvertising(false);
+                              setAdvertisingValue(0);
+                            }}
+                            style={{
+                              padding: '4px 12px',
+                              fontSize: '12px',
+                              fontWeight: '600',
+                              border: 'none',
+                              cursor: 'pointer',
+                              transition: 'all 0.2s',
+                              backgroundColor: !activeAdvertising ? 'rgba(255, 255, 255, 0.08)' : 'transparent',
+                              color: !activeAdvertising ? 'white' : 'var(--text-muted)'
+                            }}
+                          >
+                            Tidak
+                          </button>
+                        </div>
+                      </div>
+
+                      {activeAdvertising && (
+                        <div style={{ display: 'flex', gap: '10px', alignItems: 'center', marginTop: '4px' }}>
+                          <select
+                            value={advertisingType}
+                            onChange={(e) => setAdvertisingType(e.target.value)}
+                            style={{ padding: '6px', backgroundColor: '#1e2235', border: '1px solid var(--border-color)', borderRadius: '4px', color: 'white', fontSize: '12px', outline: 'none', cursor: 'pointer' }}
+                          >
+                            <option value="percent" style={{ background: '#1e2235', color: 'white' }}>% Persen</option>
+                            <option value="nominal" style={{ background: '#1e2235', color: 'white' }}>Rp Nominal</option>
+                          </select>
+                          <div style={{ position: 'relative', flex: 1 }}>
+                            {advertisingType === 'nominal' && (
+                              <span style={{ position: 'absolute', left: '8px', top: '5px', fontSize: '11px', color: 'var(--text-muted2)' }}>Rp</span>
+                            )}
+                            <input
+                              type="number"
+                              step={advertisingType === 'percent' ? '0.1' : '100'}
+                              value={advertisingValue === 0 ? '' : advertisingValue}
+                              onChange={(e) => setAdvertisingValue(Math.max(0, parseFloat(e.target.value) || 0))}
+                              placeholder="0"
+                              style={{ 
+                                width: '100%', 
+                                padding: advertisingType === 'nominal' ? '5px 8px 5px 28px' : '5px 24px 5px 8px', 
+                                backgroundColor: 'rgba(0,0,0,0.2)', 
+                                border: '1px solid var(--border-color)', 
+                                borderRadius: '4px', 
+                                color: 'white', 
+                                fontSize: '12px', 
+                                fontWeight: 'bold',
+                                textAlign: 'left'
+                              }}
+                            />
+                            {advertisingType === 'percent' && (
+                              <span style={{ position: 'absolute', right: '8px', top: '5px', fontSize: '11px', color: 'var(--text-muted2)' }}>%</span>
+                            )}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  )}
+
+                  {/* 2. Gratis Ongkir / Biaya Komisi Dinamis */}
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', backgroundColor: 'rgba(255,255,255,0.01)', padding: '6px 10px', borderRadius: '6px', border: '1px solid var(--border-color)' }}>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
                       <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12.5px', cursor: 'pointer', userSelect: 'none' }}>
@@ -476,12 +978,12 @@ const HppCalculator = () => {
                           type="checkbox"
                           checked={activeGratisOngkir}
                           onChange={(e) => setActiveGratisOngkir(e.target.checked)}
-                          style={{ cursor: 'pointer', accentColor: 'var(--accent-orange)' }}
+                          style={{ cursor: 'pointer', accentColor: isTiktok ? 'var(--accent-red)' : 'var(--accent-orange)' }}
                         />
-                        Gratis Ongkir XTRA
+                        {isTiktok ? 'Biaya Komisi Dinamis' : 'Gratis Ongkir XTRA'}
                       </label>
                       <span style={{ fontSize: '10px', color: 'var(--text-muted2)', marginLeft: '20px' }}>
-                        (Diisi manual, default 0.00%)
+                        {isTiktok ? '(Biaya Komisi Dinamis, default 3.00%)' : '(Diisi manual, default 0.00%)'}
                       </span>
                     </div>
                     {activeGratisOngkir && (
@@ -498,42 +1000,22 @@ const HppCalculator = () => {
                     )}
                   </div>
 
-                  {/* 2. Promo XTRA / Cashback XTRA */}
+                  {/* 3. Layanan SAP (SFP) (TikTok) vs Shopee Live XTRA (Shopee) */}
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', backgroundColor: 'rgba(255,255,255,0.01)', padding: '6px 10px', borderRadius: '6px', border: '1px solid var(--border-color)' }}>
-                    <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12.5px', cursor: 'pointer', userSelect: 'none' }}>
-                      <input
-                        type="checkbox"
-                        checked={activeCashback}
-                        onChange={(e) => setActiveCashback(e.target.checked)}
-                        style={{ cursor: 'pointer', accentColor: 'var(--accent-orange)' }}
-                      />
-                      Cashback / Promo XTRA
-                    </label>
-                    {activeCashback && (
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                      <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12.5px', cursor: 'pointer', userSelect: 'none' }}>
                         <input
-                          type="number"
-                          step="0.1"
-                          value={cashbackPercent}
-                          onChange={(e) => setCashbackPercent(Math.max(0, parseFloat(e.target.value) || 0))}
-                          style={{ width: '50px', padding: '4px', backgroundColor: 'rgba(0,0,0,0.2)', border: '1px solid var(--border-color)', borderRadius: '4px', color: 'white', fontSize: '12px', textAlign: 'center' }}
+                          type="checkbox"
+                          checked={activeLiveXtra}
+                          onChange={(e) => setActiveLiveXtra(e.target.checked)}
+                          style={{ cursor: 'pointer', accentColor: isTiktok ? 'var(--accent-red)' : 'var(--accent-orange)' }}
                         />
-                        <span style={{ fontSize: '12px', color: 'var(--text-muted2)' }}>%</span>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* 3. Shopee Live XTRA */}
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', backgroundColor: 'rgba(255,255,255,0.01)', padding: '6px 10px', borderRadius: '6px', border: '1px solid var(--border-color)' }}>
-                    <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12.5px', cursor: 'pointer', userSelect: 'none' }}>
-                      <input
-                        type="checkbox"
-                        checked={activeLiveXtra}
-                        onChange={(e) => setActiveLiveXtra(e.target.checked)}
-                        style={{ cursor: 'pointer', accentColor: 'var(--accent-orange)' }}
-                      />
-                      Shopee Live XTRA
-                    </label>
+                        {isTiktok ? 'Layanan SAP (SFP)' : 'Shopee Live XTRA'}
+                      </label>
+                      <span style={{ fontSize: '10px', color: 'var(--text-muted2)', marginLeft: '20px' }}>
+                        {isTiktok ? '(Layanan SAP, default 1.00%)' : '(Diisi manual, default 0.00%)'}
+                      </span>
+                    </div>
                     {activeLiveXtra && (
                       <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
                         <input
@@ -548,17 +1030,22 @@ const HppCalculator = () => {
                     )}
                   </div>
 
-                  {/* 4. SPayLater Merchant Fee */}
+                  {/* 4. Biaya Pre-Order (PO) (TikTok) vs Transaksi SPayLater (Shopee) */}
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', backgroundColor: 'rgba(255,255,255,0.01)', padding: '6px 10px', borderRadius: '6px', border: '1px solid var(--border-color)' }}>
-                    <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12.5px', cursor: 'pointer', userSelect: 'none' }}>
-                      <input
-                        type="checkbox"
-                        checked={activeSpayLater}
-                        onChange={(e) => setActiveSpayLater(e.target.checked)}
-                        style={{ cursor: 'pointer', accentColor: 'var(--accent-orange)' }}
-                      />
-                      Transaksi SPayLater
-                    </label>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                      <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12.5px', cursor: 'pointer', userSelect: 'none' }}>
+                        <input
+                          type="checkbox"
+                          checked={activeSpayLater}
+                          onChange={(e) => setActiveSpayLater(e.target.checked)}
+                          style={{ cursor: 'pointer', accentColor: isTiktok ? 'var(--accent-red)' : 'var(--accent-orange)' }}
+                        />
+                        {isTiktok ? 'Biaya Pre-Order (PO)' : 'Transaksi SPayLater'}
+                      </label>
+                      <span style={{ fontSize: '10px', color: 'var(--text-muted2)', marginLeft: '20px' }}>
+                        {isTiktok ? '(Biaya Layanan PO, default 3.00%)' : '(Diisi manual, default 0.00%)'}
+                      </span>
+                    </div>
                     {activeSpayLater && (
                       <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
                         <input
@@ -580,7 +1067,7 @@ const HppCalculator = () => {
                         type="checkbox"
                         checked={activeAffiliate}
                         onChange={(e) => setActiveAffiliate(e.target.checked)}
-                        style={{ cursor: 'pointer', accentColor: 'var(--accent-orange)' }}
+                        style={{ cursor: 'pointer', accentColor: isTiktok ? 'var(--accent-red)' : 'var(--accent-orange)' }}
                       />
                       Komisi Affiliate / Video
                     </label>
@@ -598,17 +1085,54 @@ const HppCalculator = () => {
                     )}
                   </div>
 
-                  {/* 6. Biaya Asuransi Pengiriman */}
+                  {/* 6. Program Live Xtra (Tiktok Only) */}
+                  {isTiktok && (
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', backgroundColor: 'rgba(255,255,255,0.01)', padding: '6px 10px', borderRadius: '6px', border: '1px solid var(--border-color)' }}>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                        <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12.5px', cursor: 'pointer', userSelect: 'none' }}>
+                          <input
+                            type="checkbox"
+                            checked={activeTiktokLiveXtra}
+                            onChange={(e) => setActiveTiktokLiveXtra(e.target.checked)}
+                            style={{ cursor: 'pointer', accentColor: 'var(--accent-red)' }}
+                          />
+                          Program Live Xtra
+                        </label>
+                        <span style={{ fontSize: '10px', color: 'var(--text-muted2)', marginLeft: '20px' }}>
+                          (Program Live Xtra, default 2.00%)
+                        </span>
+                      </div>
+                      {activeTiktokLiveXtra && (
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                          <input
+                            type="number"
+                            step="0.1"
+                            value={tiktokLiveXtraPercent}
+                            onChange={(e) => setTiktokLiveXtraPercent(Math.max(0, parseFloat(e.target.value) || 0))}
+                            style={{ width: '50px', padding: '4px', backgroundColor: 'rgba(0,0,0,0.2)', border: '1px solid var(--border-color)', borderRadius: '4px', color: 'white', fontSize: '12px', textAlign: 'center' }}
+                          />
+                          <span style={{ fontSize: '12px', color: 'var(--text-muted2)' }}>%</span>
+                        </div>
+                      )}
+                    </div>
+                  )}
+
+                  {/* 7. Asuransi Pengiriman */}
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', backgroundColor: 'rgba(255,255,255,0.01)', padding: '6px 10px', borderRadius: '6px', border: '1px solid var(--border-color)' }}>
-                    <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12.5px', cursor: 'pointer', userSelect: 'none' }}>
-                      <input
-                        type="checkbox"
-                        checked={activeInsurance}
-                        onChange={(e) => setActiveInsurance(e.target.checked)}
-                        style={{ cursor: 'pointer', accentColor: 'var(--accent-orange)' }}
-                      />
-                      Biaya Asuransi Pengiriman
-                    </label>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                      <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12.5px', cursor: 'pointer', userSelect: 'none' }}>
+                        <input
+                          type="checkbox"
+                          checked={activeInsurance}
+                          onChange={(e) => setActiveInsurance(e.target.checked)}
+                          style={{ cursor: 'pointer', accentColor: isTiktok ? 'var(--accent-red)' : 'var(--accent-orange)' }}
+                        />
+                        {isTiktok ? 'Asuransi Pengiriman' : 'Biaya Asuransi Pengiriman'}
+                      </label>
+                      <span style={{ fontSize: '10px', color: 'var(--text-muted2)', marginLeft: '20px' }}>
+                        {isTiktok ? '(Asuransi Pengiriman, default 0.20%)' : '(Diisi manual, default 0.00%)'}
+                      </span>
+                    </div>
                     {activeInsurance && (
                       <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
                         <input
@@ -623,17 +1147,22 @@ const HppCalculator = () => {
                     )}
                   </div>
 
-                  {/* 7. Biaya Hemat Kirim (Flat) */}
+                  {/* 8. Fee Logistik (Tiktok) vs Program Hemat Kirim (Shopee) */}
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', backgroundColor: 'rgba(255,255,255,0.01)', padding: '6px 10px', borderRadius: '6px', border: '1px solid var(--border-color)' }}>
-                    <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12.5px', cursor: 'pointer', userSelect: 'none' }}>
-                      <input
-                        type="checkbox"
-                        checked={activeHematKirim}
-                        onChange={(e) => setActiveHematKirim(e.target.checked)}
-                        style={{ cursor: 'pointer', accentColor: 'var(--accent-orange)' }}
-                      />
-                      Program Hemat Kirim
-                    </label>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                      <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12.5px', cursor: 'pointer', userSelect: 'none' }}>
+                        <input
+                          type="checkbox"
+                          checked={activeHematKirim}
+                          onChange={(e) => setActiveHematKirim(e.target.checked)}
+                          style={{ cursor: 'pointer', accentColor: isTiktok ? 'var(--accent-red)' : 'var(--accent-orange)' }}
+                        />
+                        {isTiktok ? 'Fee Logistik' : 'Program Hemat Kirim'}
+                      </label>
+                      <span style={{ fontSize: '10px', color: 'var(--text-muted2)', marginLeft: '20px' }}>
+                        {isTiktok ? '(Biaya Layanan Logistik, flat)' : '(Diisi manual, flat)'}
+                      </span>
+                    </div>
                     {activeHematKirim && (
                       <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
                         <span style={{ fontSize: '12px', color: 'var(--text-muted2)' }}>Rp</span>
@@ -647,60 +1176,32 @@ const HppCalculator = () => {
                     )}
                   </div>
 
-                  {/* 8. Estimasi Biaya Iklan per Produk (Opsional) */}
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', backgroundColor: 'rgba(255,255,255,0.01)', padding: '10px', borderRadius: '6px', border: '1px solid var(--border-color)' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  {/* 9. Biaya Pajak */}
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', backgroundColor: 'rgba(255,255,255,0.01)', padding: '6px 10px', borderRadius: '6px', border: '1px solid var(--border-color)' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
                       <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12.5px', cursor: 'pointer', userSelect: 'none' }}>
                         <input
                           type="checkbox"
-                          checked={activeAdvertising}
-                          onChange={(e) => setActiveAdvertising(e.target.checked)}
-                          style={{ cursor: 'pointer', accentColor: 'var(--accent-orange)' }}
+                          checked={activeTax}
+                          onChange={(e) => setActiveTax(e.target.checked)}
+                          style={{ cursor: 'pointer', accentColor: isTiktok ? 'var(--accent-red)' : 'var(--accent-orange)' }}
                         />
-                        Estimasi Biaya Iklan Produk (Opsional)
+                        Biaya Pajak
                       </label>
-                      {activeAdvertising && (
-                        <span style={{ fontSize: '11px', color: '#ffb703', fontWeight: 'bold' }}>
-                          Iklan: {formatRp(calcAdvertising)}
-                        </span>
-                      )}
+                      <span style={{ fontSize: '10px', color: 'var(--text-muted2)', marginLeft: '20px' }}>
+                        (Pajak penghasilan, default 0.5%)
+                      </span>
                     </div>
-                    {activeAdvertising && (
-                      <div style={{ display: 'flex', gap: '10px', alignItems: 'center', marginTop: '4px' }}>
-                        <select
-                          value={advertisingType}
-                          onChange={(e) => setAdvertisingType(e.target.value)}
-                          style={{ padding: '6px', backgroundColor: '#1e2235', border: '1px solid var(--border-color)', borderRadius: '4px', color: 'white', fontSize: '12px', outline: 'none', cursor: 'pointer' }}
-                        >
-                          <option value="percent" style={{ background: '#1e2235', color: 'white' }}>% Persen</option>
-                          <option value="nominal" style={{ background: '#1e2235', color: 'white' }}>Rp Nominal</option>
-                        </select>
-                        <div style={{ position: 'relative', flex: 1 }}>
-                          {advertisingType === 'nominal' && (
-                            <span style={{ position: 'absolute', left: '8px', top: '5px', fontSize: '11px', color: 'var(--text-muted2)' }}>Rp</span>
-                          )}
-                          <input
-                            type="number"
-                            step={advertisingType === 'percent' ? '0.1' : '100'}
-                            value={advertisingValue === 0 ? '' : advertisingValue}
-                            onChange={(e) => setAdvertisingValue(Math.max(0, parseFloat(e.target.value) || 0))}
-                            placeholder="0"
-                            style={{ 
-                              width: '100%', 
-                              padding: advertisingType === 'nominal' ? '5px 8px 5px 28px' : '5px 24px 5px 8px', 
-                              backgroundColor: 'rgba(0,0,0,0.2)', 
-                              border: '1px solid var(--border-color)', 
-                              borderRadius: '4px', 
-                              color: 'white', 
-                              fontSize: '12px', 
-                              fontWeight: 'bold',
-                              textAlign: 'left'
-                            }}
-                          />
-                          {advertisingType === 'percent' && (
-                            <span style={{ position: 'absolute', right: '8px', top: '5px', fontSize: '11px', color: 'var(--text-muted2)' }}>%</span>
-                          )}
-                        </div>
+                    {activeTax && (
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        <input
+                          type="number"
+                          step="0.1"
+                          value={taxPercent}
+                          onChange={(e) => setTaxPercent(Math.max(0, parseFloat(e.target.value) || 0))}
+                          style={{ width: '50px', padding: '4px', backgroundColor: 'rgba(0,0,0,0.2)', border: '1px solid var(--border-color)', borderRadius: '4px', color: 'white', fontSize: '12px', textAlign: 'center' }}
+                        />
+                        <span style={{ fontSize: '12px', color: 'var(--text-muted2)' }}>%</span>
                       </div>
                     )}
                   </div>
@@ -778,20 +1279,25 @@ const HppCalculator = () => {
 
                     {/* Rincian Biaya Potongan Persentase */}
                     <div style={{ padding: '10px', backgroundColor: 'rgba(255,255,255,0.02)', borderRadius: '6px', display: 'flex', flexDirection: 'column', gap: '6px', fontSize: '12px', border: '1px solid rgba(255,255,255,0.04)' }}>
-                      <span style={{ fontWeight: 'bold', color: 'white', fontSize: '11px' }}>Rincian Potongan Shopee ({totalPlatformFeesPercent.toFixed(2)}%):</span>
+                      <span style={{ fontWeight: 'bold', color: 'white', fontSize: '11px' }}>Rincian Potongan {isTiktok ? 'TikTok Shop' : 'Shopee'} ({totalPlatformFeesPercent.toFixed(2)}%):</span>
                       
                       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                        <span className="text-muted">Biaya Administrasi ({adminFeePercent}%):</span>
+                        <span className="text-muted">Biaya Komisi Platform ({adminFeePercent}%):</span>
                         <span style={{ color: 'var(--accent-red)' }}>- {formatRp(calcAdminFee)}</span>
                       </div>
-                      
 
+                      {transactionFeePercent > 0 && (
+                        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                          <span className="text-muted">Biaya Transaksi / Penanganan ({transactionFeePercent}%):</span>
+                          <span style={{ color: 'var(--accent-red)' }}>- {formatRp(calcTransactionFee)}</span>
+                        </div>
+                      )}
 
                       {activeGratisOngkir && (
                         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                           <span className="text-muted">
-                            Gratis Ongkir Xtra ({gratisOngkirPercent}%)
-                            {isGratisOngkirCapped && ' (Maksimal Cap)'}:
+                            {isTiktok ? 'Biaya Komisi Dinamis' : 'Gratis Ongkir Xtra'} ({gratisOngkirPercent}%)
+                            {!isTiktok && isGratisOngkirCapped && ' (Maksimal Cap)'}:
                           </span>
                           <span style={{ color: 'var(--accent-red)' }}>- {formatRp(calcGratisOngkir)}</span>
                         </div>
@@ -799,21 +1305,21 @@ const HppCalculator = () => {
 
                       {activeCashback && (
                         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                          <span className="text-muted">Cashback / Promo Xtra ({cashbackPercent}%):</span>
+                          <span className="text-muted">{isTiktok ? 'Program Growth Xtra' : 'Cashback / Promo Xtra'} ({cashbackPercent}%):</span>
                           <span style={{ color: 'var(--accent-red)' }}>- {formatRp(calcCashback)}</span>
                         </div>
                       )}
 
                       {activeLiveXtra && (
                         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                          <span className="text-muted">Shopee Live Xtra ({liveXtraPercent}%):</span>
+                          <span className="text-muted">{isTiktok ? 'Layanan SAP (SFP)' : 'Shopee Live Xtra'} ({liveXtraPercent}%):</span>
                           <span style={{ color: 'var(--accent-red)' }}>- {formatRp(calcLiveXtra)}</span>
                         </div>
                       )}
 
                       {activeSpayLater && (
                         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                          <span className="text-muted">SPayLater Merchant Fee ({spayLaterPercent}%):</span>
+                          <span className="text-muted">{isTiktok ? 'Biaya Pre-Order (PO)' : 'SPayLater Merchant Fee'} ({spayLaterPercent}%):</span>
                           <span style={{ color: 'var(--accent-red)' }}>- {formatRp(calcSpayLater)}</span>
                         </div>
                       )}
@@ -825,9 +1331,16 @@ const HppCalculator = () => {
                         </div>
                       )}
 
+                      {isTiktok && activeTiktokLiveXtra && (
+                        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                          <span className="text-muted">Program Live Xtra ({tiktokLiveXtraPercent}%):</span>
+                          <span style={{ color: 'var(--accent-red)' }}>- {formatRp(calcTiktokLiveXtra)}</span>
+                        </div>
+                      )}
+
                       {activeInsurance && (
                         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                          <span className="text-muted">Biaya Asuransi ({insurancePercent}%):</span>
+                          <span className="text-muted">{isTiktok ? 'Asuransi Pengiriman' : 'Biaya Asuransi'} ({insurancePercent}%):</span>
                           <span style={{ color: 'var(--accent-red)' }}>- {formatRp(calcInsurance)}</span>
                         </div>
                       )}
@@ -842,6 +1355,16 @@ const HppCalculator = () => {
                         </div>
                       )}
 
+                      {isTiktok && activeTiktokAdCost && calcTiktokAdCost > 0 && (
+                        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                          <span className="text-muted">
+                            Estimasi Biaya Iklan 
+                            {tiktokAdCostType === 'percent' ? ` (${tiktokAdCostValue}%)` : ''}:
+                          </span>
+                          <span style={{ color: 'var(--accent-red)' }}>- {formatRp(calcTiktokAdCost)}</span>
+                        </div>
+                      )}
+
                       {(flatProcessFee > 0 || activeHematKirim) && (
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', borderTop: '1px dashed var(--border-color)', paddingTop: '4px', marginTop: '2px' }}>
                           {flatProcessFee > 0 && (
@@ -852,7 +1375,7 @@ const HppCalculator = () => {
                           )}
                           {activeHematKirim && (
                             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                              <span className="text-muted">Biaya Hemat Kirim (Flat):</span>
+                              <span className="text-muted">{isTiktok ? 'Fee Logistik' : 'Biaya Hemat Kirim'} (Flat):</span>
                               <span style={{ color: 'var(--accent-red)' }}>- {formatRp(hematKirimFee)}</span>
                             </div>
                           )}
@@ -872,7 +1395,7 @@ const HppCalculator = () => {
                   <div style={{ marginTop: '8px', padding: '10px', backgroundColor: 'rgba(255,255,255,0.02)', borderRadius: '6px', fontSize: '11.5px', color: 'var(--text-muted)', display: 'flex', gap: '8px', alignItems: 'flex-start' }}>
                     <Info size={16} style={{ color: 'var(--accent-blue)', flexShrink: 0, marginTop: '2px' }} />
                     <span>
-                      <strong>Tips Harga Coret:</strong> Untuk memasang promo diskon/harga coret di Shopee, Anda harus menaikkan harga listing di atas rencana harga jual di atas, lalu memotongnya lewat fitur Promo Toko Shopee.
+                      <strong>Tips Harga Coret:</strong> Untuk memasang promo diskon/harga coret di {isTiktok ? 'TikTok Shop' : 'Shopee'}, Anda harus menaikkan harga listing di atas rencana harga jual di atas, lalu memotongnya lewat fitur {isTiktok ? 'TikTok Shop Seller Center' : 'Promo Toko Shopee'}.
                     </span>
                   </div>
                 </div>
