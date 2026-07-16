@@ -21,7 +21,9 @@ import {
   Store,
   ListOrdered,
   AlertTriangle,
-  LogOut
+  LogOut,
+  Printer,
+  Download
 } from 'lucide-react';
 import UploadZone from './components/UploadZone';
 import DashboardOverview from './components/DashboardOverview';
@@ -66,6 +68,9 @@ import {
   parseTikTokHppFile,
   analyzeTikTokCohort
 } from './utils/tiktokParser';
+
+// Exporters
+import { exportShopeeReport, exportTikTokReport } from './utils/reportExporter';
 
 // Generate a unique client session ID for this browser if not exists
 let clientSessionId = localStorage.getItem('client_session_id');
@@ -781,22 +786,124 @@ const App = () => {
             </p>
           </div>
 
-          {/* Month Filter Selector (visible only when data is ready) */}
+          {/* Action Buttons & Filters (visible only when data is ready) */}
           {activePlatform === 'shopee' && isDataReady && analysisResult && (
-            <div className="header-filters">
-              <Calendar size={16} className="text-muted" />
-              <select
-                value={selectedMonth}
-                onChange={(e) => setSelectedMonth(e.target.value)}
-                className="filter-select"
+            <div className="header-actions" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <div className="header-filters">
+                <Calendar size={16} className="text-muted" />
+                <select
+                  value={selectedMonth}
+                  onChange={(e) => setSelectedMonth(e.target.value)}
+                  className="filter-select"
+                >
+                  <option value="all">Semua Bulan (Tersedia)</option>
+                  {analysisResult.availableMonths.map(month => (
+                    <option key={month} value={month}>
+                      Bulan: {month}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => exportShopeeReport(analysisResult, selectedMonth)}
+                className="btn-action-header"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  padding: '8px 14px',
+                  borderRadius: '10px',
+                  border: '1px solid var(--border-color)',
+                  backgroundColor: 'rgba(255, 122, 26, 0.1)',
+                  color: 'var(--accent-orange)',
+                  fontSize: '13px',
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                  transition: 'all 0.2s',
+                  boxShadow: 'var(--shadow-sm)'
+                }}
               >
-                <option value="all">Semua Bulan (Tersedia)</option>
-                {analysisResult.availableMonths.map(month => (
-                  <option key={month} value={month}>
-                    Bulan: {month}
-                  </option>
-                ))}
-              </select>
+                <FileSpreadsheet size={16} />
+                <span>Ekspor Excel</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => window.print()}
+                className="btn-action-header"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  padding: '8px 14px',
+                  borderRadius: '10px',
+                  border: '1px solid var(--border-color)',
+                  backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                  color: 'var(--accent-blue)',
+                  fontSize: '13px',
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                  transition: 'all 0.2s',
+                  boxShadow: 'var(--shadow-sm)'
+                }}
+              >
+                <Printer size={16} />
+                <span>Cetak PDF</span>
+              </button>
+            </div>
+          )}
+
+          {activePlatform === 'tiktok' && isTtDataReady && ttResult && (
+            <div className="header-actions" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <button
+                type="button"
+                onClick={() => exportTikTokReport(ttResult)}
+                className="btn-action-header"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  padding: '8px 14px',
+                  borderRadius: '10px',
+                  border: '1px solid var(--border-color)',
+                  backgroundColor: 'rgba(0, 181, 106, 0.1)',
+                  color: 'var(--tt-primary)',
+                  fontSize: '13px',
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                  transition: 'all 0.2s',
+                  boxShadow: 'var(--shadow-sm)'
+                }}
+              >
+                <FileSpreadsheet size={16} />
+                <span>Ekspor Excel</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => window.print()}
+                className="btn-action-header"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  padding: '8px 14px',
+                  borderRadius: '10px',
+                  border: '1px solid var(--border-color)',
+                  backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                  color: 'var(--accent-blue)',
+                  fontSize: '13px',
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                  transition: 'all 0.2s',
+                  boxShadow: 'var(--shadow-sm)'
+                }}
+              >
+                <Printer size={16} />
+                <span>Cetak PDF</span>
+              </button>
             </div>
           )}
         </header>

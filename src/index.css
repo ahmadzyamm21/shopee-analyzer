@@ -1676,3 +1676,127 @@ code {
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
+
+/* === PRINT STYLES FOR PDF EXPORT === */
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    background-image: none !important;
+    color: #0f172a !important;
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  .sidebar,
+  .header-actions,
+  .main-footer,
+  .btn-reset,
+  .btn-link,
+  .sidebar-user-footer,
+  .loading-overlay,
+  button,
+  input[type="file"] {
+    display: none !important;
+  }
+
+  .main-content {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  .main-header {
+    border-bottom: 1px solid #cbd5e1 !important;
+    padding-bottom: 12px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .gradient-text {
+    background: none !important;
+    -webkit-text-fill-color: #0f172a !important;
+    color: #0f172a !important;
+  }
+
+  /* Optimize card displays for printing */
+  .card, .kpi, .upload-card, .table-container, .overview-container {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    border: 1px solid #cbd5e1 !important;
+    box-shadow: none !important;
+    page-break-inside: avoid;
+    border-radius: 6px !important;
+    padding: 12px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .kpi-grid {
+    grid-gap: 8px !important;
+    gap: 8px !important;
+  }
+
+  .kpi {
+    min-height: auto !important;
+  }
+
+  .kpi-val {
+    font-size: 18px !important;
+  }
+
+  .kpi-hint {
+    font-size: 9px !important;
+  }
+
+  /* Badge styling in print */
+  .badge, .req-badge {
+    color: #0f172a !important;
+    background: #f1f5f9 !important;
+    border: 1px solid #cbd5e1 !important;
+    padding: 2px 6px !important;
+    font-size: 10px !important;
+  }
+
+  .text-muted, .text-muted2 {
+    color: #475569 !important;
+  }
+
+  /* Tables formatting for print */
+  .table-container {
+    overflow: visible !important;
+  }
+
+  table {
+    border-collapse: collapse !important;
+    width: 100% !important;
+  }
+
+  th, td {
+    border: 1px solid #cbd5e1 !important;
+    padding: 6px 8px !important;
+    font-size: 10px !important;
+  }
+
+  th {
+    background-color: #f1f5f9 !important;
+    color: #0f172a !important;
+    font-weight: 700;
+  }
+
+  tr {
+    page-break-inside: avoid !important;
+  }
+
+  /* Chart bars visibility in print */
+  div[style*="background"] {
+    border: 1px solid rgba(0,0,0,0.1) !important;
+  }
+}
+
