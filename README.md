@@ -1,16 +1,45 @@
-# React + Vite
+# Shopee & TikTok Shop Financial Analyzer
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Aplikasi analisis laporan keuangan (P&L), performa produk, dan tracking pesanan untuk platform Shopee dan TikTok Shop.
 
-Currently, two official plugins are available:
+## Link Deployment (Beta)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+* 🔗 **Shopee Analyzer**: [https://shopee-analyzer-beta.vercel.app/shopee](https://shopee-analyzer-beta.vercel.app/shopee)
+* 🔗 **TikTok Analyzer**: [https://shopee-analyzer-beta.vercel.app/tiktok](https://shopee-analyzer-beta.vercel.app/tiktok)
 
-## React Compiler
+## Link Alternatif (GitHub Pages)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* 🌐 **GitHub Pages**: [https://ahmadzyamm21.github.io/shopee-analyzer/](https://ahmadzyamm21.github.io/shopee-analyzer/)
 
-## Expanding the Oxlint configuration
+## Fitur Utama
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+1. **Analisis Laba Rugi (P&L Statement)**: Ringkasan pendapatan kotor (omzet), HPP, biaya platform, iklan, selisih ongkir, kerugian retur, dan laba bersih (take-home profit).
+2. **Analisis Performa Produk**: Pemetaan volume penjualan dan margin per produk ke dalam kuadran **BCG Matrix** (Stars, Cash Cows, Question Marks, Dogs).
+3. **Log Pesanan Terperinci**: Membagi pesanan menjadi log Pesanan Selesai, Pesanan Retur, Pesanan Batal, dan mendeteksi secara otomatis *Pesanan Bermasalah* (seperti penjualan rugi, pengiriman stagnan, atau pembatalan setelah resi terbit).
+4. **Ekspor Laporan**:
+   - **Ekspor Excel**: Mengunduh berkas `.xlsx` terstruktur yang berisi detail keuangan di beberapa tab sheet secara instan.
+   - **Ekspor/Cetak PDF**: Cetak pratinjau halaman dashboard aktif yang bersih (otomatis menyembunyikan sidebar dan tombol) dengan format optimal.
+
+---
+
+## Teknologi
+
+* **Frontend**: React (Vite)
+* **Pustaka Analisis**: `xlsx` (SheetJS)
+* **Ikon**: `lucide-react`
+* **Keamanan/Auth**: Supabase Integration
+
+---
+
+## Pengembangan Lokal
+
+```bash
+# Install dependensi
+npm install
+
+# Jalankan server development
+npm run dev
+
+# Build untuk produksi
+npm run build
+```
